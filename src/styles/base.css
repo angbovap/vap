@@ -2512,7 +2512,7 @@ img.logos__mark {
   display: grid;
   grid-template-columns: minmax(320px, 400px) 1fr;
   gap: var(--gutter);
-  align-items: stretch;
+  align-items: start;
 }
 
 .profile__side {
@@ -2531,18 +2531,14 @@ img.logos__mark {
 }
 
 .profile__main {
-  padding: var(--step-1);
+  padding: var(--step-2);
   border: 1px solid var(--rule);
   border-radius: 1rem;
 }
 
-.profile__contact {
-  flex: 1;
-}
-
 .profile__name {
   margin-top: var(--step-0);
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-size: clamp(2.25rem, 4vw, 3rem);
   line-height: 1.1;
 }
 
@@ -2558,9 +2554,9 @@ img.logos__mark {
 .profile__bio {
   margin-top: var(--step-1);
   color: var(--ink-muted);
-  font-size: 0.95rem;
-  line-height: 1.65;
-  max-width: 58ch;
+  font-size: var(--step-0);
+  line-height: 1.75;
+  max-width: 62ch;
 }
 
 .profile__bio a {
@@ -2569,7 +2565,7 @@ img.logos__mark {
 
 .profile__fact {
   margin-top: var(--step-2);
-  padding: var(--step-1);
+  padding: var(--step-1) var(--step-1) var(--step-1) var(--step-2);
   border-left: 3px solid var(--brand-500);
   background: var(--brand-50);
   border-radius: 0 0.5rem 0.5rem 0;
@@ -2586,12 +2582,12 @@ img.logos__mark {
 }
 
 .profile__fact-text {
-  font-size: 0.95rem;
+  font-size: var(--step-0);
   color: var(--ink-muted);
 }
 
 .profile__contact {
-  padding: var(--step-1);
+  padding: var(--step-2);
   border: 1px solid var(--rule);
   border-radius: 1rem;
 }
