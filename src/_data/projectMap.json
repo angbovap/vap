@@ -81,8 +81,8 @@
       ]
     },
     {
-      "id": "vic",
-      "label": "Victoria",
+      "id": "vic-metro",
+      "label": "Melbourne",
       "x": 44.3,
       "y": 71.2,
       "projects": [
@@ -98,26 +98,6 @@
           "areas": [
             "Precincts",
             "Infrastructure"
-          ]
-        },
-        {
-          "name": "Sovereign Hill Master Plan Assessment",
-          "areas": [
-            "Precincts",
-            "Infrastructure"
-          ]
-        },
-        {
-          "name": "Peri Urban Councils Victoria, Future Fund for Infrastructure and Amenity",
-          "areas": [
-            "Precincts",
-            "Infrastructure"
-          ]
-        },
-        {
-          "name": "12 Apostles Visitor Centre Precinct Analysis",
-          "areas": [
-            "Precincts"
           ]
         },
         {
@@ -192,6 +172,46 @@
           ]
         },
         {
+          "name": "City of Banyule, NEL Tunnel Extension Benefits Assessment",
+          "areas": [
+            "Infrastructure"
+          ]
+        },
+        {
+          "name": "City of Port Phillip, Economic and Employment Narrative for City Edge South Precincts",
+          "areas": [
+            "Infrastructure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vic-regional",
+      "label": "Regional Victoria",
+      "x": 36,
+      "y": 72,
+      "projects": [
+        {
+          "name": "Sovereign Hill Master Plan Assessment",
+          "areas": [
+            "Precincts",
+            "Infrastructure"
+          ]
+        },
+        {
+          "name": "Peri Urban Councils Victoria, Future Fund for Infrastructure and Amenity",
+          "areas": [
+            "Precincts",
+            "Infrastructure"
+          ]
+        },
+        {
+          "name": "12 Apostles Visitor Centre Precinct Analysis",
+          "areas": [
+            "Precincts"
+          ]
+        },
+        {
           "name": "Victorian Health Building Authority, Barwon Womens and Children Hospital Value Assessment",
           "areas": [
             "Infrastructure"
@@ -216,18 +236,6 @@
           ]
         },
         {
-          "name": "City of Banyule, NEL Tunnel Extension Benefits Assessment",
-          "areas": [
-            "Infrastructure"
-          ]
-        },
-        {
-          "name": "City of Port Phillip, Economic and Employment Narrative for City Edge South Precincts",
-          "areas": [
-            "Infrastructure"
-          ]
-        },
-        {
           "name": "Port of Portland, Pricing Analysis",
           "areas": [
             "Infrastructure"
@@ -238,8 +246,8 @@
     {
       "id": "qld",
       "label": "Queensland",
-      "x": 48,
-      "y": 44,
+      "x": 55,
+      "y": 46,
       "projects": [
         {
           "name": "Queensland Investment Corporation (QIC), Telecommunication Resilient Investment Pilot (TRIP)",
@@ -252,42 +260,15 @@
       ]
     },
     {
-      "id": "nsw",
-      "label": "New South Wales",
-      "x": 44.6,
-      "y": 58.8,
+      "id": "nsw-metro",
+      "label": "Sydney",
+      "x": 52,
+      "y": 62,
       "projects": [
-        {
-          "name": "National Recovery and Resilience Authority, Disaster Recovery for Northern Rivers: Economic Impact",
-          "areas": [
-            "Resilience"
-          ]
-        },
         {
           "name": "IAG, Resilience Investment Vehicle: City of Parramatta CBD Flood Mitigation Projects",
           "areas": [
             "Resilience"
-          ]
-        },
-        {
-          "name": "Regional Adaptive Pathways Planning Project for Illawarra Shoalhaven",
-          "areas": [
-            "Resilience",
-            "Precincts",
-            "Infrastructure"
-          ]
-        },
-        {
-          "name": "Australian Climate Services, Cobargo: Energy Transition for Resilience",
-          "areas": [
-            "Resilience"
-          ]
-        },
-        {
-          "name": "Embedding the Enabling Resilience Investment Approach in Bega Valley: Supporting Regional Scaling",
-          "areas": [
-            "Resilience",
-            "Infrastructure"
           ]
         },
         {
@@ -337,6 +318,41 @@
         {
           "name": "Department of Infrastructure and Regional Development, Western Sydney Airport Transport Value Assessment",
           "areas": [
+            "Infrastructure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nsw-regional",
+      "label": "Regional NSW",
+      "x": 50,
+      "y": 68,
+      "projects": [
+        {
+          "name": "National Recovery and Resilience Authority, Disaster Recovery for Northern Rivers: Economic Impact",
+          "areas": [
+            "Resilience"
+          ]
+        },
+        {
+          "name": "Regional Adaptive Pathways Planning Project for Illawarra Shoalhaven",
+          "areas": [
+            "Resilience",
+            "Precincts",
+            "Infrastructure"
+          ]
+        },
+        {
+          "name": "Australian Climate Services, Cobargo: Energy Transition for Resilience",
+          "areas": [
+            "Resilience"
+          ]
+        },
+        {
+          "name": "Embedding the Enabling Resilience Investment Approach in Bega Valley: Supporting Regional Scaling",
+          "areas": [
+            "Resilience",
             "Infrastructure"
           ]
         }
