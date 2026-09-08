@@ -20,22 +20,6 @@ layout: base.njk
   </div>
 </section>
 
-<section class="story">
-  <div class="wrap story__grid">
-    <div class="story__text story__text--parallax">
-      <p class="eyebrow">Our story</p>
-      <h2 class="story__lead">Evidence-based, actionable advice for decision makers</h2>
-      <p class="story__body">Our purpose is to help decision makers better plan and deliver adaptable places in our cities, regions and rural areas, for today and for a climate resilient future. Value Advisory Partners has over 15 years working across public and private sectors, delivering impact through precinct, development and resilience projects.</p>
-      <div class="story__stat">
-        <span class="story__stat-number">15+</span>
-        <span class="story__stat-label">Years working across public and private sectors</span>
-      </div>
-      <a class="section-cta" href="/what-we-do/">See how we work <span aria-hidden="true">→</span></a>
-    </div>
-    <div class="story__media story__media--parallax" style="background-image: url('/assets/img/our-story.JPG');"></div>
-  </div>
-</section>
-
 <section class="focus">
   <div class="wrap">
     <div class="section-head reveal focus__head">
@@ -82,90 +66,87 @@ layout: base.njk
   </div>
 </section>
 
-<section class="trusted">
+<section class="capabilities">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Where we work</p>
-      <h2>Trusted across resilience investment, precinct developments and infrastructure projects</h2>
-      <p class="trusted__intro">Project experience across resilience, precincts and infrastructure, throughout Australia and New Zealand.</p>
+      <p class="eyebrow">Capabilities and industries</p>
+      <h2>What can we help with, and who do we work with?</h2>
     </div>
 
-    <div class="trusted__map-panel reveal">
-      <div class="trusted__map-embed" data-project-map>
-        <iframe
-          src="https://www.google.com/maps?ll=-29,150&z=4&output=embed"
-          title="Map of Australia and New Zealand"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          tabindex="-1"></iframe>
-        <div class="trusted__map-block" aria-hidden="true"></div>
-        <p class="trusted__map-cover" aria-hidden="true">Australia and New Zealand</p>
-
-        {% for region in projectMap.regions %}
-        <div class="trusted__map-marker" style="left: {{ region.x }}%; top: {{ region.y }}%;">
-          <button class="trusted__pin" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-{{ region.id }}">
-            <span class="visually-hidden">{{ region.label }}, </span>{{ region.projects.length }}
-          </button>
-          <div class="trusted__pin-panel" id="pin-panel-{{ region.id }}" data-map-panel hidden>
-            <h3>{{ region.label }}</h3>
-            <ul>
-              {% for project in region.projects %}
-              <li>
-                <span class="trusted__pin-project">{{ project.name }}</span>
-                <span class="trusted__pin-tags">
-                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
-                </span>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
+    <div class="capabilities__panel reveal">
+      <div class="capabilities__grid">
+        <div class="capabilities__col">
+          <h3>What we do</h3>
+          <ul class="stagger">
+            <li>Forecasting and modelling</li>
+            <li>Economic impact assessment</li>
+            <li>Land use change</li>
+            <li>Project funding and value capture mechanisms</li>
+            <li>Dynamic delivery models</li>
+            <li>Stakeholder engagement</li>
+            <li>Geospatial analysis (GIS)</li>
+          </ul>
         </div>
-        {% endfor %}
-
-        <div class="trusted__map-marker trusted__map-marker--national" style="left: 19%; top: 8%;">
-          <button class="trusted__pin trusted__pin--national" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-national">
-            <span class="visually-hidden">National projects, </span>{{ projectMap.nationalProjects.length }}
-          </button>
-          <div class="trusted__pin-panel trusted__pin-panel--national" id="pin-panel-national" data-map-panel hidden>
-            <h3>National projects</h3>
-            <ul>
-              {% for project in projectMap.nationalProjects %}
-              <li>
-                <span class="trusted__pin-project">{{ project.name }}</span>
-                <span class="trusted__pin-tags">
-                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
-                </span>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
+        <div class="capabilities__col">
+          <h3>Who we work with</h3>
+          <ul class="stagger">
+            <li>Local, state and commonwealth governments</li>
+            <li>Residential and housing</li>
+            <li>Employment</li>
+            <li>Institutional</li>
+            <li>Transport and land use</li>
+            <li>Tourism and visitor economy</li>
+            <li>First Nations and Traditional Owners Corporations</li>
+            <li>Industry including utilities, ports and manufacturing</li>
+          </ul>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="trusted__areas stagger">
-      {% set areaCards = [
-        { area: "resilience", href: "/what-we-do/resilience/", label: "Resilience and Disaster Risk Reduction", clients: areaClients.resilience },
-        { area: "precincts", href: "/what-we-do/precincts/", label: "Precincts, Planning and Development", clients: areaClients.precincts },
-        { area: "infrastructure", href: "/what-we-do/infrastructure/", label: "Infrastructure, Amenity and Land Use", clients: areaClients.infrastructure }
-      ] %}
-      {% for card in areaCards %}
-      <a class="trusted__area trusted__area--list reveal" data-area="{{ card.area }}" href="{{ card.href }}">
-        <span class="trusted__area-label">{{ card.label }}</span>
-        <span class="trusted__area-clients" data-client-rotator aria-live="polite">
-          {% for client in card.clients %}
-          <span class="trusted__area-client{% if loop.first %} is-active{% endif %}">
-            {% if client.logo %}
-            <img class="trusted__area-client-logo" src="{{ client.logo }}" alt="">
-            {% else %}
-            <span class="trusted__area-client-mark" aria-hidden="true">{{ client.name[0] }}</span>
-            {% endif %}
-            <span class="trusted__area-client-name">{{ client.name }}</span>
-          </span>
-          {% endfor %}
-        </span>
-      </a>
-      {% endfor %}
+<section class="values">
+  <div class="wrap values__grid reveal">
+    <div class="values__lead-col">
+      <p class="eyebrow">Our values</p>
+      <h2 class="values__lead">Collaboration and co-design with every client</h2>
+      <div class="values__body">
+        <p>At Value Advisory Partners we have a clear purpose and focus to maximise and sustain the value that can be obtained by public and private sector clients from their investments.</p>
+        <p>We do this through a structured approach using data and evidence to build knowledge to inform sound decision making. We understand that value comes from multiple sources which can be integrated together to build a complete picture of the system to enable optimal value realisation and return.</p>
+        <p>The hallmark of our work and approach is collaboration and co-design with our clients to identify, maximise and sustain the opportunities to create and extract value from their investments.</p>
+      </div>
+    </div>
+    <div class="values__right">
+      <div class="values__list stagger">
+        <div class="values__item reveal">
+          <div class="values__item-image" style="background-image: url('/assets/img/conference1.jpg');"></div>
+          <div class="values__item-body">
+            <span class="values__num" aria-hidden="true">01</span>
+            <p>Creating and maintaining ongoing relationships built on trust</p>
+          </div>
+        </div>
+        <div class="values__item reveal">
+          <div class="values__item-image" style="background-image: url('/assets/img/conference2.jpg');"></div>
+          <div class="values__item-body">
+            <span class="values__num" aria-hidden="true">02</span>
+            <p>Empowering clients to find new solutions they hadn't considered</p>
+          </div>
+        </div>
+        <div class="values__item reveal">
+          <div class="values__item-image" style="background-image: url('/assets/img/innovativesolutions.jpg');"></div>
+          <div class="values__item-body">
+            <span class="values__num" aria-hidden="true">03</span>
+            <p>Designing innovative solutions</p>
+          </div>
+        </div>
+        <div class="values__item reveal">
+          <div class="values__item-image" style="background-image: url('/assets/img/conference4.jpg');"></div>
+          <div class="values__item-body">
+            <span class="values__num" aria-hidden="true">04</span>
+            <p>Enhancing benefits to the community and society</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -243,87 +224,106 @@ layout: base.njk
   </div>
 </section>
 
-<section class="values">
-  <div class="wrap values__grid reveal">
-    <div class="values__lead-col">
-      <p class="eyebrow">Our values</p>
-      <h2 class="values__lead">Collaboration and co-design with every client</h2>
-      <div class="values__body">
-        <p>At Value Advisory Partners we have a clear purpose and focus to maximise and sustain the value that can be obtained by public and private sector clients from their investments.</p>
-        <p>We do this through a structured approach using data and evidence to build knowledge to inform sound decision making. We understand that value comes from multiple sources which can be integrated together to build a complete picture of the system to enable optimal value realisation and return.</p>
-        <p>The hallmark of our work and approach is collaboration and co-design with our clients to identify, maximise and sustain the opportunities to create and extract value from their investments.</p>
+<section class="story">
+  <div class="wrap story__grid">
+    <div class="story__text story__text--parallax">
+      <p class="eyebrow">Our story</p>
+      <h2 class="story__lead">Evidence-based, actionable advice for decision makers</h2>
+      <p class="story__body">Our purpose is to help decision makers better plan and deliver adaptable places in our cities, regions and rural areas, for today and for a climate resilient future. Value Advisory Partners has over 15 years working across public and private sectors, delivering impact through precinct, development and resilience projects.</p>
+      <div class="story__stat">
+        <span class="story__stat-number">15+</span>
+        <span class="story__stat-label">Years working across public and private sectors</span>
       </div>
+      <a class="section-cta" href="/what-we-do/">See how we work <span aria-hidden="true">→</span></a>
     </div>
-    <div class="values__right">
-      <div class="values__list stagger">
-        <div class="values__item reveal">
-          <div class="values__item-image" style="background-image: url('/assets/img/conference1.jpg');"></div>
-          <div class="values__item-body">
-            <span class="values__num" aria-hidden="true">01</span>
-            <p>Creating and maintaining ongoing relationships built on trust</p>
-          </div>
-        </div>
-        <div class="values__item reveal">
-          <div class="values__item-image" style="background-image: url('/assets/img/conference2.jpg');"></div>
-          <div class="values__item-body">
-            <span class="values__num" aria-hidden="true">02</span>
-            <p>Empowering clients to find new solutions they hadn't considered</p>
-          </div>
-        </div>
-        <div class="values__item reveal">
-          <div class="values__item-image" style="background-image: url('/assets/img/innovativesolutions.jpg');"></div>
-          <div class="values__item-body">
-            <span class="values__num" aria-hidden="true">03</span>
-            <p>Designing innovative solutions</p>
-          </div>
-        </div>
-        <div class="values__item reveal">
-          <div class="values__item-image" style="background-image: url('/assets/img/conference4.jpg');"></div>
-          <div class="values__item-body">
-            <span class="values__num" aria-hidden="true">04</span>
-            <p>Enhancing benefits to the community and society</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="story__media story__media--parallax" style="background-image: url('/assets/img/our-story.JPG');"></div>
   </div>
 </section>
 
-<section class="capabilities">
+<section class="trusted">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Capabilities and industries</p>
-      <h2>What can we help with, and who do we work with?</h2>
+      <p class="eyebrow">Where we work</p>
+      <h2>Trusted across resilience investment, precinct developments and infrastructure projects</h2>
+      <p class="trusted__intro">Project experience across resilience, precincts and infrastructure, throughout Australia and New Zealand.</p>
     </div>
 
-    <div class="capabilities__panel reveal">
-      <div class="capabilities__grid">
-        <div class="capabilities__col">
-          <h3>What we do</h3>
-          <ul class="stagger">
-            <li>Forecasting and modelling</li>
-            <li>Economic impact assessment</li>
-            <li>Land use change</li>
-            <li>Project funding and value capture mechanisms</li>
-            <li>Dynamic delivery models</li>
-            <li>Stakeholder engagement</li>
-            <li>Geospatial analysis (GIS)</li>
-          </ul>
+    <div class="trusted__map-panel reveal">
+      <div class="trusted__map-embed" data-project-map>
+        <iframe
+          src="https://www.google.com/maps?ll=-33,148&z=5&output=embed"
+          title="Map of Australia and New Zealand"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          tabindex="-1"></iframe>
+        <div class="trusted__map-block" aria-hidden="true"></div>
+        <p class="trusted__map-cover" aria-hidden="true">Australia and New Zealand</p>
+
+        {% for region in projectMap.regions %}
+        <div class="trusted__map-marker" style="left: {{ region.x }}%; top: {{ region.y }}%;">
+          <button class="trusted__pin" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-{{ region.id }}">
+            <span class="visually-hidden">{{ region.label }}, </span>{{ region.projects.length }}
+          </button>
+          <div class="trusted__pin-panel" id="pin-panel-{{ region.id }}" data-map-panel hidden>
+            <h3>{{ region.label }}</h3>
+            <ul>
+              {% for project in region.projects %}
+              <li>
+                <span class="trusted__pin-project">{{ project.name }}</span>
+                <span class="trusted__pin-tags">
+                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
+                </span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
-        <div class="capabilities__col">
-          <h3>Who we work with</h3>
-          <ul class="stagger">
-            <li>Local, state and commonwealth governments</li>
-            <li>Residential and housing</li>
-            <li>Employment</li>
-            <li>Institutional</li>
-            <li>Transport and land use</li>
-            <li>Tourism and visitor economy</li>
-            <li>First Nations and Traditional Owners Corporations</li>
-            <li>Industry including utilities, ports and manufacturing</li>
-          </ul>
+        {% endfor %}
+
+        <div class="trusted__map-marker trusted__map-marker--national" style="left: 19%; top: 8%;">
+          <button class="trusted__pin trusted__pin--national" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-national">
+            <span class="visually-hidden">National projects, </span>{{ projectMap.nationalProjects.length }}
+          </button>
+          <div class="trusted__pin-panel trusted__pin-panel--national" id="pin-panel-national" data-map-panel hidden>
+            <h3>National projects</h3>
+            <ul>
+              {% for project in projectMap.nationalProjects %}
+              <li>
+                <span class="trusted__pin-project">{{ project.name }}</span>
+                <span class="trusted__pin-tags">
+                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
+                </span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div class="trusted__areas stagger">
+      {% set areaCards = [
+        { area: "resilience", href: "/what-we-do/resilience/", label: "Resilience and Disaster Risk Reduction", clients: areaClients.resilience },
+        { area: "precincts", href: "/what-we-do/precincts/", label: "Precincts, Planning and Development", clients: areaClients.precincts },
+        { area: "infrastructure", href: "/what-we-do/infrastructure/", label: "Infrastructure, Amenity and Land Use", clients: areaClients.infrastructure }
+      ] %}
+      {% for card in areaCards %}
+      <a class="trusted__area trusted__area--list reveal" data-area="{{ card.area }}" href="{{ card.href }}">
+        <span class="trusted__area-label">{{ card.label }}</span>
+        <span class="trusted__area-clients" data-client-rotator aria-live="polite">
+          {% for client in card.clients %}
+          <span class="trusted__area-client{% if loop.first %} is-active{% endif %}">
+            {% if client.logo %}
+            <img class="trusted__area-client-logo" src="{{ client.logo }}" alt="">
+            {% else %}
+            <span class="trusted__area-client-mark" aria-hidden="true">{{ client.name[0] }}</span>
+            {% endif %}
+            <span class="trusted__area-client-name">{{ client.name }}</span>
+          </span>
+          {% endfor %}
+        </span>
+      </a>
+      {% endfor %}
     </div>
   </div>
 </section>
