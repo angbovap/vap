@@ -236,6 +236,22 @@
       ]
     },
     {
+      "id": "qld",
+      "label": "Queensland",
+      "x": 48,
+      "y": 44,
+      "projects": [
+        {
+          "name": "Queensland Investment Corporation (QIC), Telecommunication Resilient Investment Pilot (TRIP)",
+          "areas": [
+            "Resilience",
+            "Precincts",
+            "Infrastructure"
+          ]
+        }
+      ]
+    },
+    {
       "id": "nsw",
       "label": "New South Wales",
       "x": 44.6,
