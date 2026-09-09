@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Centre for Disaster Management and Public Safety",
+    "institution": "University of Melbourne",
+    "url": "https://www.unimelb.edu.au/cdmps",
+    "icon": "shield-alert",
+    "description": "CDMPS promotes disaster management research at the University of Melbourne, fostering interdisciplinary research collaborations, providing training and skills development for researchers, and engaging with government, industry and international stakeholders to improve community resilience to disasters."
+  },
+  {
+    "name": "Green Lab",
+    "institution": "Monash University Business School",
+    "url": "https://www.monash.edu/business/impact-labs/green-lab",
+    "icon": "globe-cycle",
+    "description": "Green Lab is Monash Business School's hub for interdisciplinary, applied research on climate change and sustainability, focused on the governance of climate change and sustainability in public and private organisations, monitoring and measuring climate impacts, and circular economy practices."
+  },
+  {
+    "name": "Applied Artificial Intelligence Initiative",
+    "institution": "Deakin University",
+    "icon": "chip",
+    "description": ""
+  }
+]

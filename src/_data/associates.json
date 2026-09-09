@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Di Flett",
+    "org": "",
+    "image": "/assets/img/team/di.png",
+    "experience": "30+ years relevant experience",
+    "expertise": [
+      "Stakeholder Engagement",
+      "Capacity Building",
+      "Monitoring, evaluation & learning",
+      "Communication",
+      "Writing and editing"
+    ],
+    "description": "Dianne Flett has thirty years of experience consulting to or managing major programs within the water and natural resource management sectors of government as well as providing specialist services in communication, facilitation and change management. Di has deep experience in communication in relation to climate change and has contributed to relevant peer reviewed reports and articles through writing, editing, copy editing, synthesising, proofing and publication."
+  },
+  {
+    "name": "Michael Nolan",
+    "org": "",
+    "image": "/assets/img/team/nolan.png",
+    "experience": "25+ years relevant experience",
+    "expertise": [
+      "Climate Change, Resilience, Adaptation",
+      "Strategic Options Analysis",
+      "Value Creation and Capture Strategy",
+      "Precinct Governance and Delivery Models",
+      "Business Case Development",
+      "Strategic Land Use Planning and Analysis"
+    ],
+    "qualifications": [
+      "Bachelor of Science (Environmental Management), Southern Cross University",
+      "Cert IV Environmental Change Management",
+      "Cert IV Business Management",
+      "Cert III OHS",
+      "Company Directors Course, (near completion June 2026) Australian Institute of Company Directors"
+    ],
+    "description": ""
+  }
+]

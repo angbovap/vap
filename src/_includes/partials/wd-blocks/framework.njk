@@ -1,22 +1,24 @@
 <section class="wd-framework">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Framework</p>
-      <h2>{{ block.name }}</h2>
-    </div>
-    <div class="wd-framework__body reveal">
-      {% if block.description %}
-      <p class="wd-framework__text">{{ block.description }}</p>
-      {% else %}
-      <p class="wd-framework__text wd-framework__text--placeholder">[Framework description to be supplied]</p>
-      {% endif %}
-      {% if block.links and block.links.length %}
-      <div class="wd-framework__links">
-        {% for link in block.links %}
-        <a class="wd-framework__link" href="{{ link.url }}">{{ link.label }} <span aria-hidden="true">→</span></a>
-        {% endfor %}
+  <div class="wrap wd-framework__grid">
+    <div class="wd-framework__content reveal">
+      <div class="section-head">
+        <p class="eyebrow">Framework</p>
+        <h2>{{ block.name }}</h2>
       </div>
-      {% endif %}
+      <div class="wd-framework__body">
+        {% if block.description %}
+        <p class="wd-framework__text">{{ block.description }}</p>
+        {% else %}
+        <p class="wd-framework__text wd-framework__text--placeholder">[Framework description to be supplied]</p>
+        {% endif %}
+        {% if block.links and block.links.length %}
+        <div class="wd-framework__links">
+          {% for link in block.links %}
+          <a class="wd-framework__link" href="{{ link.url }}">{{ link.label }} <span aria-hidden="true">→</span></a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
     </div>
     {% if block.image %}
     <div class="wd-framework__media reveal{% if block.imageFit == "contain" %} wd-framework__media--contain{% endif %}" style="background-image: url('{{ block.image }}');"></div>

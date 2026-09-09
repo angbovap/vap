@@ -3,8 +3,8 @@
     {
       "id": "wa",
       "label": "Western Australia",
-      "x": 18,
-      "y": 58,
+      "x": 24,
+      "y": 45,
       "projects": [
         {
           "name": "Perth Airport Development and Highest and Best Use Land Assessment",
@@ -24,8 +24,8 @@
     {
       "id": "sa",
       "label": "South Australia",
-      "x": 40,
-      "y": 66,
+      "x": 38,
+      "y": 58,
       "projects": [
         {
           "name": "Department of Environment and Water (SA), Port Adelaide: Submission to Infrastructure Australia",
@@ -83,8 +83,8 @@
     {
       "id": "vic-metro",
       "label": "Melbourne",
-      "x": 44.3,
-      "y": 71.2,
+      "x": 45,
+      "y": 78,
       "projects": [
         {
           "name": "Maribyrnong City Council, Employment Study and Lands Assessment",
@@ -188,8 +188,8 @@
     {
       "id": "vic-regional",
       "label": "Regional Victoria",
-      "x": 37,
-      "y": 70,
+      "x": 42,
+      "y": 73,
       "projects": [
         {
           "name": "Sovereign Hill Master Plan Assessment",
@@ -246,8 +246,8 @@
     {
       "id": "qld",
       "label": "Queensland",
-      "x": 54,
-      "y": 46,
+      "x": 44,
+      "y": 35,
       "projects": [
         {
           "name": "Queensland Investment Corporation (QIC), Telecommunication Resilient Investment Pilot (TRIP)",
@@ -263,7 +263,7 @@
       "id": "nsw-metro",
       "label": "Sydney",
       "x": 51,
-      "y": 63,
+      "y": 62,
       "projects": [
         {
           "name": "IAG, Resilience Investment Vehicle: City of Parramatta CBD Flood Mitigation Projects",
@@ -326,8 +326,8 @@
     {
       "id": "nsw-regional",
       "label": "Regional NSW",
-      "x": 48,
-      "y": 70,
+      "x": 46,
+      "y": 58,
       "projects": [
         {
           "name": "National Recovery and Resilience Authority, Disaster Recovery for Northern Rivers: Economic Impact",
@@ -362,7 +362,7 @@
       "id": "nz",
       "label": "New Zealand",
       "x": 74,
-      "y": 75,
+      "y": 77,
       "projects": [
         {
           "name": "Onehunga: Strategic Value Options Analysis of East-West Connection Interface Road",

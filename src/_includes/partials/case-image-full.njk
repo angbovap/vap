@@ -1,1 +1,1 @@
-<div class="case-inline-image case-inline-image--full reveal"{% if caseImageSrc %} style="background-image: url('{{ caseImageSrc }}');"{% else %} data-placeholder="Image: {{ caseImageCaption | default('Project imagery to come') }}"{% endif %}></div>
+<div class="case-inline-image case-inline-image--full reveal" data-case-active-image{% if caseImageSrc %} style="background-image: url('{{ caseImageSrc }}');"{% else %} data-placeholder="Image: {{ caseImageCaption | default('Project imagery to come') }}"{% endif %}></div>

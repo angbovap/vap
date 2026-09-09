@@ -3,33 +3,109 @@ layout: base.njk
 permalink: /our-team/
 title: Our team
 ---
+{% from "partials/icons.njk" import render as icon %}
 <section class="team-intro">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Our team</p>
       <h1>The people behind the work</h1>
     </div>
-    <div class="team-intro__meet reveal">
-      <p class="team-intro__label">Meet our team</p>
-      <p class="team-intro__text">Value Advisory Partners has a team of exceptional and results-driven leaders who love to work with our growing clientele. Our team is eager to learn, open to new ideas and technologies and adaptable to the fast-changing and increasingly complex business environment. Read below to learn more about our exceptional team.</p>
-    </div>
+    <p class="team-intro__text reveal">Value Advisory Partners has a team of exceptional and results-driven leaders who love to work with our growing clientele. Our team is eager to learn, open to new ideas and technologies and adaptable to the fast-changing and increasingly complex business environment. Meet everyone below.</p>
   </div>
 </section>
 
 <section class="team">
-  <div class="team__bleed">
-  <div class="team__grid">
-    {% for member in team %}
-    <a class="team-member team-member--{{ loop.index }} reveal" href="{{ member.url }}">
-      <div class="team-member__portrait{% if not member.image %} team-member__portrait--placeholder{% endif %}"{% if member.image %} style="background-image: url('{{ member.image }}');"{% else %} data-placeholder="Portrait to come"{% endif %}></div>
-      <div class="team-member__info">
-        <h2 class="team-member__name">{{ member.name }}</h2>
-        {% if member.role %}<p class="team-member__role">{{ member.role }}</p>{% endif %}
-        <span class="team-member__link">View profile <span aria-hidden="true">→</span></span>
-      </div>
-    </a>
-    {% endfor %}
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Core team</p>
+      <h2>Meet the team</h2>
+    </div>
+    <div class="team__grid">
+      {% for member in team %}
+      <a class="team-member" href="{{ member.url }}">
+        <div class="team-member__portrait{% if not member.image %} team-member__portrait--placeholder{% endif %}"{% if member.image %} style="background-image: url('{{ member.image }}');"{% else %} data-placeholder="Portrait to come"{% endif %}></div>
+        <div class="team-member__info">
+          <h3 class="team-member__name">{{ member.name }}</h3>
+          {% if member.role %}<p class="team-member__role">{{ member.role }}</p>{% endif %}
+          <span class="team-member__link">View profile <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
   </div>
+</section>
+
+<section class="associates">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Associates</p>
+      <h2>Extending our expertise</h2>
+    </div>
+    <div class="associates__grid">
+      {% for person in associates %}
+      <div class="associate-card">
+        <div class="associate-card__header">
+          {% if person.image %}
+          <div class="associate-card__avatar" style="background-image: url('{{ person.image }}');"></div>
+          {% else %}
+          <div class="associate-card__avatar associate-card__avatar--placeholder" aria-hidden="true">{{ person.name[0] }}</div>
+          {% endif %}
+          <div>
+            <h3 class="associate-card__name">{{ person.name }}</h3>
+            {% if person.org %}<p class="associate-card__org">{{ person.org }}</p>{% endif %}
+            {% if person.experience %}<p class="associate-card__experience">{{ person.experience }}</p>{% endif %}
+          </div>
+        </div>
+        {% if person.expertise and person.expertise.length %}
+        <ul class="associate-card__tags">
+          {% for e in person.expertise %}<li>{{ e }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        {% if person.qualifications and person.qualifications.length %}
+        <ul class="associate-card__quals">
+          {% for q in person.qualifications %}<li>{{ q }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        {% if person.location or person.phone %}
+        <p class="associate-card__meta">
+          {% if person.location %}{{ person.location }}{% endif %}{% if person.location and person.phone %} · {% endif %}{% if person.phone %}<a href="tel:{{ person.phone }}">{{ person.phone }}</a>{% endif %}
+        </p>
+        {% endif %}
+        {% if person.description %}
+        <p class="associate-card__text">{{ person.description }}</p>
+        {% elif not person.expertise %}
+        <p class="associate-card__text associate-card__text--placeholder">[Bio to be supplied]</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="partners">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Collaboration partners</p>
+      <h2>Working alongside leading research institutions</h2>
+    </div>
+    <div class="partners__grid">
+      {% for partner in partners %}
+      <div class="partner-card">
+        {% if partner.icon %}<span class="partner-card__icon">{{ icon(partner.icon) }}</span>{% endif %}
+        {% if partner.url %}
+        <h3 class="partner-card__name"><a href="{{ partner.url }}" target="_blank" rel="noopener">{{ partner.name }}</a></h3>
+        {% else %}
+        <h3 class="partner-card__name">{{ partner.name }}</h3>
+        {% endif %}
+        {% if partner.institution %}<p class="partner-card__institution">{{ partner.institution }}</p>{% endif %}
+        {% if partner.description %}
+        <p class="partner-card__text">{{ partner.description }}</p>
+        {% else %}
+        <p class="partner-card__text partner-card__text--placeholder">[Description to be supplied]</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
