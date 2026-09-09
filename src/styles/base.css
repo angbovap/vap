@@ -1031,7 +1031,7 @@ main {
 
 @media (max-width: 799px) {
   .trusted__map-embed {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 3;
   }
 
   .trusted__pin-panel {
