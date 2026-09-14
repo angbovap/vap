@@ -74,7 +74,7 @@ title: Our team
         {% if person.description %}
         <p class="associate-card__text">{{ person.description }}</p>
         {% elif not person.expertise %}
-        <p class="associate-card__text associate-card__text--placeholder">[Bio to be supplied]</p>
+        <p class="associate-card__text associate-card__text--placeholder">[no desc]</p>
         {% endif %}
       </div>
       {% endfor %}
@@ -101,7 +101,7 @@ title: Our team
         {% if partner.description %}
         <p class="partner-card__text">{{ partner.description }}</p>
         {% else %}
-        <p class="partner-card__text partner-card__text--placeholder">[Description to be supplied]</p>
+        <p class="partner-card__text partner-card__text--placeholder">[no desc]</p>
         {% endif %}
       </div>
       {% endfor %}
