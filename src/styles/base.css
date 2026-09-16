@@ -2637,10 +2637,74 @@ main section.partners {
   color: var(--ink-muted);
 }
 
-.associate-card__text--placeholder,
 .partner-card__text--placeholder {
   color: var(--brand-700);
   font-style: italic;
+}
+
+.associate-brief__label {
+  margin-top: var(--step-3);
+  padding-top: var(--step-2);
+  border-top: 1px solid var(--rule);
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.associate-brief {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--step-1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+}
+
+.associate-brief__item {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  padding: 0.4em 1em 0.4em 0.4em;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+}
+
+.associate-brief__avatar {
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) contrast(1.02);
+}
+
+.associate-brief__avatar--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-50);
+  color: var(--brand-700);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.associate-brief__info {
+  line-height: 1.25;
+}
+
+.associate-brief__name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.associate-brief__org {
+  margin-top: 0.1em;
+  color: var(--ink-muted);
+  font-size: 0.76rem;
 }
 
 /* Team member profile */

@@ -42,7 +42,7 @@ title: Our team
       <h2>Extending our expertise</h2>
     </div>
     <div class="associates__grid">
-      {% for person in associates %}
+      {% for person in associates | selectattr("description") %}
       <div class="associate-card">
         <div class="associate-card__header">
           {% if person.image %}
@@ -56,11 +56,7 @@ title: Our team
             {% if person.experience %}<p class="associate-card__experience">{{ person.experience }}</p>{% endif %}
           </div>
         </div>
-        {% if person.description %}
         <p class="associate-card__text">{{ person.description }}</p>
-        {% elif not person.expertise %}
-        <p class="associate-card__text associate-card__text--placeholder">[no desc]</p>
-        {% endif %}
         {% if person.expertise and person.expertise.length %}
         <ul class="associate-card__tags">
           {% for e in person.expertise %}<li>{{ e }}</li>{% endfor %}
@@ -79,6 +75,25 @@ title: Our team
       </div>
       {% endfor %}
     </div>
+    {% set briefAssociates = associates | rejectattr("description") %}
+    {% if briefAssociates.length %}
+    <p class="associate-brief__label reveal">Also joining our associate network</p>
+    <ul class="associate-brief">
+      {% for person in briefAssociates %}
+      <li class="associate-brief__item">
+        {% if person.image %}
+        <div class="associate-brief__avatar" style="background-image: url('{{ person.image }}');"></div>
+        {% else %}
+        <div class="associate-brief__avatar associate-brief__avatar--placeholder" aria-hidden="true">{{ person.name[0] }}</div>
+        {% endif %}
+        <div class="associate-brief__info">
+          <p class="associate-brief__name">{{ person.name }}</p>
+          {% if person.org %}<p class="associate-brief__org">{{ person.org }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </div>
 </section>
 
