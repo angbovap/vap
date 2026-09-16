@@ -69,7 +69,11 @@ title: Our team
           {% endif %}
           <div class="associates-spotlight__body">
             <h3 class="associates-spotlight__name">{{ person.name }}</h3>
-            {% if person.org %}<p class="associates-spotlight__org">{{ person.org }}</p>{% endif %}
+            {% if person.org %}
+            <p class="associates-spotlight__org">
+              {% if person.url %}<a href="{{ person.url }}" target="_blank" rel="noopener">{{ person.org }}</a>{% else %}{{ person.org }}{% endif %}
+            </p>
+            {% endif %}
             {% if person.experience %}<p class="associates-spotlight__experience">{{ person.experience }}</p>{% endif %}
             {% if person.description %}
             <p class="associates-spotlight__text">{{ person.description }}</p>
