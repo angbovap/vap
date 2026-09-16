@@ -1020,7 +1020,7 @@ main {
   text-transform: uppercase;
 }
 
-/* Category tones stay within the site's single-hue palette (see CLAUDE.md):
+/* Category tones stay within the site's single-hue palette (see DEVELOPMENT.md):
    resilience/precincts/infrastructure are distinguished by depth, not hue. */
 .trusted__pin-tag[data-area="resilience"] {
   background: var(--brand-700);

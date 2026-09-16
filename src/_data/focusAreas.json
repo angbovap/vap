@@ -1,0 +1,20 @@
+[
+  {
+    "image": "/assets/img/site/resilience.JPG",
+    "title": "Resilience and Disaster Risk Reduction",
+    "text": "With CSIRO, developed the Enabling Resilience Investment Framework, an assessment and decision-making toolkit for reducing climate and disaster risk.",
+    "href": "/what-we-do/resilience/"
+  },
+  {
+    "image": "/assets/img/site/precincts.JPG",
+    "title": "Precincts, Planning and Development",
+    "text": "Success depends on an evidence base integrating top-down and bottom-up analysis, real data and forecasts.",
+    "href": "/what-we-do/precincts/"
+  },
+  {
+    "image": "/assets/img/site/infrastructure.JPG",
+    "title": "Infrastructure, Amenity and Land Use",
+    "text": "A system helping governments, agencies, universities and developers integrate transport, land use and delivery models.",
+    "href": "/what-we-do/infrastructure/"
+  }
+]
