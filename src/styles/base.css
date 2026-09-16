@@ -2451,13 +2451,14 @@ img.logos__mark {
 }
 
 .associates__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--step-2);
+  columns: 4 260px;
+  column-gap: var(--step-2);
   margin-top: var(--step-2);
 }
 
 .associate-card {
+  break-inside: avoid;
+  margin-bottom: var(--step-2);
   padding-top: 0.8em;
   border-top: 2px solid var(--brand-500);
 }
