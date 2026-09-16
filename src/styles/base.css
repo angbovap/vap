@@ -484,6 +484,7 @@ main {
 
 .hero__title {
   color: var(--surface);
+  line-height: 1.35;
 }
 
 .hero__mask {
