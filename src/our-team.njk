@@ -41,61 +41,60 @@ title: Our team
       <p class="eyebrow">Associates</p>
       <h2>Extending our expertise</h2>
     </div>
-    <p class="associates__hint reveal">Tap a name for more detail.</p>
-    <div class="associates__grid">
-      {% for person in associates %}
-      {% set hasMore = person.description or (person.expertise and person.expertise.length) or (person.qualifications and person.qualifications.length) or person.location or person.phone %}
-      {% if hasMore %}
-      <details class="associate-card">
-        <summary class="associate-card__summary">
+    <div class="associates-spotlight" data-associates-spotlight>
+      <ul class="associates-spotlight__toc" role="tablist" aria-label="Associates">
+        {% for person in associates %}
+        <li>
+          <button type="button" class="associates-spotlight__toc-item{% if loop.first %} is-active{% endif %}" role="tab" aria-selected="{% if loop.first %}true{% else %}false{% endif %}" data-associates-tab="{{ loop.index0 }}">
+            {% if person.image %}
+            <span class="associates-spotlight__toc-avatar" style="background-image: url('{{ person.image }}');"></span>
+            {% else %}
+            <span class="associates-spotlight__toc-avatar associates-spotlight__toc-avatar--placeholder" aria-hidden="true">{{ person.name[0] }}</span>
+            {% endif %}
+            <span class="associates-spotlight__toc-text">
+              <span class="associates-spotlight__toc-name">{{ person.name }}</span>
+              {% if person.org %}<span class="associates-spotlight__toc-org">{{ person.org }}</span>{% endif %}
+            </span>
+          </button>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="associates-spotlight__panels">
+        {% for person in associates %}
+        <div class="associates-spotlight__panel{% if loop.first %} is-active{% endif %}" data-associates-panel="{{ loop.index0 }}"{% if not loop.first %} hidden{% endif %}>
           {% if person.image %}
-          <div class="associate-card__avatar" style="background-image: url('{{ person.image }}');"></div>
+          <div class="associates-spotlight__avatar" style="background-image: url('{{ person.image }}');"></div>
           {% else %}
-          <div class="associate-card__avatar associate-card__avatar--placeholder" aria-hidden="true">{{ person.name[0] }}</div>
+          <div class="associates-spotlight__avatar associates-spotlight__avatar--placeholder" aria-hidden="true">{{ person.name[0] }}</div>
           {% endif %}
-          <div class="associate-card__id">
-            <h3 class="associate-card__name">{{ person.name }}</h3>
-            {% if person.org %}<p class="associate-card__org">{{ person.org }}</p>{% endif %}
-            {% if person.experience %}<p class="associate-card__experience">{{ person.experience }}</p>{% endif %}
-          </div>
-          <span class="associate-card__caret" aria-hidden="true"></span>
-        </summary>
-        <div class="associate-card__body">
-          {% if person.description %}<p class="associate-card__text">{{ person.description }}</p>{% endif %}
-          {% if person.expertise and person.expertise.length %}
-          <ul class="associate-card__tags">
-            {% for e in person.expertise %}<li>{{ e }}</li>{% endfor %}
-          </ul>
-          {% endif %}
-          {% if person.qualifications and person.qualifications.length %}
-          <ul class="associate-card__quals">
-            {% for q in person.qualifications %}<li>{{ q }}</li>{% endfor %}
-          </ul>
-          {% endif %}
-          {% if person.location or person.phone %}
-          <p class="associate-card__meta">
-            {% if person.location %}{{ person.location }}{% endif %}{% if person.location and person.phone %} · {% endif %}{% if person.phone %}<a href="tel:{{ person.phone }}">{{ person.phone }}</a>{% endif %}
-          </p>
-          {% endif %}
-        </div>
-      </details>
-      {% else %}
-      <div class="associate-card associate-card--static">
-        <div class="associate-card__summary">
-          {% if person.image %}
-          <div class="associate-card__avatar" style="background-image: url('{{ person.image }}');"></div>
-          {% else %}
-          <div class="associate-card__avatar associate-card__avatar--placeholder" aria-hidden="true">{{ person.name[0] }}</div>
-          {% endif %}
-          <div class="associate-card__id">
-            <h3 class="associate-card__name">{{ person.name }}</h3>
-            {% if person.org %}<p class="associate-card__org">{{ person.org }}</p>{% endif %}
+          <div class="associates-spotlight__body">
+            <h3 class="associates-spotlight__name">{{ person.name }}</h3>
+            {% if person.org %}<p class="associates-spotlight__org">{{ person.org }}</p>{% endif %}
+            {% if person.experience %}<p class="associates-spotlight__experience">{{ person.experience }}</p>{% endif %}
+            {% if person.description %}
+            <p class="associates-spotlight__text">{{ person.description }}</p>
+            {% else %}
+            <p class="associates-spotlight__text associates-spotlight__text--placeholder">[no desc]</p>
+            {% endif %}
+            {% if person.expertise and person.expertise.length %}
+            <ul class="associates-spotlight__tags">
+              {% for e in person.expertise %}<li>{{ e }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+            {% if person.qualifications and person.qualifications.length %}
+            <ul class="associates-spotlight__quals">
+              {% for q in person.qualifications %}<li>{{ q }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+            {% if person.location or person.phone %}
+            <p class="associates-spotlight__meta">
+              {% if person.location %}{{ person.location }}{% endif %}{% if person.location and person.phone %} · {% endif %}{% if person.phone %}<a href="tel:{{ person.phone }}">{{ person.phone }}</a>{% endif %}
+            </p>
+            {% endif %}
           </div>
         </div>
-        <p class="associate-card__text associate-card__text--placeholder">[no desc]</p>
+        {% endfor %}
       </div>
-      {% endif %}
-      {% endfor %}
     </div>
   </div>
 </section>
