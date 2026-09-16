@@ -3572,6 +3572,19 @@ main section.partners {
   margin-top: var(--step-0);
 }
 
+.site-foot__map {
+  flex: 0 0 auto;
+  width: min(280px, 100%);
+  aspect-ratio: 4 / 3;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+
+.site-foot__map iframe {
+  display: block;
+}
+
 .site-foot__nav {
   display: flex;
   flex-direction: column;
