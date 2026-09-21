@@ -70,6 +70,13 @@ person's first initial instead — that's fine as a placeholder.
 `"description": ""` empty. The site automatically shows just their
 name in the list until you fill it in — no other changes needed.
 
+**Associate service offerings and websites:** an associate entry can
+also have a `"services"` list, shown as a grouped "Services" section
+under their bio (see Rob Zeidaks for an example — each group has a
+`"title"` and a list of `"items"`). If an associate has a `"url"`, the
+card also shows a "Visit [organisation] website" link. Both are
+optional; leave them out for anyone without them.
+
 ## Case studies (`src/our-work/*.md`)
 
 Each case study is one file, e.g.

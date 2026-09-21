@@ -35,14 +35,84 @@
     "image": "/assets/img/team/rob.avif",
     "experience": "15+ years relevant experience",
     "expertise": [
-      "Development Feasibility",
-      "Affordable Housing Strategy",
-      "Transactions & Deals",
-      "Precincts, Government & Public Land",
-      "Surplus Assets & Portfolio Strategy",
-      "Board Papers & Independent Commercial Review"
+      "Housing, Investment & Development",
+      "Non-Core Property Strategy",
+      "Independent Peer Review",
+      "Board & Executive Advisory"
     ],
-    "description": "Rob brings fifteen years of experience across property advisory, valuation, acquisitions and investment management, including PwC, JLL, Stockland and Assemble. He has advised government and institutional clients, led major property investments as a principal, and now advises organisations directly through Osta Advisory. Osta provides independent commercial advice to community housing providers, government, developers and family groups making decisions about growth, development and investment, and on property decisions that don't come up every day: acquisitions, disposals, leasing, surplus assets and portfolio strategy."
+    "description": "Rob brings fifteen years of experience across property advisory, valuation, acquisitions and investment management, including PwC, JLL, Stockland and Assemble. He has advised government and institutional clients, led major property investments as a principal, and now advises organisations directly through Osta Advisory. Osta provides independent commercial advice to community housing providers, government, developers and family groups making decisions about growth, development and investment, and on property decisions that don't come up every day: acquisitions, disposals, leasing, surplus assets and portfolio strategy.",
+    "services": [
+      {
+        "title": "Development feasibility",
+        "items": [
+          "Bespoke DCF / cash flow model",
+          "Model review",
+          "Scenario and stress testing",
+          "Highest and best use assessment"
+        ]
+      },
+      {
+        "title": "Transactions and deals",
+        "items": [
+          "Deal screening and investment paper support",
+          "Sell-side preparation and divestment strategy",
+          "Bid and submission support",
+          "Commercial structuring",
+          "Acquisition and origination support"
+        ]
+      },
+      {
+        "title": "Affordable housing",
+        "items": [
+          "Affordable housing feasibility",
+          "Housing and growth strategy",
+          "BTR / mixed-tenure underwriting",
+          "Government funding submission support",
+          "Development partner selection"
+        ]
+      },
+      {
+        "title": "Precincts, government and public land",
+        "items": [
+          "Precinct options and strategic assessment",
+          "Business case real estate input",
+          "Public land divestment advisory",
+          "Leasehold and air rights advisory",
+          "Real estate and infrastructure policy advisory"
+        ]
+      },
+      {
+        "title": "Asset and portfolio performance",
+        "items": [
+          "Portfolio review and optimisation",
+          "Asset business plans",
+          "Repositioning and value-add strategy",
+          "Investment reporting framework"
+        ]
+      },
+      {
+        "title": "Strategy, board and assurance",
+        "items": [
+          "Board papers and decision briefs",
+          "Independent commercial review",
+          "Property portfolio and corporate real estate strategy",
+          "Property risk and governance framework"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sam Sangster",
+    "org": "Klok Advisory",
+    "expertise": [
+      "Project Governance",
+      "Precinct Masterplanning",
+      "Social Infrastructure Procurement",
+      "Commercial Structuring",
+      "Health Capital Projects",
+      "Health and Education Precincts"
+    ],
+    "description": "Sam is Managing Director of Klok Advisory and personally acts in a range of project governance roles, leads masterplanning for precincts, structures complex transactions procuring large social infrastructure and precinct/property development projects, facilitating private sector capital investment in (social infrastructure) projects, and advises on commercial structuring for infrastructure transactions. He is particularly renowned for his expertise in leading health capital projects, health and education precinct developments and commercial structuring for social infrastructure projects."
   },
   {
     "name": "Anna Harley",
