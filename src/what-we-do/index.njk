@@ -93,15 +93,9 @@ title: What we do
 
     <div class="capabilities__panel reveal">
       <div class="capabilities__grid">
-        <div class="capabilities__col">
+        <div class="capabilities__col capabilities__col--wide">
           <ul class="stagger" aria-label="What we do">
-            <li>Forecasting and modelling</li>
-            <li>Economic impact assessment</li>
-            <li>Land use change</li>
-            <li>Project funding and value capture mechanisms</li>
-            <li>Dynamic delivery models</li>
-            <li>Stakeholder engagement</li>
-            <li>Geospatial analysis (GIS)</li>
+            {% for item in capabilities.whatWeDo %}<li>{{ item }}</li>{% endfor %}
           </ul>
         </div>
         <div class="capabilities__col">

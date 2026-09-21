@@ -56,7 +56,7 @@ layout: base.njk
 
     <div class="capabilities__panel reveal">
       <div class="capabilities__grid">
-        <div class="capabilities__col">
+        <div class="capabilities__col capabilities__col--wide">
           <ul class="stagger" aria-label="What we do">
             {% for item in capabilities.whatWeDo %}<li>{{ item }}</li>{% endfor %}
           </ul>
@@ -67,6 +67,7 @@ layout: base.njk
           </ul>
         </div>
       </div>
+      {% if capabilities.underpinning %}<p class="capabilities__note">{{ capabilities.underpinning }}</p>{% endif %}
     </div>
   </div>
 </section>

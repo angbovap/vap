@@ -89,3 +89,24 @@ title: Get in touch
     </aside>
   </div>
 </section>
+
+<section class="contact-book">
+  <div class="wrap">
+    <div class="contact-book__panel reveal">
+      <div class="contact-book__text">
+        <p class="eyebrow">Book a meeting</p>
+        <h2 class="contact-book__title">Prefer to talk it through?</h2>
+        <p class="contact-book__lead">Set up a time to meet with our team.</p>
+      </div>
+      {% if not site.bookingEmbedUrl %}
+      <div class="contact-book__action">
+        <a class="form-submit contact-book__button" target="_blank" rel="noopener"
+           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ ('Meeting with ' + site.name) | urlencode }}&details={{ ('Meeting request from the ' + site.name + ' website.') | urlencode }}&add={{ site.bookingHost.email | urlencode }}">Book a meeting <span aria-hidden="true">→</span></a>
+        <p class="contact-book__note">Opens Google Calendar with {{ site.bookingHost.name }} already added as a guest.</p>
+      </div>
+      {% else %}
+      <iframe class="contact-book__frame" src="{{ site.bookingEmbedUrl }}" title="Book a meeting with {{ site.name }}" loading="lazy"></iframe>
+      {% endif %}
+    </div>
+  </div>
+</section>

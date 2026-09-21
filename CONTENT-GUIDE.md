@@ -28,7 +28,7 @@ formatting that breaks these files.
 | Client testimonials (homepage quote carousel) | `src/_data/testimonials.json` |
 | Homepage client logos ("Trusted by...") | `src/_data/trustedLogos.json` |
 | Homepage "What we do" section: the three area rows, their text and photos | `src/_data/focusAreas.json` |
-| Homepage "What we do" / "Who we work with" lists | `src/_data/capabilities.json` |
+| "Our services" section: services list (homepage and What we do page), clients list and the "Underpinned by..." line (homepage) | `src/_data/capabilities.json` |
 | Homepage "Our values" four tiles | `src/_data/values.json` |
 | Client logos shown per region on the homepage map | `src/_data/areaClients.json` |
 | Map pins and project counts per region | `src/_data/projectMap.json` |
@@ -85,6 +85,15 @@ to group entries by year and order them newest first. Add
 `"featured": true` to exactly one entry to make it the large spotlight
 card at the top of the Publications page. The rest of the fields
 (title, date, links and so on) follow the existing entries.
+
+**Book a meeting (Get in touch page):** out of the box, the button opens a
+Google Calendar invite with the person named under `"bookingHost"` in
+`src/_data/site.json` (currently John Marinopoulos) already added as a
+guest. To show a full booking calendar on the page instead, create an
+"appointment schedule" in Google Calendar, copy its embed link (the
+address inside the `src="..."` of the embed code), and paste it into
+`"bookingEmbedUrl"` in `src/_data/site.json`. Leave it as `""` to keep the
+simple button.
 
 ## Case studies (`src/our-work/*.md`)
 

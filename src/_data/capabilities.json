@@ -1,15 +1,21 @@
 {
   "whatWeDo": [
-    "Commercial Feasibility",
-    "Resilience Investment",
-    "Infrastructure Assessments",
-    "Forecasting and Modelling",
-    "Economic Impact Assessment (EIA)",
-    "Land Use Change & Development",
-    "Project Funding and Value Capture Mechanisms",
-    "Dynamic Delivery Models",
-    "Stakeholder Engagement",
-    "Geospatial Analysis (GIS)"
+    "Business Cases",
+    "Strategic Options Assessment",
+    "Project Evaluations and Benefits Realisation",
+    "Economic Impact Assessments",
+    "Economic Development Strategies and Narratives",
+    "Integrated Transport and Land Use Planning",
+    "Precinct Planning and Growth Assessments",
+    "Enabling Resilience Investment",
+    "Climate Adaptation Plans",
+    "Disaster Risk Reduction and Resilience Strategies",
+    "Value Creation and Capture Plans",
+    "Housing Growth, Capacity & Demand Planning",
+    "Infrastructure Funding & Financing",
+    "Master Plan Commercial Feasibility",
+    "Strategic Land Use Planning",
+    "Liveability Assessments"
   ],
   "whoWeWorkWith": [
     "Governments (Local, State and Commonwealth)",
@@ -22,5 +28,6 @@
     "Transport",
     "Ports and Aviation",
     "Communications and Utilities"
-  ]
+  ],
+  "underpinning": "Underpinned by evidence-based, data-driven analysis and digital decision support tools that empower decision makers."
 }
