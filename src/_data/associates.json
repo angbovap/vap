@@ -33,7 +33,16 @@
     "org": "Osta Advisory",
     "url": "https://www.ostaadvisory.com.au/",
     "image": "/assets/img/team/rob.avif",
-    "description": ""
+    "experience": "15+ years relevant experience",
+    "expertise": [
+      "Development Feasibility",
+      "Affordable Housing Strategy",
+      "Transactions & Deals",
+      "Precincts, Government & Public Land",
+      "Surplus Assets & Portfolio Strategy",
+      "Board Papers & Independent Commercial Review"
+    ],
+    "description": "Rob brings fifteen years of experience across property advisory, valuation, acquisitions and investment management, including PwC, JLL, Stockland and Assemble. He has advised government and institutional clients, led major property investments as a principal, and now advises organisations directly through Osta Advisory. Osta provides independent commercial advice to community housing providers, government, developers and family groups making decisions about growth, development and investment, and on property decisions that don't come up every day: acquisitions, disposals, leasing, surplus assets and portfolio strategy."
   },
   {
     "name": "Anna Harley",
