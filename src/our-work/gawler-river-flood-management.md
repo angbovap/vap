@@ -1,4 +1,5 @@
 ---
+setting: regional
 title: Gawler River Flood Management
 client: Department of Environment and Water SA
 lead: Economic assessment of flood mitigation options along the Gawler River in the north of Adelaide, South Australia, testing both structural and non-structural interventions to the existing flood retention dam.

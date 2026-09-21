@@ -1,0 +1,130 @@
+---
+layout: base.njk
+permalink: /publications/
+title: Publications
+description: Presentations and published reports from the Value Advisory Partners team.
+extraCss: /styles/publications.css
+---
+{% set featured = publications | selectattr("featured") | first %}
+{% set rest = publications | rejectattr("featured") %}
+{% set years = publications | groupByYear %}
+
+<section class="pubhero">
+  <svg class="pubhero__rings" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="6" aria-hidden="true" focusable="false">
+    <circle cx="230" cy="240" r="190"/>
+    <circle cx="370" cy="360" r="190"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Publications</p>
+    <h1 class="pubhero__title">Talks and <span class="pubhero__accent">publications</span></h1>
+    <p class="pubhero__lead">Presentations and published reports from the Value Advisory Partners team.</p>
+    <dl class="pubhero__stats">
+      <div class="pubhero__stat">
+        <dt>Talks</dt>
+        <dd data-count="{{ publications | countType('presentation') }}">{{ publications | countType("presentation") }}</dd>
+      </div>
+      <div class="pubhero__stat">
+        <dt>Reports</dt>
+        <dd data-count="{{ publications | countType('report') }}">{{ publications | countType("report") }}</dd>
+      </div>
+      <div class="pubhero__stat">
+        <dt>Years</dt>
+        <dd>{{ (years | last).year }}&ndash;{{ (years | first).year }}</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+{% if featured %}
+<section class="pubspot" data-pub-item data-type="{{ featured.type }}">
+  <div class="wrap">
+    <article class="pubspot__card reveal">
+      {% if featured.links.presentationVideoId %}
+      <div class="pubspot__media">
+        <button class="wd-pub-video" type="button" data-yt-preview="{{ featured.links.presentationVideoId }}" aria-label="Play video: {{ featured.title }}">
+          <img class="wd-pub-video__thumb" src="https://img.youtube.com/vi/{{ featured.links.presentationVideoId }}/hqdefault.jpg" alt="" loading="lazy">
+          <span class="wd-pub-video__play" aria-hidden="true">▶</span>
+        </button>
+      </div>
+      {% endif %}
+      <div class="pubspot__body">
+        <p class="pubspot__flag">Featured talk <span aria-hidden="true">·</span> {{ featured.date }}</p>
+        <h2 class="pubspot__title">{{ featured.title }}</h2>
+        <p class="pubspot__meta">{{ featured.event }}{% if featured.location %}, {{ featured.location }}{% endif %}</p>
+        {% if featured.focus and featured.focus.length %}
+        <ul class="pubspot__focus">
+          {% for point in featured.focus %}<li>{{ point }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        {% if featured.presenters %}<p class="pubspot__by">Presented by {{ featured.presenters }}</p>{% endif %}
+        <div class="pubspot__actions">
+          {% if featured.links.presentation %}<a class="wd-framework__link" href="{{ featured.links.presentation }}">View presentation <span aria-hidden="true">→</span></a>{% endif %}
+          {% if featured.links.download %}<a class="wd-framework__link" href="{{ featured.links.download }}">Download a copy <span aria-hidden="true">→</span></a>{% endif %}
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+{% endif %}
+
+<section class="pubindex" data-pub-total="{{ publications.length }}">
+  <div class="wrap">
+    <div class="pubindex__bar">
+      <div class="pubindex__filters" role="group" aria-label="Filter by type">
+        <button type="button" class="pubchip is-active" data-pub-filter="all" aria-pressed="true">All <span>{{ publications.length }}</span></button>
+        <button type="button" class="pubchip" data-pub-filter="presentation" aria-pressed="false">Talks <span>{{ publications | countType("presentation") }}</span></button>
+        <button type="button" class="pubchip" data-pub-filter="report" aria-pressed="false">Reports <span>{{ publications | countType("report") }}</span></button>
+      </div>
+      <p class="pubindex__status" data-pub-status aria-live="polite">Showing all {{ publications.length }}</p>
+    </div>
+
+    {% for group in rest | groupByYear %}
+    <section class="pubyear" data-pub-year>
+      <h2 class="pubyear__label">{{ group.year }}</h2>
+      <ol class="pubyear__list">
+        {% for item in group.items %}
+        <li class="pubrow reveal" data-pub-item data-type="{{ item.type }}">
+          <div class="pubrow__top">
+            <span class="pubtag pubtag--{{ item.type }}">{% if item.type == "presentation" %}Talk{% else %}Report{% endif %}</span>
+            <span class="pubrow__date">{{ item.date }}</span>
+          </div>
+          <h3 class="pubrow__title">{{ item.title }}</h3>
+          {% if item.type == "presentation" %}
+          <p class="pubrow__meta">{{ item.event }}{% if item.location %}, {{ item.location }}{% endif %}</p>
+          {% elif item.publisher %}
+          <p class="pubrow__meta">Published by {{ item.publisher }}</p>
+          {% endif %}
+
+          {% if item.focus or item.presenters or item.authors %}
+          <details class="pubrow__more">
+            <summary>{% if item.type == "presentation" %}Focus and presenters{% else %}Authors{% endif %}</summary>
+            {% if item.focus and item.focus.length %}
+            <ul class="pubrow__focus">
+              {% for point in item.focus %}<li>{{ point }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+            {% if item.presenters %}<p class="pubrow__by">Presented by {{ item.presenters }}</p>{% endif %}
+            {% if item.authors %}<p class="pubrow__by">{{ item.authors }}</p>{% endif %}
+          </details>
+          {% endif %}
+
+          {% if item.links and (item.links.presentation or item.links.download) %}
+          <div class="pubrow__actions">
+            {% if item.links.presentation %}<a class="wd-framework__link" href="{{ item.links.presentation }}">View presentation <span aria-hidden="true">→</span></a>{% endif %}
+            {% if item.links.download %}<a class="wd-framework__link" href="{{ item.links.download }}">Download a copy <span aria-hidden="true">→</span></a>{% endif %}
+          </div>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="pubclose">
+  <div class="wrap">
+    <h2 class="pubclose__text">Want to talk about any of this work?</h2>
+    <a class="section-cta" href="/get-in-touch/">Get in touch <span aria-hidden="true">→</span></a>
+  </div>
+</section>

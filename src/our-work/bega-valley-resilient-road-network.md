@@ -1,4 +1,5 @@
 ---
+setting: regional
 title: Bega Valley Resilient Road Network
 client: Bega Valley Shire Council (NSW)
 lead: Using the Enabling Resilience Investment framework, Bega Valley Shire Council strengthened the resilience of its road network against multiple climate hazards, from freight corridors to tourism connectivity.

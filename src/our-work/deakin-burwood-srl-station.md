@@ -1,4 +1,5 @@
 ---
+setting: city
 title: Deakin Burwood SRL Station Assessment
 lead: An example of the VITAL system in action, evaluating station location options across Deakin and Burwood, and comparing integrated against non-integrated precinct approaches.
 placeContext: Burwood, Melbourne, Victoria

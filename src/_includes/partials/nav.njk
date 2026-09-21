@@ -2,7 +2,7 @@
 <header class="site-head">
   <div class="site-head__inner">
     <a class="brand" href="/">
-      <img class="brand__mark" src="/assets/img/brand/vaplogo.png" alt="" width="34" height="34">
+      <img class="brand__mark" src="/assets/img/brand/vaplogo.png" alt="" width="56" height="56">
       <span class="brand__text">
         <span class="brand__name"><span class="brand__name-primary">{{ site.brandPrimary }}</span> <span class="brand__name-secondary">{{ site.brandSecondary }}</span></span>
         <span class="brand__tagline">{{ site.tagline }}</span>
@@ -20,7 +20,7 @@
         {% for item in site.nav %}
         <li class="nav__item{% if item.children %} nav__item--has-children{% endif %}">
           <a href="{{ item.url }}"
-             {% if page.url.startsWith(item.url) %}aria-current="page"{% endif %}>
+             {% if (item.url == "/" and page.url == "/") or (item.url != "/" and page.url.startsWith(item.url)) %}aria-current="page"{% endif %}>
             {{ item.label }}
             {% if item.children %}<span class="nav__caret" aria-hidden="true"></span>{% endif %}
           </a>

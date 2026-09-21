@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/base.css">
+  {% if extraCss %}<link rel="stylesheet" href="{{ extraCss }}">{% endif %}
 </head>
 <body>
   {% include "partials/nav.njk" %}
@@ -31,7 +32,6 @@
   <script src="/scripts/reveal.js" defer></script>
   <script src="/scripts/carousel.js" defer></script>
   <script src="/scripts/hero-parallax.js" defer></script>
-  <script src="/scripts/story-parallax.js" defer></script>
   <script src="/scripts/work-list-preview.js" defer></script>
   <script src="/scripts/case-panels.js" defer></script>
   <script src="/scripts/associates-spotlight.js" defer></script>
@@ -41,5 +41,6 @@
   <script src="/scripts/project-map.js" defer></script>
   <script src="/scripts/client-rotator.js" defer></script>
   <script src="/scripts/youtube-preview.js" defer></script>
+  <script src="/scripts/publications-index.js" defer></script>
 </body>
 </html>

@@ -4,6 +4,52 @@
 
   var markers = Array.prototype.slice.call(map.querySelectorAll('.trusted__map-marker'));
 
+  var iframe = map.querySelector('iframe');
+  var WIDE_VIEW = { zoom: 4, lat: -29, lon: 147 };
+  var NARROW_VIEW = { zoom: 3, lat: -34, lon: 145.3 };
+  var WIDE_MIN_WIDTH = 760;
+  var PIN_EDGE = 18;
+  var currentZoom = iframe ? parseInt(iframe.getAttribute('data-zoom'), 10) : WIDE_VIEW.zoom;
+
+  function mercatorY(lat, world) {
+    return (world / (2 * Math.PI)) * Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
+  }
+
+  function placeMarkers() {
+    var view = map.clientWidth >= WIDE_MIN_WIDTH ? WIDE_VIEW : NARROW_VIEW;
+    var world = 256 * Math.pow(2, view.zoom);
+
+    if (iframe && view.zoom !== currentZoom) {
+      currentZoom = view.zoom;
+      iframe.src = 'https://www.google.com/maps?ll=' + view.lat + ',' + view.lon + '&z=' + view.zoom + '&output=embed';
+    }
+
+    markers.forEach(function (marker) {
+      var lat = parseFloat(marker.getAttribute('data-lat'));
+      var lon = parseFloat(marker.getAttribute('data-lon'));
+      if (isNaN(lat) || isNaN(lon)) return;
+      var dx = ((lon - view.lon) * world) / 360;
+      var dy = mercatorY(view.lat, world) - mercatorY(lat, world);
+      var limitX = map.clientWidth / 2 - PIN_EDGE;
+      var limitY = map.clientHeight / 2 - PIN_EDGE;
+      dx = Math.max(-limitX, Math.min(limitX, dx));
+      dy = Math.max(-limitY, Math.min(limitY, dy));
+      marker.style.left = 'calc(50% + ' + dx.toFixed(1) + 'px)';
+      marker.style.top = 'calc(50% + ' + dy.toFixed(1) + 'px)';
+    });
+  }
+
+  var resizeQueued = false;
+  window.addEventListener('resize', function () {
+    if (resizeQueued) return;
+    resizeQueued = true;
+    window.requestAnimationFrame(function () {
+      resizeQueued = false;
+      placeMarkers();
+    });
+  });
+  placeMarkers();
+
   var GAP = 8;
 
   function positionPanel(marker, panel) {
@@ -70,6 +116,17 @@
       return pin && pin.getAttribute('aria-expanded') === 'true';
     });
     if (openMarker && !openMarker.contains(event.target)) closeAll(null);
+  });
+
+  document.querySelectorAll('[data-map-focus]').forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      event.stopPropagation();
+      var pin = map.querySelector('[aria-controls="pin-panel-' + button.getAttribute('data-map-focus') + '"]');
+      if (!pin) return;
+      closeAll(null);
+      pin.click();
+      map.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    });
   });
 
   document.addEventListener('keydown', function (event) {

@@ -1,0 +1,75 @@
+[
+  {
+    "type": "presentation",
+    "year": 2025,
+    "sortDate": "2025-05-30",
+    "featured": true,
+    "title": "Defend? Retreat? Accommodate? How do we plan for future regional settlement in a changing climate",
+    "event": "Presentation for Planning Institute of Australia (PIA) National Congress 2025",
+    "location": "Darwin",
+    "date": "30 May 2025",
+    "focus": [
+      "Strategic Planning through a Multi-Hazard and Resilient Lens",
+      "Accessible Practices to Achieve New Ways of Planning for the Future"
+    ],
+    "presenters": "Peter Heinmiller and Christopher Marinopoulos",
+    "links": {
+      "presentation": "https://www.youtube.com/watch?v=kHuKDhrl00I",
+      "presentationVideoId": "kHuKDhrl00I",
+      "download": "https://889f3f6e-88a0-405e-a504-177ac1e01ec3.filesusr.com/ugd/ccea73_7eade920889b4a4486e58bcf64ac6d9f.pdf"
+    }
+  },
+  {
+    "type": "presentation",
+    "year": 2025,
+    "sortDate": "2025-09-25",
+    "title": "Enabling Resilience Investment to enable economic growth and protect the regions: Future-proofing infrastructure and communities in the Bega Valley Shire",
+    "event": "Presentation for Planning Institute of Australia (PIA) NSW Conference",
+    "location": "Blue Mountains",
+    "date": "25 September 2025",
+    "focus": [
+      "Infrastructure Planning through a Multi-Hazard and Resilience Lens",
+      "Clearer rationale for resilience intervention actions reflecting short- and long-term hazard risks addressing specific service needs"
+    ],
+    "presenters": "Christopher Marinopoulos",
+    "links": {
+      "download": "https://889f3f6e-88a0-405e-a504-177ac1e01ec3.filesusr.com/ugd/ccea73_82527ba13b0442f3bb9df38159b5e46e.pdf"
+    }
+  },
+  {
+    "type": "report",
+    "year": 2021,
+    "sortDate": "2021-11-01",
+    "title": "Towards visions, options and pathways for an adaptive future in Bega Valley: Building national capability for Enabling Resilience Investment",
+    "authors": "O'Connell, Deborah; Helfgott, Ariella; Flett, Dianne; Wise, Russ; Meharg, Seona; Marinopoulos, John; Lee, Ashlin; Gorddard, Russell; Mesic, Nic; Tieman, George; Chan, Joey",
+    "publisher": "CSIRO",
+    "date": "November 2021",
+    "links": {
+      "download": "https://publications.csiro.au/publications/publication/PIcsiro:EP2021-1852"
+    }
+  },
+  {
+    "type": "report",
+    "year": 2022,
+    "sortDate": "2022-10-01",
+    "title": "Guidance for applying the Enabling Resilience Investment Framework: Building national capability for Enabling Resilience Investment",
+    "authors": "Wise, Russ; Marinopoulos, John; O'Connell, Deborah; Mesic, Nic; Tieman, George; Gorddard, Russell; Chan, Joey; Flett, Dianne; Lee, Ashlin; Box, Paul; Meharg, Seona; Helfgott, Ariella",
+    "publisher": "CSIRO",
+    "date": "October 2022",
+    "links": {
+      "download": "https://publications.csiro.au/publications/publication/PIcsiro:EP2022-5037"
+    }
+  },
+  {
+    "type": "report",
+    "year": 2022,
+    "sortDate": "2022-10-01",
+    "title": "Developing resilience investment cases in Port Adelaide Enfield: Building national capability for Enabling Resilience Investment",
+    "authors": "Tieman, George; Wise, Russ; Mesic, Nic; Marinopoulos, John; Chan, Joey; Gorddard, Russell; O'Connell, Deborah; Meharg, Seona; Helfgott, Ariella",
+    "publisher": "CSIRO",
+    "date": "October 2022",
+    "links": {
+      "download": "https://publications.csiro.au/publications/publication/PIcsiro:EP2022-4245"
+    }
+  }
+]

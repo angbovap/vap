@@ -1,14 +1,17 @@
+{% set pubItems = block.items or publications %}
 <section class="wd-publications">
   <div class="wrap">
+    {% if not block.hideHead %}
     <div class="section-head reveal">
       <p class="eyebrow">Publications</p>
       <h2>{{ block.heading | default("Talks and publications") }}</h2>
     </div>
+    {% endif %}
 
     <div class="wd-pub-carousel reveal" data-carousel data-carousel-manual>
       <div class="carousel__viewport">
         <div class="carousel__track">
-          {% for item in block.items %}
+          {% for item in pubItems %}
           <article class="carousel__slide wd-pub-slide{% if loop.first %} is-active{% endif %}" data-slide{% if not loop.first %} aria-hidden="true"{% endif %}>
             <div class="wd-pub-slide__layout{% if item.links.presentationVideoId %} wd-pub-slide__layout--video{% endif %}">
               <div class="wd-pub-slide__body">
@@ -59,7 +62,7 @@
         <div class="visually-hidden" aria-live="polite" data-carousel-announcer></div>
       </div>
 
-      {% if block.items.length > 1 %}
+      {% if pubItems.length > 1 %}
       <button class="wd-pub-arrow wd-pub-arrow--prev" type="button" data-carousel-prev aria-label="Previous publication">
         <span aria-hidden="true">←</span>
       </button>
@@ -67,7 +70,7 @@
         <span aria-hidden="true">→</span>
       </button>
       <div class="carousel__progress wd-pub-dots" role="tablist" aria-label="Publications navigation">
-        {% for item in block.items %}
+        {% for item in pubItems %}
         <button class="carousel__segment wd-pub-dot{% if loop.first %} is-active{% endif %}" type="button" role="tab" aria-label="Show publication {{ loop.index }}: {{ item.title }}" aria-selected="{% if loop.first %}true{% else %}false{% endif %}"></button>
         {% endfor %}
       </div>

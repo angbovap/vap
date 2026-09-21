@@ -23,10 +23,11 @@ formatting that breaks these files.
 | Phone, email, office address, footer, nav menu | `src/_data/site.json` |
 | Core team members (photos, bios, qualifications) | `src/_data/team.json` |
 | Associates | `src/_data/associates.json` |
+| Publications page and the Resilience page's publications carousel | `src/_data/publications.json` |
 | Collaboration partners | `src/_data/partners.json` |
 | Client testimonials (homepage quote carousel) | `src/_data/testimonials.json` |
 | Homepage client logos ("Trusted by...") | `src/_data/trustedLogos.json` |
-| Homepage "Our three areas" panels | `src/_data/focusAreas.json` |
+| Homepage "What we do" section: the three area rows, their text and photos | `src/_data/focusAreas.json` |
 | Homepage "What we do" / "Who we work with" lists | `src/_data/capabilities.json` |
 | Homepage "Our values" four tiles | `src/_data/values.json` |
 | Client logos shown per region on the homepage map | `src/_data/areaClients.json` |
@@ -77,6 +78,14 @@ under their bio (see Rob Zeidaks for an example — each group has a
 card also shows a "Visit [organisation] website" link. Both are
 optional; leave them out for anyone without them.
 
+**Publications (`src/_data/publications.json`):** each entry needs a
+`"type"` (`"presentation"` or `"report"`), a `"year"` (a number, e.g.
+`2025`), and a `"sortDate"` in `YYYY-MM-DD` form — the site uses these
+to group entries by year and order them newest first. Add
+`"featured": true` to exactly one entry to make it the large spotlight
+card at the top of the Publications page. The rest of the fields
+(title, date, links and so on) follow the existing entries.
+
 ## Case studies (`src/our-work/*.md`)
 
 Each case study is one file, e.g.
@@ -92,6 +101,12 @@ top. Give it a unique `order:` number — the site uses this to decide
 which order case studies appear in, and the homepage's "Selected
 work" section automatically shows the 4 lowest `order` numbers, so
 you don't need to update the homepage separately.
+
+**Homepage "Selected work":** it shows up to three regional projects on the
+left and three city projects on the right, paired row by row in
+`order` sequence. Each case study needs a `setting:` field near the top,
+either `setting: regional` or `setting: city`, to say which column it
+belongs in.
 
 ## What We Do pages (`src/what-we-do/*.njk`)
 

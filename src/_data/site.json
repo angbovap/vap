@@ -14,6 +14,7 @@
   "linkedin": "https://www.linkedin.com/company/value-advisory-partners/",
   "web3formsKey": "0f67e007-e704-4703-8799-676d77204106",
   "nav": [
+    { "label": "Home", "url": "/" },
     {
       "label": "What we do",
       "url": "/what-we-do/",
@@ -25,6 +26,7 @@
     },
     { "label": "Our work", "url": "/our-work/" },
     { "label": "Our team", "url": "/our-team/" },
+    { "label": "Publications", "url": "/publications/" },
     { "label": "Get in touch", "url": "/get-in-touch/" }
   ]
 }

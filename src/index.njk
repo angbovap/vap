@@ -20,43 +20,28 @@ layout: base.njk
   </div>
 </section>
 
-<section class="story">
-  <div class="wrap story__grid">
-    <div class="story__text story__text--parallax">
-      <p class="eyebrow">Our story</p>
-      <h2 class="story__lead">Evidence based insights and knowledge to future proof assets, infrastructure, and communities, driving value creation and value protection</h2>
-      <p class="story__body">Our purpose is to help decision makers better plan and deliver adaptable places in our cities, regions and rural areas, for today and for a climate resilient future. Value Advisory Partners has over 20 years working across public and private sectors, delivering impact through precinct, development and resilience projects.</p>
-      <div class="story__stat">
-        <span class="story__stat-number">20+ Years</span>
-        <span class="story__stat-label">working across public and private sectors</span>
-      </div>
+<section class="overview">
+  <div class="wrap overview__grid">
+    <div class="overview__text reveal">
+      <p class="eyebrow">What we do</p>
+      <h2 class="overview__lead">Evidence based insights and knowledge to future proof assets, infrastructure, and communities, driving value creation and value protection</h2>
+      <p class="overview__body">Our purpose is to help decision makers better plan and deliver adaptable places in our cities, regions and rural areas, for today and for a climate resilient future. Value Advisory Partners has over 20 years working across public and private sectors, delivering impact through precinct, development and resilience projects.</p>
       <a class="section-cta" href="/what-we-do/">See how we work <span aria-hidden="true">→</span></a>
     </div>
-    <div class="story__media story__media--parallax" style="background-image: url('/assets/img/site/our-story.jpg');"></div>
-  </div>
-</section>
 
-<section class="focus">
-  <div class="wrap">
-    <div class="section-head reveal focus__head">
-      <p class="eyebrow">Our focus</p>
-      <h2>Our three areas of commercial intelligence</h2>
-    </div>
-  </div>
-
-  <div class="focus__grid-outer">
-    <div class="focus__grid stagger">
+    <div class="overview__areas">
+      <h3 class="overview__areas-title reveal">Our three areas of commercial intelligence</h3>
       {% for panel in focusAreas %}
-      <div class="focus__panel">
-        <div class="focus__media reveal reveal-converge--media" style="background-image: url('{{ panel.image }}');"></div>
-        <div class="focus__scrim" aria-hidden="true"></div>
-        <div class="focus__panel-content reveal reveal-converge--text">
-          <p class="focus__eyebrow">Focus area</p>
-          <h3 class="focus__title">{{ panel.title }}</h3>
-          <p class="focus__text">{{ panel.text }}</p>
-          <a class="focus__more" href="{{ panel.href }}">Learn more <span aria-hidden="true">→</span></a>
+      <a class="area reveal" href="{{ panel.href }}">
+        <div class="area__media" role="img" aria-label="{{ panel.title }}">
+          <div class="area__img" style="background-image: url('{{ panel.image }}');"></div>
         </div>
-      </div>
+        <div class="area__body">
+          <h4 class="area__title">{{ panel.title }}</h4>
+          <p class="area__text">{{ panel.text }}</p>
+        </div>
+        <span class="area__arrow" aria-hidden="true">→</span>
+      </a>
       {% endfor %}
     </div>
   </div>
@@ -65,25 +50,136 @@ layout: base.njk
 <section class="capabilities">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Capabilities and industries</p>
+      <p class="eyebrow">Our services</p>
       <h2>What can we help with, and who do we work with?</h2>
     </div>
 
     <div class="capabilities__panel reveal">
       <div class="capabilities__grid">
         <div class="capabilities__col">
-          <h3>What we do</h3>
-          <ul class="stagger">
+          <ul class="stagger" aria-label="What we do">
             {% for item in capabilities.whatWeDo %}<li>{{ item }}</li>{% endfor %}
           </ul>
         </div>
         <div class="capabilities__col">
-          <h3>Who we work with</h3>
-          <ul class="stagger">
+          <ul class="stagger" aria-label="Who we work with">
             {% for item in capabilities.whoWeWorkWith %}<li>{{ item }}</li>{% endfor %}
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="trusted">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where we work</p>
+      <h2><span class="trusted__count">{{ projectMap.projectCount }}</span> projects across resilience, precincts and infrastructure</h2>
+      <p class="trusted__intro">Project experience across resilience, precincts and infrastructure, throughout Australia and New Zealand.</p>
+    </div>
+
+    <div class="trusted__layout">
+    <div class="trusted__map-panel reveal">
+      <div class="trusted__map-embed" data-project-map>
+        <iframe
+          data-zoom="4"
+          src="https://www.google.com/maps?ll=-29,147&z=4&output=embed"
+          title="Map of Australia and New Zealand"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          tabindex="-1"></iframe>
+        <div class="trusted__map-block" aria-hidden="true"></div>
+        <p class="trusted__map-cover" aria-hidden="true">Australia and New Zealand</p>
+
+        {% for region in projectMap.regions %}
+        <div class="trusted__map-marker" data-lat="{{ region.lat }}" data-lon="{{ region.lon }}">
+          <button class="trusted__pin" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-{{ region.id }}">
+            <span class="visually-hidden">{{ region.label }}, </span>{{ region.projects.length }}
+          </button>
+          <div class="trusted__pin-panel" id="pin-panel-{{ region.id }}" data-map-panel hidden>
+            <h3>{{ region.label }}</h3>
+            <ul>
+              {% for project in region.projects %}
+              <li>
+                <span class="trusted__pin-project">{{ project.name }}</span>
+                <span class="trusted__pin-tags">
+                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
+                </span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="trusted__map-marker trusted__map-marker--national" data-lat="{{ projectMap.nationalPin.lat }}" data-lon="{{ projectMap.nationalPin.lon }}">
+          <button class="trusted__pin trusted__pin--national" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-national">
+            <span class="visually-hidden">National projects, </span>{{ projectMap.nationalProjects.length }}
+          </button>
+          <div class="trusted__pin-panel trusted__pin-panel--national" id="pin-panel-national" data-map-panel hidden>
+            <h3>National projects</h3>
+            <ul>
+              {% for project in projectMap.nationalProjects %}
+              <li>
+                <span class="trusted__pin-project">{{ project.name }}</span>
+                <span class="trusted__pin-tags">
+                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
+                </span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="trusted__list reveal" aria-label="Selected projects">
+      <div class="trusted__list-head">
+        <h3>Selected projects</h3>
+        <p>A selection of our work across Australia and New Zealand</p>
+      </div>
+      <div class="trusted__list-scroll" tabindex="0">
+        {% for group in projectMap | mapGroups %}
+        <section class="trusted__group">
+          <h4 class="trusted__group-head">
+            <button type="button" data-map-focus="{{ group.id }}">
+              <span>{{ group.label }}</span>
+              <span class="trusted__group-count">{{ group.projects.length }}</span>
+            </button>
+          </h4>
+          <ul>
+            {% for project in group.projects %}<li>{{ project.name }}</li>{% endfor %}
+          </ul>
+        </section>
+        {% endfor %}
+      </div>
+    </aside>
+    </div>
+
+    <div class="trusted__areas stagger">
+      {% set areaCards = [
+        { area: "resilience", href: "/what-we-do/resilience/", label: "Resilience and Disaster Risk Reduction", clients: areaClients.resilience },
+        { area: "precincts", href: "/what-we-do/precincts/", label: "Precincts, Planning and Development", clients: areaClients.precincts },
+        { area: "infrastructure", href: "/what-we-do/infrastructure/", label: "Infrastructure, Amenity and Land Use", clients: areaClients.infrastructure }
+      ] %}
+      {% for card in areaCards %}
+      <a class="trusted__area trusted__area--list reveal" data-area="{{ card.area }}" href="{{ card.href }}">
+        <span class="trusted__area-label">{{ card.label }}</span>
+        <span class="trusted__area-clients" data-client-rotator aria-live="polite">
+          {% for client in card.clients %}
+          <span class="trusted__area-client{% if loop.first %} is-active{% endif %}">
+            {% if client.logo %}
+            <img class="trusted__area-client-logo" src="{{ client.logo }}" alt="">
+            {% else %}
+            <span class="trusted__area-client-mark" aria-hidden="true">{{ client.name[0] }}</span>
+            {% endif %}
+            <span class="trusted__area-client-name">{{ client.name }}</span>
+          </span>
+          {% endfor %}
+        </span>
+      </a>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -115,125 +211,6 @@ layout: base.njk
   </div>
 </section>
 
-<section class="trusted">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Where we work</p>
-      <h2>Trusted across resilience investment, precinct developments and infrastructure projects</h2>
-      <p class="trusted__intro">Project experience across resilience, precincts and infrastructure, throughout Australia and New Zealand.</p>
-    </div>
-
-    <div class="trusted__map-panel reveal">
-      <div class="trusted__map-embed" data-project-map>
-        <iframe
-          src="https://www.google.com/maps?ll=-29,150&z=4&output=embed"
-          title="Map of Australia and New Zealand"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          tabindex="-1"></iframe>
-        <div class="trusted__map-block" aria-hidden="true"></div>
-        <p class="trusted__map-cover" aria-hidden="true">Australia and New Zealand</p>
-
-        {% for region in projectMap.regions %}
-        <div class="trusted__map-marker" style="left: {{ region.x }}%; top: {{ region.y }}%;">
-          <button class="trusted__pin" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-{{ region.id }}">
-            <span class="visually-hidden">{{ region.label }}, </span>{{ region.projects.length }}
-          </button>
-          <div class="trusted__pin-panel" id="pin-panel-{{ region.id }}" data-map-panel hidden>
-            <h3>{{ region.label }}</h3>
-            <ul>
-              {% for project in region.projects %}
-              <li>
-                <span class="trusted__pin-project">{{ project.name }}</span>
-                <span class="trusted__pin-tags">
-                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
-                </span>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-        {% endfor %}
-
-        <div class="trusted__map-marker trusted__map-marker--national" style="left: 35%; top: 39%;">
-          <button class="trusted__pin trusted__pin--national" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-national">
-            <span class="visually-hidden">National projects, </span>{{ projectMap.nationalProjects.length }}
-          </button>
-          <div class="trusted__pin-panel trusted__pin-panel--national" id="pin-panel-national" data-map-panel hidden>
-            <h3>National projects</h3>
-            <ul>
-              {% for project in projectMap.nationalProjects %}
-              <li>
-                <span class="trusted__pin-project">{{ project.name }}</span>
-                <span class="trusted__pin-tags">
-                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
-                </span>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="trusted__areas stagger">
-      {% set areaCards = [
-        { area: "resilience", href: "/what-we-do/resilience/", label: "Resilience and Disaster Risk Reduction", clients: areaClients.resilience },
-        { area: "precincts", href: "/what-we-do/precincts/", label: "Precincts, Planning and Development", clients: areaClients.precincts },
-        { area: "infrastructure", href: "/what-we-do/infrastructure/", label: "Infrastructure, Amenity and Land Use", clients: areaClients.infrastructure }
-      ] %}
-      {% for card in areaCards %}
-      <a class="trusted__area trusted__area--list reveal" data-area="{{ card.area }}" href="{{ card.href }}">
-        <span class="trusted__area-label">{{ card.label }}</span>
-        <span class="trusted__area-clients" data-client-rotator aria-live="polite">
-          {% for client in card.clients %}
-          <span class="trusted__area-client{% if loop.first %} is-active{% endif %}">
-            {% if client.logo %}
-            <img class="trusted__area-client-logo" src="{{ client.logo }}" alt="">
-            {% else %}
-            <span class="trusted__area-client-mark" aria-hidden="true">{{ client.name[0] }}</span>
-            {% endif %}
-            <span class="trusted__area-client-name">{{ client.name }}</span>
-          </span>
-          {% endfor %}
-        </span>
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="approach">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Our approach</p>
-      <h2>Practical tools that turn analysis into decisions.</h2>
-    </div>
-
-    <div class="approach__diagram reveal">
-      <div class="approach__mosaic" role="img" aria-label="Diagram: Practical tools to deliver integrated and optimised outcomes, made up of four connected approaches - 01 Joined-up thinking, 02 Rapid assessment, 03 Top-down bottom-up, 04 Agile decision tools.">
-        <span class="approach__tile approach__tile--1"></span>
-        <span class="approach__tile approach__tile--2"></span>
-        <span class="approach__tile approach__tile--3"></span>
-        <span class="approach__tile approach__tile--4"></span>
-      </div>
-
-      <div class="visually-hidden">
-        <h3>01: Joined-up thinking</h3>
-        <p>Connect and integrate data and analysis - upstream and downstream - to understand the lifecycle of planning and delivering the infrastructure, amenity, and services for our cities and places</p>
-        <h3>02: Rapid assessment</h3>
-        <p>Early stage assessment of project value and benefits to provide an immediate, order of magnitude guide for a range of options</p>
-        <h3>03: Top-down, bottom-up</h3>
-        <p>Integrate real data and projections/forecasts to bring together a macro view of "the vision" and the micro view of what's on the ground. Make sense of these top-down and bottom-up analyses to assess both strategic and place-based contexts.</p>
-        <h3>04: Agile decision tools</h3>
-        <p>Using agile visualisation technology to allow decision makers to develop and prioritise options, challenge assumptions, test scenarios, and optimise outcomes</p>
-      </div>
-    </div>
-
-    <a class="section-cta approach__cta" href="/what-we-do/">Explore what we do <span aria-hidden="true">→</span></a>
-  </div>
-</section>
-
 <section class="work">
   <div class="wrap">
     <div class="section-head reveal">
@@ -241,17 +218,27 @@ layout: base.njk
       <h2>From adaptive pathways to station precincts.</h2>
     </div>
 
+    {% set regionalWork = collections.caseStudies | caseSetting("regional") %}
+    {% set cityWork = collections.caseStudies | caseSetting("city") %}
+    {% macro workCard(project) %}
+    <a class="work__item" href="{{ project.url }}">
+      <div class="work__media reveal reveal-converge--media" style="background-image: url('{{ project.data.image }}');"></div>
+      <div class="work__caption reveal reveal-converge--text">
+        <span class="work__setting">{% if project.data.setting == "city" %}City project{% else %}Regional project{% endif %}</span>
+        <h3>{{ project.data.title }}</h3>
+        {% if project.data.client %}<p class="work__client">{{ project.data.client }}</p>{% endif %}
+        <p>{{ project.data.summary }}</p>
+        <span class="work__link">View case study <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+    {% endmacro %}
+
     <div class="work__grid stagger">
-      {% for project in collections.caseStudies.slice(0, 4) %}
-      <a class="work__item" href="{{ project.url }}">
-        <div class="work__media reveal reveal-converge--media" style="background-image: url('{{ project.data.image }}');"></div>
-        <div class="work__caption reveal reveal-converge--text">
-          <h3>{{ project.data.title }}</h3>
-          {% if project.data.client %}<p class="work__client">{{ project.data.client }}</p>{% endif %}
-          <p>{{ project.data.summary }}</p>
-          <span class="work__link">View case study <span aria-hidden="true">→</span></span>
-        </div>
-      </a>
+      <p class="work__col-label">Regional projects</p>
+      <p class="work__col-label">City projects</p>
+      {% for i in range(0, 3) %}
+      {% if regionalWork[i] %}{{ workCard(regionalWork[i]) }}{% else %}<div aria-hidden="true"></div>{% endif %}
+      {% if cityWork[i] %}{{ workCard(cityWork[i]) }}{% else %}<div aria-hidden="true"></div>{% endif %}
       {% endfor %}
     </div>
 

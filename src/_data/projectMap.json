@@ -1,10 +1,11 @@
 {
+  "projectCount": "130+",
   "regions": [
     {
       "id": "wa",
       "label": "Western Australia",
-      "x": 24,
-      "y": 45,
+      "lat": -31.95,
+      "lon": 115.86,
       "projects": [
         {
           "name": "Perth Airport Development and Highest and Best Use Land Assessment",
@@ -24,8 +25,8 @@
     {
       "id": "sa",
       "label": "South Australia",
-      "x": 38,
-      "y": 58,
+      "lat": -32.11,
+      "lon": 137.34,
       "projects": [
         {
           "name": "Department of Environment and Water (SA), Port Adelaide: Submission to Infrastructure Australia",
@@ -83,8 +84,8 @@
     {
       "id": "vic-metro",
       "label": "Melbourne",
-      "x": 45,
-      "y": 78,
+      "lat": -39.44,
+      "lon": 144.73,
       "projects": [
         {
           "name": "Maribyrnong City Council, Employment Study and Lands Assessment",
@@ -188,8 +189,8 @@
     {
       "id": "vic-regional",
       "label": "Regional Victoria",
-      "x": 42,
-      "y": 73,
+      "lat": -36.3,
+      "lon": 145.6,
       "projects": [
         {
           "name": "Sovereign Hill Master Plan Assessment",
@@ -246,8 +247,8 @@
     {
       "id": "qld",
       "label": "Queensland",
-      "x": 44,
-      "y": 35,
+      "lat": -27.47,
+      "lon": 153.03,
       "projects": [
         {
           "name": "Queensland Investment Corporation (QIC), Telecommunication Resilient Investment Pilot (TRIP)",
@@ -262,8 +263,8 @@
     {
       "id": "nsw-metro",
       "label": "Sydney",
-      "x": 51,
-      "y": 62,
+      "lat": -33.63,
+      "lon": 151.05,
       "projects": [
         {
           "name": "IAG, Resilience Investment Vehicle: City of Parramatta CBD Flood Mitigation Projects",
@@ -326,8 +327,8 @@
     {
       "id": "nsw-regional",
       "label": "Regional NSW",
-      "x": 46,
-      "y": 58,
+      "lat": -32.11,
+      "lon": 145.78,
       "projects": [
         {
           "name": "National Recovery and Resilience Authority, Disaster Recovery for Northern Rivers: Economic Impact",
@@ -361,8 +362,8 @@
     {
       "id": "nz",
       "label": "New Zealand",
-      "x": 74,
-      "y": 77,
+      "lat": -39.09,
+      "lon": 175.31,
       "projects": [
         {
           "name": "Onehunga: Strategic Value Options Analysis of East-West Connection Interface Road",
@@ -399,6 +400,10 @@
       ]
     }
   ],
+  "nationalPin": {
+    "lat": -35.28,
+    "lon": 149.13
+  },
   "nationalProjects": [
     {
       "name": "NEMA, Telecommunications Resilient Investment Pilot (TRIP)",

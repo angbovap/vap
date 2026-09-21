@@ -1,4 +1,5 @@
 ---
+setting: regional
 title: Regional Adaptive Pathways Planning
 client: Department of Planning & Environment (NSW)
 lead: A systems- and values-based methodology for assessing multi-hazard disaster risk and identifying adaptation pathways for safe, affordable housing across the Illawarra Shoalhaven region, developed with CSIRO for the NSW Department of Planning & Environment.

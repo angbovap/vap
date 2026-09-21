@@ -9,7 +9,7 @@
   });
 
   nav.addEventListener('click', function (event) {
-    if (event.target.tagName === 'A' && window.matchMedia('(max-width: 899px)').matches) {
+    if (event.target.tagName === 'A' && window.matchMedia('(max-width: 1099px)').matches) {
       nav.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
     }

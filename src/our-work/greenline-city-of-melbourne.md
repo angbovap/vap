@@ -1,4 +1,5 @@
 ---
+setting: city
 title: Greenline
 client: City of Melbourne
 lead: An economic impact assessment and funding plan for the Greenline Implementation Plan, weighing the benefits and constraints it will bring to local businesses, residents and visitors along the Yarra River corridor.
