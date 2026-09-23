@@ -68,7 +68,7 @@ title: Our team
           {% endif %}
           <div class="associates-spotlight__body">
             <h3 class="associates-spotlight__name">{{ person.name }}</h3>
-            {% if person.experience %}<p class="associates-spotlight__experience">{{ person.experience }}</p>{% endif %}
+            {% if person.experience %}<p class="associates-spotlight__experience{% if 'X years' in person.experience %} associates-spotlight__experience--placeholder{% endif %}">{{ person.experience }}</p>{% endif %}
             {% if person.description %}
             <p class="associates-spotlight__text">{{ person.description }}</p>
             {% else %}
@@ -76,10 +76,7 @@ title: Our team
             {% endif %}
             {% if person.expertise and person.expertise.length %}
             <ul class="associates-spotlight__tags">
-              {% for e in person.expertise %}
-              {% set area = 'resilience' if 'Resilience' in e else ('precincts' if 'Precincts' in e else ('infrastructure' if 'Infrastructure' in e else '')) %}
-              <li{% if area %} data-area="{{ area }}"{% endif %}>{{ e }}</li>
-              {% endfor %}
+              {% for e in person.expertise %}<li>{{ e }}</li>{% endfor %}
             </ul>
             {% endif %}
             {% if person.services and person.services.length %}

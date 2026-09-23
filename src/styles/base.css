@@ -1721,7 +1721,9 @@ img.logos__mark {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
-  margin-bottom: var(--step-1);
+  padding: 0.7em 0.5em;
+  margin: -0.7em -0.5em calc(var(--step-1) - 0.7em);
+  border-radius: 0.5rem;
   font-weight: 600;
   color: var(--brand-700);
   text-decoration: none;
@@ -1729,13 +1731,14 @@ img.logos__mark {
 
 @media (prefers-reduced-motion: no-preference) {
   .wwd-selector__link {
-    transition: gap 0.2s ease;
+    transition: gap 0.2s ease, background-color 0.2s ease;
   }
 }
 
 .wwd-selector__link:hover,
 .wwd-selector__link:focus-visible {
   gap: 0.75em;
+  background: var(--brand-50);
 }
 
 .wwd-selector__media {
@@ -2589,6 +2592,11 @@ main:has(.team-intro) .eyebrow {
   font-size: 0.85rem;
 }
 
+.associates-spotlight__experience--placeholder {
+  color: var(--brand-700);
+  font-style: italic;
+}
+
 .associates-spotlight__text {
   margin-top: 0.9em;
   max-width: var(--measure);
@@ -2616,24 +2624,6 @@ main:has(.team-intro) .eyebrow {
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 600;
-}
-
-/* Matches the site's core-area palette (see .trusted__pin-tag): resilience,
-   precincts and infrastructure are distinguished by depth, not hue, so an
-   associate's tags read as the same three areas as the rest of the site. */
-.associates-spotlight__tags li[data-area="resilience"] {
-  background: var(--brand-700);
-  color: var(--surface);
-}
-
-.associates-spotlight__tags li[data-area="precincts"] {
-  background: var(--brand-500);
-  color: var(--surface);
-}
-
-.associates-spotlight__tags li[data-area="infrastructure"] {
-  background: var(--ink);
-  color: var(--surface);
 }
 
 .associates-spotlight__services {
@@ -3313,17 +3303,26 @@ main section.partners {
 
 .capabilities__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 2fr;
   gap: var(--gutter);
 }
 
 .capabilities__col.capabilities__col--wide ul {
   display: block;
-  columns: 2;
+  columns: 3;
   column-gap: var(--gutter);
+  column-rule: 1px solid var(--rule);
 }
 
-.capabilities__col--wide li {
+.capabilities__col.capabilities__col--split ul {
+  display: block;
+  columns: 2;
+  column-gap: var(--gutter);
+  column-rule: 1px solid var(--rule);
+}
+
+.capabilities__col--wide li,
+.capabilities__col--split li {
   break-inside: avoid;
 }
 
@@ -3412,8 +3411,10 @@ main section.partners {
     gap: var(--step-2);
   }
 
-  .capabilities__col.capabilities__col--wide ul {
+  .capabilities__col.capabilities__col--wide ul,
+  .capabilities__col.capabilities__col--split ul {
     columns: 1;
+    column-rule: 0;
   }
 
   .capabilities__col + .capabilities__col {

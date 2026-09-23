@@ -99,17 +99,10 @@ title: What we do
             {% for item in capabilities.whatWeDo %}<li>{{ item }}</li>{% endfor %}
           </ul>
         </div>
-        <div class="capabilities__col">
+        <div class="capabilities__col capabilities__col--split">
           <p class="capabilities__col-label">Who we work with</p>
           <ul class="stagger" aria-label="Who we work with">
-            <li>Local, state and commonwealth governments</li>
-            <li>Residential and housing</li>
-            <li>Employment</li>
-            <li>Institutional</li>
-            <li>Transport and land use</li>
-            <li>Tourism and visitor economy</li>
-            <li>First Nations and Traditional Owners Corporations</li>
-            <li>Industry including utilities, ports and manufacturing</li>
+            {% for item in capabilities.whoWeWorkWith %}<li>{{ item }}</li>{% endfor %}
           </ul>
         </div>
       </div>

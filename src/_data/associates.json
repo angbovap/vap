@@ -3,9 +3,10 @@
     "name": "Di Flett",
     "org": "",
     "image": "/assets/img/team/di.png",
-    "experience": "30+ years relevant experience",
+    "experience": "Working with VAP since 2020",
     "expertise": [
-      "Resilience and Disaster Risk Reduction"
+      "Climate Adaptation Plans",
+      "Disaster Risk Reduction and Resilience Strategies"
     ],
     "description": "Dianne Flett has thirty years of experience consulting to or managing major programs within the water and natural resource management sectors of government as well as providing specialist services in communication, facilitation and change management. Di has deep experience in communication in relation to climate change and has contributed to relevant peer reviewed reports and articles through writing, editing, copy editing, synthesising, proofing and publication."
   },
@@ -13,10 +14,10 @@
     "name": "Michael Nolan",
     "org": "",
     "image": "/assets/img/team/nolan.png",
-    "experience": "25+ years relevant experience",
+    "experience": "Working with VAP since 2022",
     "expertise": [
-      "Resilience and Disaster Risk Reduction",
-      "Infrastructure, Amenity and Land Use"
+      "Enabling Resilience Investment",
+      "Disaster Risk Reduction and Resilience Strategies"
     ],
     "description": "Michael has extensive climate risk experience across infrastructure and property sectors and has led over 250 projects focused on climatic risk, adaptation and resilient assets and operations relating to road, rail, ports, airports, energy generation, transmission and distribution, water utilities, ITC, mining and metals, oil and gas, buildings and facilities. Michael led the Resilient Cities Investment initiative for the United Nations Disaster Risk Reduction, developed the UN Resilient Infrastructure Scorecard and has been a key contributor to: United Nations Disaster Risk Reduction - Global Methodology for Infrastructure Resilience."
   },
@@ -25,93 +26,37 @@
     "org": "Osta Advisory",
     "url": "https://www.ostaadvisory.com.au/",
     "image": "/assets/img/team/rob.avif",
-    "experience": "15+ years relevant experience",
+    "experience": "Working with VAP since 2017",
     "expertise": [
-      "Precincts, Planning and Development",
-      "Infrastructure, Amenity and Land Use"
+      "Master Plan Commercial Feasibility",
+      "Housing Growth, Capacity & Demand Planning"
     ],
-    "description": "Rob brings fifteen years of experience across property advisory, valuation, acquisitions and investment management, including PwC, JLL, Stockland and Assemble. He has advised government and institutional clients, led major property investments as a principal, and now advises organisations directly through Osta Advisory. Osta provides independent commercial advice to community housing providers, government, developers and family groups making decisions about growth, development and investment, and on property decisions that don't come up every day: acquisitions, disposals, leasing, surplus assets and portfolio strategy.",
-    "services": [
-      {
-        "title": "Development feasibility",
-        "items": [
-          "Bespoke DCF / cash flow model",
-          "Model review",
-          "Scenario and stress testing",
-          "Highest and best use assessment"
-        ]
-      },
-      {
-        "title": "Transactions and deals",
-        "items": [
-          "Deal screening and investment paper support",
-          "Sell-side preparation and divestment strategy",
-          "Bid and submission support",
-          "Commercial structuring",
-          "Acquisition and origination support"
-        ]
-      },
-      {
-        "title": "Affordable housing",
-        "items": [
-          "Affordable housing feasibility",
-          "Housing and growth strategy",
-          "BTR / mixed-tenure underwriting",
-          "Government funding submission support",
-          "Development partner selection"
-        ]
-      },
-      {
-        "title": "Precincts, government and public land",
-        "items": [
-          "Precinct options and strategic assessment",
-          "Business case real estate input",
-          "Public land divestment advisory",
-          "Leasehold and air rights advisory",
-          "Real estate and infrastructure policy advisory"
-        ]
-      },
-      {
-        "title": "Asset and portfolio performance",
-        "items": [
-          "Portfolio review and optimisation",
-          "Asset business plans",
-          "Repositioning and value-add strategy",
-          "Investment reporting framework"
-        ]
-      },
-      {
-        "title": "Strategy, board and assurance",
-        "items": [
-          "Board papers and decision briefs",
-          "Independent commercial review",
-          "Property portfolio and corporate real estate strategy",
-          "Property risk and governance framework"
-        ]
-      }
-    ]
+    "description": "Rob brings fifteen years of experience across property advisory, valuation, acquisitions and investment management, including PwC, JLL, Stockland and Assemble. He has advised government and institutional clients, led major property investments as a principal, and now advises organisations directly through Osta Advisory. Osta provides independent commercial advice to community housing providers, government, developers and family groups making decisions about growth, development and investment, and on property decisions that don't come up every day: acquisitions, disposals, leasing, surplus assets and portfolio strategy."
   },
   {
     "name": "Sam Sangster",
     "org": "Klok Advisory",
     "expertise": [
-      "Precincts, Planning and Development",
-      "Infrastructure, Amenity and Land Use"
+      "Precinct Planning and Growth Assessments",
+      "Infrastructure Funding & Financing"
     ],
-    "description": "Sam is Managing Director of Klok Advisory and personally acts in a range of project governance roles, leads masterplanning for precincts, structures complex transactions procuring large social infrastructure and precinct/property development projects, facilitating private sector capital investment in (social infrastructure) projects, and advises on commercial structuring for infrastructure transactions. He is particularly renowned for his expertise in leading health capital projects, health and education precinct developments and commercial structuring for social infrastructure projects."
+    "description": "Sam is Managing Director of Klok Advisory and personally acts in a range of project governance roles, leads masterplanning for precincts, structures complex transactions procuring large social infrastructure and precinct/property development projects, facilitating private sector capital investment in (social infrastructure) projects, and advises on commercial structuring for infrastructure transactions. He is particularly renowned for his expertise in leading health capital projects, health and education precinct developments and commercial structuring for social infrastructure projects.",
+    "experience": "15+ years working with VAP"
   },
   {
     "name": "Anna Harley",
     "org": "Place Collective",
-    "experience": "15+ years relevant experience",
+    "experience": "7+ years working with VAP",
     "expertise": [
-      "Precincts, Planning and Development"
+      "Precinct Planning and Growth Assessments",
+      "Liveability Assessments"
     ],
     "description": "Anna has been working in the urban regeneration field for over 15 years across New Zealand, over a broad range of projects and clients. She leads a practice that spans urban strategy and planning, mixed-use development, public realm design, policy and planning, strategic design, people management and community engagement."
   },
   {
     "name": "Mario D'Elia",
     "org": "",
-    "description": ""
+    "description": "",
+    "experience": "10 years working with VAP"
   }
 ]
