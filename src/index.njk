@@ -251,29 +251,10 @@ layout: base.njk
 
 <section class="testimonial">
  <div class="testimonial__stack">
-  <div class="wrap logos__inner reveal">
-    <div class="logos__head">
-      <h2>Trusted by agencies, institutions and industry across Australia</h2>
-    </div>
-    <div class="logos__row">
-      <div class="logos__track">
-        {% for client in trustedLogos %}
-        <div class="logos__logo" tabindex="0">
-          <img class="logos__mark" src="{{ client.logo }}" alt="" aria-hidden="true">
-          <span class="logos__name">{{ client.name }}</span>
-        </div>
-        {% endfor %}
-        {% for client in trustedLogos %}
-        <div class="logos__logo" aria-hidden="true" tabindex="-1">
-          <img class="logos__mark" src="{{ client.logo }}" alt="" aria-hidden="true">
-          <span class="logos__name">{{ client.name }}</span>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+  <div class="wrap section-head reveal">
+    <p class="eyebrow">Client feedback</p>
+    <h2>Trusted by agencies, institutions and industry across Australia</h2>
   </div>
-
-  <div class="testimonial__divider" aria-hidden="true"></div>
 
   <div class="wrap testimonial__grid">
     <div class="testimonial__lead-col reveal reveal-converge--left">

@@ -1,5 +1,5 @@
 {
-  "projectCount": "125+",
+  "projectCount": "135+",
   "regions": [
     {
       "id": "wa",
@@ -88,7 +88,7 @@
       "label": "Melbourne",
       "lat": -39.44,
       "lon": 144.73,
-      "totalCount": 55,
+      "totalCount": 58,
       "projects": [
         {
           "name": "Maribyrnong City Council, Employment Study and Lands Assessment",
@@ -371,7 +371,7 @@
       "label": "New Zealand",
       "lat": -39.09,
       "lon": 175.31,
-      "totalCount": 5,
+      "totalCount": 6,
       "projects": [
         {
           "name": "Onehunga: Strategic Value Options Analysis of East-West Connection Interface Road",
@@ -414,103 +414,124 @@
   },
   "nationalProjects": [
     {
-      "name": "NEMA, Telecommunications Resilient Investment Pilot (TRIP)",
+      "name": "National Emergency Management Agency, Methodology for Cost-Benefit Assessment",
       "areas": [
         "Resilience"
       ]
     },
     {
-      "name": "National Resilience Taskforce, Developing Resilience Investment: Guidance on Prioritisation",
+      "name": "National Emergency Management Agency, Telecommunications Resilience Investment Project",
+      "areas": [
+        "Resilience",
+        "Infrastructure"
+      ]
+    },
+    {
+      "name": "DCCEEW, Energy Climate Resilience Project: Workstream 2",
       "areas": [
         "Resilience"
       ]
     },
     {
-      "name": "DCCEEW (with CSIRO), Climate and Disaster Risks, and Energy Transition",
+      "name": "IAG, Case study #1 for resilience investment vehicle - Paramatta",
+      "areas": [
+        "Resilience",
+        "Infrastructure"
+      ]
+    },
+    {
+      "name": "IAG, Case study #2 for resilience investment vehicle - Western Sydney",
+      "areas": [
+        "Resilience",
+        "Infrastructure"
+      ]
+    },
+    {
+      "name": "National Resilience Taskforce, Developing resilience investment prioritisation guidance",
       "areas": [
         "Resilience"
       ]
     },
     {
-      "name": "Project 1 of 14 (title and location not recorded in the project history)",
+      "name": "Dept. of Prime Minister & Cabinet, Issues and responsibility - role of government",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 2 of 14 (title and location not recorded in the project history)",
+      "name": "Dept. of Health and Human Services, Foster Care 1",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 3 of 14 (title and location not recorded in the project history)",
+      "name": "Dept. of Health and Human Services, Foster Care 2",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 4 of 14 (title and location not recorded in the project history)",
+      "name": "Melbourne Water, Reputation study 1",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 5 of 14 (title and location not recorded in the project history)",
+      "name": "Melbourne Water, Reputation study 2",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 6 of 14 (title and location not recorded in the project history)",
+      "name": "South East Water, Reputation study",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 7 of 14 (title and location not recorded in the project history)",
+      "name": "City of Melbourne, Reputation study",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 8 of 14 (title and location not recorded in the project history)",
+      "name": "Telstra Super, Brand Study",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 9 of 14 (title and location not recorded in the project history)",
+      "name": "Telstra Super, Financial Planning - Communications",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 10 of 14 (title and location not recorded in the project history)",
+      "name": "Telstra Super, Financial Planning - Product & Price",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 11 of 14 (title and location not recorded in the project history)",
+      "name": "AustralianSuper, Analysis of member needs, drivers, preferences and value to inform the design of retirement income products",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 12 of 14 (title and location not recorded in the project history)",
+      "name": "AustralianSuper, Analysis of member needs, drivers, preferences and value to inform the superannuation accumulation product strategy",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 13 of 14 (title and location not recorded in the project history)",
+      "name": "Australian Unity, Retirement Living study",
       "areas": [
         "Infrastructure"
       ]
     },
     {
-      "name": "Project 14 of 14 (title and location not recorded in the project history)",
+      "name": "Flight Centre (project title not recorded)",
       "areas": [
         "Infrastructure"
       ]

@@ -3420,11 +3420,9 @@ main section.partners {
   margin-block: auto;
 }
 
-.testimonial__divider {
-  width: min(100% - (var(--gutter) * 2), var(--wrap));
-  height: 1px;
-  margin: var(--step-3) auto;
-  background: rgba(50, 50, 50, 0.12);
+.testimonial__stack .section-head {
+  margin-bottom: var(--step-2);
+  max-width: 50ch;
 }
 
 .testimonial__grid {
@@ -3435,6 +3433,7 @@ main section.partners {
 }
 
 .testimonial__lead-col {
+  min-width: 0;
   padding-top: 0.1em;
 }
 
@@ -3477,6 +3476,7 @@ main section.partners {
 }
 
 .carousel {
+  min-width: 0;
   margin-top: var(--step-0);
 }
 
