@@ -9,6 +9,17 @@
       </span>
     </a>
 
+    <a
+      class="nav-book"
+      target="_blank"
+      rel="noopener"
+      {% if site.bookingEmbedUrl %}
+      href="{{ site.bookingEmbedUrl }}"
+      {% else %}
+      href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ ('Meeting with ' + site.name) | urlencode }}&details={{ ('Meeting request from the ' + site.name + ' website.') | urlencode }}&add={{ site.bookingHost.email | urlencode }}"
+      {% endif %}
+    ><span class="nav-book__full">Book a meeting</span><span class="nav-book__short">Book</span></a>
+
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
       <span class="visually-hidden">Menu</span>
       <svg width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"

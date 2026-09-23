@@ -104,14 +104,15 @@ to group entries by year and order them newest first. Add
 card at the top of the Publications page. The rest of the fields
 (title, date, links and so on) follow the existing entries.
 
-**Book a meeting (Get in touch page):** out of the box, the button opens a
-Google Calendar invite with the person named under `"bookingHost"` in
-`src/_data/site.json` (currently John Marinopoulos) already added as a
-guest. To show a full booking calendar on the page instead, create an
-"appointment schedule" in Google Calendar, copy its embed link (the
-address inside the `src="..."` of the embed code), and paste it into
-`"bookingEmbedUrl"` in `src/_data/site.json`. Leave it as `""` to keep the
-simple button.
+**Book a meeting (blue button in the top navbar, every page):** out of the
+box, the button opens a Google Calendar invite with the person named under
+`"bookingHost"` in `src/_data/site.json` (currently John Marinopoulos)
+already added as a guest — this only lets a visitor propose a time, it
+can't show whether that time is actually free. To have the button open a
+real booking page showing John's live availability instead, create an
+"appointment schedule" in Google Calendar (under John's own account),
+copy its booking page link, and paste it into `"bookingEmbedUrl"` in
+`src/_data/site.json`. Leave it as `""` to keep the simple invite button.
 
 ## Case studies (`src/our-work/*.md`)
 

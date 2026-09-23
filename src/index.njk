@@ -30,8 +30,7 @@ layout: base.njk
     </div>
 
     <div class="overview__areas">
-      <p class="eyebrow reveal">Our focus</p>
-      <h3 class="overview__areas-title reveal">Our areas of commercial intelligence</h3>
+      <h3 class="overview__areas-title eyebrow reveal">Our areas of commercial intelligence</h3>
       {% for panel in focusAreas %}
       <a class="area reveal" href="{{ panel.href }}">
         <div class="area__media" role="img" aria-label="{{ panel.title }}">
@@ -79,7 +78,7 @@ layout: base.njk
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Where we work</p>
-      <h2><span class="trusted__count">{{ projectMap.projectCount }}</span> projects across resilience, precincts and infrastructure</h2>
+      <h2>Over <span class="trusted__count">{{ projectMap.projectCount }}</span> commercial intelligence projects across resilience, precincts and infrastructure</h2>
       <p class="trusted__intro">Project experience across resilience, precincts and infrastructure, throughout Australia and New Zealand.</p>
     </div>
 
@@ -98,42 +97,16 @@ layout: base.njk
 
         {% for region in projectMap.regions %}
         <div class="trusted__map-marker" data-lat="{{ region.lat }}" data-lon="{{ region.lon }}">
-          <button class="trusted__pin" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-{{ region.id }}">
+          <button class="trusted__pin" type="button" data-map-pin="{{ region.id }}">
             <span class="visually-hidden">{{ region.label }}, </span>{{ region.totalCount if region.totalCount else region.projects.length }}
           </button>
-          <div class="trusted__pin-panel" id="pin-panel-{{ region.id }}" data-map-panel hidden>
-            <h3>{{ region.label }}</h3>
-            <ul>
-              {% for project in region.projects %}
-              <li>
-                <span class="trusted__pin-project">{{ project.name }}</span>
-                <span class="trusted__pin-tags">
-                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
-                </span>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
         </div>
         {% endfor %}
 
         <div class="trusted__map-marker trusted__map-marker--national" data-lat="{{ projectMap.nationalPin.lat }}" data-lon="{{ projectMap.nationalPin.lon }}">
-          <button class="trusted__pin trusted__pin--national" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-national">
+          <button class="trusted__pin trusted__pin--national" type="button" data-map-pin="national">
             <span class="visually-hidden">National projects, </span>{{ projectMap.nationalTotalCount if projectMap.nationalTotalCount else projectMap.nationalProjects.length }}
           </button>
-          <div class="trusted__pin-panel trusted__pin-panel--national" id="pin-panel-national" data-map-panel hidden>
-            <h3>National projects</h3>
-            <ul>
-              {% for project in projectMap.nationalProjects %}
-              <li>
-                <span class="trusted__pin-project">{{ project.name }}</span>
-                <span class="trusted__pin-tags">
-                  {% for area in project.areas %}<span class="trusted__pin-tag" data-area="{{ area | lower }}">{{ area }}</span>{% endfor %}
-                </span>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
         </div>
       </div>
     </div>
@@ -145,7 +118,7 @@ layout: base.njk
       </div>
       <div class="trusted__list-scroll" tabindex="0">
         {% for group in projectMap | mapGroups %}
-        <section class="trusted__group">
+        <section class="trusted__group" data-map-group="{{ group.id }}">
           <h4 class="trusted__group-head">
             <button type="button" data-map-focus="{{ group.id }}">
               <span>{{ group.label }}</span>

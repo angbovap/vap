@@ -50,86 +50,42 @@
   });
   placeMarkers();
 
-  var GAP = 8;
+  // Clicking a pin (or a region in the list) jumps the "Selected projects"
+  // list straight to that region, instead of opening a panel on the map.
+  var groups = Array.prototype.slice.call(document.querySelectorAll('[data-map-group]'));
+  var listScroll = document.querySelector('.trusted__list-scroll');
 
-  function positionPanel(marker, panel) {
-    marker.classList.remove('trusted__map-marker--flip-y');
-    panel.style.maxHeight = '';
-    panel.style.left = '';
-    panel.style.transform = '';
-
-    var mapRect = map.getBoundingClientRect();
-    var pin = marker.querySelector('[data-map-pin]');
-    var pinRect = pin.getBoundingClientRect();
-
-    var spaceBelow = mapRect.bottom - pinRect.bottom - GAP;
-    var spaceAbove = pinRect.top - mapRect.top - GAP;
-    var defaultMax = 224;
-
-    if (spaceBelow < spaceAbove) {
-      marker.classList.add('trusted__map-marker--flip-y');
-      panel.style.maxHeight = Math.max(96, Math.min(defaultMax, spaceAbove)) + 'px';
-    } else {
-      panel.style.maxHeight = Math.max(96, Math.min(defaultMax, spaceBelow)) + 'px';
-    }
-
-    var markerRect = marker.getBoundingClientRect();
-    var panelWidth = panel.offsetWidth;
-    var idealLeft = pinRect.left + pinRect.width / 2 - panelWidth / 2;
-    var minLeft = mapRect.left;
-    var maxLeft = mapRect.right - panelWidth;
-    var clampedLeft = Math.min(Math.max(idealLeft, minLeft), maxLeft);
-
-    panel.style.transform = 'none';
-    panel.style.left = (clampedLeft - markerRect.left) + 'px';
-  }
-
-  function setOpen(marker, open) {
-    var pin = marker.querySelector('[data-map-pin]');
-    var panel = marker.querySelector('[data-map-panel]');
-    if (!pin || !panel) return;
-    pin.setAttribute('aria-expanded', open ? 'true' : 'false');
-    panel.hidden = !open;
-    if (open) positionPanel(marker, panel);
-  }
-
-  function closeAll(except) {
+  function setActiveRegion(id) {
     markers.forEach(function (marker) {
-      if (marker === except) return;
-      setOpen(marker, false);
+      var pin = marker.querySelector('[data-map-pin]');
+      var isMatch = pin && pin.getAttribute('data-map-pin') === id;
+      marker.classList.toggle('is-active', isMatch);
+      if (pin) pin.classList.toggle('is-active', isMatch);
     });
+
+    var targetGroup = null;
+    groups.forEach(function (group) {
+      var isMatch = group.getAttribute('data-map-group') === id;
+      group.classList.toggle('is-active', isMatch);
+      if (isMatch) targetGroup = group;
+    });
+
+    if (targetGroup && listScroll) {
+      listScroll.scrollTop = Math.max(0, targetGroup.offsetTop);
+    }
   }
 
   markers.forEach(function (marker) {
     var pin = marker.querySelector('[data-map-pin]');
     if (!pin) return;
     pin.addEventListener('click', function () {
-      var isOpen = pin.getAttribute('aria-expanded') === 'true';
-      closeAll(marker);
-      setOpen(marker, !isOpen);
+      setActiveRegion(pin.getAttribute('data-map-pin'));
     });
-  });
-
-  document.addEventListener('click', function (event) {
-    var openMarker = markers.find(function (marker) {
-      var pin = marker.querySelector('[data-map-pin]');
-      return pin && pin.getAttribute('aria-expanded') === 'true';
-    });
-    if (openMarker && !openMarker.contains(event.target)) closeAll(null);
   });
 
   document.querySelectorAll('[data-map-focus]').forEach(function (button) {
-    button.addEventListener('click', function (event) {
-      event.stopPropagation();
-      var pin = map.querySelector('[aria-controls="pin-panel-' + button.getAttribute('data-map-focus') + '"]');
-      if (!pin) return;
-      closeAll(null);
-      pin.click();
-      map.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    button.addEventListener('click', function () {
+      setActiveRegion(button.getAttribute('data-map-focus'));
     });
-  });
-
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') closeAll(null);
   });
 })();
