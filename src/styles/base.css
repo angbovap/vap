@@ -282,10 +282,6 @@ main section:not(.hero) {
 }
 
 @media (max-width: 640px) {
-  .brand__tagline {
-    display: none;
-  }
-
   .brand__mark {
     width: 44px;
     height: 44px;
@@ -293,6 +289,10 @@ main section:not(.hero) {
 
   .brand__name {
     font-size: 1.1rem;
+  }
+
+  .brand__tagline {
+    font-size: 0.7rem;
   }
 }
 
@@ -641,9 +641,9 @@ main {
 }
 
 .overview__areas-title {
+  margin-top: var(--step-0);
   padding-bottom: var(--step-1);
-  font-size: var(--step-1);
-  font-weight: 600;
+  font-size: var(--step-2);
 }
 
 .area {
@@ -3353,11 +3353,11 @@ main section.partners {
 }
 
 .capabilities__col-label {
-  margin-bottom: var(--step-0);
+  margin-bottom: var(--step-1);
   padding-bottom: 0.6em;
   border-bottom: 1px solid var(--rule);
   color: var(--brand-700);
-  font-size: 0.78rem;
+  font-size: var(--step-1);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
