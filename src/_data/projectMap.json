@@ -1,11 +1,12 @@
 {
-  "projectCount": "130+",
+  "projectCount": "115+",
   "regions": [
     {
       "id": "wa",
       "label": "Western Australia",
       "lat": -31.95,
       "lon": 115.86,
+      "totalCount": 6,
       "projects": [
         {
           "name": "Perth Airport Development and Highest and Best Use Land Assessment",
@@ -27,6 +28,7 @@
       "label": "South Australia",
       "lat": -32.11,
       "lon": 137.34,
+      "totalCount": 10,
       "projects": [
         {
           "name": "Department of Environment and Water (SA), Port Adelaide: Submission to Infrastructure Australia",
@@ -86,6 +88,7 @@
       "label": "Melbourne",
       "lat": -39.44,
       "lon": 144.73,
+      "totalCount": 55,
       "projects": [
         {
           "name": "Maribyrnong City Council, Employment Study and Lands Assessment",
@@ -191,6 +194,7 @@
       "label": "Regional Victoria",
       "lat": -36.3,
       "lon": 145.6,
+      "totalCount": 12,
       "projects": [
         {
           "name": "Sovereign Hill Master Plan Assessment",
@@ -249,6 +253,7 @@
       "label": "Queensland",
       "lat": -27.47,
       "lon": 153.03,
+      "totalCount": 4,
       "projects": [
         {
           "name": "Queensland Investment Corporation (QIC), Telecommunication Resilient Investment Pilot (TRIP)",
@@ -265,6 +270,7 @@
       "label": "Sydney",
       "lat": -33.63,
       "lon": 151.05,
+      "totalCount": 15,
       "projects": [
         {
           "name": "IAG, Resilience Investment Vehicle: City of Parramatta CBD Flood Mitigation Projects",
@@ -329,6 +335,7 @@
       "label": "Regional NSW",
       "lat": -32.11,
       "lon": 145.78,
+      "totalCount": 6,
       "projects": [
         {
           "name": "National Recovery and Resilience Authority, Disaster Recovery for Northern Rivers: Economic Impact",
@@ -364,6 +371,7 @@
       "label": "New Zealand",
       "lat": -39.09,
       "lon": 175.31,
+      "totalCount": 5,
       "projects": [
         {
           "name": "Onehunga: Strategic Value Options Analysis of East-West Connection Interface Road",
@@ -423,5 +431,6 @@
         "Resilience"
       ]
     }
-  ]
+  ],
+  "nationalTotalCount": 6
 }

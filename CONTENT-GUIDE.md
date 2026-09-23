@@ -31,7 +31,7 @@ formatting that breaks these files.
 | "Our services" section: services list (homepage and What we do page), clients list and the "Underpinned by..." line (homepage) | `src/_data/capabilities.json` |
 | Homepage "Our values" four tiles | `src/_data/values.json` |
 | Client logos shown per region on the homepage map | `src/_data/areaClients.json` |
-| Map pins and project counts per region | `src/_data/projectMap.json` |
+| Map pins and project counts per region | `src/_data/projectMap.json` — each region's `totalCount` sets the number shown on its pin and in the sidebar list; the `projects` array underneath is only the named selection shown in that list, so the two numbers don't have to match |
 | Case studies (Our Work pages) | `src/our-work/*.md`, one file per project |
 | What We Do pages (Resilience, Precincts, Infrastructure) | `src/what-we-do/*.njk` |
 | Team member's individual bio page layout | `src/our-team/profile.njk` (layout only — the actual bio text comes from `team.json`) |
@@ -110,6 +110,12 @@ top. Give it a unique `order:` number — the site uses this to decide
 which order case studies appear in, and the homepage's "Selected
 work" section automatically shows the 4 lowest `order` numbers, so
 you don't need to update the homepage separately.
+
+**Case studies with photos only:** a case study doesn't need written sections. The
+Cockatoo Island and 12 Apostles pages show only a short summary and a
+photo gallery — copy either file as a starting point, and add `client:`,
+`lifecycle:`, `duration:`, `scope:` and `sections:` whenever the details are
+ready (see the older case studies for how).
 
 **Homepage "Selected work":** it shows up to three regional projects on the
 left and three city projects on the right, paired row by row in

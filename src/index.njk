@@ -57,11 +57,13 @@ layout: base.njk
     <div class="capabilities__panel reveal">
       <div class="capabilities__grid">
         <div class="capabilities__col capabilities__col--wide">
+          <p class="capabilities__col-label">Services we offer</p>
           <ul class="stagger" aria-label="What we do">
             {% for item in capabilities.whatWeDo %}<li>{{ item }}</li>{% endfor %}
           </ul>
         </div>
         <div class="capabilities__col">
+          <p class="capabilities__col-label">Who we work with</p>
           <ul class="stagger" aria-label="Who we work with">
             {% for item in capabilities.whoWeWorkWith %}<li>{{ item }}</li>{% endfor %}
           </ul>
@@ -96,7 +98,7 @@ layout: base.njk
         {% for region in projectMap.regions %}
         <div class="trusted__map-marker" data-lat="{{ region.lat }}" data-lon="{{ region.lon }}">
           <button class="trusted__pin" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-{{ region.id }}">
-            <span class="visually-hidden">{{ region.label }}, </span>{{ region.projects.length }}
+            <span class="visually-hidden">{{ region.label }}, </span>{{ region.totalCount if region.totalCount else region.projects.length }}
           </button>
           <div class="trusted__pin-panel" id="pin-panel-{{ region.id }}" data-map-panel hidden>
             <h3>{{ region.label }}</h3>
@@ -116,7 +118,7 @@ layout: base.njk
 
         <div class="trusted__map-marker trusted__map-marker--national" data-lat="{{ projectMap.nationalPin.lat }}" data-lon="{{ projectMap.nationalPin.lon }}">
           <button class="trusted__pin trusted__pin--national" type="button" data-map-pin aria-expanded="false" aria-controls="pin-panel-national">
-            <span class="visually-hidden">National projects, </span>{{ projectMap.nationalProjects.length }}
+            <span class="visually-hidden">National projects, </span>{{ projectMap.nationalTotalCount if projectMap.nationalTotalCount else projectMap.nationalProjects.length }}
           </button>
           <div class="trusted__pin-panel trusted__pin-panel--national" id="pin-panel-national" data-map-panel hidden>
             <h3>National projects</h3>
@@ -146,7 +148,7 @@ layout: base.njk
           <h4 class="trusted__group-head">
             <button type="button" data-map-focus="{{ group.id }}">
               <span>{{ group.label }}</span>
-              <span class="trusted__group-count">{{ group.projects.length }}</span>
+              <span class="trusted__group-count">{{ group.totalCount if group.totalCount else group.projects.length }}</span>
             </button>
           </h4>
           <ul>

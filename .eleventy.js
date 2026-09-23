@@ -21,9 +21,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("mapGroups", (projectMap) =>
     [
-      ...projectMap.regions.map((r) => ({ id: r.id, label: r.label, projects: r.projects })),
-      { id: "national", label: "National", projects: projectMap.nationalProjects },
-    ].sort((a, b) => b.projects.length - a.projects.length)
+      ...projectMap.regions.map((r) => ({ id: r.id, label: r.label, totalCount: r.totalCount, projects: r.projects })),
+      { id: "national", label: "National", totalCount: projectMap.nationalTotalCount, projects: projectMap.nationalProjects },
+    ].sort((a, b) => (b.totalCount || b.projects.length) - (a.totalCount || a.projects.length))
   );
 
   eleventyConfig.addFilter("caseSetting", (items, setting) =>

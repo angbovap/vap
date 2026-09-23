@@ -1,0 +1,8 @@
+<div class="case-gallery">
+  {% for item in caseGallery %}
+  <figure class="case-gallery__item">
+    <img src="{{ item.src }}" alt="{{ item.caption }}" loading="lazy">
+    <figcaption>{{ item.caption }}</figcaption>
+  </figure>
+  {% endfor %}
+</div>
