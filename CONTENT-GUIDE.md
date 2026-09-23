@@ -71,12 +71,22 @@ person's first initial instead — that's fine as a placeholder.
 `"description": ""` empty. The site automatically shows just their
 name in the list until you fill it in — no other changes needed.
 
-**Associate service offerings and websites:** an associate entry can
-also have a `"services"` list, shown as a grouped "Services" section
-under their bio (see Rob Zeidaks for an example — each group has a
-`"title"` and a list of `"items"`). If an associate has a `"url"`, the
-card also shows a "Visit [organisation] website" link. Both are
-optional; leave them out for anyone without them.
+**Associate service offerings:** an associate entry can also have a
+`"services"` list, shown as a grouped "Services" section under their
+bio (see Rob Zeidaks for an example — each group has a `"title"` and a
+list of `"items"`). This is optional; leave it out for anyone without
+one.
+
+**Associate expertise tags:** deliberately kept to VAP's own three
+areas — `"Resilience and Disaster Risk Reduction"`,
+`"Precincts, Planning and Development"` and
+`"Infrastructure, Amenity and Land Use"` — so an associate's tags read
+as the same three areas as the rest of the site, not a separate set of
+skills. Use those exact strings (one or two per person) in the
+`"expertise"` list. Note: an associate's `"org"` name and `"url"` are
+still stored in the data (and used by the `"services"` block above)
+but are not shown on the card, so the page reads as VAP's own
+specialists rather than pointing to a separate business.
 
 **Publications (`src/_data/publications.json`):** each entry needs a
 `"type"` (`"presentation"` or `"report"`), a `"year"` (a number, e.g.

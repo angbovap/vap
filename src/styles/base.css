@@ -2302,7 +2302,7 @@ img.logos__mark {
 }
 
 main:has(.team-intro) .eyebrow {
-  font-size: 1.5rem;
+  font-size: 1.85rem;
 }
 
 .team-intro__text {
@@ -2616,6 +2616,24 @@ main:has(.team-intro) .eyebrow {
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 600;
+}
+
+/* Matches the site's core-area palette (see .trusted__pin-tag): resilience,
+   precincts and infrastructure are distinguished by depth, not hue, so an
+   associate's tags read as the same three areas as the rest of the site. */
+.associates-spotlight__tags li[data-area="resilience"] {
+  background: var(--brand-700);
+  color: var(--surface);
+}
+
+.associates-spotlight__tags li[data-area="precincts"] {
+  background: var(--brand-500);
+  color: var(--surface);
+}
+
+.associates-spotlight__tags li[data-area="infrastructure"] {
+  background: var(--ink);
+  color: var(--surface);
 }
 
 .associates-spotlight__services {
@@ -3422,7 +3440,6 @@ main section.partners {
 
 .testimonial__stack .section-head {
   margin-bottom: var(--step-2);
-  max-width: 50ch;
 }
 
 .testimonial__grid {

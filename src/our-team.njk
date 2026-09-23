@@ -38,11 +38,11 @@ title: Our team
 <section class="associates">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Associates</p>
-      <h2>Extending our expertise</h2>
+      <p class="eyebrow">Extending our expertise</p>
+      <h2>Specialists we call on when a project needs them</h2>
     </div>
     <div class="associates-spotlight" data-associates-spotlight>
-      <ul class="associates-spotlight__toc" role="tablist" aria-label="Associates">
+      <ul class="associates-spotlight__toc" role="tablist" aria-label="Extending our expertise">
         {% for person in associates %}
         <li>
           <button type="button" class="associates-spotlight__toc-item{% if loop.first %} is-active{% endif %}" role="tab" aria-selected="{% if loop.first %}true{% else %}false{% endif %}" data-associates-tab="{{ loop.index0 }}">
@@ -53,7 +53,6 @@ title: Our team
             {% endif %}
             <span class="associates-spotlight__toc-text">
               <span class="associates-spotlight__toc-name">{{ person.name }}</span>
-              {% if person.org %}<span class="associates-spotlight__toc-org">{{ person.org }}</span>{% endif %}
             </span>
           </button>
         </li>
@@ -69,11 +68,6 @@ title: Our team
           {% endif %}
           <div class="associates-spotlight__body">
             <h3 class="associates-spotlight__name">{{ person.name }}</h3>
-            {% if person.org %}
-            <p class="associates-spotlight__org">
-              {% if person.url %}<a href="{{ person.url }}" target="_blank" rel="noopener">{{ person.org }}</a>{% else %}{{ person.org }}{% endif %}
-            </p>
-            {% endif %}
             {% if person.experience %}<p class="associates-spotlight__experience">{{ person.experience }}</p>{% endif %}
             {% if person.description %}
             <p class="associates-spotlight__text">{{ person.description }}</p>
@@ -82,7 +76,10 @@ title: Our team
             {% endif %}
             {% if person.expertise and person.expertise.length %}
             <ul class="associates-spotlight__tags">
-              {% for e in person.expertise %}<li>{{ e }}</li>{% endfor %}
+              {% for e in person.expertise %}
+              {% set area = 'resilience' if 'Resilience' in e else ('precincts' if 'Precincts' in e else ('infrastructure' if 'Infrastructure' in e else '')) %}
+              <li{% if area %} data-area="{{ area }}"{% endif %}>{{ e }}</li>
+              {% endfor %}
             </ul>
             {% endif %}
             {% if person.services and person.services.length %}
@@ -97,9 +94,6 @@ title: Our team
                 {% endfor %}
               </div>
             </div>
-            {% endif %}
-            {% if person.url and person.org %}
-            <p class="associates-spotlight__link"><a href="{{ person.url }}" target="_blank" rel="noopener">Visit {{ person.org }} website &rarr;</a></p>
             {% endif %}
             {% if person.qualifications and person.qualifications.length %}
             <ul class="associates-spotlight__quals">
