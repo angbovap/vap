@@ -31,6 +31,7 @@ formatting that breaks these files.
 | "Our services" section: services list (homepage and What we do page), clients list and the "Underpinned by..." line (homepage) | `src/_data/capabilities.json` |
 | Homepage "Our values" four tiles | `src/_data/values.json` |
 | Client logos shown per region on the homepage map | `src/_data/areaClients.json` |
+| Search engine descriptions (the grey text under each page in Google results) | `src/_data/seo.json` — one entry per page, keyed by its address (e.g. `"/our-team/"`); keep each description to about 150 characters |
 | Map pins and project counts per region | `src/_data/projectMap.json` — each region's `totalCount` sets the number shown on its pin and in the sidebar list; the `projects` array underneath is only the named selection shown in that list, so the two numbers don't have to match |
 | Case studies (Our Work pages) | `src/our-work/*.md`, one file per project |
 | What We Do pages (Resilience, Precincts, Infrastructure) | `src/what-we-do/*.njk` |

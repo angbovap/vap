@@ -1,0 +1,29 @@
+{
+  "/": {
+    "description": "Value Advisory Partners delivers real commercial intelligence for resilience, precincts and infrastructure, with over 130 projects across Australia and New Zealand."
+  },
+  "/our-team/": {
+    "description": "Meet the Value Advisory Partners team, plus the specialist associates we bring in when a project needs them."
+  },
+  "/what-we-do/": {
+    "description": "Our three practice areas: resilience and disaster risk reduction, precincts and development, and infrastructure, amenity and land use."
+  },
+  "/what-we-do/resilience/": {
+    "description": "Commercial intelligence for disaster-resilient communities and infrastructure, including the Enabling Resilience Investment framework developed with CSIRO."
+  },
+  "/what-we-do/precincts/": {
+    "description": "Place-based land use and precinct assessments using local data, with planning scenarios you can adjust and test in real time."
+  },
+  "/what-we-do/infrastructure/": {
+    "description": "Rapid value assessments of infrastructure options, with transparent assumptions that decision makers can validate and share across agencies."
+  },
+  "/our-work/": {
+    "description": "Selected commercial intelligence projects across resilience, precincts and infrastructure, from regional adaptation planning to Suburban Rail Loop station assessments."
+  },
+  "/publications/": {
+    "description": "Presentations and published reports from the Value Advisory Partners team."
+  },
+  "/get-in-touch/": {
+    "description": "Talk to Value Advisory Partners about your next project, with our office in South Melbourne and phone and email contacts."
+  }
+}
