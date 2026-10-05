@@ -456,29 +456,10 @@ main section:not(.hero) {
   color: var(--surface);
 }
 
-.nav-book__short {
-  display: none;
-}
-
 @media (max-width: 640px) {
   .nav-book {
     padding: 0.55em 1em;
     font-size: 0.82rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-book {
-    margin-left: 0;
-    padding: 0.5em 0.8em;
-  }
-
-  .nav-book__full {
-    display: none;
-  }
-
-  .nav-book__short {
-    display: inline;
   }
 }
 
@@ -3862,7 +3843,7 @@ main section.partners {
   }
 
   .nav.is-open {
-    max-height: 32rem;
+    max-height: 40rem;
   }
 
   .nav ul {
@@ -3872,12 +3853,23 @@ main section.partners {
     padding-block: var(--step-0) var(--step-1);
   }
 
+  .nav > ul > .nav__item {
+    border-bottom: 1px solid var(--rule);
+  }
+
   .nav a {
-    padding-block: 0.6em;
+    display: block;
+    padding-block: 0.85em;
+  }
+
+  .nav a::after,
+  .nav__item--has-children::after {
+    display: none;
   }
 
   .nav__item .nav__submenu {
     position: static;
+    min-width: 0;
     display: flex;
     transform: none;
     margin-top: 0;
