@@ -4,6 +4,11 @@ title: Cockatoo Island Master Plan Commercial Assessment
 lead: A commercial assessment of the master plan for Cockatoo Island in Sydney Harbour.
 placeContext: Cockatoo Island, Sydney Harbour, New South Wales
 projectType: Precincts; Infrastructure
+services:
+  - label: Precincts, Planning and Development
+    url: /what-we-do/precincts/
+  - label: Infrastructure, Amenity and Land Use
+    url: /what-we-do/infrastructure/
 image: /assets/img/case-studies/cockatoo/cockatoo1.jpg
 summary: Commercial assessment of the master plan for Cockatoo Island in Sydney Harbour.
 order: 6

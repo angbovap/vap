@@ -5,6 +5,9 @@ client: Department of Planning & Environment (NSW)
 lead: A systems- and values-based methodology for assessing multi-hazard disaster risk and identifying adaptation pathways for safe, affordable housing across the Illawarra Shoalhaven region, developed with CSIRO for the NSW Department of Planning & Environment.
 placeContext: Illawarra Shoalhaven, Regional New South Wales (Kiama Municipal Council, Shellharbour City Council, Shoalhaven City Council and Wollongong City Council)
 projectType: Climate and Natural Hazard Risk Reduction and Adaptation; Strategic Planning
+services:
+  - label: Resilience and Disaster Risk Reduction
+    url: /what-we-do/resilience/
 lifecycle: Feasibility Analysis, Options Assessment, Adaptation Pathways
 scope: Multi-Hazard Risk Assessment, Land Use and Housing Policy, Stakeholder Engagement, Feasibility and Adaptation Pathways
 image: /assets/img/case-studies/rapp/rapp1.jpg

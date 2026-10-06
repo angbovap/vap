@@ -38,6 +38,12 @@ layout: base.njk
         <span class="case-meta__value">{{ projectType }}</span>
       </div>
       {% endif %}
+      {% if services %}
+      <div class="case-meta__item">
+        <span class="case-meta__label">Service</span>
+        <span class="case-meta__value">{% for service in services %}<a href="{{ service.url }}">{{ service.label }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</span>
+      </div>
+      {% endif %}
       {% if lifecycle %}
       <div class="case-meta__item">
         <span class="case-meta__label">Project lifecycle</span>

@@ -5,6 +5,11 @@ client: Department of Environment and Water SA
 lead: Economic assessment of flood mitigation options along the Gawler River in the north of Adelaide, South Australia, testing both structural and non-structural interventions to the existing flood retention dam.
 placeContext: Adelaide's Northern Growth Areas & Regional South Australia
 projectType: Resilient Infrastructure; Natural Hazard Mitigation
+services:
+  - label: Resilience and Disaster Risk Reduction
+    url: /what-we-do/resilience/
+  - label: Infrastructure, Amenity and Land Use
+    url: /what-we-do/infrastructure/
 lifecycle: Options Analysis and Cost/Benefit Assessment
 scope: Cost Benefit Assessment, Land Use, Jobs/GVA, GFA/Development Uplift, Value at Risk (Losses), Value Creation
 image: /assets/img/case-studies/gawler/gawler2.jpg

@@ -137,6 +137,8 @@ photo gallery — copy either file as a starting point, and add `client:`,
 `lifecycle:`, `duration:`, `scope:` and `sections:` whenever the details are
 ready (see the older case studies for how).
 
+**Service links on case studies:** each case study can list the service pages it belongs to, under `services:` near the top (copy the format of an existing one — each entry has a `label` and a `url`, e.g. `/what-we-do/resilience/`). These show as a "Service" line on the case study.
+
 **Homepage "Selected work":** it shows up to three regional projects on the
 left and three city projects on the right, paired row by row in
 `order` sequence. Each case study needs a `setting:` field near the top,

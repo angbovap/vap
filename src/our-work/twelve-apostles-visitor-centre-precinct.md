@@ -4,6 +4,9 @@ title: 12 Apostles Visitor Centre Precinct Analysis
 lead: A precinct analysis for the 12 Apostles Visitor Centre on Victoria's Great Ocean Road.
 placeContext: Twelve Apostles, Great Ocean Road, Regional Victoria
 projectType: Precincts
+services:
+  - label: Precincts, Planning and Development
+    url: /what-we-do/precincts/
 image: /assets/img/case-studies/apostles/apostle3.jpg
 summary: Precinct analysis for the 12 Apostles Visitor Centre on Victoria's Great Ocean Road.
 order: 7

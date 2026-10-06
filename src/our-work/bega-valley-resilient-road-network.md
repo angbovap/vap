@@ -5,6 +5,11 @@ client: Bega Valley Shire Council (NSW)
 lead: Using the Enabling Resilience Investment framework, Bega Valley Shire Council strengthened the resilience of its road network against multiple climate hazards, from freight corridors to tourism connectivity.
 placeContext: Bega Valley Shire, South Coast New South Wales
 projectType: Resilient Infrastructure; Disaster Risk Reduction
+services:
+  - label: Resilience and Disaster Risk Reduction
+    url: /what-we-do/resilience/
+  - label: Infrastructure, Amenity and Land Use
+    url: /what-we-do/infrastructure/
 lifecycle: Feasibility Analysis, Options Assessment, Adaptation Pathways
 duration: Early 2023 - Late 2024
 scope: Resilience Adaptation, Land Use and Infrastructure, Feasibility Analysis, Adaptation Pathways

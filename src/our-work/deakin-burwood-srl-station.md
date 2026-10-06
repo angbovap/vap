@@ -4,6 +4,11 @@ title: Deakin Burwood SRL Station Assessment
 lead: An example of the VITAL system in action, evaluating station location options across Deakin and Burwood, and comparing integrated against non-integrated precinct approaches.
 placeContext: Burwood, Melbourne, Victoria
 projectType: Precinct Development, Transport Infrastructure, Amenity
+services:
+  - label: Precincts, Planning and Development
+    url: /what-we-do/precincts/
+  - label: Infrastructure, Amenity and Land Use
+    url: /what-we-do/infrastructure/
 lifecycle: Options Analysis and Cost/Benefit Assessment
 scope: Transport Assessment, Land Use, Jobs/GVA/Development Uplift, Dwellings, Value Creation
 image: /assets/img/case-studies/deakin/deakin1.jpg

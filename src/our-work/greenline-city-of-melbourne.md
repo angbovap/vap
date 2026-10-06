@@ -5,6 +5,11 @@ client: City of Melbourne
 lead: An economic impact assessment and funding plan for the Greenline Implementation Plan, weighing the benefits and constraints it will bring to local businesses, residents and visitors along the Yarra River corridor.
 placeContext: Central Melbourne
 projectType: Urban Renewal, Public Infrastructure and Amenities, Precinct Planning
+services:
+  - label: Precincts, Planning and Development
+    url: /what-we-do/precincts/
+  - label: Infrastructure, Amenity and Land Use
+    url: /what-we-do/infrastructure/
 lifecycle: Cost/Benefit Assessment, Funding and Financing
 scope: Cost Benefit Assessment, Social Benefits, Land Use, Jobs/GVA, GFA/Development Uplift, Value Creation, Financing Infrastructure Projects
 image: /assets/img/case-studies/greenline/greenline-2.jpg
