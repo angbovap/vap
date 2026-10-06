@@ -8,6 +8,27 @@ eleventyComputed:
   title: "{{ member.name }}"
 layout: base.njk
 ---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ member.name }}",
+  {%- if member.role %}
+  "jobTitle": "{{ member.role }}",
+  {%- endif %}
+  "worksFor": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.siteUrl }}" },
+  {%- if member.email %}
+  "email": "{{ member.email }}",
+  {%- endif %}
+  {%- if member.phone %}
+  "telephone": "{{ member.phone }}",
+  {%- endif %}
+  {%- if member.image %}
+  "image": "{{ site.siteUrl }}{{ member.image }}",
+  {%- endif %}
+  "url": "{{ site.siteUrl }}{{ page.url }}"
+}
+</script>
 {% set total = pagination.hrefs.length %}
 {% set nextIndex = (pagination.pageNumber + 1) % total %}
 {% set prevIndex = (pagination.pageNumber - 1 + total) % total %}
