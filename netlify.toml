@@ -1,3 +1,54 @@
 [build]
   command = "npm run build"
   publish = "_site"
+
+# Redirects from URLs of the previous site that Google still has indexed
+[[redirects]]
+  from = "/aboutus"
+  to = "/our-team/"
+  status = 301
+
+[[redirects]]
+  from = "/aboutus/*"
+  to = "/our-team/"
+  status = 301
+
+[[redirects]]
+  from = "/resilience-disaster-risk-reduction"
+  to = "/what-we-do/resilience/"
+  status = 301
+
+[[redirects]]
+  from = "/precincts-planning-development"
+  to = "/what-we-do/precincts/"
+  status = 301
+
+[[redirects]]
+  from = "/infrastructure-amenity-land-use"
+  to = "/what-we-do/infrastructure/"
+  status = 301
+
+[[redirects]]
+  from = "/john-marinopoulos"
+  to = "/our-team/john-marinopoulos/"
+  status = 301
+
+[[redirects]]
+  from = "/nic-mesic"
+  to = "/our-team/nic-mesic/"
+  status = 301
+
+[[redirects]]
+  from = "/peter-heinmiller"
+  to = "/our-team/peter-heinmiller/"
+  status = 301
+
+[[redirects]]
+  from = "/christopher-marinopoulos"
+  to = "/our-team/christopher-marinopoulos/"
+  status = 301
+
+[[redirects]]
+  from = "/dylan-pleiter"
+  to = "/our-team/dylan-pleiter/"
+  status = 301
