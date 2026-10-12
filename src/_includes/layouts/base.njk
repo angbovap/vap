@@ -13,6 +13,15 @@
   {% if pageDescription %}<meta property="og:description" content="{{ pageDescription }}">{% endif %}
   <meta property="og:url" content="{{ site.siteUrl }}{{ page.url }}">
   <meta property="og:image" content="{{ site.siteUrl }}/assets/img/site/hero.jpg">
+  {% if site.gaMeasurementId %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaMeasurementId }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.gaMeasurementId }}');
+  </script>
+  {% endif %}
   <link rel="icon" href="/assets/img/brand/vaplogo.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/img/brand/vaplogo.png">
   <link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -58,6 +67,7 @@
     <span class="visually-hidden">Back to top</span>
   </button>
 
+  <script src="/scripts/analytics.js" defer></script>
   <script src="/scripts/mobile-nav.js" defer></script>
   <script src="/scripts/reveal.js" defer></script>
   <script src="/scripts/carousel.js" defer></script>
