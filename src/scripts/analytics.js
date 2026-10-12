@@ -50,6 +50,9 @@
     if (parts.length === 2 && parts[0] === 'our-work') {
       return { type: 'project_click', nameKey: 'project_name', name: parts[1] };
     }
+    if (parts.length === 2 && parts[0] === 'our-team') {
+      return { type: 'team_profile_click', nameKey: 'team_member', name: parts[1] };
+    }
     return null;
   }
 
@@ -79,4 +82,143 @@
 
     window.gtag('event', match.type, params);
   });
+
+  // ---- Engagement events (no markup changes: all hooked from the outside) ----
+
+  function send(name, params) {
+    if (typeof window.gtag !== 'function') return;
+    var data = { page_location: window.location.href };
+    for (var key in params) data[key] = params[key];
+    window.gtag('event', name, data);
+  }
+
+  document.addEventListener('click', function (event) {
+    var el = event.target.closest && event.target.closest(
+      '[data-yt-preview], [data-map-pin], [data-map-focus], [data-wwd-toggle], .nav-toggle'
+    );
+    if (!el) return;
+
+    if (el.hasAttribute('data-yt-preview')) {
+      send('video_play', {
+        video_title: clean(el.getAttribute('aria-label')),
+        video_id: el.getAttribute('data-yt-preview')
+      });
+    } else if (el.hasAttribute('data-map-pin') || el.hasAttribute('data-map-focus')) {
+      send('map_region_select', {
+        region: el.getAttribute('data-map-pin') || el.getAttribute('data-map-focus')
+      });
+    } else if (el.hasAttribute('data-wwd-toggle')) {
+      send('service_panel_toggle', { button_text: clean(el.textContent) });
+    } else {
+      send('mobile_menu_toggle', { button_location: 'navbar' });
+    }
+  });
+
+  // Scroll depth: 25 / 50 / 75 / 100 %, once each per page view.
+  var depthMarks = [25, 50, 75, 100];
+  var depthSent = {};
+  var depthTicking = false;
+
+  function checkDepth() {
+    depthTicking = false;
+    var doc = document.documentElement;
+    var scrollable = doc.scrollHeight - window.innerHeight;
+    if (scrollable <= 0) return;
+    var percent = (window.scrollY / scrollable) * 100;
+    depthMarks.forEach(function (mark) {
+      if (percent >= mark - 1 && !depthSent[mark]) {
+        depthSent[mark] = true;
+        send('scroll_depth', { percent_scrolled: mark });
+      }
+    });
+  }
+
+  window.addEventListener('scroll', function () {
+    if (depthTicking) return;
+    depthTicking = true;
+    window.requestAnimationFrame(checkDepth);
+  }, { passive: true });
+
+  // Contact form: started, submitted successfully (lead), or failed.
+  var form = document.querySelector('[data-contact-form]');
+  if (form) {
+    var started = false;
+    form.addEventListener('focusin', function () {
+      if (started) return;
+      started = true;
+      send('form_start', { form_name: 'contact' });
+    });
+
+    var status = form.querySelector('[data-form-status]');
+    if (status) {
+      var lastKind = '';
+      new MutationObserver(function () {
+        var kind = /form-status--(success|error)/.exec(status.className);
+        kind = kind ? kind[1] : '';
+        if (!kind || kind === lastKind) return;
+        lastKind = kind;
+        if (kind === 'success') send('generate_lead', { form_name: 'contact' });
+        else send('form_error', { form_name: 'contact' });
+      }).observe(status, { attributes: true, attributeFilter: ['class'] });
+    }
+  }
+
+  // ---- Experience / UX signals ----
+
+  // Which sections people actually see (shows where visitors drop off).
+  if ('IntersectionObserver' in window) {
+    var seenSections = {};
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var name = entry.target.classList[0];
+        sectionObserver.unobserve(entry.target);
+        if (!name || seenSections[name]) return;
+        seenSections[name] = true;
+        send('section_view', { section_name: name });
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('main section[class]').forEach(function (section) {
+      sectionObserver.observe(section);
+    });
+  }
+
+  // Broken links: which missing page was requested, and where the visitor came from.
+  if (/page not found/i.test(document.title)) {
+    send('page_not_found', {
+      page_path: window.location.pathname,
+      referrer: document.referrer || '(direct)'
+    });
+  }
+
+  // People copying contact details instead of clicking them.
+  document.addEventListener('copy', function () {
+    var selected = clean(String(window.getSelection() || ''));
+    if (!selected || selected.length > 80) return;
+    var kind = /@/.test(selected) ? 'email' : /^[+()ds-]{8,}$/.test(selected) ? 'phone' : '';
+    if (kind) send('contact_copy', { contact_type: kind });
+  });
+
+  // Back to top.
+  document.addEventListener('click', function (event) {
+    if (event.target.closest && event.target.closest('[data-back-to-top]')) {
+      send('back_to_top_click', { percent_scrolled: Math.round(
+        (window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight)) * 100
+      ) });
+    }
+  });
+
+  // Which contact-form fields trip people up (field names only, never what they typed).
+  if (form) {
+    var reportedFields = {};
+    new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        var field = m.target;
+        if (!field.hasAttribute('aria-invalid') || reportedFields[field.id]) return;
+        reportedFields[field.id] = true;
+        send('form_field_error', { form_name: 'contact', field_name: field.id });
+      });
+    }).observe(form, { attributes: true, attributeFilter: ['aria-invalid'], subtree: true });
+  }
 })();
