@@ -1,0 +1,26 @@
+<section class="values">
+  <div class="wrap values__grid reveal">
+    <div class="values__lead-col">
+      <p class="eyebrow">Our values</p>
+      <h2 class="values__lead">Collaboration and co-design with every client</h2>
+      <div class="values__body">
+        <p>At Value Advisory Partners we have a clear purpose and focus to maximise and sustain the value that can be obtained by public and private sector clients from their investments.</p>
+        <p>We do this through a structured approach using data and evidence to build knowledge to inform sound decision making. We understand that value comes from multiple sources which can be integrated together to build a complete picture of the system to enable optimal value realisation and return.</p>
+        <p>The hallmark of our work and approach is collaboration and co-design with our clients to identify, maximise and sustain the opportunities to create and extract value from their investments.</p>
+      </div>
+    </div>
+    <div class="values__right">
+      <div class="values__list stagger">
+        {% for item in values %}
+        <div class="values__item reveal">
+          <div class="values__item-image" style="background-image: url('{{ item.image }}');"></div>
+          <div class="values__item-body">
+            <span class="values__num" aria-hidden="true">{{ "0" ~ loop.index if loop.index < 10 else loop.index }}</span>
+            <p>{{ item.text }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
