@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+  <title>{% if title %}VAP · {{ title }}{% else %}{{ site.name }}{% endif %}</title>
   {% set pageDescription = description or seo[page.url].description %}
   {% if pageDescription %}<meta name="description" content="{{ pageDescription }}">{% endif %}
   <link rel="canonical" href="{{ site.siteUrl }}{{ page.url }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ site.name }}">
-  <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}{{ site.name }}">
+  <meta property="og:title" content="{% if title %}VAP · {{ title }}{% else %}{{ site.name }}{% endif %}">
   {% if pageDescription %}<meta property="og:description" content="{{ pageDescription }}">{% endif %}
   <meta property="og:url" content="{{ site.siteUrl }}{{ page.url }}">
   <meta property="og:image" content="{{ site.siteUrl }}/assets/img/site/hero.jpg">
