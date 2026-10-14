@@ -9,6 +9,6 @@
     <h1 class="case-hero__title">{{ block.title }}</h1>
     {% set heroHost = page.url | featuredHost(services, "") %}
     {% set hh = heroHost | bookHost %}
-    {% if hh %}<a class="case-hero__book" href="{{ hh.url }}" target="_blank" rel="noopener" data-book-host="{{ hh.slug }}" data-book-focus="{{ hh.focus }}">Book a meeting with {{ hh.firstName }}</a>{% endif %}
+    {% if hh %}<a class="case-hero__book" href="/book/?for={{ hh.firstName | lower }}">Book a meeting with {{ hh.firstName }}</a>{% endif %}
   </div>
 </section>

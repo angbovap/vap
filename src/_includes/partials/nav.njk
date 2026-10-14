@@ -9,8 +9,7 @@
       </span>
     </a>
 
-    {% set navHost = (page.url | featuredHost(services, member.slug)) | bookHost %}
-    {% if navHost %}<a class="nav-book" href="{{ navHost.url }}" target="_blank" rel="noopener" data-book-host="{{ navHost.slug }}" data-book-focus="{{ navHost.focus }}">Book a meeting</a>{% else %}<a class="nav-book" href="/book/">Book a meeting</a>{% endif %}
+    <a class="nav-book" href="/book/">Book a meeting</a>
 
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
       <span class="visually-hidden">Menu</span>
