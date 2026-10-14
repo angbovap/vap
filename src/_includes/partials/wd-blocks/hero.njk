@@ -9,6 +9,12 @@
     <h1 class="case-hero__title">{{ block.title }}</h1>
     {% set heroHost = page.url | featuredHost(services, "") %}
     {% set hh = heroHost | bookHost %}
-    {% if hh %}<a class="case-hero__book" href="/book/?for={{ hh.firstName | lower }}">Book a meeting with {{ hh.firstName }}</a>{% endif %}
+    {% if hh %}
+    <div class="case-hero__adviser">
+      {% if hh.image %}<span class="case-hero__avatar" style="background-image: url('{{ hh.image }}');" aria-hidden="true"></span>{% endif %}
+      <p class="case-hero__adviser-text"><strong>{{ hh.name }}</strong><span>{{ hh.blurb }}</span></p>
+    </div>
+    <a class="case-hero__book" href="/book/?for={{ hh.firstName | lower }}">Book a meeting with {{ hh.firstName }}</a>
+    {% endif %}
   </div>
 </section>

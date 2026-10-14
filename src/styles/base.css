@@ -3804,67 +3804,158 @@ main section.partners {
 /* Footer */
 
 .site-foot {
-  background: var(--surface);
-  border-top: 1px solid var(--rule);
+  background: var(--brand-700);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.site-foot a {
+  color: var(--surface);
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 0.2em;
+}
+
+.site-foot a:hover,
+.site-foot a:focus-visible {
+  text-decoration-color: var(--surface);
 }
 
 .site-foot__inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: var(--step-2);
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--step-2) clamp(2rem, 6vw, 5rem);
+  align-items: start;
   padding-block: var(--step-3);
 }
 
-.site-foot__head {
-  font-size: var(--step-1);
-  margin-bottom: var(--step-0);
+.site-foot__name {
+  color: var(--surface);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
 }
 
-.site-foot address {
+.site-foot__name span {
+  font-weight: 400;
+}
+
+.site-foot__tagline {
+  margin-top: 0.5em;
+  color: var(--surface);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.site-foot__cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--step-1) var(--step-2);
+}
+
+.site-foot__col {
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.site-foot__label {
+  margin-bottom: 0.7em;
+  color: var(--brand-100);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.site-foot__list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-foot__address {
   font-style: normal;
-  color: var(--ink-muted);
 }
 
-.site-foot__linkedin {
+.site-foot__directions {
   display: inline-block;
-  margin-top: var(--step-0);
+  margin-top: 0.7rem;
+  font-weight: 600;
+}
+
+.site-foot__mapwrap {
+  padding-bottom: var(--step-3);
+}
+
+.site-foot__tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-bottom: 0.9rem;
+  padding: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+}
+
+.site-foot__tab {
+  padding: 0.45em 1.1em;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--surface);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.site-foot__tab.is-active {
+  background: var(--surface);
+  color: var(--brand-700);
+}
+
+.site-foot__tab:focus-visible {
+  outline: 2px solid var(--surface);
+  outline-offset: 2px;
 }
 
 .site-foot__map {
-  flex: 0 0 auto;
-  width: min(280px, 100%);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 5;
+  min-height: 14rem;
   border-radius: 0.6rem;
   overflow: hidden;
-  border: 1px solid var(--rule);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .site-foot__map iframe {
   display: block;
 }
 
-.site-foot__nav {
-  display: flex;
-  flex-direction: column;
-  gap: var(--step-0);
-  list-style: none;
-  padding: 0;
-}
-
-.site-foot__nav a {
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.site-foot__legal {
+.site-foot__bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-block: var(--step-1);
-  color: var(--ink-muted);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.site-foot__legal a {
+.site-foot__legal-text {
+  margin: 0;
+}
+
+.site-foot__legal-text a {
   color: inherit;
+}
+
+@media (max-width: 900px) {
+  .site-foot__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-foot__cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1099px) {
@@ -5353,3 +5444,57 @@ main section.partners {
 main section.book.book--similar {
   background: var(--brand-50);
 }
+
+/* Service hero: who the booking button is for */
+
+.case-hero__adviser {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: var(--step-1);
+  max-width: 36rem;
+}
+
+.case-hero__avatar {
+  flex: 0 0 auto;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center top;
+  background-color: var(--ink);
+  filter: grayscale(1);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.case-hero__adviser-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  color: var(--surface);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.case-hero__adviser-text strong {
+  font-size: 1rem;
+}
+
+.case-hero__adviser-text span {
+  opacity: 0.9;
+}
+
+.case-hero__adviser + .case-hero__book {
+  margin-top: var(--step-0);
+}
+
+/* Office addresses */
+
+.office__name {
+  color: var(--brand-700);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+

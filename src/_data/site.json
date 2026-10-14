@@ -3,7 +3,7 @@
   "brandPrimary": "VALUE ADVISORY",
   "brandSecondary": "PARTNERS",
   "legalName": "Value Advisory Partners Pty. Ltd.",
-  "tagline": "Real Commercial Integlligence",
+  "tagline": "Real Commercial Intelligence",
   "phone": "+61 3 7053 3009",
   "phoneHref": "tel:+61370533009",
   "email": "info@valueadvisory.co",
@@ -11,6 +11,10 @@
     "line1": "Level 11, 60 Albert Road",
     "line2": "South Melbourne, Victoria, 3205, Australia"
   },
+  "offices": [
+    { "name": "Melbourne", "line1": "Level 11, 60 Albert Road", "line2": "South Melbourne, Victoria, 3205, Australia", "locality": "South Melbourne", "region": "VIC", "postalCode": "3205" },
+    { "name": "Adelaide", "line1": "Level 1, 63 Pirie Street", "line2": "Adelaide, South Australia, 5000, Australia", "locality": "Adelaide", "region": "SA", "postalCode": "5000" }
+  ],
   "siteUrl": "https://valueadvisory.co",
   "linkedin": "https://www.linkedin.com/company/value-advisory-partners/",
   "bookingHost": {

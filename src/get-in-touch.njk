@@ -70,8 +70,11 @@ title: Get in touch
       <div class="contact-details__block">
         <p class="eyebrow">Contact details</p>
         <address class="contact-details__address">
-          {{ site.address.line1 }}<br>
-          {{ site.address.line2 }}
+          {% for office in site.offices %}
+          <span class="office"><strong class="office__name">{{ office.name }}</strong><br>
+          {{ office.line1 }}<br>
+          {{ office.line2 }}</span>{% if not loop.last %}<br><br>{% endif %}
+          {% endfor %}
         </address>
         <ul class="contact-details__list">
           <li><a href="{{ site.phoneHref }}">{{ site.phone }}</a></li>

@@ -11,8 +11,8 @@
 <aside class="book-inline reveal" aria-label="Book a meeting with {{ h.name }}">
   <div class="book-inline__body">
     <p class="book-inline__eyebrow">{{ h.focus }}</p>
-    <p class="book-inline__title">{{ heading or ("Talk to " ~ h.firstName ~ " about " ~ (h.focus | lower)) }}</p>
-    <p class="book-inline__text">{{ text or h.text }}</p>
+    <p class="book-inline__title">{{ heading or ("Talk to " ~ h.name ~ " about " ~ (h.focus | lower)) }}</p>
+    <p class="book-inline__text">{{ text or h.blurb or h.text }}</p>
   </div>
   <a class="book__btn" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">Book a meeting with {{ h.firstName }}</a>
 </aside>

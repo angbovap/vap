@@ -5,28 +5,32 @@
       "firstName": "John",
       "focus": "Commercial intelligence",
       "text": "Discussion with Value Advisory Partners about delivering real commercial intelligence for your organisation. The benefit is to unlock commercial potential to future proof value.",
-      "bookingUrl": ""
+      "bookingUrl": "",
+      "blurb": "Over 30 years advising on resilient infrastructure, disaster risk reduction and precincts."
     },
     {
       "slug": "nic-mesic",
       "firstName": "Nic",
       "focus": "Climate and resilience",
       "text": "Climate risk, disaster resilience and investment in adaptation.",
-      "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ01_hHD5vvfkSydrri07jWc9-MuYpNKeQdeEXHBDCbBFFwFDeNBUrVfkIWjycCEWCD8VeYgc53S?gv=true"
+      "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ01_hHD5vvfkSydrri07jWc9-MuYpNKeQdeEXHBDCbBFFwFDeNBUrVfkIWjycCEWCD8VeYgc53S?gv=true",
+      "blurb": "Co-program lead for the Enabling Resilience Investment Framework, developed with CSIRO."
     },
     {
       "slug": "christopher-marinopoulos",
       "firstName": "Chris",
       "focus": "Infrastructure",
       "text": "Infrastructure investment, options analysis and precinct planning.",
-      "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1tfE9rZkWN9x-l2mC78RNIo4S3enC3he0iV6TAo21qdZY6NtjEMdur0_4aWN_KZ1busof4MCdy?gv=true"
+      "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1tfE9rZkWN9x-l2mC78RNIo4S3enC3he0iV6TAo21qdZY6NtjEMdur0_4aWN_KZ1busof4MCdy?gv=true",
+      "blurb": "Specialises in infrastructure and impact analysis, precinct planning and GIS modelling."
     },
     {
       "slug": "peter-heinmiller",
       "firstName": "Peter",
       "focus": "Data and analytics",
       "text": "Data, analytics and strategic options assessment.",
-      "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3-vmPmta01N3VOfWnQ9Iou01Sh_N0yB69uFHoQqzn3tK2F4VPXqJNHpzPypqHRKDP2NJMwgvYa?gv=true"
+      "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3-vmPmta01N3VOfWnQ9Iou01Sh_N0yB69uFHoQqzn3tK2F4VPXqJNHpzPypqHRKDP2NJMwgvYa?gv=true",
+      "blurb": "Combines data and analytics with strategic options analysis for infrastructure and precincts."
     }
   ],
   "serviceHost": {

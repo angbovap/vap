@@ -1,36 +1,55 @@
 <footer class="site-foot">
   <div class="wrap site-foot__inner">
-    <div>
-      <h2 class="site-foot__head">Connect with {{ site.name }}</h2>
-      <address>
-        {{ site.address.line1 }}<br>
-        {{ site.address.line2 }}<br><br>
-        <a href="{{ site.phoneHref }}">{{ site.phone }}</a><br>
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-      </address>
-      <a class="site-foot__linkedin" href="{{ site.linkedin }}">LinkedIn</a>
+    <div class="site-foot__brand">
+      <p class="site-foot__name">{{ site.brandPrimary }} <span>{{ site.brandSecondary }}</span></p>
+      <p class="site-foot__tagline">{{ site.tagline }}</p>
     </div>
 
-    <div class="site-foot__map">
-      <iframe
-        src="https://www.google.com/maps?q={{ (site.address.line1 + ', ' + site.address.line2) | urlencode }}&output=embed"
-        width="100%" height="100%" style="border:0;" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="{{ site.name }} office location"></iframe>
-    </div>
+    <div class="site-foot__cols">
+      <div class="site-foot__col">
+        <p class="site-foot__label">Contact</p>
+        <ul class="site-foot__list">
+          <li><a href="{{ site.phoneHref }}">{{ site.phone }}</a></li>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><a href="{{ site.linkedin }}">LinkedIn</a></li>
+        </ul>
+      </div>
 
-    <nav aria-label="Footer">
-      <ul class="site-foot__nav">
-        {% for item in site.nav %}
-        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
-        {% endfor %}
-        <li><a href="/book/">Book a meeting</a></li>
-      </ul>
-    </nav>
+      {% for office in site.offices %}
+      <div class="site-foot__col">
+        <p class="site-foot__label">{{ office.name }}</p>
+        <address class="site-foot__address">
+          {{ office.line1 }}<br>
+          {{ office.line2 }}
+        </address>
+        <a class="site-foot__directions" href="https://www.google.com/maps/search/?api=1&amp;query={{ (office.line1 + ', ' + office.line2) | urlencode }}" target="_blank" rel="noopener">Get directions <span aria-hidden="true">→</span></a>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 
-  <div class="wrap site-foot__legal">
-    <p>&copy; {% year %} {{ site.legalName }} All rights reserved.
-       <a href="/copyright/">Copyright and terms</a></p>
+  <div class="wrap site-foot__mapwrap" data-foot-map>
+    <div class="site-foot__tabs" role="group" aria-label="Choose an office to show on the map">
+      {% for office in site.offices %}
+      <button type="button" class="site-foot__tab{% if loop.first %} is-active{% endif %}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}"
+        data-map-src="https://www.google.com/maps?q={{ (office.line1 + ', ' + office.line2) | urlencode }}&amp;output=embed"
+        data-map-title="Map showing the {{ office.name }} office of {{ site.name }} at {{ office.line1 }}">{{ office.name }}</button>
+      {% endfor %}
+    </div>
+    <div class="site-foot__map">
+      {% set first = site.offices[0] %}
+      <iframe
+        src="https://www.google.com/maps?q={{ (first.line1 + ', ' + first.line2) | urlencode }}&output=embed"
+        width="100%" height="100%" style="border:0;" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map showing the {{ first.name }} office of {{ site.name }} at {{ first.line1 }}"></iframe>
+    </div>
+  </div>
+
+  <div class="site-foot__bar">
+    <div class="wrap">
+      <p class="site-foot__legal-text">&copy; {% year %} {{ site.legalName }} All rights reserved.
+         <a href="/copyright/">Copyright and terms</a></p>
+    </div>
   </div>
 </footer>
