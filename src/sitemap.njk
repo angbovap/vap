@@ -4,7 +4,9 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- for page in collections.all %}{% if page.url and page.url != "/404.html" %}
-  <url><loc>{{ site.siteUrl }}{{ page.url }}</loc></url>
+  <url><loc>{{ site.siteUrl }}/</loc><priority>1.0</priority></url>
+  <url><loc>{{ site.siteUrl }}/book/</loc><priority>0.9</priority></url>
+{%- for page in collections.all %}{% if page.url and page.url != "/404.html" and page.url != "/" and page.url != "/book/" %}
+  <url><loc>{{ site.siteUrl }}{{ page.url }}</loc><priority>0.6</priority></url>
 {%- endif %}{% endfor %}
 </urlset>

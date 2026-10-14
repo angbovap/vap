@@ -9,7 +9,8 @@
       </span>
     </a>
 
-    <a class="nav-book" href="{% if page.url == '/404.html' %}/get-in-touch/{% endif %}#book-meeting">Book a meeting</a>
+    {% set navHost = (page.url | featuredHost(services, member.slug)) | bookHost %}
+    {% if navHost %}<a class="nav-book" href="{{ navHost.url }}" target="_blank" rel="noopener" data-book-host="{{ navHost.slug }}" data-book-focus="{{ navHost.focus }}">Book a meeting</a>{% else %}<a class="nav-book" href="/book/">Book a meeting</a>{% endif %}
 
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
       <span class="visually-hidden">Menu</span>
@@ -20,7 +21,7 @@
     <nav id="nav" class="nav" aria-label="Main">
       <ul>
         {% for item in site.nav %}
-        <li class="nav__item{% if item.children %} nav__item--has-children{% endif %}">
+        {% if not item.footerOnly %}<li class="nav__item{% if item.children %} nav__item--has-children{% endif %}">
           <a href="{{ item.url }}"
              {% if (item.url == "/" and page.url == "/") or (item.url != "/" and page.url.startsWith(item.url)) %}aria-current="page"{% endif %}>
             {{ item.label }}
@@ -35,7 +36,7 @@
             {% endfor %}
           </ul>
           {% endif %}
-        </li>
+        </li>{% endif %}
         {% endfor %}
       </ul>
     </nav>

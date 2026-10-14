@@ -40,6 +40,15 @@
     "telephone": "{{ site.phone }}",
     "email": "{{ site.email }}",
     "sameAs": ["{{ site.linkedin }}"],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "name": "Book a meeting",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{ site.siteUrl }}/book/",
+        "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+      }
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "{{ site.address.line1 }}",
@@ -58,7 +67,7 @@
     {{ content | safe }}
   </main>
 
-  {% if page.url != "/404.html" %}{% include "partials/book-meeting.njk" %}{% endif %}
+  {% if page.url != "/404.html" and page.url != "/book/" %}{% include "partials/book-meeting.njk" %}{% endif %}
 
   {% include "partials/footer.njk" %}
 

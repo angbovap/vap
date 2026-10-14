@@ -1,0 +1,25 @@
+{#
+  The list of advisers with their booking buttons. Used by the booking band
+  and the /book/ page. Expects `featured` (host slug or empty) to be set by
+  the including template.
+#}
+<ul class="book__list reveal">
+  {% for pass in ["featured", "others"] %}
+  {% for host in booking.hosts %}
+  {% if (pass == "featured" and host.slug == featured) or (pass == "others" and host.slug != featured) %}
+  {% set h = host.slug | bookHost %}
+  {% set flag = "Suggested for this page" if host.slug == featured else "" %}
+  {% set lead = (host.slug == featured) or (host.slug == "john-marinopoulos" and not featured) %}
+  <li class="book__row{% if lead %} book__row--flagged{% endif %}">
+    {% if h.image %}<span class="book__avatar" style="background-image: url('{{ h.image }}');" aria-hidden="true"></span>{% endif %}
+    <div class="book__who">
+      {% if flag %}<p class="book__flag">{{ flag }}</p>{% endif %}
+      <p class="book__name">{{ h.name }} <span class="book__focus">{{ h.focus }}</span></p>
+      <p class="book__text">{{ h.text }}</p>
+    </div>
+    <a class="book__btn" href="{{ h.url }}" target="_blank" rel="noopener" aria-label="Book a meeting with {{ h.name }}" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">Book a meeting</a>
+  </li>
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+</ul>

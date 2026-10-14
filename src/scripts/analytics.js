@@ -20,6 +20,7 @@
   function buttonLocation(link, type) {
     if (link.closest('.site-head')) return 'navbar';
     if (link.closest('.site-foot')) return 'footer';
+    if (link.closest('.book--page')) return 'booking_page';
     if (link.closest('.book')) return 'booking_section';
     if (link.closest('.book-inline')) return 'inline_prompt';
     if (link.closest('.team-member-wrap')) return 'team_card';
@@ -86,8 +87,8 @@
     };
     if (match.nameKey) params[match.nameKey] = match.name;
     if (match.type === 'book_meeting_click') {
-      // 'calendar' = opened an adviser's booking page; 'section' = scrolled to the booking section
-      params.click_stage = link.hasAttribute('data-book-host') ? 'calendar' : 'section';
+      // 'calendar' = opened an adviser's calendar; 'booking_page' = went to the /book/ page
+      params.click_stage = link.hasAttribute('data-book-host') ? 'calendar' : 'booking_page';
       if (link.hasAttribute('data-book-host')) {
         params.meeting_host = link.getAttribute('data-book-host');
         params.meeting_topic = link.getAttribute('data-book-focus');

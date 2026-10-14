@@ -25,5 +25,8 @@
   },
   "/get-in-touch/": {
     "description": "Talk to Value Advisory Partners about your next project, with our office in South Melbourne and phone and email contacts."
+  },
+  "/book/": {
+    "description": "Book a meeting with John Marinopoulos, Nic Mesic, Christopher Marinopoulos or Peter Heinmiller at Value Advisory Partners."
   }
 }

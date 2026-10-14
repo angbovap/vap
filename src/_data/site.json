@@ -34,6 +34,6 @@
     { "label": "Our work", "url": "/our-work/" },
     { "label": "Our team", "url": "/our-team/" },
     { "label": "Publications", "url": "/publications/" },
-    { "label": "Get in touch", "url": "/get-in-touch/" }
+    { "label": "Get in touch", "url": "/get-in-touch/", "footerOnly": true }
   ]
 }

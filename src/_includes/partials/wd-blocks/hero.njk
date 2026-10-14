@@ -8,8 +8,7 @@
     <p class="eyebrow">What we do</p>
     <h1 class="case-hero__title">{{ block.title }}</h1>
     {% set heroHost = page.url | featuredHost(services, "") %}
-    {% if heroHost %}{% for h in booking.hosts %}{% if h.slug == heroHost %}
-    <a class="case-hero__book" href="#book-meeting">Book a meeting with {{ h.firstName }}</a>
-    {% endif %}{% endfor %}{% endif %}
+    {% set hh = heroHost | bookHost %}
+    {% if hh %}<a class="case-hero__book" href="{{ hh.url }}" target="_blank" rel="noopener" data-book-host="{{ hh.slug }}" data-book-focus="{{ hh.focus }}">Book a meeting with {{ hh.firstName }}</a>{% endif %}
   </div>
 </section>
