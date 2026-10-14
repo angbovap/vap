@@ -3449,13 +3449,13 @@ main section.partners {
 }
 
 .testimonial__stack .section-head {
-  margin-bottom: var(--step-2);
+  margin-bottom: var(--step-1);
 }
 
 .testimonial__grid {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: calc(var(--gutter) * 1.4);
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--step-1) clamp(0.75rem, 2vw, 1.5rem);
   align-items: start;
 }
 
@@ -3465,10 +3465,10 @@ main section.partners {
 }
 
 .testimonial__mark {
-  font-size: clamp(4rem, 7vw, 6.5rem);
+  font-size: clamp(3.25rem, 5.5vw, 4.5rem);
   font-family: var(--font-serif);
   color: var(--brand-500);
-  line-height: 1;
+  line-height: 0.9;
 }
 
 .testimonial__attribution {
@@ -3516,7 +3516,7 @@ main section.partners {
 
 .carousel__viewport {
   position: relative;
-  min-height: 16rem;
+  min-height: 11rem;
 }
 
 .carousel__track {
@@ -3560,7 +3560,7 @@ main section.partners {
 .carousel__progress {
   display: flex;
   gap: var(--step-2);
-  margin-top: var(--step-3);
+  margin-top: var(--step-2);
 }
 
 .carousel__segment {
