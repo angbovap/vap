@@ -4,6 +4,32 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/scripts");
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
+  // Which booking host best fits the current page (empty when none).
+  const booking = require("./src/_data/booking.json");
+  eleventyConfig.addFilter("featuredHost", (pageUrl, services, memberSlug) => {
+    if (booking.hosts.some((h) => h.slug === memberSlug)) return memberSlug;
+    if (booking.serviceHost[pageUrl]) return booking.serviceHost[pageUrl];
+    const first = services && services[0] && services[0].url;
+    return (first && booking.serviceHost[first]) || "";
+  });
+
+  // Full booking details for one host: name, focus, photo and the link to use.
+  const site = require("./src/_data/site.json");
+  const team = require("./src/_data/team.json");
+  eleventyConfig.addFilter("bookHost", (slug) => {
+    const host = booking.hosts.find((h) => h.slug === slug);
+    const member = team.find((m) => m.slug === slug);
+    if (!host || !member) return null;
+    const url =
+      host.bookingUrl ||
+      (slug === "john-marinopoulos" && site.bookingEmbedUrl) ||
+      "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+        "&text=" + encodeURIComponent("Meeting with " + member.name) +
+        "&details=" + encodeURIComponent("Discussion with " + site.name + " about delivering real commercial intelligence for your organisation.") +
+        "&add=" + encodeURIComponent(member.email);
+    return { ...host, name: member.name, image: member.image, url };
+  });
+
   eleventyConfig.addFilter("countType", (items, type) =>
     items.filter((item) => item.type === type).length
   );

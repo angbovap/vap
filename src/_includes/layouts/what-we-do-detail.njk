@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 ---
+{% from "partials/book-inline.njk" import bookInline, bookPicker %}
 {% for block in blocks %}
   {% if block.type == "hero" %}
     {% include "partials/wd-blocks/hero.njk" %}
@@ -20,6 +21,9 @@ layout: base.njk
     {% include "partials/wd-blocks/publications.njk" %}
   {% elif block.type == "clients" %}
     {% include "partials/wd-blocks/clients.njk" %}
+  {% endif %}
+  {% if loop.index == 2 %}
+  <section class="book-inline-wrap"><div class="wrap">{{ bookInline(page.url | featuredHost(services, "")) }}</div></section>
   {% endif %}
 {% endfor %}
 

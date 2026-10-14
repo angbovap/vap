@@ -9,16 +9,7 @@
       </span>
     </a>
 
-    <a
-      class="nav-book"
-      target="_blank"
-      rel="noopener"
-      {% if site.bookingEmbedUrl %}
-      href="{{ site.bookingEmbedUrl }}"
-      {% else %}
-      href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ ('Meeting with ' + site.name) | urlencode }}&details={{ ('Meeting request from the ' + site.name + ' website.') | urlencode }}&add={{ site.bookingHost.email | urlencode }}"
-      {% endif %}
-    >Book a meeting</a>
+    <a class="nav-book" href="{% if page.url == '/404.html' %}/get-in-touch/{% endif %}#book-meeting">Book a meeting</a>
 
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
       <span class="visually-hidden">Menu</span>

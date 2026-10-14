@@ -1,0 +1,45 @@
+{#
+  Booking band shown above the footer on every page. Puts the person most
+  relevant to the current page first. Host details and links come from
+  src/_data/booking.json (see the bookHost filter in .eleventy.js).
+#}
+{% set featured = page.url | featuredHost(services, member.slug) %}
+<section class="book" id="book-meeting" aria-labelledby="book-heading">
+  <div class="wrap book__layout">
+    <div class="book__intro reveal">
+      <p class="eyebrow">Book a meeting</p>
+      <h2 id="book-heading">Speak with the right adviser.</h2>
+      <p class="book__lede">Pick the adviser closest to your question and choose a time in their calendar.</p>
+
+      <div class="book__reach">
+        <p class="book__reach-label">Prefer another way to reach us?</p>
+        <ul class="book__reach-list">
+          <li><a class="book__reach-item" href="/get-in-touch/"><strong>Message</strong><span>Contact form</span></a></li>
+          <li><a class="book__reach-item" href="{{ site.phoneHref }}"><strong>Call</strong><span>{{ site.phone }}</span></a></li>
+          <li><a class="book__reach-item" href="mailto:{{ site.email }}"><strong>Email</strong><span>{{ site.email }}</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="book__list reveal">
+      {% for pass in ["featured", "others"] %}
+      {% for host in booking.hosts %}
+      {% if (pass == "featured" and host.slug == featured) or (pass == "others" and host.slug != featured) %}
+      {% set h = host.slug | bookHost %}
+      {% set flag = "Suggested for this page" if host.slug == featured else "" %}
+      {% set lead = (host.slug == featured) or (host.slug == "john-marinopoulos" and not featured) %}
+      <li class="book__row{% if lead %} book__row--flagged{% endif %}">
+        {% if h.image %}<span class="book__avatar" style="background-image: url('{{ h.image }}');" aria-hidden="true"></span>{% endif %}
+        <div class="book__who">
+          {% if flag %}<p class="book__flag">{{ flag }}</p>{% endif %}
+          <p class="book__name">{{ h.name }} <span class="book__focus">{{ h.focus }}</span></p>
+          <p class="book__text">{{ h.text }}</p>
+        </div>
+        <a class="book__btn" href="{{ h.url }}" target="_blank" rel="noopener" aria-label="Book a meeting with {{ h.name }}" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">Book a meeting</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>

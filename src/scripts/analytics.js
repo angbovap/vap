@@ -20,6 +20,11 @@
   function buttonLocation(link, type) {
     if (link.closest('.site-head')) return 'navbar';
     if (link.closest('.site-foot')) return 'footer';
+    if (link.closest('.book')) return 'booking_section';
+    if (link.closest('.book-inline')) return 'inline_prompt';
+    if (link.closest('.team-member-wrap')) return 'team_card';
+    if (link.closest('.wwd-selector')) return 'service_panel';
+    if (link.closest('.case-hero')) return 'service_hero';
     if (link.closest('.hero')) return 'hero';
     if (type === 'service_click') return 'service_card';
     if (type === 'project_click') return 'project_card';
@@ -35,6 +40,7 @@
     if (url.hostname.indexOf('linkedin.com') !== -1) return { type: 'linkedin_click' };
 
     var isBooking = link.classList.contains('nav-book') ||
+      link.hasAttribute('data-book-host') ||
       url.hostname === 'calendar.google.com' ||
       /\bbook (a )?(meeting|call)\b/i.test(buttonText(link));
     if (isBooking) return { type: 'book_meeting_click' };
@@ -79,6 +85,15 @@
       transport_type: 'beacon'
     };
     if (match.nameKey) params[match.nameKey] = match.name;
+    if (match.type === 'book_meeting_click') {
+      // 'calendar' = opened an adviser's booking page; 'section' = scrolled to the booking section
+      params.click_stage = link.hasAttribute('data-book-host') ? 'calendar' : 'section';
+      if (link.hasAttribute('data-book-host')) {
+        params.meeting_host = link.getAttribute('data-book-host');
+        params.meeting_topic = link.getAttribute('data-book-focus');
+        params.is_suggested = link.closest('.book__row--flagged') ? 'yes' : 'no';
+      }
+    }
 
     window.gtag('event', match.type, params);
   });

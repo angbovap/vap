@@ -8,6 +8,7 @@ eleventyComputed:
   title: "{{ member.name }}"
 layout: base.njk
 ---
+{% from "partials/book-inline.njk" import bookInline, bookPicker %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -80,6 +81,11 @@ layout: base.njk
       <p class="eyebrow">Our team</p>
       <h1 class="profile__name">{{ member.name }}</h1>
       {% if member.role %}<p class="profile__role">{{ member.role }}</p>{% endif %}
+      {% if member.slug | bookHost %}
+      {{ bookInline(member.slug, "Book a meeting with " ~ (member.slug | bookHost).firstName) }}
+      {% else %}
+      {{ bookInline("john-marinopoulos", "Want to speak with " ~ member.name.split(" ")[0] ~ "?", "John will introduce you to the right adviser.") }}
+      {% endif %}
       {% for para in member.bio %}
         {% if loop.last and member.bio.length > 1 %}
         <div class="profile__fact">
@@ -105,12 +111,3 @@ layout: base.njk
   </div>
 </section>
 
-<section class="cta">
-  <div class="wrap cta__inner reveal">
-    <div class="cta__text">
-      <h2>Connect with us</h2>
-      <p>Phone: {{ site.phone }}<br>Email: {{ site.email }}</p>
-    </div>
-    <a class="cta__link" href="/get-in-touch/">Get in touch <span aria-hidden="true">→</span></a>
-  </div>
-</section>

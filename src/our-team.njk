@@ -22,6 +22,8 @@ title: Our team and values
     </div>
     <div class="team__grid">
       {% for member in team %}
+      {% set bh = member.slug | bookHost %}
+      <div class="team-member-wrap">
       <a class="team-member" href="{{ member.url }}">
         <div class="team-member__portrait{% if not member.image %} team-member__portrait--placeholder{% endif %}"{% if member.image %} style="background-image: url('{{ member.image }}');"{% else %} data-placeholder="Portrait to come"{% endif %}></div>
         <div class="team-member__info">
@@ -30,6 +32,8 @@ title: Our team and values
           <span class="team-member__link">View profile <span aria-hidden="true">→</span></span>
         </div>
       </a>
+      {% if bh %}<a class="team-member__book" href="{{ bh.url }}" target="_blank" rel="noopener" data-book-host="{{ bh.slug }}" data-book-focus="{{ bh.focus }}">Book a meeting<span class="team-member__book-focus">{{ bh.focus }}</span></a>{% endif %}
+      </div>
       {% endfor %}
     </div>
   </div>
@@ -139,12 +143,3 @@ title: Our team and values
   </div>
 </section>
 
-<section class="cta">
-  <div class="wrap cta__inner reveal">
-    <div class="cta__text">
-      <h2>Connect with us</h2>
-      <p>Phone: {{ site.phone }}<br>Email: {{ site.email }}</p>
-    </div>
-    <a class="cta__link" href="/get-in-touch/">Get in touch <span aria-hidden="true">→</span></a>
-  </div>
-</section>

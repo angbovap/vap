@@ -436,12 +436,20 @@ main section:not(.hero) {
   margin-left: auto;
   padding: 0.6em 1.3em;
   border-radius: 999px;
-  background: var(--brand-500);
+  gap: 0.5em;
+  background: var(--brand-700);
   color: var(--surface);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
   white-space: nowrap;
   text-decoration: none;
+}
+
+.nav-book::before {
+  content: "";
+  width: 1.05em;
+  height: 1.05em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 9.5h18M8 3v3M16 3v3'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -452,7 +460,7 @@ main section:not(.hero) {
 
 .nav-book:hover,
 .nav-book:focus-visible {
-  background: var(--brand-700);
+  background: var(--ink);
   color: var(--surface);
 }
 
@@ -565,10 +573,19 @@ main {
 .hero__cta--primary {
   display: inline-flex;
   align-items: center;
-  padding: 0.85em 1.6em;
+  gap: 0.6em;
+  padding: 0.95em 1.8em;
   background: var(--surface);
   color: var(--ink);
   border-radius: 999px;
+  font-weight: 700;
+}
+
+.hero__cta--primary::before {
+  content: "";
+  width: 1.15em;
+  height: 1.15em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23323232' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 9.5h18M8 3v3M16 3v3'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .hero__cta--primary:hover,
@@ -1686,16 +1703,33 @@ img.logos__mark {
   max-width: 52ch;
 }
 
+.wwd-selector__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: var(--step-1);
+}
+
 .wwd-selector__link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5em;
-  padding: 0.7em 0.5em;
-  margin: -0.7em -0.5em calc(var(--step-1) - 0.7em);
+  padding: 0.7em 1.2em;
+  border: 2px solid var(--brand-700);
   border-radius: 0.5rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
   color: var(--brand-700);
   text-decoration: none;
+}
+
+.wwd-selector__actions .book__btn--sm {
+  margin-top: 0;
+  padding: 0.7em 1.2em;
+  border: 2px solid var(--brand-700);
+  line-height: 1.2;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1708,6 +1742,12 @@ img.logos__mark {
 .wwd-selector__link:focus-visible {
   gap: 0.75em;
   background: var(--brand-50);
+}
+
+@media (max-width: 520px) {
+  .wwd-selector__actions > * {
+    flex: 1 1 100%;
+  }
 }
 
 .wwd-selector__media {
@@ -4793,4 +4833,452 @@ main section.partners {
   .contact-form {
     max-width: none;
   }
+}
+
+/* Book a meeting band */
+
+.book {
+  padding-block: var(--step-3);
+  background: var(--brand-50);
+  scroll-margin-top: 4.5rem;
+}
+
+.book__head {
+  max-width: 46rem;
+}
+
+.book__head h2 {
+  margin-top: 0.4em;
+}
+
+.book__head p:last-child {
+  margin-top: var(--step-0);
+  color: var(--ink-muted);
+}
+
+
+
+
+
+
+
+
+
+
+.book__btn {
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.85em 1.3em;
+  background: var(--brand-700);
+  color: var(--surface);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.book__btn::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 1.15em;
+  height: 1.15em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 9.5h18M8 3v3M16 3v3'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.book__btn:hover,
+.book__btn:focus-visible {
+  background: var(--ink);
+  color: var(--surface);
+  transform: translateY(-1px);
+}
+
+.book__btn--sm {
+  align-self: flex-start;
+  margin-top: 0.9rem;
+  padding: 0.65em 1.1em;
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
+.case-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--step-1) var(--step-2);
+  margin-top: var(--step-1);
+}
+
+.case-hero__contact {
+  color: var(--surface);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.case-hero__contact:hover,
+.case-hero__contact:focus-visible {
+  color: var(--brand-100);
+  border-bottom-color: var(--brand-100);
+}
+
+.case-hero__book {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  gap: 0.6em;
+  padding: 0.85em 1.6em;
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.case-hero__book::before {
+  content: "";
+  width: 1.1em;
+  height: 1.1em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23323232' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 9.5h18M8 3v3M16 3v3'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.case-hero__book:hover,
+.case-hero__book:focus-visible {
+  background: var(--brand-100);
+  color: var(--ink);
+}
+
+
+/* Inline booking prompts */
+
+.book-inline-wrap {
+  padding-block: var(--step-2);
+}
+
+.book-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--step-1) var(--step-2);
+  margin-block: var(--step-2);
+  padding: var(--step-1) var(--step-2);
+  background: var(--brand-50);
+  border-left: 4px solid var(--brand-700);
+  border-radius: 0.4rem;
+}
+
+.book-inline > .book__btn {
+  align-self: center;
+  flex: 0 0 auto;
+}
+
+.book-inline-wrap .book-inline,
+.work-list__book .book-inline {
+  margin-block: 0;
+}
+
+.book-inline__body {
+  flex: 1 1 22rem;
+  max-width: 44rem;
+}
+
+.book-inline__eyebrow {
+  color: var(--brand-700);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.book-inline__title {
+  margin-top: 0.3em;
+  font-size: var(--step-1);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.book-inline__text {
+  margin-top: 0.4em;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+.book-inline__people {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.book-inline__person {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  padding: 0.7em 1.2em;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.book-inline__person:hover,
+.book-inline__person:focus-visible {
+  border-color: var(--brand-500);
+}
+
+.book-inline__person-name {
+  color: var(--brand-700);
+  font-weight: 700;
+}
+
+.book-inline__person-focus {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+.work-list__book {
+  margin-top: var(--step-2);
+}
+
+.profile__main .book-inline {
+  margin-top: var(--step-1);
+}
+
+.team-member-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-member__book {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 0.1em;
+  margin-top: 0.8em;
+  padding: 0.6em 0.9em 0.6em 2.4em;
+  position: relative;
+  background: var(--brand-700);
+  border-radius: 0.5rem;
+  color: var(--surface);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+}
+
+.team-member__book::before {
+  content: "";
+  position: absolute;
+  left: 0.85em;
+  top: 0.85em;
+  width: 1em;
+  height: 1em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 9.5h18M8 3v3M16 3v3'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.team-member__book:hover,
+.team-member__book:focus-visible {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.team-member__book-focus {
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+
+/* Book a meeting band: intro on the left, advisers on the right */
+
+.book__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--step-2) clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.book__lede {
+  margin-top: var(--step-0);
+  color: var(--ink-muted);
+  max-width: 34ch;
+}
+
+.book__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(0, 112, 124, 0.28);
+}
+
+.book__row {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  padding: 1.15rem 1rem;
+  border-bottom: 1px solid rgba(0, 112, 124, 0.28);
+}
+
+.book__row--flagged {
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: inset 3px 0 0 var(--brand-700);
+}
+
+.book__avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  background-size: cover;
+  background-position: center top;
+  background-color: var(--ink);
+  filter: grayscale(1) contrast(1.02);
+}
+
+.book__flag {
+  margin-bottom: 0.25em;
+  color: var(--brand-700);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.book__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.book__focus {
+  display: block;
+  color: var(--brand-700);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.book__text {
+  margin-top: 0.35em;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.book__row .book__btn {
+  align-self: center;
+  white-space: nowrap;
+}
+
+.book__reach {
+  margin-top: var(--step-2);
+  padding-top: var(--step-1);
+  border-top: 1px solid rgba(0, 112, 124, 0.28);
+}
+
+.book__reach-label {
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.book__reach-list {
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.book__reach-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.book__reach-item strong {
+  flex: 0 0 4.5rem;
+  color: var(--brand-700);
+  font-size: 0.9rem;
+}
+
+.book__reach-item span {
+  font-size: 0.95rem;
+}
+
+.book__reach-item:hover span,
+.book__reach-item:focus-visible span {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .book__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .book__lede {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .book__row {
+    grid-template-columns: 4rem minmax(0, 1fr);
+  }
+
+  .book__row .book__btn {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Team grid: booking buttons align along the bottom of each card */
+
+.team-member-wrap > .team-member {
+  flex: 1 1 auto;
+}
+
+.team-member-wrap > .team-member__book {
+  margin-top: auto;
+  align-self: stretch;
+}
+
+.team-member-wrap > .team-member + .team-member__book {
+  margin-top: 0.8em;
+}
+
+/* Booking section: the highlighted adviser's button is the one that stands out */
+
+.book__row--flagged .book__btn {
+  background: var(--cta);
+  color: var(--ink);
+  padding: 0.95em 1.5em;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.22), 0 8px 18px rgba(245, 165, 36, 0.35);
+}
+
+.book__row--flagged .book__btn::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23323232' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 9.5h18M8 3v3M16 3v3'/%3E%3C/svg%3E");
+}
+
+.book__row--flagged .book__btn:hover,
+.book__row--flagged .book__btn:focus-visible {
+  background: var(--cta-hover);
+  color: var(--ink);
 }

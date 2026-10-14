@@ -1,0 +1,40 @@
+{#
+  Inline booking prompts that sit inside page content.
+    bookInline(slug, heading, text)  one person, with a button
+    bookPicker(heading, text)        all three people, compact
+  Host details (name, focus, link) come from src/_data/booking.json via the
+  bookHost filter, so links only need changing in one place.
+#}
+{% macro bookInline(slug, heading, text) %}
+{% set h = slug | bookHost %}
+{% if h %}
+<aside class="book-inline reveal" aria-label="Book a meeting with {{ h.name }}">
+  <div class="book-inline__body">
+    <p class="book-inline__eyebrow">{{ h.focus }}</p>
+    <p class="book-inline__title">{{ heading or ("Talk to " ~ h.firstName ~ " about " ~ (h.focus | lower)) }}</p>
+    <p class="book-inline__text">{{ text or h.text }}</p>
+  </div>
+  <a class="book__btn" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">Book a meeting with {{ h.firstName }}</a>
+</aside>
+{% endif %}
+{% endmacro %}
+
+{% macro bookPicker(heading, text, hosts) %}
+<aside class="book-inline book-inline--picker reveal" aria-label="Book a meeting">
+  <div class="book-inline__body">
+    <p class="book-inline__eyebrow">Book a meeting</p>
+    <p class="book-inline__title">{{ heading }}</p>
+    {% if text %}<p class="book-inline__text">{{ text }}</p>{% endif %}
+  </div>
+  <ul class="book-inline__people">
+    {% for slug in hosts %}{% set h = slug | bookHost %}{% if h %}
+    <li>
+      <a class="book-inline__person" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">
+        <span class="book-inline__person-name">Book with {{ h.firstName }}</span>
+        <span class="book-inline__person-focus">{{ h.focus }}</span>
+      </a>
+    </li>
+    {% endif %}{% endfor %}
+  </ul>
+</aside>
+{% endmacro %}

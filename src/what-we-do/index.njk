@@ -31,7 +31,10 @@ title: What we do
           <div class="wwd-selector__panel" data-wwd-panel="0">
             <div class="wwd-selector__panel-inner">
               <p class="wwd-selector__text">Value Advisory Partners, in partnership with CSIRO, has developed a new approach to address current shortfalls in viable investment cases and funding for interventions to build community resilience and reduce climate and disaster risk.</p>
-              <a class="wwd-selector__link" href="/what-we-do/resilience/">Learn more <span aria-hidden="true">→</span></a>
+              <div class="wwd-selector__actions">
+                <a class="wwd-selector__link" href="/what-we-do/resilience/">Explore this service <span aria-hidden="true">→</span></a>
+                {% set bh = ("/what-we-do/resilience/" | featuredHost) | bookHost %}{% if bh %}<a class="book__btn book__btn--sm" href="{{ bh.url }}" target="_blank" rel="noopener" data-book-host="{{ bh.slug }}" data-book-focus="{{ bh.focus }}">Book a meeting with {{ bh.firstName }}</a>{% endif %}
+              </div>
             </div>
           </div>
         </div>
@@ -45,7 +48,10 @@ title: What we do
           <div class="wwd-selector__panel" data-wwd-panel="1">
             <div class="wwd-selector__panel-inner">
               <p class="wwd-selector__text">When it comes to the planning, design and development of our places, communities and cities, success is dependent on establishing an evidence base that integrates top down and bottom up analysis, i.e. real data and projections/forecasts.</p>
-              <a class="wwd-selector__link" href="/what-we-do/precincts/">Learn more <span aria-hidden="true">→</span></a>
+              <div class="wwd-selector__actions">
+                <a class="wwd-selector__link" href="/what-we-do/precincts/">Explore this service <span aria-hidden="true">→</span></a>
+                {% set bh = ("/what-we-do/precincts/" | featuredHost) | bookHost %}{% if bh %}<a class="book__btn book__btn--sm" href="{{ bh.url }}" target="_blank" rel="noopener" data-book-host="{{ bh.slug }}" data-book-focus="{{ bh.focus }}">Book a meeting with {{ bh.firstName }}</a>{% endif %}
+              </div>
             </div>
           </div>
         </div>
@@ -59,7 +65,10 @@ title: What we do
           <div class="wwd-selector__panel" data-wwd-panel="2">
             <div class="wwd-selector__panel-inner">
               <p class="wwd-selector__text">Value Advisory Partners has created a system to help governments, agencies, universities, developers and organisations to integrate transport, land use and delivery models.</p>
-              <a class="wwd-selector__link" href="/what-we-do/infrastructure/">Learn more <span aria-hidden="true">→</span></a>
+              <div class="wwd-selector__actions">
+                <a class="wwd-selector__link" href="/what-we-do/infrastructure/">Explore this service <span aria-hidden="true">→</span></a>
+                {% set bh = ("/what-we-do/infrastructure/" | featuredHost) | bookHost %}{% if bh %}<a class="book__btn book__btn--sm" href="{{ bh.url }}" target="_blank" rel="noopener" data-book-host="{{ bh.slug }}" data-book-focus="{{ bh.focus }}">Book a meeting with {{ bh.firstName }}</a>{% endif %}
+              </div>
             </div>
           </div>
         </div>
@@ -110,12 +119,3 @@ title: What we do
   </div>
 </section>
 
-<section class="cta">
-  <div class="wrap cta__inner reveal">
-    <div class="cta__text">
-      <h2>Connect with us</h2>
-      <p>Phone: {{ site.phone }}<br>Email: {{ site.email }}</p>
-    </div>
-    <a class="cta__link" href="/get-in-touch/">Get in touch <span aria-hidden="true">→</span></a>
-  </div>
-</section>

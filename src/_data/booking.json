@@ -1,0 +1,37 @@
+{
+  "hosts": [
+    {
+      "slug": "john-marinopoulos",
+      "firstName": "John",
+      "focus": "Commercial intelligence",
+      "text": "Discussion with Value Advisory Partners about delivering real commercial intelligence for your organisation. The benefit is to unlock commercial potential to future proof value.",
+      "bookingUrl": ""
+    },
+    {
+      "slug": "nic-mesic",
+      "firstName": "Nic",
+      "focus": "Climate and resilience",
+      "text": "Climate risk, disaster resilience and investment in adaptation.",
+      "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ01_hHD5vvfkSydrri07jWc9-MuYpNKeQdeEXHBDCbBFFwFDeNBUrVfkIWjycCEWCD8VeYgc53S?gv=true"
+    },
+    {
+      "slug": "christopher-marinopoulos",
+      "firstName": "Chris",
+      "focus": "Infrastructure",
+      "text": "Infrastructure investment, options analysis and precinct planning.",
+      "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1tfE9rZkWN9x-l2mC78RNIo4S3enC3he0iV6TAo21qdZY6NtjEMdur0_4aWN_KZ1busof4MCdy?gv=true"
+    },
+    {
+      "slug": "peter-heinmiller",
+      "firstName": "Peter",
+      "focus": "Data and analytics",
+      "text": "Data, analytics and strategic options assessment.",
+      "bookingUrl": ""
+    }
+  ],
+  "serviceHost": {
+    "/what-we-do/resilience/": "nic-mesic",
+    "/what-we-do/infrastructure/": "christopher-marinopoulos",
+    "/what-we-do/precincts/": "john-marinopoulos"
+  }
+}
