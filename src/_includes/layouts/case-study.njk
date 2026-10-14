@@ -1,7 +1,6 @@
 ---
 layout: base.njk
 ---
-{% from "partials/book-inline.njk" import bookInline, bookPicker %}
 <section class="case-hero">
   <div class="case-hero__media"{% if image %} style="background-image: url('{{ image }}');{% if imagePosition %} background-position: {{ imagePosition }};{% endif %}"{% else %} data-placeholder="Image to come"{% endif %}></div>
   <div class="case-hero__overlay"></div>
@@ -67,10 +66,8 @@ layout: base.njk
   </div>
 </section>
 
-{% set caseHost = page.url | featuredHost(services, "") %}
-{% if caseHost %}
-<section class="book-inline-wrap"><div class="wrap">{{ bookInline(caseHost, "Working on something similar?", "Speak with the adviser closest to this kind of project.") }}</div></section>
-{% endif %}
+{% set featured = page.url | featuredHost(services, "") %}
+{% include "partials/book-similar.njk" %}
 
 {% if content and content | trim | length > 0 %}
 <section class="case-intro-image">

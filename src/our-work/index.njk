@@ -3,7 +3,6 @@ layout: base.njk
 permalink: /our-work/
 title: Our work
 ---
-{% from "partials/book-inline.njk" import bookInline, bookPicker %}
 <section class="work-list">
   <div class="wrap">
     <div class="section-head reveal">
@@ -27,10 +26,6 @@ title: Our work
       </a>
       {% endfor %}
     </div>
-
-    <div class="work-list__book">
-      {{ bookPicker("Working on something similar?", "Speak with the adviser closest to your project.", ["john-marinopoulos", "nic-mesic", "christopher-marinopoulos", "peter-heinmiller"]) }}
-    </div>
   </div>
 
   <div class="work-list__preview" data-work-preview aria-hidden="true">
@@ -41,3 +36,6 @@ title: Our work
     </div>
   </div>
 </section>
+
+{% set featured = "" %}
+{% include "partials/book-similar.njk" %}

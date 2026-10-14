@@ -1,0 +1,15 @@
+{#
+  "Working on something similar?" block used on the Our work pages in place of
+  the sitewide booking section. Set `featured` (host slug or empty) before
+  including; the advisers list highlights that person.
+#}
+<section class="book book--similar" aria-labelledby="similar-heading">
+  <div class="wrap book__layout">
+    <div class="book__intro reveal">
+      <h2 id="similar-heading">Working on something similar?</h2>
+      <p class="book__lede">Speak with the adviser closest to your project and choose a time in their calendar.</p>
+    </div>
+
+    {% include "partials/book-advisers.njk" %}
+  </div>
+</section>

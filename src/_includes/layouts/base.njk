@@ -67,7 +67,7 @@
     {{ content | safe }}
   </main>
 
-  {% if page.url != "/404.html" and page.url != "/book/" %}{% include "partials/book-meeting.njk" %}{% endif %}
+  {% if page.url != "/404.html" and page.url != "/book/" and not page.url.startsWith("/our-work/") and not page.url.startsWith("/our-team/") %}{% include "partials/book-meeting.njk" %}{% endif %}
 
   {% include "partials/footer.njk" %}
 

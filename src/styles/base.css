@@ -5347,3 +5347,9 @@ main section.partners {
   margin-top: var(--step-1);
   margin-bottom: var(--step-1);
 }
+
+/* "Working on something similar?" uses the same pale blue band as the booking section */
+
+main section.book.book--similar {
+  background: var(--brand-50);
+}
