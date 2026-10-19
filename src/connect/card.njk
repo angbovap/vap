@@ -29,7 +29,6 @@ eleventyComputed:
         <div class="vc__portrait">
           <span class="vc__photo" style="background-image: url('{{ m.image }}');" role="img" aria-label="Portrait of {{ m.name }}"></span>
         </div>
-        <p class="vc__hello">Nice to meet you</p>
         <h1 class="vc__name">{{ m.name }}</h1>
         {% if m.role %}<p class="vc__role">{{ m.role }}</p>{% endif %}
         <p class="vc__org">{{ site.name }}</p>
@@ -40,10 +39,11 @@ eleventyComputed:
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></svg>
           Save my contact
         </a>
-        {% if h %}<a class="vc__btn vc__btn--glass" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">
+        {% if h %}<a class="vc__btn vc__btn--outline" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
           Book a meeting
         </a>{% endif %}
+        <a class="vc__textlink" href="/" data-track="website_click">Visit our website <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a>
       </div>
 
     </div>
@@ -84,7 +84,7 @@ eleventyComputed:
     </section>
 
     <footer class="vc__foot">
-      <a href="/connect/">Meet the rest of the team</a>
+      <a href="/book/">Book with another adviser</a>
       <p>{% for o in site.offices %}{{ o.locality }}{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
     </footer>
 
@@ -92,7 +92,7 @@ eleventyComputed:
 
   <div class="vc__dock" data-vc-dock aria-hidden="true">
     <a class="vc__btn vc__btn--primary" href="/connect/vcf/{{ m.slug }}.vcf" download data-save-contact="{{ m.slug }}" tabindex="-1">Save contact</a>
-    {% if h %}<a class="vc__btn vc__btn--glass" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}" tabindex="-1">Book a meeting</a>{% endif %}
+    {% if h %}<a class="vc__btn vc__btn--outline" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}" tabindex="-1">Book a meeting</a>{% endif %}
   </div>
 </div>
 <script>
