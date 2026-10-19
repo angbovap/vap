@@ -9,62 +9,51 @@ bare: true
 eleventyExcludeFromCollections: true
 ---
 <div class="vc">
-  <div class="vc__hero vc__hero--hub">
-    {% include "partials/contours.njk" %}
-    <div class="vc__inner">
-      <header class="vc__brand">
-        <img src="/assets/img/brand/vaplogo.png" alt="" width="40" height="40">
-        <span class="vc__brand-name">{{ site.brandPrimary }} <span>{{ site.brandSecondary }}</span></span>
-      </header>
-      <section class="vc__id">
-        <h1 class="vc__name">{{ site.tagline }}</h1>
-        <p class="vc__lede">Speak with one of our advisers, or find out more about what we do.</p>
-      </section>
-      <div class="vc__cta">
-        <a class="vc__btn vc__btn--primary" href="/book/">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
-          Book a meeting with the team
-        </a>
-        <a class="vc__btn vc__btn--outline" href="/" data-track="website_click">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
-          Visit our website
-        </a>
-      </div>
-    </div>
-  </div>
+  {% include "partials/contours.njk" %}
+  <div class="vc__screen">
 
-  <div class="vc__inner vc__body">
+    <header class="vc__brand">
+      <img src="/assets/img/brand/vaplogo.png" alt="" width="36" height="36">
+      <span class="vc__brand-name">{{ site.brandPrimary }} <span>{{ site.brandSecondary }}</span></span>
+    </header>
+
+    <section class="vc__id vc__id--hub">
+      <h1 class="vc__name">{{ site.tagline }}</h1>
+      <p class="vc__lede">Speak with one of our advisers, or find out more about what we do.</p>
+    </section>
+
     <p class="vc__intro">{{ seo["/"].description }}</p>
 
-    <ul class="vc__stats" aria-label="Value Advisory Partners at a glance">
-      <li><strong>130+</strong><span>projects</span></li>
-      <li><strong>AU &amp; NZ</strong><span>across</span></li>
-      <li><strong>{{ site.offices | length }}</strong><span>offices</span></li>
-    </ul>
+    <div class="vc__cta">
+      <a class="vc__btn vc__btn--primary" href="/book/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+        Book a meeting with the team
+      </a>
+      <a class="vc__btn vc__btn--outline" href="/" data-track="website_click">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+        Visit our website
+      </a>
+    </div>
 
-    <ul class="vc__links">
-      <li><a href="{{ site.phoneHref }}">
-        <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></i>
-        <span><em>Call</em>{{ site.phone }}</span></a></li>
-      <li><a href="mailto:{{ site.email }}">
-        <i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></i>
-        <span><em>Email</em>{{ site.email }}</span></a></li>
-      <li><a href="{{ site.linkedin }}" target="_blank" rel="noopener">
-        <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5V19M5 5.5v.01M10 19v-9.5M10 13.5c0-2.5 1.5-4 3.5-4s3.5 1.5 3.5 4V19"/></svg></i>
-        <span><em>LinkedIn</em>Value Advisory Partners</span></a></li>
+    <ul class="vc__tiles" style="--cols: 3" aria-label="Contact us">
+      <li><a href="{{ site.phoneHref }}" aria-label="Call {{ site.phone }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call</a></li>
+      <li><a href="mailto:{{ site.email }}" aria-label="Email {{ site.email }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>Email</a></li>
+      <li><a href="{{ site.linkedin }}" target="_blank" rel="noopener" aria-label="Value Advisory Partners on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5V19M5 5.5v.01M10 19v-9.5M10 13.5c0-2.5 1.5-4 3.5-4s3.5 1.5 3.5 4V19"/></svg>LinkedIn</a></li>
     </ul>
 
     <section class="vc__areas" aria-labelledby="vc-areas">
       <h2 id="vc-areas">What we do</h2>
-      <ol>
+      <ul>
         {% for item in site.nav[1].children %}
-        <li><a href="{{ item.url }}"><b>0{{ loop.index }}</b><span>{{ item.label }}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></li>
+        <li><a href="{{ item.url }}">{{ item.label.split(" ") | first | replace(",", "") }}</a></li>
         {% endfor %}
-      </ol>
+      </ul>
     </section>
 
-    <footer class="vc__foot">
-      <p>{% for o in site.offices %}{{ o.locality }}{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
-    </footer>
+    <footer class="vc__foot">{% for o in site.offices %}{{ o.locality }}{% if not loop.last %} &middot; {% endif %}{% endfor %}</footer>
+
   </div>
 </div>
