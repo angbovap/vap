@@ -452,3 +452,17 @@ main:has(.vc) { padding-top: 0; }
 @media (max-width: 899px) and (max-height: 640px) {
   .vc__visit { display: none; }
 }
+
+/* ---------- Mobile: taller white card, focus on the main actions ---------- */
+
+@media (max-width: 899px) {
+  .vc__sheet {
+    gap: clamp(1rem, 3svh, 1.6rem);
+    padding: 1.9rem 1.25rem 1.75rem;
+  }
+
+  .vc__btn { min-height: 3.5rem; font-size: 1.05rem; }
+  .vc__cta { gap: 0.75rem; }
+  .vc__tiles a { padding: 0.95rem 0.25rem 0.8rem; }
+  .vc__visit ul { margin-top: 0.8rem; }
+}
