@@ -43,13 +43,14 @@ eleventyComputed:
       </a>{% endif %}
     </div>
 
-    <ul class="vc__tiles" aria-label="Contact {{ m.name }}">
-      <li><a href="tel:{{ (m.phone or site.phone) | replace(' ', '') }}" aria-label="Call {{ m.phone or site.phone }}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call</a></li>
-      <li><a href="mailto:{{ site.email }}" aria-label="Email {{ site.email }}">
+    {% set cols = 2 + (1 if m.phone else 0) + (1 if m.linkedin else 0) %}
+    <ul class="vc__tiles" style="--cols: {{ cols }}" aria-label="Contact {{ m.name }}">
+      {% if m.phone %}<li><a href="tel:{{ m.phone | replace(' ', '') }}" aria-label="Call {{ m.name }} on {{ m.phone }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call</a></li>{% endif %}
+      <li><a href="mailto:{{ m.email }}" aria-label="Email {{ m.name }} at {{ m.email }}">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>Email</a></li>
-      <li><a href="{{ site.linkedin }}" target="_blank" rel="noopener" aria-label="Value Advisory Partners on LinkedIn">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5V19M5 5.5v.01M10 19v-9.5M10 13.5c0-2.5 1.5-4 3.5-4s3.5 1.5 3.5 4V19"/></svg>LinkedIn</a></li>
+      {% if m.linkedin %}<li><a href="{{ m.linkedin }}" target="_blank" rel="noopener" aria-label="{{ m.name }} on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5V19M5 5.5v.01M10 19v-9.5M10 13.5c0-2.5 1.5-4 3.5-4s3.5 1.5 3.5 4V19"/></svg>LinkedIn</a></li>{% endif %}
       <li><a href="/" data-track="website_click" aria-label="Visit the Value Advisory Partners website">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Website</a></li>
     </ul>
