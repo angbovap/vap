@@ -39,17 +39,7 @@ eleventyExcludeFromCollections: true
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5V19M5 5.5v.01M10 19v-9.5M10 13.5c0-2.5 1.5-4 3.5-4s3.5 1.5 3.5 4V19"/></svg>LinkedIn</a></li>
     </ul>
 
-    <section class="vc__areas vc__cards" aria-labelledby="vc-cards">
-      <h2 id="vc-cards">Business cards</h2>
-      <ul>
-        {% for m in team %}
-        <li><a href="/connect/{{ (m.name.split(' ') | first) | lower }}/" aria-label="{{ m.name }}'s business card" data-track="business_card_click">
-          <span class="vc__avatar" style="background-image: url('{{ m.image }}');" aria-hidden="true"></span>
-          {{ m.name.split(' ') | first }}
-        </a></li>
-        {% endfor %}
-      </ul>
-    </section>
+    <p class="vc__alt"><a href="/connect/cards/" data-track="business_cards_click">See our business cards</a></p>
 
     {% include "partials/connect-areas.njk" %}
   </div>

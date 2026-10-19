@@ -1,0 +1,31 @@
+---
+layout: base.njk
+extraCss: /styles/connect.css
+permalink: /connect/cards/
+title: Business cards
+description: Download Value Advisory Partners business cards.
+noindex: true
+bare: true
+eleventyExcludeFromCollections: true
+---
+<div class="vc vc--cards">
+  <div class="vc__top">
+    {% include "partials/connect-brand.njk" %}
+    <section class="vc__id vc__id--hub">
+      <h1 class="vc__headline">Business cards</h1>
+      <p class="vc__lede">Choose a card to view and download.</p>
+    </section>
+  </div>
+
+  <div class="vc__sheet">
+    <ul class="vc__people">
+      {% for m in team %}
+      <li><a href="/connect/{{ (m.name.split(' ') | first) | lower }}/" data-track="business_card_click">
+        <span><strong>{{ m.name }}</strong>{% if m.role %}<em>{{ m.role }}</em>{% endif %}</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+      </a></li>
+      {% endfor %}
+    </ul>
+    <p class="vc__alt"><a href="/connect/">Back</a></p>
+  </div>
+</div>
