@@ -542,7 +542,6 @@ main:has(.vc) { padding-top: 0; }
 
 .vc__people a:hover, .vc__people a:focus-visible { background: var(--brand-100); color: var(--ink); }
 .vc__people strong { display: block; font-size: 1.02rem; font-weight: 700; }
-.vc__people em { display: block; margin-top: 0.1rem; font-style: normal; font-size: 0.85rem; color: var(--vc-teal); font-weight: 600; }
 .vc__people svg { flex: 0 0 auto; width: 1.3rem; height: 1.3rem; color: var(--vc-teal); }
 
 @media (min-width: 900px) {
@@ -579,4 +578,25 @@ main:has(.vc) { padding-top: 0; }
   padding-inline: 0.9rem;
   white-space: nowrap;
   font-size: clamp(0.9rem, 4.2vw, 1.05rem);
+}
+
+/* Tiny round photo beside each name on the business cards list */
+.vc__person { display: flex; align-items: center; gap: 0.85rem; }
+
+.vc__avatar {
+  flex: 0 0 auto;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: var(--brand-100);
+  background-size: cover;
+  background-position: center 20%;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+@media (max-height: 700px) {
+  .vc__people { gap: 0.45rem; }
+  .vc__people a { padding: 0.6rem 1rem; }
+  .vc__avatar { width: 2.2rem; height: 2.2rem; }
 }
