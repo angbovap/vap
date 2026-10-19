@@ -60,6 +60,7 @@ body { position: relative; padding: 50px 56px; font-family: 'ATF Franklin Gothic
 .brand span { display: block; font-weight: 300; color: #4a4a4a; }
 .name { margin-top: 36px; font-size: 31px; line-height: 1.2; font-weight: 700; letter-spacing: .01em; text-transform: uppercase; color: #00707C; }
 .name span { margin-left: 14px; font-weight: 400; color: #323232; }
+.name--stack span { display: block; margin: 8px 0 0; font-size: 22px; line-height: 1.25; }
 .contact { position: absolute; left: 56px; right: 40px; bottom: 44px; display: grid; gap: 5px; font-size: 23px; line-height: 1.3; }
 .contact b { margin-right: 9px; font-weight: 700; color: #00707C; }
 .item { margin-right: 22px; white-space: nowrap; }
@@ -68,7 +69,7 @@ a { color: inherit; text-decoration: none; }
 </style></head><body>
 <a class="top" href="${esc(site.siteUrl)}"><img src="${logo}" alt="">
   <div class="brand"><b>${esc(site.brandPrimary)}</b><span>${esc(site.brandSecondary)}</span></div></a>
-<div class="name">${esc(m.name)}${m.role ? `<span>${esc(m.role)}</span>` : ""}</div>
+<div class="name${m.role && m.role.length > 24 ? " name--stack" : ""}">${esc(m.name)}${m.role ? `<span>${esc(m.role)}</span>` : ""}</div>
 <div class="contact">${lines.map((l) => `<div>${l}</div>`).join("")}</div>
 </body></html>`;
 }
