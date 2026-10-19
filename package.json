@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npx @11ty/eleventy --serve --port=8081",
     "build": "npx @11ty/eleventy",
-    "qr": "node scripts/make-qr.js"
+    "qr": "node scripts/make-qr.js",
+    "cards": "node scripts/make-cards.js"
   },
   "keywords": [],
   "author": "",

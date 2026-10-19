@@ -10,51 +10,36 @@ eleventyExcludeFromCollections: true
 noindex: true
 bare: true
 eleventyComputed:
-  title: "{{ m.name }}"
-  description: "{{ m.name }}, Value Advisory Partners. Save contact details or book a meeting."
+  title: "{{ m.name }}'s business card"
+  description: "Download {{ m.name }}'s Value Advisory Partners business card."
 ---
-{% set h = m.slug | bookHost %}
-<div class="vc">
+{% set first = (m.name.split(" ") | first) | lower %}
+<div class="vc vc--card">
   <div class="vc__top">
     {% include "partials/connect-brand.njk" %}
-    <section class="vc__id">
-      <div class="vc__portrait">
-        <span class="vc__photo" style="background-image: url('{{ m.image }}');" role="img" aria-label="Portrait of {{ m.name }}"></span>
-      </div>
-      <div class="vc__who">
+    <section class="vc__showcase">
+      <div class="vc__showcase-who visually-hidden">
         <h1 class="vc__name">{{ m.name }}</h1>
-        {% if m.role %}<p class="vc__role">{{ m.role }}</p>{% endif %}
-        <p class="vc__tagline">{{ site.name }}</p>
+        {% if m.role %}<p class="vc__tagline">{{ m.role }}</p>{% endif %}
       </div>
+      <img class="vc__bizcard" src="/assets/cards/{{ first }}.png" width="2100" height="1200" alt="Business card for {{ m.name }}{% if m.role %}, {{ m.role }}{% endif %}">
     </section>
   </div>
 
   <div class="vc__sheet">
-    <p class="vc__intro">{{ seo["/"].description }}</p>
-
     <div class="vc__cta">
-      <a class="vc__btn vc__btn--primary" href="/connect/vcf/{{ m.slug }}.vcf" download data-save-contact="{{ m.slug }}">
+      <a class="vc__btn vc__btn--primary" href="/assets/cards/{{ first }}.png" download="{{ m.name | replace(' ', '-') }}-business-card.png" data-track="card_download_png">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></svg>
-        Save my contact
+        Download card
       </a>
-      {% if h %}<a class="vc__btn vc__btn--outline" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
-        Book a meeting
-      </a>{% endif %}
+      <a class="vc__btn vc__btn--outline" href="/assets/cards/{{ first }}.pdf" download="{{ m.name | replace(' ', '-') }}-business-card.pdf" data-track="card_download_pdf">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg>
+        Download PDF
+      </a>
     </div>
-
-    {% set cols = 2 + (1 if m.phone else 0) + (1 if m.linkedin else 0) %}
-    <ul class="vc__tiles" style="--cols: {{ cols }}" aria-label="Contact {{ m.name }}">
-      {% if m.phone %}<li><a href="tel:{{ m.phone | replace(' ', '') }}" aria-label="Call {{ m.name }} on {{ m.phone }}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call</a></li>{% endif %}
-      <li><a href="mailto:{{ m.email }}" aria-label="Email {{ m.name }} at {{ m.email }}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>Email</a></li>
-      {% if m.linkedin %}<li><a href="{{ m.linkedin }}" target="_blank" rel="noopener" aria-label="{{ m.name }} on LinkedIn">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5V19M5 5.5v.01M10 19v-9.5M10 13.5c0-2.5 1.5-4 3.5-4s3.5 1.5 3.5 4V19"/></svg>LinkedIn</a></li>{% endif %}
-      <li><a href="/" data-track="website_click" aria-label="Visit the Value Advisory Partners website">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Website</a></li>
-    </ul>
-
-    {% include "partials/connect-areas.njk" %}
+    <p class="vc__alt">
+      <a href="/connect/vcf/{{ m.slug }}.vcf" download data-save-contact="{{ m.slug }}">Save to contacts</a>
+      <a href="/connect/">All business cards</a>
+    </p>
   </div>
 </div>

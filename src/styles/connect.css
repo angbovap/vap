@@ -513,3 +513,51 @@ main:has(.vc) { padding-top: 0; }
   .vc__cards a { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
   .vc__avatar { width: 3.2rem; height: 3.2rem; }
 }
+
+/* ---------- Business card viewer (/connect/<name>/) ---------- */
+
+.vc__showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-block: auto;
+  text-align: center;
+}
+
+.vc__showcase-who .vc__tagline { margin-top: 0.2em; }
+
+.vc__bizcard {
+  display: block;
+  width: 100%;
+  max-width: 34rem;
+  height: auto;
+  border-radius: 0.7rem;
+  box-shadow: 0 18px 44px rgba(0, 20, 26, 0.5);
+}
+
+.vc__alt {
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+  font-size: 0.95rem;
+}
+
+.vc__alt a {
+  color: var(--vc-teal);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.vc a.vc__alt-link:hover, .vc__alt a:hover { color: var(--ink); }
+
+@media (min-width: 900px) {
+  .vc--card .vc__top { padding-bottom: 2.5rem; }
+  .vc--card .vc__sheet { justify-content: center; }
+}
+
+.vc__bizcard {
+  border: 3px solid rgba(255, 255, 255, 0.92);
+  border-radius: 0.9rem;
+}
