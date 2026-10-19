@@ -34,13 +34,15 @@ const first = (m) => m.name.split(" ")[0].toLowerCase();
 function cardHtml(m, mode) {
   const office = site.offices[0];
   const linkedin = m.linkedin ? m.linkedin.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : "";
-  const item = (label, value) => `<span class="item"><b>${label}</b>${esc(value)}</span>`;
+  const link = (href, html) => `<a href="${esc(href)}">${html}</a>`;
+  const item = (label, value, href) => `<span class="item"><b>${label}</b>${href ? link(href, esc(value)) : esc(value)}</span>`;
 
   const lines = [];
-  const first = [m.phone && item("M", m.phone), linkedin && item("LI", linkedin)].filter(Boolean);
+  const first = [m.phone && item("M", m.phone, "tel:" + m.phone.replace(/\s+/g, "")), linkedin && item("LI", linkedin, m.linkedin)].filter(Boolean);
   if (first.length) lines.push(first.join(""));
-  lines.push(item("E", m.email));
-  lines.push(`${esc(office.line1)}, ${esc(office.line2.replace(/, Australia$/, ""))}`);
+  lines.push(item("E", m.email, "mailto:" + m.email));
+  const address = `${office.line1}, ${office.line2.replace(/, Australia$/, "")}`;
+  lines.push(link("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(`${office.line1}, ${office.line2}`), esc(address)));
 
   const pdf = mode === "pdf";
   return `<!doctype html><html><head><meta charset="utf-8">
@@ -61,9 +63,10 @@ body { position: relative; padding: 50px 56px; font-family: 'ATF Franklin Gothic
 .contact b { margin-right: 9px; font-weight: 700; color: #00707C; }
 .item { margin-right: 22px; white-space: nowrap; }
 .item:last-child { margin-right: 0; }
+a { color: inherit; text-decoration: none; }
 </style></head><body>
-<div class="top"><img src="${logo}" alt="">
-  <div class="brand"><b>${esc(site.brandPrimary)}</b><span>${esc(site.brandSecondary)}</span></div></div>
+<a class="top" href="${esc(site.siteUrl)}"><img src="${logo}" alt="">
+  <div class="brand"><b>${esc(site.brandPrimary)}</b><span>${esc(site.brandSecondary)}</span></div></a>
 <div class="name">${esc(m.name)}${m.role ? `<span>${esc(m.role)}</span>` : ""}</div>
 <div class="contact">${lines.map((l) => `<div>${l}</div>`).join("")}</div>
 </body></html>`;
