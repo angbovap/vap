@@ -236,7 +236,8 @@
 
 .vc__stats strong {
   display: block;
-  font-size: 1.4rem;
+  white-space: nowrap;
+  font-size: clamp(1.1rem, 5.4vw, 1.4rem);
   line-height: 1.1;
   color: var(--vc-teal);
 }
