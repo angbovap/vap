@@ -29,13 +29,13 @@ eleventyComputed:
 
   <div class="vc__sheet">
     <div class="vc__cta">
-      <a class="vc__btn vc__btn--primary" href="/assets/cards/{{ first }}.png" download="{{ m.name | replace(' ', '-') }}-business-card.png" data-track="card_download_png">
+      <a class="vc__btn vc__btn--primary" href="/assets/cards/{{ first }}.pdf" download="{{ m.name | replace(' ', '-') }}-business-card.pdf" data-track="card_download_pdf">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></svg>
-        Download card
+        Download PDF (with links)
       </a>
-      <a class="vc__btn vc__btn--outline" href="/assets/cards/{{ first }}.pdf" download="{{ m.name | replace(' ', '-') }}-business-card.pdf" data-track="card_download_pdf">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7zM14 3v5h5"/></svg>
-        Download PDF
+      <a class="vc__btn vc__btn--outline" href="/assets/cards/{{ first }}.png" download="{{ m.name | replace(' ', '-') }}-business-card.png" data-track="card_download_png">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5-5 4 3 3-3 4 4"/></svg>
+        Download image (no links)
       </a>
     </div>
     <p class="vc__alt">
