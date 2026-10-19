@@ -267,12 +267,63 @@
 
 /* ---------- Short screens: drop extras rather than scroll ---------- */
 
-@media (max-height: 720px) {
+@media (max-width: 899px) and (max-height: 720px) {
   .vc__intro { display: none; }
 }
 
 @media (max-height: 600px) {
   .vc__areas h2, .vc__areas ul { display: none; }
+}
+
+@media (min-width: 900px) and (max-height: 640px) {
+  .vc__intro { display: none; }
+}
+
+/* ---------- Desktop: photo and identity left, content right, still one screen ---------- */
+
+@media (min-width: 900px) {
+  body:has(.vc) { background: #fff; }
+
+  .vc {
+    flex-direction: row;
+    max-width: none;
+    margin: 0;
+    box-shadow: none;
+    background: #fff;
+  }
+
+  .vc__top {
+    flex: 1 1 50%;
+    padding: 2.5rem clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .vc .brand__mark { width: 52px; height: 52px; }
+  .vc .brand__name { font-size: 1.3rem; }
+  .vc .brand__tagline { font-size: 0.95rem; }
+
+  .vc__portrait {
+    width: clamp(7rem, 19svh, 9.5rem);
+    height: clamp(8.6rem, 23svh, 11.5rem);
+  }
+
+  .vc__id { gap: 1.8rem; }
+  .vc__name { font-size: clamp(2.2rem, 3.4vw, 3rem); }
+  .vc__tagline { font-size: 1.3rem; }
+  .vc__headline { font-size: clamp(2.4rem, 3.8vw, 3.6rem); }
+
+  .vc__sheet {
+    flex: 1 1 50%;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+    margin: 0;
+    padding: 2.5rem clamp(2rem, 5vw, 5rem);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .vc__sheet > * { width: min(100%, 28rem); }
+  .vc__intro { font-size: 1.05rem; }
 }
 
 /* ---------- Entrance ---------- */
