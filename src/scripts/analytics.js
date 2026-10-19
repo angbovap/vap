@@ -18,6 +18,7 @@
   }
 
   function buttonLocation(link, type) {
+    if (link.closest('.vc')) return 'digital_card';
     if (link.closest('.site-head')) return 'navbar';
     if (link.closest('.site-foot')) return 'footer';
     if (link.closest('.book--page')) return 'booking_page';
@@ -39,6 +40,11 @@
     if (href.indexOf('mailto:') === 0) return { type: 'email_click' };
     if (href.indexOf('tel:') === 0) return { type: 'phone_click' };
     if (url.hostname.indexOf('linkedin.com') !== -1) return { type: 'linkedin_click' };
+
+    if (link.hasAttribute('data-track')) return { type: link.getAttribute('data-track') };
+    if (/\.vcf$/.test(url.pathname)) {
+      return { type: 'save_contact_click', nameKey: 'team_member', name: link.getAttribute('data-save-contact') || '' };
+    }
 
     var isBooking = link.classList.contains('nav-book') ||
       link.hasAttribute('data-book-host') ||

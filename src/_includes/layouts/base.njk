@@ -6,6 +6,7 @@
   <title>{% if title %}VAP · {{ title }}{% else %}{{ site.name }}{% endif %}</title>
   {% set pageDescription = description or seo[page.url].description %}
   {% if pageDescription %}<meta name="description" content="{{ pageDescription }}">{% endif %}
+  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
   <link rel="canonical" href="{{ site.siteUrl }}{{ page.url }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ site.name }}">
@@ -63,20 +64,22 @@
   </script>
 </head>
 <body>
-  {% include "partials/nav.njk" %}
+  {% if not bare %}{% include "partials/nav.njk" %}{% endif %}
 
   <main id="main">
     {{ content | safe }}
   </main>
 
-  {% if page.url != "/404.html" and page.url != "/book/" and not page.url.startsWith("/our-work/") and not page.url.startsWith("/our-team/") %}{% include "partials/book-meeting.njk" %}{% endif %}
+  {% if not bare and page.url != "/404.html" and page.url != "/book/" and page.url != "/connect/" and not page.url.startsWith("/our-work/") and not page.url.startsWith("/our-team/") %}{% include "partials/book-meeting.njk" %}{% endif %}
 
-  {% include "partials/footer.njk" %}
+  {% if not bare %}{% include "partials/footer.njk" %}{% endif %}
 
+  {% if not bare %}
   <button class="back-to-top" type="button" data-back-to-top>
     <span aria-hidden="true">↑</span>
     <span class="visually-hidden">Back to top</span>
   </button>
+  {% endif %}
 
   <script src="/scripts/analytics.js" defer></script>
   <script src="/scripts/footer-map.js" defer></script>

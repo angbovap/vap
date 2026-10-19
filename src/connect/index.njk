@@ -1,0 +1,54 @@
+---
+layout: base.njk
+extraCss: /styles/connect.css
+permalink: /connect/
+title: Connect with us
+description: Meet the Value Advisory Partners team and save their contact details.
+noindex: true
+bare: true
+eleventyExcludeFromCollections: true
+---
+<div class="vc">
+  <div class="vc__hero vc__hero--hub">
+    {% include "partials/contours.njk" %}
+    <div class="vc__inner">
+      <header class="vc__brand">
+        <img src="/assets/img/brand/vaplogo.png" alt="" width="40" height="40">
+        <span class="vc__brand-name">{{ site.brandPrimary }} <span>{{ site.brandSecondary }}</span></span>
+      </header>
+      <section class="vc__id">
+        <p class="vc__hello">Nice to meet you</p>
+        <h1 class="vc__name">Let's stay in touch.</h1>
+        <p class="vc__org">{{ site.tagline }}</p>
+      </section>
+    </div>
+  </div>
+
+  <div class="vc__inner vc__body">
+    <p class="vc__intro">{{ seo["/"].description }}</p>
+
+    <ul class="vc__stats" aria-label="Value Advisory Partners at a glance">
+      <li><strong>130+</strong><span>projects</span></li>
+      <li><strong>AU &amp; NZ</strong><span>across</span></li>
+      <li><strong>{{ site.offices | length }}</strong><span>offices</span></li>
+    </ul>
+
+    <section class="vc__areas" aria-labelledby="vc-team">
+      <h2 id="vc-team">Our advisers</h2>
+      <ul class="vc__team">
+        {% for host in booking.hosts %}
+        {% set h = host.slug | bookHost %}
+        <li><a href="/connect/{{ (h.name.split(' ') | first) | lower }}/">
+          <span class="vc__photo vc__photo--sm" style="background-image: url('{{ h.image }}');" aria-hidden="true"></span>
+          <span><strong>{{ h.name }}</strong><em>{{ h.focus }}</em></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <div class="vc__cta">
+      <a class="vc__btn vc__btn--primary" href="/" data-track="website_click">Visit our website</a>
+    </div>
+  </div>
+</div>

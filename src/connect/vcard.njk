@@ -1,0 +1,20 @@
+---
+pagination:
+  data: team
+  size: 1
+  alias: m
+permalink: "/connect/vcf/{{ m.slug }}.vcf"
+eleventyExcludeFromCollections: true
+---
+{%- set parts = m.name.split(" ") -%}
+BEGIN:VCARD
+VERSION:3.0
+N:{{ parts | last }};{{ parts | first }};;;
+FN:{{ m.name }}
+ORG:{{ site.name }}
+{% if m.role %}TITLE:{{ m.role }}
+{% endif %}EMAIL;TYPE=WORK:{{ m.email }}
+TEL;TYPE=WORK,VOICE:{{ m.phone or site.phone }}
+ADR;TYPE=WORK:;;{{ site.offices[0].line1 }};{{ site.offices[0].locality }};{{ site.offices[0].region }};{{ site.offices[0].postalCode }};Australia
+URL:{{ site.siteUrl }}{{ m.url }}
+END:VCARD
