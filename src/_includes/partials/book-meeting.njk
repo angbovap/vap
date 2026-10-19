@@ -10,9 +10,11 @@
       <p class="eyebrow">Book a meeting</p>
       <h2 id="book-heading">Speak with the right adviser.</h2>
       <p class="book__lede">Pick the adviser closest to your question and choose a time in their calendar.</p>
-      {% include "partials/book-reach.njk" %}
+      <div class="book__reach-slot book__reach-slot--side">{% include "partials/book-reach.njk" %}</div>
     </div>
 
     {% include "partials/book-advisers.njk" %}
+
+    <div class="book__reach-slot book__reach-slot--below">{% include "partials/book-reach.njk" %}</div>
   </div>
 </section>

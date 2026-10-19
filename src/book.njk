@@ -11,10 +11,12 @@ title: Book a meeting
       <h1 id="book-page-heading">Speak with the right adviser.</h1>
       <p class="book__lede">Pick the adviser closest to your question and choose a time in their calendar.</p>
       <p class="book__note">Not sure who to choose? <a href="/get-in-touch/">Send us a message</a> and we will direct you to the right person.</p>
-      {% include "partials/book-reach.njk" %}
+      <div class="book__reach-slot book__reach-slot--side">{% include "partials/book-reach.njk" %}</div>
     </div>
 
     {% include "partials/book-advisers.njk" %}
+
+    <div class="book__reach-slot book__reach-slot--below">{% include "partials/book-reach.njk" %}</div>
   </div>
 </section>
 

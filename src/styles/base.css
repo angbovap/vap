@@ -5320,9 +5320,26 @@ main section.partners {
   text-decoration: underline;
 }
 
+/* The reach-out block sits under the intro on desktop, and under the advisers on phones */
+.book__reach-slot--below {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .book__layout {
     grid-template-columns: 1fr;
+  }
+
+  .book__reach-slot--side {
+    display: none;
+  }
+
+  .book__reach-slot--below {
+    display: block;
+  }
+
+  .book__reach-slot--below .book__reach {
+    margin-top: 0;
   }
 
   .book__lede {
