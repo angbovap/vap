@@ -351,3 +351,65 @@ main:has(.vc) { padding-top: 0; }
 /* Office directions chips */
 .vc__visit a { display: inline-flex; align-items: center; gap: 0.4rem; }
 .vc__visit svg { width: 1rem; height: 1rem; color: var(--vc-teal); }
+
+/* ---------- Mobile: full-bleed photo with a floating centred card ---------- */
+
+@media (max-width: 899px) {
+  .vc {
+    background:
+      linear-gradient(180deg, rgba(0, 54, 62, 0.86) 0%, rgba(0, 84, 96, 0.8) 55%, rgba(0, 44, 52, 0.92) 100%),
+      url("/assets/img/site/hero.webp") center / cover no-repeat;
+  }
+
+  .vc__top {
+    justify-content: center;
+    gap: 1.1rem;
+    padding: max(1.1rem, env(safe-area-inset-top)) 1.25rem 1.1rem;
+    background: none;
+    text-align: center;
+  }
+
+  .vc__top .brand { justify-content: center; }
+  .vc .brand__text { align-items: flex-start; text-align: left; }
+
+  .vc__id { flex-direction: column; gap: 0.9rem; margin-block: 0; }
+  .vc__id--hub { padding-top: 0.5rem; }
+
+  .vc__portrait { width: 6.4rem; height: 6.4rem; }
+
+  .vc__portrait::before {
+    inset: -0.35rem;
+    transform: none;
+    border: 2px solid var(--cta);
+    border-radius: 50%;
+  }
+
+  .vc__photo { border-radius: 50%; }
+  .vc__name { font-size: clamp(1.7rem, 8vw, 2.1rem); }
+  .vc__tagline { margin-top: 0.25em; }
+  .vc__headline { font-size: clamp(1.75rem, 8.4vw, 2.3rem); }
+
+  .vc__sheet {
+    margin: 0 1rem max(1rem, env(safe-area-inset-bottom));
+    padding: 1.25rem 1.1rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 18px 44px rgba(0, 20, 26, 0.4);
+    text-align: center;
+  }
+
+  .vc__areas { text-align: center; }
+  .vc__areas ul { justify-content: center; }
+}
+
+@media (max-width: 899px) and (max-height: 800px) {
+  .vc__intro { display: none; }
+}
+
+@media (max-width: 899px) and (max-height: 700px) {
+  .vc__areas:not(.vc__visit) { display: none; }
+  .vc__tagline { display: none; }
+}
+
+@media (max-width: 899px) and (max-height: 600px) {
+  .vc__visit { display: none; }
+}
