@@ -63,7 +63,7 @@
   }
   </script>
 </head>
-<body>
+<body{% if bare %} class="is-bare"{% endif %}>
   {% if not bare %}{% include "partials/nav.njk" %}{% endif %}
 
   <main id="main">

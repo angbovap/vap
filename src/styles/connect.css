@@ -64,7 +64,9 @@
 .vc__portrait {
   position: relative;
   flex: 0 0 auto;
+  width: clamp(4.6rem, 14vh, 6.2rem);
   width: clamp(4.6rem, 14svh, 6.2rem);
+  height: clamp(5.6rem, 17vh, 7.5rem);
   height: clamp(5.6rem, 17svh, 7.5rem);
 }
 
@@ -137,6 +139,7 @@
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
+  gap: clamp(0.7rem, 2.2vh, 1.25rem);
   gap: clamp(0.7rem, 2.2svh, 1.25rem);
   margin: -1.5rem 0 0;
   padding: 1.35rem 1.25rem max(1rem, env(safe-area-inset-bottom));
@@ -265,24 +268,10 @@
 .vc__go-note { font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; color: var(--brand-100); }
 .vc__go-link { display: inline-block; margin-top: 1rem; font-weight: 700; color: #fff; border-bottom: 1px solid var(--cta); }
 
-/* ---------- Short screens: drop extras rather than scroll ---------- */
-
-@media (max-width: 899px) and (max-height: 720px) {
-  .vc__intro { display: none; }
-}
-
-@media (max-height: 600px) {
-  .vc__areas h2, .vc__areas ul { display: none; }
-}
-
-@media (min-width: 900px) and (max-height: 640px) {
-  .vc__intro { display: none; }
-}
-
 /* ---------- Desktop: photo and identity left, content right, still one screen ---------- */
 
 @media (min-width: 900px) {
-  body:has(.vc) { background: #fff; }
+  body.is-bare { background: #fff; }
 
   .vc {
     flex-direction: row;
@@ -302,7 +291,9 @@
   .vc .brand__tagline { font-size: 0.95rem; }
 
   .vc__portrait {
+    width: clamp(7rem, 19vh, 9.5rem);
     width: clamp(7rem, 19svh, 9.5rem);
+    height: clamp(8.6rem, 23vh, 11.5rem);
     height: clamp(8.6rem, 23svh, 11.5rem);
   }
 
@@ -338,11 +329,11 @@
   @keyframes vc-rise { from { opacity: 0; transform: translateY(10px); } }
 }
 
-body:has(.vc) { background: #00323a; }
+body.is-bare { background: #00323a; }
 
 /* ---------- Neutralise site-wide defaults inside the card ---------- */
 
-main:has(.vc) { padding-top: 0; }
+.is-bare main { padding-top: 0; }
 .vc section:not(.hero) { background: transparent; }
 .vc a:hover, .vc a:focus { color: inherit; }
 :where(.vc) p { max-width: none; font-size: 1rem; }
@@ -401,19 +392,6 @@ main:has(.vc) { padding-top: 0; }
   .vc__areas ul { justify-content: center; }
 }
 
-@media (max-width: 899px) and (max-height: 800px) {
-  .vc__intro { display: none; }
-}
-
-@media (max-width: 899px) and (max-height: 700px) {
-  .vc__areas:not(.vc__visit) { display: none; }
-  .vc__tagline { display: none; }
-}
-
-@media (max-width: 899px) and (max-height: 600px) {
-  .vc__visit { display: none; }
-}
-
 /* ---------- Mobile spacing pass ---------- */
 
 @media (max-width: 899px) {
@@ -433,6 +411,7 @@ main:has(.vc) { padding-top: 0; }
   .vc__tagline { margin-top: 0.15em; }
 
   .vc__sheet {
+    gap: clamp(0.9rem, 2.6vh, 1.4rem);
     gap: clamp(0.9rem, 2.6svh, 1.4rem);
     margin: 0 1rem max(1.25rem, env(safe-area-inset-bottom));
     padding: 1.5rem 1.25rem 1.4rem;
@@ -444,19 +423,11 @@ main:has(.vc) { padding-top: 0; }
   .vc__visit ul { margin-top: 0.7rem; }
 }
 
-@media (max-width: 899px) and (max-height: 760px) {
-  .vc__intro { display: none; }
-  .vc__tagline { display: none; }
-}
-
-@media (max-width: 899px) and (max-height: 680px) {
-  .vc__visit { display: none; }
-}
-
 /* ---------- Mobile: taller white card, focus on the main actions ---------- */
 
 @media (max-width: 899px) {
   .vc__sheet {
+    gap: clamp(1rem, 3vh, 1.6rem);
     gap: clamp(1rem, 3svh, 1.6rem);
     padding: 1.9rem 1.25rem 1.75rem;
   }
@@ -620,6 +591,7 @@ main:has(.vc) { padding-top: 0; }
   .vc--hub .vc__headline { line-height: 1.3; }
 
   .vc--hub .vc__sheet {
+    gap: clamp(1.2rem, 3.4vh, 1.9rem);
     gap: clamp(1.2rem, 3.4svh, 1.9rem);
     padding: 1.7rem 1.25rem 1.6rem;
   }
