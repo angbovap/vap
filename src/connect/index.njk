@@ -3,35 +3,30 @@ layout: base.njk
 extraCss: /styles/connect.css
 permalink: /connect/
 title: Connect with us
-description: Book a meeting with the Value Advisory Partners team or visit our website.
+description: Visit the Value Advisory Partners website or book a meeting with the team.
 noindex: true
 bare: true
 eleventyExcludeFromCollections: true
 ---
 <div class="vc">
-  {% include "partials/contours.njk" %}
-  <div class="vc__screen">
-
-    <header class="vc__brand">
-      <img src="/assets/img/brand/vaplogo.png" alt="" width="36" height="36">
-      <span class="vc__brand-name">{{ site.brandPrimary }} <span>{{ site.brandSecondary }}</span></span>
-    </header>
-
+  <div class="vc__top vc__top--hub">
+    {% include "partials/connect-brand.njk" %}
     <section class="vc__id vc__id--hub">
-      <h1 class="vc__name">{{ site.tagline }}</h1>
-      <p class="vc__lede">Speak with one of our advisers, or find out more about what we do.</p>
+      <h1 class="vc__headline">Unlocking commercial potential to <em>future proof value</em></h1>
     </section>
+  </div>
 
+  <div class="vc__sheet">
     <p class="vc__intro">{{ seo["/"].description }}</p>
 
     <div class="vc__cta">
-      <a class="vc__btn vc__btn--primary" href="/book/">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
-        Book a meeting with the team
-      </a>
-      <a class="vc__btn vc__btn--outline" href="/" data-track="website_click">
+      <a class="vc__btn vc__btn--primary" href="/" data-track="website_click">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
         Visit our website
+      </a>
+      <a class="vc__btn vc__btn--outline" href="/book/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+        Book a meeting with the team
       </a>
     </div>
 
@@ -44,16 +39,6 @@ eleventyExcludeFromCollections: true
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5V19M5 5.5v.01M10 19v-9.5M10 13.5c0-2.5 1.5-4 3.5-4s3.5 1.5 3.5 4V19"/></svg>LinkedIn</a></li>
     </ul>
 
-    <section class="vc__areas" aria-labelledby="vc-areas">
-      <h2 id="vc-areas">What we do</h2>
-      <ul>
-        {% for item in site.nav[1].children %}
-        <li><a href="{{ item.url }}">{{ item.label.split(" ") | first | replace(",", "") }}</a></li>
-        {% endfor %}
-      </ul>
-    </section>
-
-    <footer class="vc__foot">{% for o in site.offices %}{{ o.locality }}{% if not loop.last %} &middot; {% endif %}{% endfor %}</footer>
-
+    {% include "partials/connect-areas.njk" %}
   </div>
 </div>

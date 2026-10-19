@@ -1,18 +1,15 @@
-/* QR landing: digital business card and hub. One screen, no scrolling, mobile-first. */
+/* QR landing: digital business card and hub. One screen, no scrolling, mobile-first.
+   Uses the site's own type, brand lockup, pill buttons and hero photo. */
 
 .vc {
-  --vc-bg: #f3fafb;
-  --vc-card: #fff;
-  --vc-line: rgba(0, 112, 124, 0.18);
+  --vc-line: rgba(0, 112, 124, 0.2);
   --vc-muted: var(--ink-muted);
   --vc-teal: var(--brand-700);
-  position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   min-height: 100svh;
-  overflow: hidden;
-  background:
-    radial-gradient(120% 55% at 50% 12%, rgba(184, 230, 236, 0.95) 0%, rgba(184, 230, 236, 0) 70%),
-    linear-gradient(180deg, #fff 0%, var(--vc-bg) 100%);
+  background: var(--brand-700);
   color: var(--ink);
   font-family: var(--font-sans);
 }
@@ -21,51 +18,43 @@
 .vc a:focus-visible { outline: 3px solid var(--cta); outline-offset: 3px; }
 .vc svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-.vc__contours {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--brand-500);
-  opacity: 0.18;
-  animation: vc-drift 26s ease-in-out infinite alternate;
-  -webkit-mask-image: linear-gradient(180deg, #000 10%, transparent 90%);
-  mask-image: linear-gradient(180deg, #000 10%, transparent 90%);
-}
+/* ---------- Top: site hero photo under a brand-teal wash ---------- */
 
-@keyframes vc-drift {
-  from { transform: translate3d(-2%, 0, 0) scale(1.06); }
-  to { transform: translate3d(2%, -2%, 0) scale(1.1); }
-}
-
-/* The whole page is one flex column that fills the screen. */
-.vc__screen {
+.vc__top {
   position: relative;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: clamp(0.7rem, 2.3svh, 1.4rem);
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: none;
+  padding: max(1rem, env(safe-area-inset-top)) 1.25rem 2.7rem;
+  background:
+    linear-gradient(180deg, rgba(0, 62, 70, 0.9) 0%, rgba(0, 92, 104, 0.82) 100%),
+    url("/assets/img/site/hero.webp") center / cover no-repeat;
+  color: #fff;
+}
+
+.vc__top > *, .vc__sheet {
   width: 100%;
   max-width: 30rem;
-  min-height: 100vh;
-  min-height: 100svh;
-  margin: 0 auto;
-  padding: max(1rem, env(safe-area-inset-top)) 1.25rem max(1rem, env(safe-area-inset-bottom));
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ---------- Brand ---------- */
-
-.vc__brand { display: flex; align-items: center; gap: 0.7rem; }
-.vc__brand img { display: block; border-radius: 0.5rem; }
-
-.vc__brand-name {
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  line-height: 1.2;
+/* Site brand lockup, recoloured for the dark top */
+.vc .brand__mark {
+  width: 42px;
+  height: 42px;
+  padding: 3px;
+  background: #fff;
+  border-radius: 0.55rem;
 }
 
-.vc__brand-name span { color: var(--vc-teal); }
+.vc .brand, .vc .brand__name { color: #fff; }
+.vc .brand__name { font-size: 1.1rem; }
+.vc .brand__tagline { font-size: 0.8rem; color: rgba(255, 255, 255, 0.82); }
+.vc .brand:hover, .vc .brand:focus { color: #fff; }
 
 /* ---------- Identity ---------- */
 
@@ -78,8 +67,8 @@
 .vc__portrait {
   position: relative;
   flex: 0 0 auto;
-  width: clamp(5rem, 15svh, 6.6rem);
-  height: clamp(6.1rem, 18.5svh, 8rem);
+  width: clamp(4.6rem, 14svh, 6.2rem);
+  height: clamp(5.6rem, 17svh, 7.5rem);
 }
 
 .vc__portrait::before {
@@ -100,39 +89,67 @@
   background-color: var(--brand-100);
   background-size: cover;
   background-position: center 18%;
-  box-shadow: 0 10px 24px rgba(0, 70, 78, 0.22);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 .vc__name {
-  font-size: clamp(1.5rem, 7.2vw, 1.95rem);
-  line-height: 1.1;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.55rem, 7.4vw, 2rem);
+  line-height: 1.12;
+  font-weight: 600;
+  color: #fff;
 }
 
-.vc__role { margin-top: 0.3em; color: var(--vc-muted); font-weight: 600; }
+.vc__role { margin-top: 0.3em; color: rgba(255, 255, 255, 0.85); font-weight: 600; }
 
-.vc__org {
-  margin-top: 0.5em;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--vc-teal);
-}
-
+/* Same device as the home hero: a light serif italic accent */
 .vc__tagline {
   margin-top: 0.4em;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.05rem;
-  color: var(--vc-muted);
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--brand-100);
 }
 
-/* Hub headline replaces the portrait */
-.vc__id--hub { display: block; text-align: center; }
-.vc__id--hub .vc__name { font-size: clamp(2rem, 10vw, 2.6rem); }
-.vc__lede { margin-top: 0.6rem; color: var(--vc-muted); font-size: 1.02rem; line-height: 1.45; }
+.vc__id--hub { display: block; }
+
+.vc__headline {
+  font-size: clamp(1.9rem, 9.4vw, 2.6rem);
+  line-height: 1.22;
+  font-weight: 600;
+  color: #fff;
+}
+
+.vc__headline em {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brand-100);
+}
+
+/* ---------- White sheet ---------- */
+
+.vc__sheet {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.7rem, 2.2svh, 1.25rem);
+  max-width: none;
+  margin: -1.5rem 0 0;
+  padding: 1.35rem 1.25rem max(1rem, env(safe-area-inset-bottom));
+  background: #fff;
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 -10px 30px rgba(0, 40, 45, 0.18);
+}
+
+.vc__sheet > * {
+  width: 100%;
+  max-width: 27.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .vc__intro {
   font-size: 0.98rem;
@@ -140,66 +157,48 @@
   color: var(--vc-muted);
 }
 
-/* ---------- Buttons ---------- */
+/* ---------- Buttons (pill, as on the site) ---------- */
 
 .vc__cta { display: grid; gap: 0.6rem; }
 
 .vc__btn {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
   min-height: 3.1rem;
-  padding: 0.7em 1.2em;
-  border-radius: 0.9rem;
-  font-size: 1.05rem;
+  padding: 0.7em 1.4em;
+  border-radius: 999px;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
-  overflow: hidden;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 
-.vc__btn svg { width: 1.25rem; height: 1.25rem; flex: 0 0 auto; }
+.vc__btn svg { width: 1.2rem; height: 1.2rem; flex: 0 0 auto; }
 .vc__btn:active { transform: scale(0.98); }
 
-.vc a.vc__btn--primary {
-  background: var(--vc-teal);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(0, 112, 124, 0.3);
-}
-
-.vc a.vc__btn--primary:hover { background: #005a64; transform: translateY(-1px); color: #fff; }
-
-.vc__btn--primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.35) 50%, transparent 65%);
-  transform: translateX(-120%);
-  animation: vc-sheen 4.5s ease-in-out 1.2s infinite;
-}
-
-@keyframes vc-sheen {
-  0%, 55% { transform: translateX(-120%); }
-  100% { transform: translateX(120%); }
-}
+.vc a.vc__btn--primary { background: var(--vc-teal); color: #fff; }
+.vc a.vc__btn--primary:hover, .vc a.vc__btn--primary:focus-visible { background: var(--ink); color: #fff; }
 
 .vc a.vc__btn--outline {
   background: #fff;
-  border: 2px solid var(--vc-teal);
+  border: 2px solid var(--vc-line);
+  color: var(--ink);
+}
+
+.vc a.vc__btn--outline:hover, .vc a.vc__btn--outline:focus-visible {
+  border-color: var(--vc-teal);
   color: var(--vc-teal);
 }
 
-.vc a.vc__btn--outline:hover { background: var(--brand-50); color: var(--vc-teal); }
-
-/* ---------- Icon tiles: call, email, LinkedIn, website ---------- */
+/* ---------- Icon tiles ---------- */
 
 .vc__tiles {
   display: grid;
   grid-template-columns: repeat(var(--cols, 4), 1fr);
-  gap: 0.55rem;
+  gap: 0.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -209,21 +208,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.75rem 0.25rem 0.65rem;
-  background: var(--vc-card);
-  border: 1px solid var(--vc-line);
+  gap: 0.35rem;
+  padding: 0.7rem 0.25rem 0.6rem;
+  background: var(--brand-50);
   border-radius: 0.9rem;
   color: var(--vc-teal);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: border-color 0.2s ease, transform 0.15s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.vc__tiles a:hover { border-color: var(--brand-500); transform: translateY(-1px); color: var(--vc-teal); }
-.vc__tiles svg { width: 1.45rem; height: 1.45rem; }
+.vc__tiles a:hover, .vc__tiles a:focus-visible { background: var(--vc-teal); color: #fff; }
+.vc__tiles svg { width: 1.4rem; height: 1.4rem; }
 
 /* ---------- Practice-area chips ---------- */
 
@@ -231,6 +229,7 @@
 
 .vc__areas h2 {
   font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--vc-muted);
@@ -241,64 +240,58 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
-  margin: 0.55rem 0 0;
+  margin: 0.5rem 0 0;
   padding: 0;
   list-style: none;
 }
 
 .vc__areas a {
   display: block;
-  padding: 0.45rem 0.9rem;
+  padding: 0.4rem 0.95rem;
   border: 1px solid var(--vc-line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.75);
   color: var(--ink);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-.vc__areas a:hover { border-color: var(--brand-500); background: #fff; color: var(--ink); }
+.vc__areas a:hover, .vc__areas a:focus-visible { border-color: var(--vc-teal); color: var(--vc-teal); }
 
 .vc__foot {
-  text-align: center;
+  margin-top: 0.9rem;
   color: var(--vc-muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 /* ---------- Redirect page ---------- */
 
-.vc--go .vc__screen { align-items: center; text-align: center; }
-.vc__go-note { font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; color: var(--vc-teal); }
-.vc__go-link { display: inline-block; margin-top: 1rem; font-weight: 700; color: var(--vc-teal); border-bottom: 1px solid var(--cta); }
+.vc--go { align-items: center; justify-content: center; text-align: center; color: #fff; }
+.vc__go-note { font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; color: var(--brand-100); }
+.vc__go-link { display: inline-block; margin-top: 1rem; font-weight: 700; color: #fff; border-bottom: 1px solid var(--cta); }
 
-/* ---------- Short screens: drop the intro rather than scroll ---------- */
+/* ---------- Short screens: drop extras rather than scroll ---------- */
 
-@media (max-height: 640px) {
-  .vc__intro, .vc__tagline { display: none; }
+@media (max-height: 720px) {
+  .vc__intro { display: none; }
 }
 
-@media (max-height: 560px) {
-  .vc__areas { display: none; }
+@media (max-height: 600px) {
+  .vc__areas h2, .vc__areas ul { display: none; }
 }
 
 /* ---------- Entrance ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
-  .vc__screen > * { animation: vc-rise 0.65s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-  .vc__screen > :nth-child(2) { animation-delay: 0.06s; }
-  .vc__screen > :nth-child(3) { animation-delay: 0.12s; }
-  .vc__screen > :nth-child(4) { animation-delay: 0.18s; }
-  .vc__screen > :nth-child(5) { animation-delay: 0.24s; }
-  .vc__screen > :nth-child(6) { animation-delay: 0.3s; }
-  .vc__screen > :nth-child(7) { animation-delay: 0.36s; }
-  @keyframes vc-rise { from { opacity: 0; transform: translateY(12px); } }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .vc__contours, .vc__btn--primary::after { animation: none; }
+  .vc__top > *, .vc__sheet > * { animation: vc-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .vc__top > :nth-child(2) { animation-delay: 0.08s; }
+  .vc__sheet > :nth-child(1) { animation-delay: 0.16s; }
+  .vc__sheet > :nth-child(2) { animation-delay: 0.22s; }
+  .vc__sheet > :nth-child(3) { animation-delay: 0.28s; }
+  .vc__sheet > :nth-child(4) { animation-delay: 0.34s; }
+  @keyframes vc-rise { from { opacity: 0; transform: translateY(10px); } }
 }
 
 /* ---------- Neutralise site-wide defaults inside the card ---------- */
@@ -307,4 +300,4 @@ main:has(.vc) { padding-top: 0; }
 .vc section:not(.hero) { background: transparent; }
 .vc a:hover, .vc a:focus { color: inherit; }
 :where(.vc) p { max-width: none; font-size: 1rem; }
-:where(.vc) h1, :where(.vc) h2 { color: inherit; font-weight: 700; }
+:where(.vc) h1, :where(.vc) h2 { color: inherit; }

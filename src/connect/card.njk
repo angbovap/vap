@@ -15,14 +15,8 @@ eleventyComputed:
 ---
 {% set h = m.slug | bookHost %}
 <div class="vc">
-  {% include "partials/contours.njk" %}
-  <div class="vc__screen">
-
-    <header class="vc__brand">
-      <img src="/assets/img/brand/vaplogo.png" alt="" width="36" height="36">
-      <span class="vc__brand-name">{{ site.brandPrimary }} <span>{{ site.brandSecondary }}</span></span>
-    </header>
-
+  <div class="vc__top">
+    {% include "partials/connect-brand.njk" %}
     <section class="vc__id">
       <div class="vc__portrait">
         <span class="vc__photo" style="background-image: url('{{ m.image }}');" role="img" aria-label="Portrait of {{ m.name }}"></span>
@@ -30,11 +24,12 @@ eleventyComputed:
       <div class="vc__who">
         <h1 class="vc__name">{{ m.name }}</h1>
         {% if m.role %}<p class="vc__role">{{ m.role }}</p>{% endif %}
-        <p class="vc__org">{{ site.name }}</p>
-        <p class="vc__tagline">{{ site.tagline }}</p>
+        <p class="vc__tagline">{{ site.name }}</p>
       </div>
     </section>
+  </div>
 
+  <div class="vc__sheet">
     <p class="vc__intro">{{ seo["/"].description }}</p>
 
     <div class="vc__cta">
@@ -59,16 +54,6 @@ eleventyComputed:
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Website</a></li>
     </ul>
 
-    <section class="vc__areas" aria-labelledby="vc-areas">
-      <h2 id="vc-areas">What we do</h2>
-      <ul>
-        {% for item in site.nav[1].children %}
-        <li><a href="{{ item.url }}">{{ item.label.split(" ") | first | replace(",", "") }}</a></li>
-        {% endfor %}
-      </ul>
-    </section>
-
-    <footer class="vc__foot">{% for o in site.offices %}{{ o.locality }}{% if not loop.last %} &middot; {% endif %}{% endfor %}</footer>
-
+    {% include "partials/connect-areas.njk" %}
   </div>
 </div>

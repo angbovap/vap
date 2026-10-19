@@ -1,0 +1,9 @@
+<section class="vc__areas" aria-labelledby="vc-areas">
+  <h2 id="vc-areas">What we do</h2>
+  <ul>
+    {% for item in site.nav[1].children %}
+    <li><a href="{{ item.url }}">{{ item.label.split(" ") | first | replace(",", "") }}</a></li>
+    {% endfor %}
+  </ul>
+  <p class="vc__foot">{% for o in site.offices %}{{ o.locality }}{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+</section>
