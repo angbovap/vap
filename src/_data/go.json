@@ -1,6 +1,10 @@
 {
-  "john-card": {
-    "to": "/connect/john/",
+  "card": {
+    "to": "/connect/",
+    "campaign": "conference-2026-10"
+  },
+  "hello": {
+    "to": "/connect/",
     "campaign": "conference-2026-10"
   }
 }
