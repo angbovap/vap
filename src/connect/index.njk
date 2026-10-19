@@ -20,13 +20,17 @@ eleventyExcludeFromCollections: true
     <p class="vc__intro">{{ seo["/"].description }}</p>
 
     <div class="vc__cta">
-      <a class="vc__btn vc__btn--primary" href="/" data-track="website_click">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
-        Visit our website
+      <a class="vc__btn vc__btn--l1" href="/connect/cards/" data-track="business_cards_click">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M6.5 10h5M6.5 13.5h3M15 10.5h2.5"/></svg>
+        See our business cards
       </a>
-      <a class="vc__btn vc__btn--outline" href="/book/">
+      <a class="vc__btn vc__btn--l2" href="/book/">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
         Book a meeting
+      </a>
+      <a class="vc__btn vc__btn--l3" href="/" data-track="website_click">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+        Visit our website
       </a>
     </div>
 
@@ -38,8 +42,6 @@ eleventyExcludeFromCollections: true
       <li><a href="{{ site.linkedin }}" target="_blank" rel="noopener" aria-label="Value Advisory Partners on LinkedIn">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5V19M5 5.5v.01M10 19v-9.5M10 13.5c0-2.5 1.5-4 3.5-4s3.5 1.5 3.5 4V19"/></svg>LinkedIn</a></li>
     </ul>
-
-    <p class="vc__alt"><a href="/connect/cards/" data-track="business_cards_click">See our business cards</a></p>
 
     {% include "partials/connect-areas.njk" %}
   </div>

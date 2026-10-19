@@ -600,3 +600,13 @@ main:has(.vc) { padding-top: 0; }
   .vc__people a { padding: 0.6rem 1rem; }
   .vc__avatar { width: 2.2rem; height: 2.2rem; }
 }
+
+/* Hub buttons step from dark to light, top to bottom */
+.vc a.vc__btn--l1 { background: #00464e; color: #fff; box-shadow: 0 8px 20px rgba(0, 70, 78, 0.35); }
+.vc a.vc__btn--l2 { background: var(--brand-700); color: #fff; }
+.vc a.vc__btn--l3 { background: var(--brand-100); color: #00464e; }
+
+.vc a.vc__btn--l1:hover, .vc a.vc__btn--l1:focus-visible,
+.vc a.vc__btn--l2:hover, .vc a.vc__btn--l2:focus-visible { background: var(--ink); color: #fff; }
+
+.vc a.vc__btn--l3:hover, .vc a.vc__btn--l3:focus-visible { background: var(--brand-500); color: #fff; }
