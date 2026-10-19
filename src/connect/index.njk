@@ -34,14 +34,13 @@ eleventyExcludeFromCollections: true
     </ul>
 
     <section class="vc__areas" aria-labelledby="vc-team">
-      <h2 id="vc-team">Our advisers</h2>
+      <h2 id="vc-team">Meet the team</h2>
       <ul class="vc__team">
         {% for host in booking.hosts %}
         {% set h = host.slug | bookHost %}
         <li><a href="/connect/{{ (h.name.split(' ') | first) | lower }}/">
-          <span class="vc__photo vc__photo--sm" style="background-image: url('{{ h.image }}');" aria-hidden="true"></span>
-          <span><strong>{{ h.name }}</strong><em>{{ h.focus }}</em></span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+          <span class="vc__photo vc__photo--tile" style="background-image: url('{{ h.image }}');" aria-hidden="true"></span>
+          <strong>{{ h.name }}</strong>
         </a></li>
         {% endfor %}
       </ul>

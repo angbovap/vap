@@ -350,8 +350,6 @@
 .vc__areas li a > span:not(.vc__photo) { flex: 1 1 auto; }
 .vc__areas li a > svg { width: 1.3rem; height: 1.3rem; flex: 0 0 auto; color: var(--vc-accent); }
 
-.vc__team strong { display: block; }
-.vc__team em { display: block; font-style: normal; font-size: 0.85rem; color: var(--vc-accent); }
 
 .vc__foot {
   margin-top: 2.2rem;
@@ -420,3 +418,36 @@ main:has(.vc) { padding-top: 0; }
 .vc a, .vc a:hover, .vc a:focus { color: inherit; }
 :where(.vc) p { max-width: none; font-size: 1rem; }
 :where(.vc) h1, :where(.vc) h2 { color: inherit; font-weight: 700; }
+
+/* ---------- Team grid (hub) ---------- */
+
+.vc__areas .vc__team {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.vc__areas .vc__team li a {
+  height: 100%;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 0.5rem 1.1rem;
+  text-align: center;
+  background: var(--vc-glass);
+  border: 1px solid var(--vc-glass-line);
+  border-radius: 1.2rem;
+  transition: transform 0.15s ease, border-color 0.2s ease;
+}
+
+.vc__areas .vc__team li a:hover { transform: translateY(-2px); border-color: var(--vc-accent); }
+.vc__team strong { font-size: 1rem; line-height: 1.25; }
+
+.vc__photo--tile {
+  width: 6.2rem;
+  height: 7.4rem;
+  border-radius: 3.1rem 3.1rem 0.7rem 0.7rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
