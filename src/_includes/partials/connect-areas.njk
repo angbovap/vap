@@ -5,5 +5,14 @@
     <li><a href="{{ item.url }}">{{ item.label.split(" ") | first | replace(",", "") }}</a></li>
     {% endfor %}
   </ul>
-  <p class="vc__foot">{% for o in site.offices %}{{ o.locality }}{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+</section>
+
+<section class="vc__areas vc__visit" aria-labelledby="vc-visit">
+  <h2 id="vc-visit">Visit our offices</h2>
+  <ul>
+    {% for o in site.offices %}
+    <li><a href="https://www.google.com/maps/search/?api=1&query={{ (o.line1 + ', ' + o.line2) | urlencode }}" target="_blank" rel="noopener" data-track="office_click" aria-label="Directions to our {{ o.name }} office, {{ o.line1 }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>{{ o.name }}</a></li>
+    {% endfor %}
+  </ul>
 </section>

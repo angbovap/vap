@@ -347,3 +347,7 @@ main:has(.vc) { padding-top: 0; }
 .vc a:hover, .vc a:focus { color: inherit; }
 :where(.vc) p { max-width: none; font-size: 1rem; }
 :where(.vc) h1, :where(.vc) h2 { color: inherit; }
+
+/* Office directions chips */
+.vc__visit a { display: inline-flex; align-items: center; gap: 0.4rem; }
+.vc__visit svg { width: 1rem; height: 1rem; color: var(--vc-teal); }
