@@ -17,6 +17,7 @@ eleventyComputed:
 <div class="vc vc--card">
   <div class="vc__top">
     {% include "partials/connect-brand.njk" %}
+    <a class="vc__back" href="/connect/" data-track="back_to_hub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m5-5-5 5 5 5"/></svg>Back</a>
     <section class="vc__showcase">
       <div class="vc__showcase-who visually-hidden">
         <h1 class="vc__name">{{ m.name }}</h1>
@@ -39,7 +40,6 @@ eleventyComputed:
     </div>
     <p class="vc__alt">
       <a href="/connect/vcf/{{ m.slug }}.vcf" download data-save-contact="{{ m.slug }}">Save to contacts</a>
-      <a href="/connect/cards/">All business cards</a>
     </p>
   </div>
 </div>

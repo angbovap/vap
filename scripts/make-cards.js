@@ -41,6 +41,7 @@ function cardHtml(m, mode) {
   const first = [m.phone && item("M", m.phone, "tel:" + m.phone.replace(/\s+/g, "")), linkedin && item("LI", linkedin, m.linkedin)].filter(Boolean);
   if (first.length) lines.push(first.join(""));
   lines.push(item("E", m.email, "mailto:" + m.email));
+  lines.push(item("W", site.siteUrl.replace(/^https?:\/\//, ""), site.siteUrl));
   const address = `${office.line1}, ${office.line2.replace(/, Australia$/, "")}`;
   lines.push(link("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(`${office.line1}, ${office.line2}`), esc(address)));
 
@@ -59,7 +60,7 @@ body { position: relative; padding: 50px 56px; font-family: 'ATF Franklin Gothic
 .brand span { display: block; font-weight: 300; color: #4a4a4a; }
 .name { margin-top: 36px; font-size: 31px; line-height: 1.2; font-weight: 700; letter-spacing: .01em; text-transform: uppercase; color: #00707C; }
 .name span { margin-left: 14px; font-weight: 400; color: #323232; }
-.contact { position: absolute; left: 56px; right: 40px; bottom: 44px; display: grid; gap: 7px; font-size: 24px; line-height: 1.3; }
+.contact { position: absolute; left: 56px; right: 40px; bottom: 44px; display: grid; gap: 5px; font-size: 23px; line-height: 1.3; }
 .contact b { margin-right: 9px; font-weight: 700; color: #00707C; }
 .item { margin-right: 22px; white-space: nowrap; }
 .item:last-child { margin-right: 0; }
