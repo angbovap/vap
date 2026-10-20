@@ -40,7 +40,7 @@ function cardHtml(m, mode) {
   const lines = [];
   const first = [m.phone && item("M", m.phone, "tel:" + m.phone.replace(/\s+/g, "")), linkedin && item("LI", linkedin, m.linkedin)].filter(Boolean);
   if (first.length) lines.push(first.join(""));
-  lines.push(item("E", m.email, "mailto:" + m.email));
+  if (m.email) lines.push(item("E", m.email, "mailto:" + m.email));
   lines.push(item("W", site.siteUrl.replace(/^https?:\/\//, ""), site.siteUrl));
   const address = `${office.line1}, ${office.line2.replace(/, Australia$/, "")}`;
   lines.push(link("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(`${office.line1}, ${office.line2}`), esc(address)));

@@ -21,7 +21,7 @@ eleventyExcludeFromCollections: true
     <ul class="vc__people">
       {% for m in team %}
       <li><a href="/connect/{{ (m.name.split(' ') | first) | lower }}/" data-track="business_card_click">
-        <span class="vc__person"><span class="vc__avatar" style="background-image: url('{{ m.image }}');" aria-hidden="true"></span><strong>{{ m.name }}</strong></span>
+        <span class="vc__person"><span class="vc__avatar{% if not m.image %} vc__avatar--initials{% endif %}"{% if m.image %} style="background-image: url('{{ m.image }}');"{% endif %} aria-hidden="true">{% if not m.image %}{{ m.name.split(' ') | first | first }}{{ m.name.split(' ') | last | first }}{% endif %}</span><strong>{{ m.name }}</strong></span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
       </a></li>
       {% endfor %}

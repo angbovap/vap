@@ -601,3 +601,14 @@ body.is-bare { background: #00323a; }
   .vc--hub .vc__tiles { gap: 0.7rem; }
   .vc--hub .vc__visit ul { margin-top: 0.9rem; }
 }
+
+/* Initials stand in for a photo until one is added */
+.vc__avatar--initials {
+  display: grid;
+  place-items: center;
+  background-color: var(--brand-700);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}

@@ -141,5 +141,11 @@
     ],
     "image": "/assets/img/team/dylan.avif",
     "url": "/our-team/dylan-pleiter/"
+  },
+  {
+    "slug": "angbo-xie",
+    "name": "Angbo Xie",
+    "role": "User Experience Designer",
+    "url": "/our-team/angbo-xie/"
   }
 ]
