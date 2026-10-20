@@ -146,6 +146,9 @@
     "slug": "angbo-xie",
     "name": "Angbo Xie",
     "role": "Digital Experience & Data Visualisation Designer",
+    "phone": "+61 490 471 873",
+    "email": "angbo.xie@valueadvisory.co",
+    "image": "/assets/img/team/angbo.jpg",
     "hideBooking": true,
     "bio": [
       "<strong>Transforming complex data into intuitive, interactive digital experiences.</strong><br><br>I design user-centred digital interfaces, interactive dashboards and data visualisations that help clients explore and understand complex information. My work combines UX/UI design, data preparation, SQL and stakeholder collaboration to create accessible, functional digital solutions."
