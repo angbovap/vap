@@ -12,7 +12,7 @@ VERSION:3.0
 N:{{ parts | last }};{{ parts | first }};;;
 FN:{{ m.name }}
 ORG:{{ site.name }}
-{% if m.role %}TITLE:{{ m.role }}
+{% if m.role %}TITLE:{{ m.role | safe }}
 {% endif %}{% if m.email %}EMAIL;TYPE=WORK:{{ m.email }}
 {% endif %}{% if m.phone %}TEL;TYPE=CELL,VOICE:{{ m.phone }}
 {% endif %}TEL;TYPE=WORK,VOICE:{{ site.phone }}

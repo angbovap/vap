@@ -15,7 +15,7 @@ layout: base.njk
   "@type": "Person",
   "name": "{{ member.name }}",
   {%- if member.role %}
-  "jobTitle": "{{ member.role }}",
+  "jobTitle": "{{ member.role | safe }}",
   {%- endif %}
   "worksFor": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.siteUrl }}" },
   {%- if member.email %}

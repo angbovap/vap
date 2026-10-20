@@ -145,7 +145,10 @@
   {
     "slug": "angbo-xie",
     "name": "Angbo Xie",
-    "role": "User Experience Designer",
+    "role": "Digital Experience & Data Visualisation Designer",
+    "bio": [
+      "<strong>Transforming complex data into intuitive, interactive digital experiences.</strong><br><br>I design user-centred digital interfaces, interactive dashboards and data visualisations that help clients explore and understand complex information. My work combines UX/UI design, data preparation, SQL and stakeholder collaboration to create accessible, functional digital solutions."
+    ],
     "url": "/our-team/angbo-xie/"
   }
 ]
