@@ -81,7 +81,8 @@ layout: base.njk
       <p class="eyebrow">Our team</p>
       <h1 class="profile__name">{{ member.name }}</h1>
       {% if member.role %}<p class="profile__role">{{ member.role }}</p>{% endif %}
-      {% if member.slug | bookHost %}
+      {% if member.hideBooking %}
+      {% elif member.slug | bookHost %}
       {{ bookInline(member.slug, "Book a meeting with " ~ (member.slug | bookHost).firstName) }}
       {% else %}
       {{ bookInline("john-marinopoulos", "Want to speak with " ~ member.name.split(" ")[0] ~ "?", "John will introduce you to the right adviser.") }}
