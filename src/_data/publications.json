@@ -1,9 +1,26 @@
 [
   {
     "type": "presentation",
+    "year": 2026,
+    "sortDate": "2026-10-26",
+    "featured": true,
+    "title": "Resilience Investment Case Explorer (RICE): A scalable digital decision tool for climate resilience investment decisions",
+    "event": "Presentation for Climate Adaptation 2026",
+    "location": "Newcastle",
+    "date": "October 2026",
+    "focus": [
+      "From fragmented studies to a shared decision environment for investment",
+      "Connecting place, risk, options, value and delivery in one tool, developed with CSIRO for Bega Valley Shire Council"
+    ],
+    "presenters": "Peter Heinmiller",
+    "links": {
+      "download": "/assets/documents/rice-climate-adaptation-2026-presentation.pdf"
+    }
+  },
+  {
+    "type": "presentation",
     "year": 2025,
     "sortDate": "2025-05-30",
-    "featured": true,
     "title": "Defend? Retreat? Accommodate? How do we plan for future regional settlement in a changing climate",
     "event": "Presentation for Planning Institute of Australia (PIA) National Congress 2025",
     "location": "Darwin",

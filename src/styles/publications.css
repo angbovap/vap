@@ -5,7 +5,7 @@
   display: none !important;
 }
 
-/* Hero band */
+/* Hero band: a compact intro beside the featured talk */
 
 main:has(.pubhero) {
   padding-top: 0;
@@ -14,23 +14,30 @@ main:has(.pubhero) {
 main section.pubhero {
   position: relative;
   overflow: hidden;
-  padding-block: var(--step-3) calc(var(--step-3) * 1.7);
+  padding-block: var(--step-2) var(--step-3);
   background: var(--brand-700);
   color: var(--surface);
 }
 
-.pubhero .wrap {
+.pubhero__grid {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: var(--step-2) clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.pubhero__grid--solo {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .pubhero__rings {
   position: absolute;
-  top: 50%;
-  right: -10%;
-  width: min(64vw, 46rem);
-  transform: translateY(-50%);
+  right: -9rem;
+  bottom: -17rem;
+  width: min(60vw, 34rem);
   color: var(--surface);
-  opacity: 0.14;
+  opacity: 0.1;
   pointer-events: none;
 }
 
@@ -43,15 +50,14 @@ main section.pubhero {
 }
 
 .pubhero__title {
-  margin-top: var(--step-1);
+  margin-top: var(--step-0);
   color: var(--surface);
-  font-size: var(--step-3);
+  font-size: var(--step-headline);
   font-weight: 600;
   line-height: 1.15;
 }
 
 .pubhero__accent {
-  display: block;
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
@@ -59,7 +65,7 @@ main section.pubhero {
 }
 
 .pubhero__lead {
-  margin-top: var(--step-2);
+  margin-top: var(--step-0);
   max-width: 34ch;
   color: rgba(255, 255, 255, 0.88);
 }
@@ -67,20 +73,20 @@ main section.pubhero {
 .pubhero__stats {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--step-2) clamp(2rem, 7vw, 6rem);
-  margin-top: var(--step-3);
-  padding-top: var(--step-2);
+  gap: var(--step-0) var(--step-2);
+  margin-top: var(--step-2);
+  padding-top: var(--step-0);
   border-top: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .pubhero__stat {
   display: flex;
   flex-direction: column-reverse;
-  gap: 0.5em;
+  gap: 0.35em;
 }
 
 .pubhero__stat dt {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -89,7 +95,7 @@ main section.pubhero {
 
 .pubhero__stat dd {
   margin: 0;
-  font-size: var(--step-3);
+  font-size: var(--step-1);
   font-weight: 600;
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -97,27 +103,15 @@ main section.pubhero {
 
 /* Featured talk */
 
-main section.pubspot {
-  background: transparent;
-  position: relative;
-  z-index: 1;
-  margin-top: calc(var(--step-3) * -1.15);
-}
-
 .pubspot__card {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: var(--step-2);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--step-1);
   padding: var(--step-2);
   background: var(--surface);
-  border: 1px solid var(--rule);
+  color: var(--ink);
   border-radius: 1rem;
-  box-shadow: 0 28px 60px -28px rgba(0, 60, 68, 0.45);
-}
-
-.pubspot__card:not(:has(.pubspot__media)) {
-  grid-template-columns: 1fr;
+  box-shadow: 0 28px 60px -28px rgba(0, 30, 34, 0.6);
 }
 
 .pubspot__media {
@@ -289,6 +283,46 @@ main section.pubspot {
   opacity: 1;
 }
 
+/* Talks with a recording show a playable thumbnail beside the text */
+
+.pubrow--video {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
+  gap: var(--step-2);
+  align-items: start;
+}
+
+.pubrow--video .pubrow__media {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.pubrow--video .pubrow__body {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.pubrow__media .wd-pub-video,
+.pubrow__media .wd-pub-video__frame {
+  border-radius: 0.5rem;
+}
+
+.pubrow__media .wd-pub-video__play {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.1rem;
+  background: var(--brand-700);
+  color: var(--surface);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.pubrow__media .wd-pub-video:hover .wd-pub-video__play,
+.pubrow__media .wd-pub-video:focus-visible .wd-pub-video__play {
+  background: var(--brand-500);
+}
+
 .pubrow__top {
   display: flex;
   flex-wrap: wrap;
@@ -426,8 +460,18 @@ main section.pubspot {
 }
 
 @media (max-width: 799px) {
-  .pubspot__card {
-    grid-template-columns: 1fr;
+  .pubrow--video {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pubrow--video .pubrow__media,
+  .pubrow--video .pubrow__body {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .pubhero__grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .pubyear {

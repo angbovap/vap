@@ -5,7 +5,6 @@ title: Publications
 extraCss: /styles/publications.css
 ---
 {% set featured = publications | selectattr("featured") | first %}
-{% set rest = publications | rejectattr("featured") %}
 {% set years = publications | groupByYear %}
 
 <section class="pubhero">
@@ -15,31 +14,29 @@ extraCss: /styles/publications.css
     <circle cx="299" cy="381" r="182"/>
     <path d="M448 432 Q 492 462 548 480 Q 505 468 462 452" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  <div class="wrap">
-    <p class="eyebrow">Publications</p>
-    <h1 class="pubhero__title">Talks and <span class="pubhero__accent">publications</span></h1>
-    <p class="pubhero__lead">Presentations and published reports from the Value Advisory Partners team.</p>
-    <dl class="pubhero__stats">
-      <div class="pubhero__stat">
-        <dt>Talks</dt>
-        <dd data-count="{{ publications | countType('presentation') }}">{{ publications | countType("presentation") }}</dd>
-      </div>
-      <div class="pubhero__stat">
-        <dt>Reports</dt>
-        <dd data-count="{{ publications | countType('report') }}">{{ publications | countType("report") }}</dd>
-      </div>
-      <div class="pubhero__stat">
-        <dt>Years</dt>
-        <dd>{{ (years | last).year }}&ndash;{{ (years | first).year }}</dd>
-      </div>
-    </dl>
-  </div>
-</section>
+  <div class="wrap pubhero__grid{% if not featured %} pubhero__grid--solo{% endif %}">
+    <div class="pubhero__intro">
+      <p class="eyebrow">Publications</p>
+      <h1 class="pubhero__title">Talks and <span class="pubhero__accent">publications</span></h1>
+      <p class="pubhero__lead">Presentations and published reports from the Value Advisory Partners team.</p>
+      <dl class="pubhero__stats">
+        <div class="pubhero__stat">
+          <dt>Talks</dt>
+          <dd data-count="{{ publications | countType('presentation') }}">{{ publications | countType("presentation") }}</dd>
+        </div>
+        <div class="pubhero__stat">
+          <dt>Reports</dt>
+          <dd data-count="{{ publications | countType('report') }}">{{ publications | countType("report") }}</dd>
+        </div>
+        <div class="pubhero__stat">
+          <dt>Years</dt>
+          <dd>{{ (years | last).year }}&ndash;{{ (years | first).year }}</dd>
+        </div>
+      </dl>
+    </div>
 
-{% if featured %}
-<section class="pubspot" data-pub-item data-type="{{ featured.type }}">
-  <div class="wrap">
-    <article class="pubspot__card reveal">
+    {% if featured %}
+    <article class="pubspot__card">
       {% if featured.links.presentationVideoId %}
       <div class="pubspot__media">
         <button class="wd-pub-video" type="button" data-yt-preview="{{ featured.links.presentationVideoId }}" aria-label="Play video: {{ featured.title }}">
@@ -64,9 +61,9 @@ extraCss: /styles/publications.css
         </div>
       </div>
     </article>
+    {% endif %}
   </div>
 </section>
-{% endif %}
 
 <section class="pubindex" data-pub-total="{{ publications.length }}">
   <div class="wrap">
@@ -79,12 +76,22 @@ extraCss: /styles/publications.css
       <p class="pubindex__status" data-pub-status aria-live="polite">Showing all {{ publications.length }}</p>
     </div>
 
-    {% for group in rest | groupByYear %}
+    {% for group in publications | groupByYear %}
     <section class="pubyear" data-pub-year>
       <h2 class="pubyear__label">{{ group.year }}</h2>
       <ol class="pubyear__list">
         {% for item in group.items %}
-        <li class="pubrow reveal" data-pub-item data-type="{{ item.type }}">
+        {% set videoId = item.links.presentationVideoId if item.links else "" %}
+        <li class="pubrow reveal{% if videoId %} pubrow--video{% endif %}" data-pub-item data-type="{{ item.type }}">
+          {% if videoId %}
+          <div class="pubrow__media">
+            <button class="wd-pub-video" type="button" data-yt-preview="{{ videoId }}" aria-label="Play video: {{ item.title }}">
+              <img class="wd-pub-video__thumb" src="https://img.youtube.com/vi/{{ videoId }}/hqdefault.jpg" alt="" loading="lazy">
+              <span class="wd-pub-video__play" aria-hidden="true">▶</span>
+            </button>
+          </div>
+          {% endif %}
+          <div class="pubrow__body">
           <div class="pubrow__top">
             <span class="pubtag pubtag--{{ item.type }}">{% if item.type == "presentation" %}Talk{% else %}Report{% endif %}</span>
             <span class="pubrow__date">{{ item.date }}</span>
@@ -115,6 +122,7 @@ extraCss: /styles/publications.css
             {% if item.links.download %}<a class="wd-framework__link" href="{{ item.links.download }}">Download a copy <span aria-hidden="true">→</span></a>{% endif %}
           </div>
           {% endif %}
+          </div>
         </li>
         {% endfor %}
       </ol>
