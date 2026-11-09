@@ -32,7 +32,7 @@ title: Our team
           <span class="team-member__link">View profile <span aria-hidden="true">→</span></span>
         </div>
       </a>
-      {% if bh %}<a class="team-member__book" href="{{ bh.url }}" target="_blank" rel="noopener" data-book-host="{{ bh.slug }}" data-book-focus="{{ bh.focus }}">Book a meeting<span class="team-member__book-focus">{{ bh.focus }}</span></a>{% endif %}
+      {% if bh %}<a class="team-member__book" href="{{ bh.url }}" target="_blank" rel="noopener" data-book-host="{{ bh.slug }}" data-book-name="{{ bh.name }}" data-book-focus="{{ bh.focus }}">Book a meeting<span class="team-member__book-focus">{{ bh.focus }}</span></a>{% endif %}
       </div>
       {% endfor %}
     </div>

@@ -5515,3 +5515,127 @@ main section.book.book--similar {
   text-transform: uppercase;
 }
 
+
+/* Booking calendar panel (opened by scripts/book-panel.js) */
+
+.book-inline {
+  scroll-margin-top: 6rem;
+}
+
+html.has-book-panel {
+  overflow: hidden;
+}
+
+.book-panel {
+  width: min(56rem, calc(100vw - 2rem));
+  height: min(52rem, calc(100dvh - 2rem));
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0.75rem;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.book-panel[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-panel::backdrop {
+  background: rgba(20, 30, 32, 0.55);
+}
+
+.book-panel__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.book-panel__eyebrow {
+  margin: 0;
+  color: var(--brand-700);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.book-panel__title {
+  margin: 0.15em 0 0;
+  font-size: var(--step-1);
+  line-height: 1.25;
+}
+
+.book-panel__close {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.book-panel__close:hover,
+.book-panel__close:focus-visible {
+  background: var(--brand-50);
+  border-color: var(--brand-500);
+}
+
+.book-panel__frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.book-panel__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.book-panel__loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.book-panel__frame.is-loaded .book-panel__loading {
+  display: none;
+}
+
+.book-panel__alt {
+  margin: 0;
+  padding: 0.6rem 1.25rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+.book-panel__alt a {
+  color: var(--brand-700);
+}
+
+@media (max-width: 40rem) {
+  .book-panel {
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 0;
+  }
+}

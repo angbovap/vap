@@ -17,7 +17,7 @@
       <p class="book__name">{{ h.name }} <span class="book__focus">{{ h.focus }}</span></p>
       <p class="book__text">{{ h.text }}</p>
     </div>
-    <a class="book__btn" href="{{ h.url }}" target="_blank" rel="noopener" aria-label="Book a meeting with {{ h.name }}" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">Book a meeting</a>
+    <a class="book__btn" href="{{ h.url }}" target="_blank" rel="noopener" aria-label="Book a meeting with {{ h.name }}" data-book-host="{{ h.slug }}" data-book-name="{{ h.name }}" data-book-focus="{{ h.focus }}">Book a meeting</a>
   </li>
   {% endif %}
   {% endfor %}

@@ -14,7 +14,7 @@
     <p class="book-inline__title">{{ heading or ("Talk to " ~ h.name ~ " about " ~ (h.focus | lower)) }}</p>
     <p class="book-inline__text">{{ text or h.blurb or h.text }}</p>
   </div>
-  <a class="book__btn" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">Book a meeting with {{ h.firstName }}</a>
+  <a class="book__btn" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-name="{{ h.name }}" data-book-focus="{{ h.focus }}">Book a meeting with {{ h.firstName }}</a>
 </aside>
 {% endif %}
 {% endmacro %}
@@ -29,7 +29,7 @@
   <ul class="book-inline__people">
     {% for slug in hosts %}{% set h = slug | bookHost %}{% if h %}
     <li>
-      <a class="book-inline__person" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-focus="{{ h.focus }}">
+      <a class="book-inline__person" href="{{ h.url }}" target="_blank" rel="noopener" data-book-host="{{ h.slug }}" data-book-name="{{ h.name }}" data-book-focus="{{ h.focus }}">
         <span class="book-inline__person-name">Book with {{ h.firstName }}</span>
         <span class="book-inline__person-focus">{{ h.focus }}</span>
       </a>

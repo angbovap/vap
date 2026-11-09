@@ -93,8 +93,10 @@
     };
     if (match.nameKey) params[match.nameKey] = match.name;
     if (match.type === 'book_meeting_click') {
-      // 'calendar' = opened an adviser's calendar; 'booking_page' = went to the /book/ page
-      params.click_stage = link.hasAttribute('data-book-host') ? 'calendar' : 'booking_page';
+      // 'calendar' = opened an adviser's calendar; 'advisers_section' = header button
+      // scrolled to the advisers on the same page; 'booking_page' = went to the /book/ page
+      params.click_stage = link.hasAttribute('data-book-host') ? 'calendar'
+        : link.hasAttribute('data-book-scroll') ? 'advisers_section' : 'booking_page';
       if (link.hasAttribute('data-book-host')) {
         params.meeting_host = link.getAttribute('data-book-host');
         params.meeting_topic = link.getAttribute('data-book-focus');
