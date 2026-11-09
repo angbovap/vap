@@ -4,136 +4,152 @@ permalink: /publications/
 title: Publications
 extraCss: /styles/publications.css
 ---
-{% set featured = publications | selectattr("featured") | first %}
-{% set years = publications | groupByYear %}
+{% set featuredList = publications | selectattr("featured") | sort(attribute="featured") %}
+{% set talks = [] %}{% set reports = [] %}
+{% for group in publications | groupByYear %}{% for item in group.items %}
+  {% if item.type == "presentation" and not item.featured %}{% if talks.push(item) %}{% endif %}{% elif item.type == "report" %}{% if reports.push(item) %}{% endif %}{% endif %}
+{% endfor %}{% endfor %}
+{% set download %}<svg class="pubbtn__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>{% endset %}
 
-<section class="pubhero">
-  <svg class="pubhero__rings" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="6" aria-hidden="true" focusable="false">
-    <circle cx="199" cy="199" r="182"/>
-    <circle cx="398" cy="199" r="182"/>
-    <circle cx="299" cy="381" r="182"/>
-    <path d="M448 432 Q 492 462 548 480 Q 505 468 462 452" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-  <div class="wrap pubhero__grid{% if not featured %} pubhero__grid--solo{% endif %}">
-    <div class="pubhero__intro">
+{% if featuredList.length %}
+<section class="pubhero" id="featured" aria-labelledby="pubhero-heading">
+  <div class="wrap">
+    <div class="pubhero__top">
+      <h1 class="pubhero__page" id="pubhero-heading">Talks and publications</h1>
+    </div>
+
+    {% set f = featuredList | first %}
+      {% if f.titleMain %}{% set main = f.titleMain %}{% set sub = f.titleSub %}
+      {% else %}{% set parts = f.title.split(": ") %}{% set main = parts[0] %}{% set sub = parts.slice(1).join(": ") %}{% endif %}
+      {% set people = [] %}
+      {% for name in (f.presenters or "").split(" and ") %}{% for m in team %}{% if m.name == name %}{% if people.push(m) %}{% endif %}{% endif %}{% endfor %}{% endfor %}
+        <div class="pubhero__grid">
+          <div class="pubhero__text">
+            <p class="pubhero__kicker">Featured talk <span aria-hidden="true">·</span> {{ f.sortDate | monthYear }}</p>
+            <h2 class="pubhero__title">{{ main }}</h2>
+            {% if sub %}<p class="pubhero__subtitle">{{ sub }}</p>{% endif %}
+            <div class="pubhero__who">
+              {% if people.length %}
+              <span class="pubhero__faces">{% for p in people %}<img class="pubhero__photo" src="{{ p.image }}" alt="" width="44" height="44">{% endfor %}</span>
+              {% endif %}
+              <p class="pubhero__whotext">
+                {% if f.presenters %}<span class="pubhero__name">{{ f.presenters }}</span>{% endif %}
+                <span class="pubhero__event">{{ f.event | replace("Presentation for ", "") }}{% if f.location %}, {{ f.location }}{% endif %}</span>
+              </p>
+            </div>
+            <div class="pubhero__actions">
+              {% if f.links.download %}<a class="pubbtn pubbtn--light" href="{{ f.links.download }}">{{ download | safe }}Download the slides</a>{% endif %}
+              {% if f.project %}<a class="pubbtn pubbtn--ghost-light" href="{{ f.project.url }}">View the project</a>{% endif %}
+            </div>
+          </div>
+
+          {% if f.clips and f.clips.length %}
+          {% set first = f.clips | first %}
+          <div class="pubhero__media pubplayer" data-player>
+            <div class="pubplayer__stage" data-player-stage>
+              <video class="pubplayer__video" data-demo-video playsinline muted preload="none" poster="{{ first.poster }}" src="{{ first.video }}" aria-label="{{ first.label }}: {{ first.title }}"></video>
+              <button type="button" class="pubplayer__toggle" data-player-toggle aria-label="Play">
+                <span class="pubplayer__icon" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="pubplayer__full" data-player-full aria-label="Full screen">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+              </button>
+            </div>
+            <ol class="pubtimeline">
+              {% for clip in f.clips %}
+              {% set t = clip.duration.split(":") %}
+              <li style="flex-grow: {{ (t[0] | int) * 60 + (t[1] | int) }}">
+                <button type="button" class="pubtimeline__seg{% if loop.first %} is-active{% endif %}" aria-pressed="{{ 'true' if loop.first else 'false' }}" aria-label="{{ clip.label }}: {{ clip.title }}" data-demo-src="{{ clip.video }}" data-demo-poster="{{ clip.poster }}">
+                  <span class="pubtimeline__track"><span class="pubtimeline__fill" data-fill></span></span>
+                  <span class="pubtimeline__label">{{ clip.label }}</span>
+                </button>
+              </li>
+              {% endfor %}
+            </ol>
+          </div>
+          {% elif f.links.presentationVideoId %}
+          <div class="pubhero__media">
+            <div class="pubplayer__stage pubplayer__stage--yt">
+              <button class="wd-pub-video" type="button" data-yt-preview="{{ f.links.presentationVideoId }}" aria-label="Play video: {{ f.title }}">
+                <img class="wd-pub-video__thumb" src="https://img.youtube.com/vi/{{ f.links.presentationVideoId }}/hqdefault.jpg" alt="" loading="lazy">
+                <span class="pubplayer__icon" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+  </div>
+</section>
+{% else %}
+<section class="pubhead">
+  <div class="wrap">
+    <div class="section-head">
       <p class="eyebrow">Publications</p>
-      <h1 class="pubhero__title">Talks and <span class="pubhero__accent">publications</span></h1>
-      <p class="pubhero__lead">Presentations and published reports from the Value Advisory Partners team.</p>
-      <dl class="pubhero__stats">
-        <div class="pubhero__stat">
-          <dt>Talks</dt>
-          <dd data-count="{{ publications | countType('presentation') }}">{{ publications | countType("presentation") }}</dd>
-        </div>
-        <div class="pubhero__stat">
-          <dt>Reports</dt>
-          <dd data-count="{{ publications | countType('report') }}">{{ publications | countType("report") }}</dd>
-        </div>
-        <div class="pubhero__stat">
-          <dt>Years</dt>
-          <dd>{{ (years | last).year }}&ndash;{{ (years | first).year }}</dd>
-        </div>
-      </dl>
+      <h1>Talks and publications</h1>
     </div>
-
-    {% if featured %}
-    <article class="pubspot__card">
-      {% if featured.links.presentationVideoId %}
-      <div class="pubspot__media">
-        <button class="wd-pub-video" type="button" data-yt-preview="{{ featured.links.presentationVideoId }}" aria-label="Play video: {{ featured.title }}">
-          <img class="wd-pub-video__thumb" src="https://img.youtube.com/vi/{{ featured.links.presentationVideoId }}/hqdefault.jpg" alt="" loading="lazy">
-          <span class="wd-pub-video__play" aria-hidden="true">▶</span>
-        </button>
-      </div>
-      {% endif %}
-      <div class="pubspot__body">
-        <p class="pubspot__flag">Featured talk <span aria-hidden="true">·</span> {{ featured.date }}</p>
-        <h2 class="pubspot__title">{{ featured.title }}</h2>
-        <p class="pubspot__meta">{{ featured.event }}{% if featured.location %}, {{ featured.location }}{% endif %}</p>
-        {% if featured.focus and featured.focus.length %}
-        <ul class="pubspot__focus">
-          {% for point in featured.focus %}<li>{{ point }}</li>{% endfor %}
-        </ul>
-        {% endif %}
-        {% if featured.presenters %}<p class="pubspot__by">Presented by {{ featured.presenters }}</p>{% endif %}
-        <div class="pubspot__actions">
-          {% if featured.links.presentation %}<a class="wd-framework__link" href="{{ featured.links.presentation }}">View presentation <span aria-hidden="true">→</span></a>{% endif %}
-          {% if featured.links.download %}<a class="wd-framework__link" href="{{ featured.links.download }}">Download a copy <span aria-hidden="true">→</span></a>{% endif %}
-        </div>
-      </div>
-    </article>
-    {% endif %}
   </div>
 </section>
+{% endif %}
 
-<section class="pubindex" data-pub-total="{{ publications.length }}">
+{% if talks.length %}
+<section class="pubtalks" aria-labelledby="pubtalks-title">
   <div class="wrap">
-    <div class="pubindex__bar">
-      <div class="pubindex__filters" role="group" aria-label="Filter by type">
-        <button type="button" class="pubchip is-active" data-pub-filter="all" aria-pressed="true">All <span>{{ publications.length }}</span></button>
-        <button type="button" class="pubchip" data-pub-filter="presentation" aria-pressed="false">Talks <span>{{ publications | countType("presentation") }}</span></button>
-        <button type="button" class="pubchip" data-pub-filter="report" aria-pressed="false">Reports <span>{{ publications | countType("report") }}</span></button>
-      </div>
-      <p class="pubindex__status" data-pub-status aria-live="polite">Showing all {{ publications.length }}</p>
+    <div class="pubsection__head">
+      <h2 class="pubsection__title" id="pubtalks-title">More talks</h2>
     </div>
-
-    {% for group in publications | groupByYear %}
-    <section class="pubyear" data-pub-year>
-      <h2 class="pubyear__label">{{ group.year }}</h2>
-      <ol class="pubyear__list">
-        {% for item in group.items %}
-        {% set videoId = item.links.presentationVideoId if item.links else "" %}
-        <li class="pubrow reveal{% if videoId %} pubrow--video{% endif %}" data-pub-item data-type="{{ item.type }}">
+    <ul class="pubtalks__grid">
+      {% for item in talks %}
+      {% set videoId = item.links.presentationVideoId if item.links else "" %}
+      <li class="pubcard reveal">
+        <div class="pubcard__media">
           {% if videoId %}
-          <div class="pubrow__media">
-            <button class="wd-pub-video" type="button" data-yt-preview="{{ videoId }}" aria-label="Play video: {{ item.title }}">
-              <img class="wd-pub-video__thumb" src="https://img.youtube.com/vi/{{ videoId }}/hqdefault.jpg" alt="" loading="lazy">
-              <span class="wd-pub-video__play" aria-hidden="true">▶</span>
-            </button>
-          </div>
+          <button class="wd-pub-video" type="button" data-yt-preview="{{ videoId }}" aria-label="Play video: {{ item.title }}">
+            <img class="wd-pub-video__thumb" src="https://img.youtube.com/vi/{{ videoId }}/hqdefault.jpg" alt="" loading="lazy">
+            <span class="wd-pub-video__play" aria-hidden="true">▶</span>
+          </button>
+          {% elif item.clips and item.clips.length %}
+          <img class="pubcard__img" src="{{ (item.clips | first).poster }}" alt="" loading="lazy">
+          {% elif item.image %}
+          <img class="pubcard__img" src="{{ item.image }}" alt="" loading="lazy">
           {% endif %}
-          <div class="pubrow__body">
-          <div class="pubrow__top">
-            <span class="pubtag pubtag--{{ item.type }}">{% if item.type == "presentation" %}Talk{% else %}Report{% endif %}</span>
-            <span class="pubrow__date">{{ item.date }}</span>
-          </div>
-          <h3 class="pubrow__title">{{ item.title }}</h3>
-          {% if item.type == "presentation" %}
-          <p class="pubrow__meta">{{ item.event }}{% if item.location %}, {{ item.location }}{% endif %}</p>
-          {% elif item.publisher %}
-          <p class="pubrow__meta">Published by {{ item.publisher }}</p>
-          {% endif %}
-
-          {% if item.focus or item.presenters or item.authors %}
-          <details class="pubrow__more">
-            <summary>{% if item.type == "presentation" %}Focus and presenters{% else %}Authors{% endif %}</summary>
-            {% if item.focus and item.focus.length %}
-            <ul class="pubrow__focus">
-              {% for point in item.focus %}<li>{{ point }}</li>{% endfor %}
-            </ul>
-            {% endif %}
-            {% if item.presenters %}<p class="pubrow__by">Presented by {{ item.presenters }}</p>{% endif %}
-            {% if item.authors %}<p class="pubrow__by">{{ item.authors }}</p>{% endif %}
-          </details>
-          {% endif %}
-
-          {% if item.links and (item.links.presentation or item.links.download) %}
-          <div class="pubrow__actions">
-            {% if item.links.presentation %}<a class="wd-framework__link" href="{{ item.links.presentation }}">View presentation <span aria-hidden="true">→</span></a>{% endif %}
-            {% if item.links.download %}<a class="wd-framework__link" href="{{ item.links.download }}">Download a copy <span aria-hidden="true">→</span></a>{% endif %}
-          </div>
-          {% endif %}
-          </div>
-        </li>
-        {% endfor %}
-      </ol>
-    </section>
-    {% endfor %}
+        </div>
+        <p class="pubcard__meta">{{ item.event | replace("Presentation for ", "") }}{% if item.location %}, {{ item.location }}{% endif %} <span aria-hidden="true">·</span> {{ item.sortDate | monthYear }}</p>
+        <h3 class="pubcard__title">{{ item.title }}</h3>
+        {% if item.presenters %}<p class="pubcard__by">Presented by {{ item.presenters }}</p>{% endif %}
+        <div class="pubcard__links">
+          {% if item.links.download %}<a class="pubbtn pubbtn--sm" href="{{ item.links.download }}">{{ download | safe }}Download the slides</a>{% endif %}
+          {% if item.project %}<a class="pubbtn pubbtn--sm pubbtn--ghost" href="{{ item.project.url }}">View the project</a>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 </section>
+{% endif %}
 
-<section class="pubclose">
+{% if reports.length %}
+{% set series = (reports | first).series %}
+<section class="pubreports" aria-labelledby="pubreports-title">
   <div class="wrap">
-    <h2 class="pubclose__text">Want to talk about any of this work?</h2>
-    <a class="section-cta" href="/get-in-touch/">Get in touch <span aria-hidden="true">→</span></a>
+    <div class="pubsection__head">
+      <h2 class="pubsection__title" id="pubreports-title">Research reports</h2>
+      {% if series %}<p class="pubsection__intro">Published by CSIRO in the <em>{{ series }}</em> series, co-authored by Value Advisory Partners.</p>{% endif %}
+    </div>
+    <ol class="pubreports__list">
+      {% for item in reports %}
+      {% set au = item.authors | authorSummary %}
+      <li class="pubreport reveal">
+        <p class="pubreport__date">{{ item.sortDate | monthYear }}</p>
+        <div class="pubreport__main">
+          <h3 class="pubreport__title">{{ item.title | replace(": " ~ item.series, "") if item.series else item.title }}</h3>
+          <p class="pubreport__by" title="{{ item.authors }}">{{ item.publisher }} <span aria-hidden="true">·</span> {{ au.count }} authors{% if au.ours.length %}, including {{ au.ours | join(" and ") }}{% endif %}</p>
+        </div>
+        {% if item.links.download %}<a class="pubbtn pubbtn--sm pubbtn--ghost pubreport__link" href="{{ item.links.download }}" aria-label="Read the report: {{ item.title }}">Read the report</a>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
   </div>
 </section>
+{% endif %}
+
+<script src="/scripts/publications-demo.js" defer></script>

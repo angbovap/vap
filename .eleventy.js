@@ -30,6 +30,23 @@ module.exports = function (eleventyConfig) {
     return { ...host, name: member.name, image: member.image, url };
   });
 
+  // "2025-09-25" -> "Sep 2025"
+  eleventyConfig.addFilter("monthYear", (iso) => {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const [year, month] = String(iso).split("-");
+    return months[Number(month) - 1] + " " + year;
+  });
+
+  // "Wise, Russ; Marinopoulos, John; ..." -> { count: 12, ours: ["John Marinopoulos", ...] }
+  eleventyConfig.addFilter("authorSummary", (authors) => {
+    const names = String(authors || "").split(";").map((a) => {
+      const [last, first] = a.trim().split(", ");
+      return first ? first + " " + last : last;
+    }).filter(Boolean);
+    const ours = names.filter((n) => team.some((m) => m.name === n));
+    return { count: names.length, ours };
+  });
+
   eleventyConfig.addFilter("countType", (items, type) =>
     items.filter((item) => item.type === type).length
   );

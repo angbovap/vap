@@ -3,7 +3,7 @@
     "type": "presentation",
     "year": 2026,
     "sortDate": "2026-10-26",
-    "featured": true,
+    "featured": 1,
     "title": "Resilience Investment Case Explorer (RICE): A scalable digital decision tool for climate resilience investment decisions",
     "event": "Presentation for Climate Adaptation 2026",
     "location": "Newcastle",
@@ -15,7 +15,52 @@
     "presenters": "Peter Heinmiller",
     "links": {
       "download": "/assets/documents/rice-climate-adaptation-2026-presentation.pdf"
-    }
+    },
+    "clips": [
+      {
+        "label": "Place",
+        "title": "Exploring the road network and filtering by segment",
+        "duration": "0:52",
+        "video": "/assets/video/rice/1-place.mp4",
+        "poster": "/assets/video/rice/1-place.jpg"
+      },
+      {
+        "label": "Risk",
+        "title": "Hazard susceptibility of each intervention",
+        "duration": "1:35",
+        "video": "/assets/video/rice/2-risk.mp4",
+        "poster": "/assets/video/rice/2-risk.jpg"
+      },
+      {
+        "label": "Options",
+        "title": "Filtering, grouping and timing interventions",
+        "duration": "2:34",
+        "video": "/assets/video/rice/3-options.mp4",
+        "poster": "/assets/video/rice/3-options.jpg"
+      },
+      {
+        "label": "Value",
+        "title": "Benefits by intervention type and beneficiary",
+        "duration": "1:09",
+        "video": "/assets/video/rice/4-value-benefits.mp4",
+        "poster": "/assets/video/rice/4-value-benefits.jpg"
+      },
+      {
+        "label": "Value",
+        "title": "Sorting results and comparing cost profiles",
+        "duration": "1:00",
+        "video": "/assets/video/rice/5-value-costs.mp4",
+        "poster": "/assets/video/rice/5-value-costs.jpg"
+      },
+      {
+        "label": "Delivery",
+        "title": "Rationale and value-creation opportunities",
+        "duration": "1:24",
+        "video": "/assets/video/rice/6-delivery.mp4",
+        "poster": "/assets/video/rice/6-delivery.jpg"
+      }
+    ],
+    "summary": "RICE brings hazard and risk evidence, adaptation options, economic value and funding pathways into one shared decision environment, so councils can test assumptions, prioritise and bundle interventions, and build investment cases. Delivered with CSIRO for Bega Valley Shire Council."
   },
   {
     "type": "presentation",
@@ -34,6 +79,10 @@
       "presentation": "https://www.youtube.com/watch?v=kHuKDhrl00I",
       "presentationVideoId": "kHuKDhrl00I",
       "download": "https://889f3f6e-88a0-405e-a504-177ac1e01ec3.filesusr.com/ugd/ccea73_7eade920889b4a4486e58bcf64ac6d9f.pdf"
+    },
+    "project": {
+      "title": "Regional Adaptive Pathways Planning",
+      "url": "/our-work/regional-adaptive-pathways-planning/"
     }
   },
   {
@@ -51,6 +100,11 @@
     "presenters": "Christopher Marinopoulos",
     "links": {
       "download": "https://889f3f6e-88a0-405e-a504-177ac1e01ec3.filesusr.com/ugd/ccea73_82527ba13b0442f3bb9df38159b5e46e.pdf"
+    },
+    "image": "/assets/img/case-studies/bega/bridge-bega.jpg",
+    "project": {
+      "title": "Bega Valley Resilient Road Network",
+      "url": "/our-work/bega-valley-resilient-road-network/"
     }
   },
   {
@@ -63,7 +117,8 @@
     "date": "November 2021",
     "links": {
       "download": "https://publications.csiro.au/publications/publication/PIcsiro:EP2021-1852"
-    }
+    },
+    "series": "Building national capability for Enabling Resilience Investment"
   },
   {
     "type": "report",
@@ -75,7 +130,8 @@
     "date": "October 2022",
     "links": {
       "download": "https://publications.csiro.au/publications/publication/PIcsiro:EP2022-5037"
-    }
+    },
+    "series": "Building national capability for Enabling Resilience Investment"
   },
   {
     "type": "report",
@@ -87,6 +143,7 @@
     "date": "October 2022",
     "links": {
       "download": "https://publications.csiro.au/publications/publication/PIcsiro:EP2022-4245"
-    }
+    },
+    "series": "Building national capability for Enabling Resilience Investment"
   }
 ]
