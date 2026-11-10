@@ -13,6 +13,11 @@ module.exports = function (eleventyConfig) {
     return (first && booking.serviceHost[first]) || "";
   });
 
+  // Talks with an on-site slide deck each get their own page (src/publications/talk.njk).
+  eleventyConfig.addGlobalData("talkDecks", () =>
+    require("./src/_data/publications.json").filter((p) => p.deck && p.slug)
+  );
+
   // Full booking details for one host: name, focus, photo and the link to use.
   const site = require("./src/_data/site.json");
   const team = require("./src/_data/team.json");

@@ -10,6 +10,7 @@ extraCss: /styles/publications.css
   {% if item.type == "presentation" and not item.featured %}{% if talks.push(item) %}{% endif %}{% elif item.type == "report" %}{% if reports.push(item) %}{% endif %}{% endif %}
 {% endfor %}{% endfor %}
 {% set download %}<svg class="pubbtn__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>{% endset %}
+{% set slidesIcon %}<svg class="pubbtn__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4M10 8.5v5l4-2.5z"/></svg>{% endset %}
 
 {% if featuredList.length %}
 <section class="pubhero" id="featured" aria-labelledby="pubhero-heading">
@@ -38,7 +39,8 @@ extraCss: /styles/publications.css
               </p>
             </div>
             <div class="pubhero__actions">
-              {% if f.links.download %}<a class="pubbtn pubbtn--light" href="{{ f.links.download }}">{{ download | safe }}Download the slides</a>{% endif %}
+              {% if f.deck and f.slug %}<a class="pubbtn pubbtn--light" href="/publications/{{ f.slug }}/">{{ slidesIcon | safe }}View the presentation</a>
+              {% elif f.links.download %}<a class="pubbtn pubbtn--light" href="{{ f.links.download }}">{{ download | safe }}Download the slides</a>{% endif %}
               {% if f.project %}<a class="pubbtn pubbtn--ghost-light" href="{{ f.project.url }}">View the project</a>{% endif %}
             </div>
           </div>
@@ -117,7 +119,8 @@ extraCss: /styles/publications.css
         <h3 class="pubcard__title">{{ item.title }}</h3>
         {% if item.presenters %}<p class="pubcard__by">Presented by {{ item.presenters }}</p>{% endif %}
         <div class="pubcard__links">
-          {% if item.links.download %}<a class="pubbtn pubbtn--sm" href="{{ item.links.download }}">{{ download | safe }}Download the slides</a>{% endif %}
+          {% if item.deck and item.slug %}<a class="pubbtn pubbtn--sm" href="/publications/{{ item.slug }}/">{{ slidesIcon | safe }}View the presentation</a>
+          {% elif item.links.download %}<a class="pubbtn pubbtn--sm" href="{{ item.links.download }}">{{ download | safe }}Download the slides</a>{% endif %}
           {% if item.project %}<a class="pubbtn pubbtn--sm pubbtn--ghost" href="{{ item.project.url }}">View the project</a>{% endif %}
         </div>
       </li>

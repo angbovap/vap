@@ -1,0 +1,80 @@
+---
+layout: base.njk
+pagination:
+  data: talkDecks
+  size: 1
+  alias: talk
+permalink: "/publications/{{ talk.slug }}/"
+extraCss: /styles/publications.css
+eleventyComputed:
+  title: "{{ talk.shortTitle or talk.title }}"
+  description: "{{ talk.summary }}"
+---
+{% set parts = talk.title.split(": ") %}
+{% set people = [] %}
+{% for name in (talk.presenters or "").split(" and ") %}{% for m in team %}{% if m.name == name %}{% if people.push(m) %}{% endif %}{% endif %}{% endfor %}{% endfor %}
+
+<section class="talkhead" aria-labelledby="talk-title">
+  <div class="wrap">
+    <a class="talkhead__back" href="/publications/">Talks and publications</a>
+    <p class="talkhead__kicker">{{ talk.event | replace("Presentation for ", "") }}{% if talk.location %}, {{ talk.location }}{% endif %} <span aria-hidden="true">·</span> {{ talk.sortDate | monthYear }}</p>
+    <h1 class="talkhead__title" id="talk-title">{{ parts[0] }}</h1>
+    {% if parts.length > 1 %}<p class="talkhead__subtitle">{{ parts.slice(1).join(": ") }}</p>{% endif %}
+    {% if people.length %}
+    <div class="talkhead__who">
+      {% for p in people %}<img class="talkhead__photo" src="{{ p.image }}" alt="" width="44" height="44">{% endfor %}
+      <p class="talkhead__whotext">
+        <span class="talkhead__name">{{ talk.presenters }}</span>
+        {% if people.length == 1 and people[0].role %}<span class="talkhead__role">{{ people[0].role }}</span>{% endif %}
+      </p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="talkdeck" aria-label="Presentation slides">
+  <div class="wrap">
+    <div class="deck" data-deck data-deck-name="{{ talk.slug }}">
+      <div class="deck__stage" data-deck-stage>
+        <div class="deck__frame">
+          {% for s in talk.deck %}
+          <figure class="deck__slide{% if loop.first %} is-active{% endif %}" data-deck-slide{% if not loop.first %} aria-hidden="true"{% endif %}>
+            <img class="deck__img" src="{{ s.image }}" alt="{{ s.alt }}" width="1920" height="1080"{% if loop.index > 2 %} loading="lazy"{% endif %}>
+            {% if s.clips %}
+            <video class="deck__video" data-deck-video data-clips="{{ s.clips | join('|') }}" muted playsinline preload="none" style="left: {{ s.frame.x }}%; top: {{ s.frame.y }}%; width: {{ s.frame.w }}%; height: {{ s.frame.h }}%;" aria-hidden="true"></video>
+            {% endif %}
+          </figure>
+          {% endfor %}
+        </div>
+        <button type="button" class="deck__nav deck__nav--prev" data-deck-prev aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button type="button" class="deck__nav deck__nav--next" data-deck-next aria-label="Next slide">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <div class="deck__bar">
+        <div class="deck__progress" aria-hidden="true"><span class="deck__progress-fill" data-deck-progress></span></div>
+        <p class="deck__count" aria-live="polite"><span data-deck-current>1</span> / {{ talk.deck.length }}</p>
+        <button type="button" class="deck__full" data-deck-full aria-label="Full screen">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+        </button>
+      </div>
+
+      <ol class="deck__thumbs" data-deck-thumbs>
+        {% for s in talk.deck %}
+        <li>
+          <button type="button" class="deck__thumb{% if loop.first %} is-active{% endif %}" data-deck-go="{{ loop.index0 }}" aria-label="Slide {{ loop.index }}: {{ s.alt }}"{% if loop.first %} aria-current="true"{% endif %}>
+            <img src="{{ s.thumb }}" alt="" width="320" height="180" loading="lazy">
+            <span class="deck__thumb-num">{{ loop.index }}</span>
+            {% if s.clips %}<span class="deck__thumb-live" aria-hidden="true"></span>{% endif %}
+          </button>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script src="/scripts/deck.js" defer></script>

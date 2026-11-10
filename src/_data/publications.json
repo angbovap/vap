@@ -13,9 +13,7 @@
       "Connecting place, risk, options, value and delivery in one tool, developed with CSIRO for Bega Valley Shire Council"
     ],
     "presenters": "Peter Heinmiller",
-    "links": {
-      "download": "/assets/documents/rice-climate-adaptation-2026-presentation.pdf"
-    },
+    "links": {},
     "clips": [
       {
         "label": "Place",
@@ -60,7 +58,127 @@
         "poster": "/assets/video/rice/6-delivery.jpg"
       }
     ],
-    "summary": "RICE brings hazard and risk evidence, adaptation options, economic value and funding pathways into one shared decision environment, so councils can test assumptions, prioritise and bundle interventions, and build investment cases. Delivered with CSIRO for Bega Valley Shire Council."
+    "summary": "RICE brings hazard and risk evidence, adaptation options, economic value and funding pathways into one shared decision environment, so councils can test assumptions, prioritise and bundle interventions, and build investment cases. Delivered with CSIRO for Bega Valley Shire Council.",
+    "slug": "rice",
+    "shortTitle": "RICE · Climate Adaptation 2026",
+    "deck": [
+      {
+        "image": "/assets/decks/rice/slide-01.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-01.webp",
+        "alt": "Title slide: Resilience Investment Case Explorer (RICE), a scalable digital decision tool for climate resilience investment decisions. Funding partners Bega Valley Shire Council and NSW Reconstruction Authority; delivery partner CSIRO."
+      },
+      {
+        "image": "/assets/decks/rice/slide-02.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-02.webp",
+        "alt": "The context: risk assessment needs a decision context."
+      },
+      {
+        "image": "/assets/decks/rice/slide-03.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-03.webp",
+        "alt": "The problem: adaptation decisions break down at the hand-off between hazard and risk, adaptation pathways, the economic case, and funding and delivery."
+      },
+      {
+        "image": "/assets/decks/rice/slide-04.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-04.webp",
+        "alt": "The digital response: RICE creates one shared environment covering place, risk, options, value and delivery."
+      },
+      {
+        "image": "/assets/decks/rice/slide-05.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-05.webp",
+        "alt": "The method: the platform sits inside the broader Enabling Resilience Investment co-design process."
+      },
+      {
+        "image": "/assets/decks/rice/slide-06.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-06.webp",
+        "alt": "The process: a participatory approach that creates structured, traceable, place-based evidence."
+      },
+      {
+        "image": "/assets/decks/rice/slide-07.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-07.webp",
+        "alt": "The decision-making context: RICE as a decision-support system within the wider strategic, funding and delivery environment."
+      },
+      {
+        "image": "/assets/decks/rice/slide-08.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-08.webp",
+        "alt": "Place: exploring place, networks and systems.",
+        "clips": [
+          "/assets/video/rice/1-place.mp4"
+        ],
+        "frame": {
+          "x": 5.677,
+          "y": 18.333,
+          "w": 88.698,
+          "h": 74.074
+        }
+      },
+      {
+        "image": "/assets/decks/rice/slide-09.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-09.webp",
+        "alt": "Risk: exploring hazard exposure and risk.",
+        "clips": [
+          "/assets/video/rice/2-risk.mp4"
+        ],
+        "frame": {
+          "x": 5.625,
+          "y": 18.704,
+          "w": 88.75,
+          "h": 74.074
+        }
+      },
+      {
+        "image": "/assets/decks/rice/slide-10.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-10.webp",
+        "alt": "Options: exploring the options.",
+        "clips": [
+          "/assets/video/rice/3-options.mp4"
+        ],
+        "frame": {
+          "x": 5.052,
+          "y": 18.704,
+          "w": 89.427,
+          "h": 74.63
+        }
+      },
+      {
+        "image": "/assets/decks/rice/slide-11.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-11.webp",
+        "alt": "Value: exploring the costs, benefits and beneficiaries.",
+        "clips": [
+          "/assets/video/rice/5-value-costs.mp4",
+          "/assets/video/rice/4-value-benefits.mp4"
+        ],
+        "frame": {
+          "x": 5.573,
+          "y": 17.87,
+          "w": 88.854,
+          "h": 74.167
+        }
+      },
+      {
+        "image": "/assets/decks/rice/slide-12.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-12.webp",
+        "alt": "Delivery: targeting funding and exploring value creation options.",
+        "clips": [
+          "/assets/video/rice/6-delivery.mp4"
+        ],
+        "frame": {
+          "x": 5.729,
+          "y": 17.685,
+          "w": 89.167,
+          "h": 74.444
+        }
+      },
+      {
+        "image": "/assets/decks/rice/slide-13.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-13.webp",
+        "alt": "Applications: one architecture can support different adaptation decisions."
+      },
+      {
+        "image": "/assets/decks/rice/slide-14.webp",
+        "thumb": "/assets/decks/rice/thumbs/slide-14.webp",
+        "alt": "Lessons: what makes a digital adaptation platform useful."
+      }
+    ]
   },
   {
     "type": "presentation",

@@ -613,3 +613,378 @@ main section.pubhero {
     margin-top: 0.5rem;
   }
 }
+
+/* ==== Talk pages (/publications/<talk>/): header band and slide viewer ==== */
+
+main:has(.talkhead) {
+  padding-top: 0;
+}
+
+main section.talkhead {
+  padding-block: var(--step-2) calc(var(--step-2) + 4rem);
+  background: var(--brand-700);
+  color: var(--surface);
+}
+
+.talkhead p {
+  max-width: none;
+}
+
+.talkhead__back {
+  color: var(--brand-100);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.talkhead__back:hover,
+.talkhead__back:focus-visible {
+  color: var(--surface);
+}
+
+.talkhead__kicker {
+  margin-top: var(--step-1);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+}
+
+.talkhead__title {
+  margin-top: 0.6rem;
+  max-width: 30ch;
+  color: var(--surface);
+  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  line-height: 1.05;
+}
+
+.talkhead__subtitle {
+  margin-top: 0.75rem;
+  max-width: 40rem !important;
+  color: var(--brand-100);
+  font-size: var(--step-1);
+  line-height: 1.4;
+}
+
+.talkhead__who {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: var(--step-1);
+}
+
+.talkhead__photo {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+
+.talkhead__whotext {
+  display: grid;
+  line-height: 1.35;
+}
+
+.talkhead__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.talkhead__role {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+}
+
+/* The viewer rises into the band above it. */
+.talkdeck {
+  position: relative;
+  margin-top: -4rem;
+  padding-bottom: var(--step-3);
+}
+
+/* Stage: the frame keeps 16:9 so the clips stay aligned to their slide,
+   in the page and in full screen. */
+.deck__stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: var(--surface);
+  box-shadow: 0 30px 60px -30px rgba(0, 30, 34, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.deck__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  margin: auto;
+}
+
+.deck__stage:fullscreen {
+  display: grid;
+  place-items: center;
+  border-radius: 0;
+  background: #0f1a1c;
+}
+
+.deck__stage:fullscreen .deck__frame {
+  width: min(100vw, 177.78vh);
+  background: var(--surface);
+}
+
+.deck__slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.deck__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.deck__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.deck__video {
+  position: absolute;
+  object-fit: contain;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.deck__nav {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--brand-700);
+  color: var(--surface);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.deck__nav--prev { left: 1rem; }
+.deck__nav--next { right: 1rem; }
+
+.deck__stage:hover .deck__nav,
+.deck__nav:focus-visible {
+  opacity: 1;
+}
+
+.deck__nav:hover,
+.deck__nav:focus-visible {
+  background: var(--brand-500);
+}
+
+.deck__nav:disabled {
+  visibility: hidden;
+}
+
+/* Bar under the stage: progress, slide count, full screen */
+
+.deck__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--step-1);
+  margin-top: var(--step-0);
+}
+
+.deck__progress {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--brand-100);
+}
+
+.deck__progress-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--brand-700);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.deck__count {
+  max-width: none;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.deck__full {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1.5px solid var(--brand-700);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--brand-700);
+  cursor: pointer;
+}
+
+.deck__full:hover,
+.deck__full:focus-visible {
+  background: var(--brand-50);
+}
+
+/* Thumbnail strip */
+
+.deck__thumbs {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  margin: var(--step-1) 0 0;
+  padding: 0.25rem 0.1rem 0.6rem;
+  list-style: none;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.deck__thumbs li {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+.deck__thumb {
+  position: relative;
+  display: block;
+  width: 9.5rem;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 0.45rem;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--rule);
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.deck__thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.deck__thumb:hover,
+.deck__thumb:focus-visible {
+  opacity: 1;
+}
+
+.deck__thumb.is-active {
+  border-color: var(--brand-700);
+  box-shadow: none;
+  opacity: 1;
+}
+
+.deck__thumb-num {
+  position: absolute;
+  left: 0.3rem;
+  bottom: 0.3rem;
+  min-width: 1.35rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.3rem;
+  background: rgba(15, 26, 28, 0.7);
+  color: var(--surface);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Small play mark on slides that carry a recording */
+.deck__thumb-live {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: var(--brand-700);
+}
+
+.deck__thumb-live::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  border-style: solid;
+  border-width: 0.25rem 0 0.25rem 0.4rem;
+  border-color: transparent transparent transparent var(--surface);
+  transform: translate(-50%, -50%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .talkhead__back,
+  .talkhead__kicker,
+  .talkhead__title,
+  .talkhead__subtitle,
+  .talkhead__who {
+    animation: pub-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .talkhead__kicker { animation-delay: 0.05s; }
+  .talkhead__title { animation-delay: 0.1s; }
+  .talkhead__subtitle { animation-delay: 0.15s; }
+  .talkhead__who { animation-delay: 0.2s; }
+
+  .talkdeck .deck {
+    animation: pub-float-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+  }
+
+  .deck__slide {
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  }
+
+  .deck__slide.is-active {
+    transition: opacity 0.4s ease;
+  }
+
+  .deck__nav {
+    transition: opacity 0.25s ease, background-color 0.2s ease;
+  }
+
+  .deck__progress-fill {
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .deck__thumb {
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+@media (max-width: 699px) {
+  .deck__nav {
+    width: 2.25rem;
+    height: 2.25rem;
+    opacity: 0.9;
+  }
+
+  .deck__nav--prev { left: 0.4rem; }
+  .deck__nav--next { right: 0.4rem; }
+
+  .deck__thumb {
+    width: 7rem;
+  }
+}
