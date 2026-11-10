@@ -178,7 +178,11 @@
         "thumb": "/assets/decks/rice/thumbs/slide-14.webp",
         "alt": "Lessons: what makes a digital adaptation platform useful."
       }
-    ]
+    ],
+    "caseStudy": {
+      "title": "Bega Valley Resilient Road Network",
+      "url": "/our-work/bega-valley-resilient-road-network/"
+    }
   },
   {
     "type": "presentation",

@@ -988,3 +988,7 @@ main section.talkhead {
     width: 7rem;
   }
 }
+
+.talkhead__case {
+  margin-top: var(--step-1);
+}

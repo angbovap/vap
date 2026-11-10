@@ -29,6 +29,7 @@ eleventyComputed:
       </p>
     </div>
     {% endif %}
+    {% if talk.caseStudy %}<a class="pubbtn pubbtn--sm pubbtn--ghost-light talkhead__case" href="{{ talk.caseStudy.url }}">View the {{ talk.caseStudy.title }} project</a>{% endif %}
   </div>
 </section>
 

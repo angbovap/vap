@@ -105,6 +105,29 @@ layout: base.njk
 </section>
 {% endif %}
 
+{% set talk = null %}
+{% if relatedTalk %}{% for p in publications %}{% if p.slug == relatedTalk and p.deck %}{% set talk = p %}{% endif %}{% endfor %}{% endif %}
+{% if talk %}
+{% set talkClip = talk.clips | first %}
+<section class="case-talk">
+  <div class="wrap reveal">
+    <a class="case-talk__card" href="/publications/{{ talk.slug }}/">
+      <span class="case-talk__media">
+        <video class="case-talk__video" data-case-talk-video muted loop playsinline preload="none" poster="{{ talkClip.poster }}" aria-hidden="true">
+          <source src="{{ talkClip.video }}" type="video/mp4">
+        </video>
+      </span>
+      <span class="case-talk__body">
+        <span class="case-talk__kicker">See the tool in action</span>
+        <span class="case-talk__title">{{ talk.title.split(": ")[0] }}</span>
+        <span class="case-talk__meta">{{ talk.event | replace("Presentation for ", "") }} <span aria-hidden="true">·</span> {{ talk.sortDate | monthYear }}</span>
+        <span class="case-talk__btn">View the presentation</span>
+      </span>
+    </a>
+  </div>
+</section>
+{% endif %}
+
 {% if presentationPdf %}
 <section class="case-presentation">
   <div class="wrap reveal">
@@ -116,7 +139,7 @@ layout: base.njk
         <span class="case-presentation__label">Presentation</span>
         <span class="case-presentation__title">{{ presentationTitle | default("Conference presentation") }}</span>
       </span>
-      <span class="case-presentation__link">View PDF <span aria-hidden="true">→</span></span>
+      <span class="case-presentation__link"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download PDF</span>
     </a>
   </div>
 </section>

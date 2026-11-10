@@ -19,6 +19,7 @@ summary: A resilience investment case for Bega Valley Shire Council's road netwo
 order: 5
 presentationPdf: /assets/documents/bega-valley-eri-presentation.pdf
 presentationTitle: 'PIA NSW Conference 2025: Investment Cases for Disaster Risk Reduction and Resilience'
+relatedTalk: rice
 sections:
   - heading: Overview
     body: Bega Valley Shire Council engaged VAP to strengthen the resilience of its road network against multiple climate hazards, from freight corridors to tourism connectivity. Using the Enabling Resilience Investment (ERI) framework between early 2023 and late 2024, the project built a resilience investment case to prioritise climate-adaptive infrastructure investment and secure federal funding.
