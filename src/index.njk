@@ -18,6 +18,31 @@ title: Homepage
         <a class="hero__cta hero__cta--secondary" href="/get-in-touch/">Get in touch <span aria-hidden="true">→</span></a>
       </span>
     </span>
+
+  </div>
+  <div class="wrap hero-latest-wrap">
+    {% set latest = publications | selectattr("featured") | first %}
+    {% if latest %}
+    {% set latestClip = (latest.clips | first) if latest.clips else null %}
+    <a class="hero-latest" href="{% if latest.deck and latest.slug %}/publications/{{ latest.slug }}/{% else %}/publications/{% endif %}">
+      <span class="hero-latest__media">
+        {% if latestClip %}
+        <video class="hero-latest__video" data-hero-latest-video muted loop playsinline preload="none" poster="{{ latestClip.poster }}" aria-hidden="true">
+          <source src="{{ latestClip.video }}" type="video/mp4">
+        </video>
+        {% elif latest.image %}
+        <img class="hero-latest__video" src="{{ latest.image }}" alt="">
+        {% endif %}
+      </span>
+      <span class="hero-latest__body">
+        <span class="hero-latest__kicker">Latest talk <span aria-hidden="true">·</span> {{ latest.sortDate | monthYear }}</span>
+        <span class="hero-latest__title">{{ latest.title.split(": ")[0] }}</span>
+        <span class="hero-latest__go">View the presentation
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </span>
+      </span>
+    </a>
+    {% endif %}
   </div>
 </section>
 
