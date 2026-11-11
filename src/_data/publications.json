@@ -182,7 +182,131 @@
     "caseStudy": {
       "title": "Bega Valley Resilient Road Network",
       "url": "/our-work/bega-valley-resilient-road-network/"
-    }
+    },
+    "shareImage": "/assets/decks/rice/share.jpg"
+  },
+  {
+    "type": "presentation",
+    "year": 2026,
+    "sortDate": "2026-07-27",
+    "slug": "telco-resilience",
+    "shortTitle": "Telco resilience · DEMC 2026",
+    "title": "Critical Telecommunications Infrastructure: The consequence of outage and actions to mitigate risk",
+    "event": "Presentation for Disaster & Emergency Management Conference 2026",
+    "location": "Gold Coast",
+    "date": "July 2026",
+    "summary": "How mobile network outages during bushfires cascade through communities and the economy, and how to build resilience investment cases for telecommunications. Developed with CSIRO and Climate-KIC Australia, with case studies in East Gippsland and Eurobodalla.",
+    "presenters": "Peter Heinmiller and Nic Mesic",
+    "links": {},
+    "image": "/assets/decks/telco/slide-07.webp",
+    "shareImage": "/assets/decks/telco/share.jpg",
+    "deck": [
+      {
+        "image": "/assets/decks/telco/slide-01.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-01.webp",
+        "alt": "Title slide: Critical Telecommunications Infrastructure: the consequence of outage and actions to mitigate risk. Strengthening mobile telecommunications resilience for a changing climate. Presented by Peter Heinmiller and Nic Mesic, with CSIRO and Climate-KIC Australia."
+      },
+      {
+        "image": "/assets/decks/telco/slide-02.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-02.webp",
+        "alt": "Challenges in the telecommunications sector: telecommunications underpin how Australians work, learn and access emergency help, and recent Triple Zero outages show the life-safety consequences of failure."
+      },
+      {
+        "image": "/assets/decks/telco/slide-03.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-03.webp",
+        "alt": "Understanding the costs of natural hazards: indirect and intangible costs make up 65 to 90 percent of the total, and service disruptions cost Australians an estimated 5.3 billion dollars in 2025."
+      },
+      {
+        "image": "/assets/decks/telco/slide-04.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-04.webp",
+        "alt": "The project: NEMA funded, to increase mobile telecommunications resilience against bushfires. The challenge, the project, its aims and its outputs."
+      },
+      {
+        "image": "/assets/decks/telco/slide-05.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-05.webp",
+        "alt": "Project overview: quantify consequences of outage, patterns of vulnerability and intervention, plausible divergent future scenarios, funding and finance, and resilience investment cases for two places."
+      },
+      {
+        "image": "/assets/decks/telco/slide-06.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-06.webp",
+        "alt": "Mobile telecommunications and key interdependencies, with bushfire as the focal hazard and site and system as the focal scales."
+      },
+      {
+        "image": "/assets/decks/telco/slide-07.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-07.webp",
+        "alt": "Focal study areas: East Gippsland, Victoria, and Eurobodalla, New South Wales."
+      },
+      {
+        "image": "/assets/decks/telco/slide-08.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-08.webp",
+        "alt": "Assessment framework: value at risk across asset restoration, disruption and environment, and value potential."
+      },
+      {
+        "image": "/assets/decks/telco/slide-09.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-09.webp",
+        "alt": "Sector and function in a hazard: how mobile data, voice, fixed wireless and telemetry outages flow through to sectors and services."
+      },
+      {
+        "image": "/assets/decks/telco/slide-10.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-10.webp",
+        "alt": "Identifying cascading consequences of disruption using effect statements for each sector and service."
+      },
+      {
+        "image": "/assets/decks/telco/slide-11.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-11.webp",
+        "alt": "Economic productivity loss by sector at each mobile base station site, using a labour substitution approach."
+      },
+      {
+        "image": "/assets/decks/telco/slide-12.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-12.webp",
+        "alt": "Selecting interventions and assessing their effectiveness, using the Global Infrastructure Resilience Index."
+      },
+      {
+        "image": "/assets/decks/telco/slide-13.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-13.webp",
+        "alt": "Patterns of intervention, part 1: context, vulnerability and intervention at system and site scale."
+      },
+      {
+        "image": "/assets/decks/telco/slide-14.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-14.webp",
+        "alt": "Patterns of intervention, part 2: site archetypes by location, site type, occupancy and service coverage."
+      },
+      {
+        "image": "/assets/decks/telco/slide-15.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-15.webp",
+        "alt": "Assessing interventions under uncertainty: strategic foresight and plausible divergent futures."
+      },
+      {
+        "image": "/assets/decks/telco/slide-16.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-16.webp",
+        "alt": "Four narrative scenarios for the telecommunications sector, from muddling through to proactive resilience, system breakdown and managed crisis."
+      },
+      {
+        "image": "/assets/decks/telco/slide-17.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-17.webp",
+        "alt": "Resilience investment case development: the decision environment, investment logic and funding environment."
+      },
+      {
+        "image": "/assets/decks/telco/slide-18.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-18.webp",
+        "alt": "Resilience investment case development, part 1: a five-step place-based deep dive."
+      },
+      {
+        "image": "/assets/decks/telco/slide-19.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-19.webp",
+        "alt": "Resilience investment case development, part 2: from intervention identification to an investment case."
+      },
+      {
+        "image": "/assets/decks/telco/slide-20.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-20.webp",
+        "alt": "Developing and evaluating resilience strategies, with value to cost ratios for each site."
+      },
+      {
+        "image": "/assets/decks/telco/slide-21.webp",
+        "thumb": "/assets/decks/telco/thumbs/slide-21.webp",
+        "alt": "Lessons learned and implications for practitioners."
+      }
+    ]
   },
   {
     "type": "presentation",
