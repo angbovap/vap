@@ -450,13 +450,106 @@ main section.pubhero {
   padding-block: var(--step-3) calc(var(--step-3) * 1.4);
 }
 
-.pubtalks__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
-  gap: var(--step-2);
-  margin: var(--step-2) 0 0;
+/* Talks as a timeline: a thin line down the left, a year tag where each
+   year starts, and each talk as a row (image left, details right). */
+.tl {
+  --rail: 2.75rem;
+  position: relative;
+  margin-top: var(--step-2);
+  padding-left: var(--rail);
+}
+
+.tl::before {
+  content: "";
+  position: absolute;
+  top: 0.9rem;
+  bottom: 0;
+  left: 0.6rem;
+  width: 2px;
+  background: linear-gradient(var(--brand-100), var(--brand-100) 85%, transparent);
+}
+
+.tl__year {
+  position: relative;
+  margin: var(--step-2) 0 var(--step-1) calc(-1 * var(--rail));
+  line-height: 1;
+}
+
+.tl__year:first-child {
+  margin-top: 0;
+}
+
+.tl__year span {
+  display: inline-block;
+  padding: 0.4em 0.85em;
+  border-radius: 999px;
+  background: var(--brand-700);
+  color: var(--surface);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.tl__items {
+  margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.tl__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  gap: var(--step-2);
+  align-items: center;
+  padding-block: var(--step-1);
+}
+
+.tl__item + .tl__item {
+  border-top: 1px solid var(--rule);
+}
+
+/* Dot on the line for each talk */
+.tl__item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(-1 * var(--rail) + 0.6rem + 1px);
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid var(--brand-700);
+  border-radius: 50%;
+  background: var(--surface);
+  transform: translate(-50%, -50%);
+}
+
+.tl__body {
+  min-width: 0;
+}
+
+.tl__body .pubcard__meta {
+  margin-top: 0;
+}
+
+@media (max-width: 799px) {
+  .tl {
+    --rail: 1.75rem;
+  }
+
+  .tl::before {
+    left: 0.35rem;
+  }
+
+  .tl__item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--step-0);
+  }
+
+  .tl__item::before {
+    top: calc(var(--step-1) + 1rem);
+    left: calc(-1 * var(--rail) + 0.35rem + 1px);
+  }
 }
 
 .pubcard {
@@ -589,7 +682,7 @@ main section.pubhero {
     transform: translateY(-1px);
   }
 
-  .pubtalks__grid .pubcard:nth-child(2) {
+  .tl__item:nth-child(2) {
     transition-delay: 0.08s;
   }
 

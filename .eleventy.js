@@ -13,6 +13,19 @@ module.exports = function (eleventyConfig) {
     return (first && booking.serviceHost[first]) || "";
   });
 
+  // LinkedIn post -> its official embed address. Accepts the "Embed this post" code,
+  // a post link (…-activity-123… or …/feed/update/urn:li:activity:123…) or a bare urn.
+  eleventyConfig.addFilter("linkedinEmbed", (input) => {
+    const text = String(input || "");
+    const src = /src="(https:\/\/www\.linkedin\.com\/embed\/feed\/update\/[^"?]+)/.exec(text);
+    if (src) return src[1];
+    const urn = /urn:li:(share|ugcPost|activity):(\d+)/.exec(text);
+    if (urn) return "https://www.linkedin.com/embed/feed/update/urn:li:" + urn[1] + ":" + urn[2];
+    const activity = /activity-(\d{15,})/.exec(text);
+    if (activity) return "https://www.linkedin.com/embed/feed/update/urn:li:activity:" + activity[1];
+    return "";
+  });
+
   // Talks with an on-site slide deck each get their own page (src/publications/talk.njk).
   eleventyConfig.addGlobalData("talkDecks", () =>
     require("./src/_data/publications.json").filter((p) => p.deck && p.slug)

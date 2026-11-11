@@ -20,30 +20,6 @@ title: Homepage
     </span>
 
   </div>
-  <div class="wrap hero-latest-wrap">
-    {% set latest = publications | selectattr("featured") | first %}
-    {% if latest %}
-    {% set latestClip = (latest.clips | first) if latest.clips else null %}
-    <a class="hero-latest" href="{% if latest.deck and latest.slug %}/publications/{{ latest.slug }}/{% else %}/publications/{% endif %}">
-      <span class="hero-latest__media">
-        {% if latestClip %}
-        <video class="hero-latest__video" data-hero-latest-video muted loop playsinline preload="none" poster="{{ latestClip.poster }}" aria-hidden="true">
-          <source src="{{ latestClip.video }}" type="video/mp4">
-        </video>
-        {% elif latest.image %}
-        <img class="hero-latest__video" src="{{ latest.image }}" alt="">
-        {% endif %}
-      </span>
-      <span class="hero-latest__body">
-        <span class="hero-latest__kicker">Latest talk <span aria-hidden="true">·</span> {{ latest.sortDate | monthYear }}</span>
-        <span class="hero-latest__title">{{ latest.title.split(": ")[0] }}</span>
-        <span class="hero-latest__go">View the presentation
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-        </span>
-      </span>
-    </a>
-    {% endif %}
-  </div>
 </section>
 
 <section class="overview">
@@ -223,6 +199,51 @@ title: Homepage
     <a class="section-cta" href="/our-work/">See all our work <span aria-hidden="true">→</span></a>
   </div>
 </section>
+
+{% set latestPubs = publications | sort(attribute="sortDate", reverse=true) | selectattr("type", "equalto", "presentation") %}
+{% set lead = latestPubs[0] %}
+{% if lead %}
+<section class="latest">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Publications</p>
+      <h2>Latest talks and research</h2>
+    </div>
+
+    <div class="latest__grid">
+      {% set leadClip = (lead.clips | first) if lead.clips else null %}
+      <a class="latest__lead reveal" href="{% if lead.deck and lead.slug %}/publications/{{ lead.slug }}/{% else %}/publications/{% endif %}">
+        <span class="latest__media">
+          {% if leadClip %}<img src="{{ leadClip.poster }}" alt="" loading="lazy">{% elif lead.image %}<img src="{{ lead.image }}" alt="" loading="lazy">{% endif %}
+        </span>
+        <span class="latest__kicker">Latest talk <span aria-hidden="true">·</span> {{ lead.sortDate | monthYear }}</span>
+        <span class="latest__title">{{ lead.title.split(": ")[0] }}</span>
+        <span class="latest__meta">{{ lead.event | replace("Presentation for ", "") }}{% if lead.location %}, {{ lead.location }}{% endif %}</span>
+      </a>
+
+      <ul class="latest__list">
+        {% for item in latestPubs.slice(1, 3) %}
+        {% set vid = item.links.presentationVideoId if item.links else "" %}
+        <li class="reveal">
+          <a class="latest__item" href="{% if item.deck and item.slug %}/publications/{{ item.slug }}/{% else %}/publications/{% endif %}">
+            <span class="latest__thumb">
+              {% if vid %}<img src="https://img.youtube.com/vi/{{ vid }}/mqdefault.jpg" alt="" loading="lazy">{% elif item.image %}<img src="{{ item.image }}" alt="" loading="lazy">{% endif %}
+            </span>
+            <span class="latest__text">
+              <span class="latest__kicker">{{ item.sortDate | monthYear }}</span>
+              <span class="latest__item-title">{{ item.title }}</span>
+            </span>
+          </a>
+        </li>
+        {% endfor %}
+        <li class="latest__more reveal">
+          <a class="latest__btn" href="/publications/">See all publications</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <section class="testimonial">
  <div class="testimonial__stack">

@@ -1,0 +1,35 @@
+{#
+  Latest LinkedIn posts, embedded from LinkedIn (bottom of /publications/).
+  Add posts to src/_data/linkedin.json, newest first. For each, paste LinkedIn's
+  "Embed this post" code (or the post link) as "post":
+    { "post": "<iframe src=\"https://www.linkedin.com/embed/feed/update/urn:li:share:…\" …></iframe>" }
+  Up to three show. With none, a "Follow on LinkedIn" strip shows instead, unless the
+  including page sets liHideWhenEmpty (the home page does, so it never shows an empty block).
+#}
+{% set liPosts = [] %}
+{% for p in ((linkedin and linkedin.posts) or []) %}{% set src = p.post | linkedinEmbed %}{% if src and liPosts.length < 3 %}{% if liPosts.push(src) %}{% endif %}{% endif %}{% endfor %}
+{% if liPosts.length or not liHideWhenEmpty %}
+<section class="li-latest" aria-labelledby="li-latest-title">
+  <div class="wrap">
+    <div class="li-latest__head">
+      <div>
+        <h2 class="li-latest__title" id="li-latest-title">{% if liPosts.length %}Latest on LinkedIn{% else %}Follow our work on LinkedIn{% endif %}</h2>
+        {% if not liPosts.length %}<p class="li-latest__intro">News on our projects, talks and research as it happens.</p>{% endif %}
+      </div>
+      <a class="li-latest__follow" href="{{ site.linkedin }}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg>
+        Follow on LinkedIn
+      </a>
+    </div>
+    {% if liPosts.length %}
+    <ul class="li-latest__grid">
+      {% for src in liPosts %}
+      <li class="li-latest__post">
+        <iframe src="{{ src }}" title="LinkedIn post from Value Advisory Partners" loading="lazy" allowfullscreen></iframe>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>
+{% endif %}

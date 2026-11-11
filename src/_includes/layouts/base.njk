@@ -13,7 +13,11 @@
   <meta property="og:title" content="{% if title %}VAP · {{ title }}{% else %}{{ site.name }}{% endif %}">
   {% if pageDescription %}<meta property="og:description" content="{{ pageDescription }}">{% endif %}
   <meta property="og:url" content="{{ site.siteUrl }}{{ page.url }}">
-  <meta property="og:image" content="{{ site.siteUrl }}/assets/img/site/hero.jpg">
+  {# Link preview image: a page can set ogImage; case studies use their photo; otherwise the home hero. #}
+  {% set shareImage = ogImage or (image if image and (image.endsWith(".jpg") or image.endsWith(".png")) else "/assets/img/site/hero.jpg") %}
+  <meta property="og:image" content="{{ site.siteUrl }}{{ shareImage }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ site.siteUrl }}{{ shareImage }}">
   {% if site.gaMeasurementId %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaMeasurementId }}"></script>
   <script>
@@ -88,7 +92,7 @@
   <script src="/scripts/reveal.js" defer></script>
   <script src="/scripts/carousel.js" defer></script>
   <script src="/scripts/hero-parallax.js" defer></script>
-  <script src="/scripts/hero-latest.js" defer></script>
+  <script src="/scripts/hover-preview.js" defer></script>
   <script src="/scripts/work-list-preview.js" defer></script>
   <script src="/scripts/case-panels.js" defer></script>
   <script src="/scripts/associates-spotlight.js" defer></script>

@@ -7,7 +7,7 @@ extraCss: /styles/publications.css
 {% set featuredList = publications | selectattr("featured") | sort(attribute="featured") %}
 {% set talks = [] %}{% set reports = [] %}
 {% for group in publications | groupByYear %}{% for item in group.items %}
-  {% if item.type == "presentation" and not item.featured %}{% if talks.push(item) %}{% endif %}{% elif item.type == "report" %}{% if reports.push(item) %}{% endif %}{% endif %}
+  {% if item.type == "presentation" %}{% if talks.push(item) %}{% endif %}{% elif item.type == "report" %}{% if reports.push(item) %}{% endif %}{% endif %}
 {% endfor %}{% endfor %}
 {% set download %}<svg class="pubbtn__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>{% endset %}
 {% set slidesIcon %}<svg class="pubbtn__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4M10 8.5v5l4-2.5z"/></svg>{% endset %}
@@ -97,12 +97,15 @@ extraCss: /styles/publications.css
 <section class="pubtalks" aria-labelledby="pubtalks-title">
   <div class="wrap">
     <div class="pubsection__head">
-      <h2 class="pubsection__title" id="pubtalks-title">More talks</h2>
+      <h2 class="pubsection__title" id="pubtalks-title">Talks</h2>
     </div>
-    <ul class="pubtalks__grid">
-      {% for item in talks %}
+    <div class="tl">
+    {% for group in talks | groupByYear %}
+    <h3 class="tl__year"><span>{{ group.year }}</span></h3>
+    <ul class="tl__items">
+      {% for item in group.items %}
       {% set videoId = item.links.presentationVideoId if item.links else "" %}
-      <li class="pubcard reveal">
+      <li class="tl__item reveal">
         <div class="pubcard__media">
           {% if videoId %}
           <button class="wd-pub-video" type="button" data-yt-preview="{{ videoId }}" aria-label="Play video: {{ item.title }}">
@@ -115,17 +118,22 @@ extraCss: /styles/publications.css
           <img class="pubcard__img" src="{{ item.image }}" alt="" loading="lazy">
           {% endif %}
         </div>
+        <div class="tl__body">
         <p class="pubcard__meta">{{ item.event | replace("Presentation for ", "") }}{% if item.location %}, {{ item.location }}{% endif %} <span aria-hidden="true">·</span> {{ item.sortDate | monthYear }}</p>
-        <h3 class="pubcard__title">{{ item.title }}</h3>
+        <h4 class="pubcard__title">{{ item.title }}</h4>
         {% if item.presenters %}<p class="pubcard__by">Presented by {{ item.presenters }}</p>{% endif %}
         <div class="pubcard__links">
           {% if item.deck and item.slug %}<a class="pubbtn pubbtn--sm" href="/publications/{{ item.slug }}/">{{ slidesIcon | safe }}View the presentation</a>
           {% elif item.links.download %}<a class="pubbtn pubbtn--sm" href="{{ item.links.download }}">{{ download | safe }}Download the slides</a>{% endif %}
-          {% if item.project %}<a class="pubbtn pubbtn--sm pubbtn--ghost" href="{{ item.project.url }}">View the project</a>{% endif %}
+          {% set proj = item.project or item.caseStudy %}
+          {% if proj %}<a class="pubbtn pubbtn--sm pubbtn--ghost" href="{{ proj.url }}">View the project</a>{% endif %}
+        </div>
         </div>
       </li>
       {% endfor %}
     </ul>
+    {% endfor %}
+    </div>
   </div>
 </section>
 {% endif %}
@@ -154,5 +162,7 @@ extraCss: /styles/publications.css
   </div>
 </section>
 {% endif %}
+
+{% include "partials/linkedin-latest.njk" %}
 
 <script src="/scripts/publications-demo.js" defer></script>

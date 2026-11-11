@@ -5655,53 +5655,44 @@ html.has-book-panel {
   }
 }
 
-/* Home hero: a quiet "Latest talk" strip in the bottom-right corner.
-   Dark glass so it sits back from the main buttons; the clip plays on hover only. */
+/* Home: "Latest talks and research" section, after Selected work.
+   Lead card for the newest talk, two compact rows, and a link to all publications. */
 
-.hero-latest-wrap {
-  position: absolute;
-  bottom: var(--step-2);
-  left: 0;
-  right: 0;
-  z-index: 3;
-  display: flex;
-  justify-content: flex-end;
-  pointer-events: none;
+.latest {
+  padding-block: var(--step-3);
 }
 
-.hero-latest {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  width: min(23rem, 40vw);
-  padding: 0.5rem 0.9rem 0.5rem 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 0.65rem;
-  background: rgba(10, 22, 24, 0.55);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  color: var(--surface);
+.latest__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--step-2) clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  margin-top: var(--step-1);
+}
+
+.latest__lead {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--ink);
   text-decoration: none;
-  pointer-events: auto;
 }
 
-.hero-latest:hover,
-.hero-latest:focus-visible {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(10, 22, 24, 0.72);
-  color: var(--surface);
+.latest__lead:hover,
+.latest__lead:focus-visible {
+  color: var(--ink);
 }
 
-.hero-latest__media {
-  flex: 0 0 auto;
-  width: 6.5rem;
+.latest__media {
+  display: block;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
-  border-radius: 0.4rem;
-  background: var(--surface);
+  margin-bottom: 0.6rem;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--rule);
+  border-radius: 0.75rem;
+  background: var(--brand-50);
 }
 
-.hero-latest__video {
+.latest__media img {
   display: block;
   width: 100%;
   height: 100%;
@@ -5709,76 +5700,218 @@ html.has-book-panel {
   object-position: left top;
 }
 
-.hero-latest__body {
-  display: grid;
-  gap: 0.2rem;
-  min-width: 0;
-}
-
-.hero-latest__kicker {
-  color: var(--brand-100);
-  font-size: 0.68rem;
+.latest__kicker {
+  color: var(--brand-700);
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.hero-latest__title {
-  overflow: hidden;
-  font-size: 0.92rem;
+.latest__title {
+  font-size: var(--step-2);
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.2;
+}
+
+.latest__lead:hover .latest__title,
+.latest__lead:focus-visible .latest__title {
+  color: var(--brand-700);
+}
+
+.latest__meta {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+.latest__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.latest__item {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: var(--step-1);
+  align-items: center;
+  padding-block: var(--step-1);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.latest__item:hover,
+.latest__item:focus-visible {
+  color: var(--ink);
+}
+
+.latest__thumb {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.4rem;
+  background: var(--brand-50);
+}
+
+.latest__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.latest__text {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.latest__item-title {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
-.hero-latest__go {
+.latest__item:hover .latest__item-title,
+.latest__item:focus-visible .latest__item-title {
+  color: var(--brand-700);
+}
+
+.latest__more {
+  padding-top: var(--step-2);
+}
+
+.latest__btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 0.8em 1.25em;
+  border: 1.5px solid var(--brand-700);
+  border-radius: 0.5rem;
+  color: var(--brand-700);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
 }
 
-.hero-latest__go svg {
-  flex: 0 0 auto;
-  width: 0.85rem;
-  height: 0.85rem;
-}
-
-@keyframes hero-latest-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: none; }
+.latest__btn:hover,
+.latest__btn:focus-visible {
+  background: var(--brand-700);
+  color: var(--surface);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero-latest {
-    animation: hero-latest-in 0.7s ease 1.1s both;
-    transition: background-color 0.25s ease, border-color 0.25s ease;
+  .latest__media img,
+  .latest__thumb img {
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
-  .hero-latest__go svg {
-    transition: transform 0.2s ease;
+  .latest__lead:hover .latest__media img,
+  .latest__item:hover .latest__thumb img {
+    transform: scale(1.03);
   }
 
-  .hero-latest:hover .hero-latest__go svg,
-  .hero-latest:focus-visible .hero-latest__go svg {
-    transform: translateX(3px);
+  .latest__title,
+  .latest__item-title,
+  .latest__btn {
+    transition: color 0.2s ease, background-color 0.2s ease;
   }
 }
 
 @media (max-width: 899px) {
-  .hero-latest-wrap {
-    position: relative;
-    bottom: auto;
-    justify-content: flex-start;
-    padding-bottom: var(--step-2);
+  .latest__grid {
+    grid-template-columns: minmax(0, 1fr);
   }
+}
 
-  .hero-latest {
-    width: min(100%, 23rem);
+/* Latest LinkedIn posts (partials/linkedin-latest.njk), embedded from LinkedIn.
+   On the home page it continues the "Latest talks and research" section. */
+
+.li-latest {
+  padding-block: var(--step-3);
+}
+
+.latest + .li-latest {
+  padding-top: 0;
+}
+
+.li-latest p {
+  max-width: none;
+}
+
+.li-latest__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--step-1);
+  padding-top: var(--step-2);
+  border-top: 1px solid var(--rule);
+}
+
+.li-latest__title {
+  font-size: var(--step-2);
+}
+
+.li-latest__intro {
+  margin-top: 0.5rem;
+  color: var(--ink-muted);
+  font-size: 1rem;
+}
+
+.li-latest__follow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  padding: 0.75em 1.2em;
+  border-radius: 0.5rem;
+  background: #0a66c2;
+  color: var(--surface);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.li-latest__follow:hover,
+.li-latest__follow:focus-visible {
+  background: #004182;
+  color: var(--surface);
+}
+
+.li-latest__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--step-1);
+  margin: var(--step-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each embed is LinkedIn's own post; a long post scrolls inside its frame. */
+.li-latest__post {
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 0.75rem;
+  background: var(--surface);
+}
+
+.li-latest__post iframe {
+  display: block;
+  width: 100%;
+  height: 34rem;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .li-latest__follow {
+    transition: background-color 0.2s ease;
   }
 }
 

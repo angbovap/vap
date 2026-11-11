@@ -9,6 +9,7 @@ extraCss: /styles/publications.css
 eleventyComputed:
   title: "{{ talk.shortTitle or talk.title }}"
   description: "{{ talk.summary }}"
+  ogImage: "{{ talk.shareImage }}"
 ---
 {% set parts = talk.title.split(": ") %}
 {% set people = [] %}
