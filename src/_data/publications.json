@@ -183,7 +183,126 @@
       "title": "Bega Valley Resilient Road Network",
       "url": "/our-work/bega-valley-resilient-road-network/"
     },
-    "shareImage": "/assets/decks/rice/share.jpg"
+    "shareImage": "/assets/decks/rice/share.jpg",
+    "image": "/assets/video/rice/1-place.jpg"
+  },
+  {
+    "type": "presentation",
+    "year": 2026,
+    "sortDate": "2026-11-06",
+    "slug": "trip-pia-vic",
+    "shortTitle": "TRIP · PIA VIC 2026",
+    "eventShort": "PIA VIC 2026",
+    "title": "Critical Telecommunications Infrastructure: How planners and government can understand the consequence of outage and actions to mitigate risk into making planning decisions",
+    "event": "Presentation for 2026 PIA VIC State Planning Conference",
+    "location": "Healesville",
+    "date": "November 2026",
+    "summary": "Infrastructure planning through a resilience lens: how the Telecommunication Resilience Investment Pilot (TRIP) traced the cascading consequences of mobile outages and built resilience investment cases with East Gippsland and Eurobodalla councils, CSIRO and Climate-KIC Australia.",
+    "presenters": "Christopher Marinopoulos",
+    "links": {},
+    "image": "/assets/decks/trip-pia/slide-01.webp",
+    "shareImage": "/assets/decks/trip-pia/share.jpg",
+    "related": [
+      "telco-resilience"
+    ],
+    "deck": [
+      {
+        "image": "/assets/decks/trip-pia/slide-01.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-01.webp",
+        "alt": "Title slide: Critical Telecommunications Infrastructure: the consequences of outages and collaborative actions to mitigate risk. Strengthening mobile telecommunications resilience for a changing climate. Project partners East Gippsland Shire Council, Eurobodalla Shire Council and Climate-KIC Australia; delivery partner CSIRO."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-02.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-02.webp",
+        "alt": "Infrastructure planning through a resilience lens: how the TRIP project builds from consequences of disruption to patterns of intervention and resilience investment cases."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-03.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-03.webp",
+        "alt": "Section: challenges for infrastructure planning for towns and regional settlements."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-04.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-04.webp",
+        "alt": "Challenge for the telecommunications sector and regional connection: key challenges, the costs of natural hazards, and the impact on the public and wider industries."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-05.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-05.webp",
+        "alt": "Challenge for local critical infrastructure and road transport exposed to natural hazards, and the importance of telecommunications to regional communities."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-06.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-06.webp",
+        "alt": "The Enabling Resilience Investment framework: its phases and modules."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-07.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-07.webp",
+        "alt": "Section: innovation and transformative processes within the Telecommunication Resilience Investment Pilot (TRIP) project."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-08.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-08.webp",
+        "alt": "TRIP project outline, aims and outputs: NEMA funded, to increase mobile telecommunications resilience against bushfires."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-09.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-09.webp",
+        "alt": "TRIP project focal study areas: East Gippsland, Victoria, and Eurobodalla, New South Wales."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-10.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-10.webp",
+        "alt": "Development of failure mode effects analysis: identifying the sectors and functions that rely on telecommunications."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-11.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-11.webp",
+        "alt": "Development of failure mode effects analysis: identifying cascading consequences of disruption with effect statements."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-12.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-12.webp",
+        "alt": "Application of failure mode effects analysis: understanding economic productivity loss and key metrics due to disruption."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-13.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-13.webp",
+        "alt": "Development of patterns of intervention: understanding patterns and context for telecommunications infrastructure, with site archetypes."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-14.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-14.webp",
+        "alt": "Application of patterns of intervention: selecting interventions to assess effectiveness in reducing outages."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-15.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-15.webp",
+        "alt": "Development of resilience investment cases within the Enabling Resilience Investment framework."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-16.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-16.webp",
+        "alt": "Application of resilience investment cases for the TRIP project in East Gippsland and Eurobodalla."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-17.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-17.webp",
+        "alt": "Section: outcomes from the TRIP project, next steps and opportunities."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-18.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-18.webp",
+        "alt": "Outcomes from the TRIP project for strengthening mobile telecommunications resilience for a changing climate."
+      },
+      {
+        "image": "/assets/decks/trip-pia/slide-19.webp",
+        "thumb": "/assets/decks/trip-pia/thumbs/slide-19.webp",
+        "alt": "Reflection from the TRIP project: lessons learnt and further opportunities for applying these processes."
+      }
+    ],
+    "preview": "/assets/decks/trip-pia/preview.mp4"
   },
   {
     "type": "presentation",
@@ -306,6 +425,10 @@
         "thumb": "/assets/decks/telco/thumbs/slide-21.webp",
         "alt": "Lessons learned and implications for practitioners."
       }
+    ],
+    "eventShort": "DEMC 2026",
+    "related": [
+      "trip-pia-vic"
     ]
   },
   {

@@ -212,9 +212,10 @@ title: Homepage
 
     <div class="latest__grid">
       {% set leadClip = (lead.clips | first) if lead.clips else null %}
-      <a class="latest__lead reveal" href="{% if lead.deck and lead.slug %}/publications/{{ lead.slug }}/{% else %}/publications/{% endif %}">
+      <a class="latest__lead reveal"{% if lead.preview %} data-hover-preview{% endif %} href="{% if lead.deck and lead.slug %}/publications/{{ lead.slug }}/{% else %}/publications/{% endif %}">
         <span class="latest__media">
-          {% if leadClip %}<img src="{{ leadClip.poster }}" alt="" loading="lazy">{% elif lead.image %}<img src="{{ lead.image }}" alt="" loading="lazy">{% endif %}
+          {% if lead.preview %}<video data-hover-video muted loop playsinline preload="none" poster="{{ lead.image }}" aria-hidden="true"><source src="{{ lead.preview }}" type="video/mp4"></video>
+          {% elif leadClip %}<img src="{{ leadClip.poster }}" alt="" loading="lazy">{% elif lead.image %}<img src="{{ lead.image }}" alt="" loading="lazy">{% endif %}
         </span>
         <span class="latest__kicker">Latest talk <span aria-hidden="true">·</span> {{ lead.sortDate | monthYear }}</span>
         <span class="latest__title">{{ lead.title.split(": ")[0] }}</span>
@@ -225,9 +226,10 @@ title: Homepage
         {% for item in latestPubs.slice(1, 3) %}
         {% set vid = item.links.presentationVideoId if item.links else "" %}
         <li class="reveal">
-          <a class="latest__item" href="{% if item.deck and item.slug %}/publications/{{ item.slug }}/{% else %}/publications/{% endif %}">
+          <a class="latest__item"{% if item.preview %} data-hover-preview{% endif %} href="{% if item.deck and item.slug %}/publications/{{ item.slug }}/{% else %}/publications/{% endif %}">
             <span class="latest__thumb">
-              {% if vid %}<img src="https://img.youtube.com/vi/{{ vid }}/mqdefault.jpg" alt="" loading="lazy">{% elif item.image %}<img src="{{ item.image }}" alt="" loading="lazy">{% endif %}
+              {% if item.preview %}<video data-hover-video muted loop playsinline preload="none" poster="{{ item.image }}" aria-hidden="true"><source src="{{ item.preview }}" type="video/mp4"></video>
+              {% elif vid %}<img src="https://img.youtube.com/vi/{{ vid }}/mqdefault.jpg" alt="" loading="lazy">{% elif item.image %}<img src="{{ item.image }}" alt="" loading="lazy">{% endif %}
             </span>
             <span class="latest__text">
               <span class="latest__kicker">{{ item.sortDate | monthYear }}</span>

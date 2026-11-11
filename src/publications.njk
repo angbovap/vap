@@ -105,9 +105,11 @@ extraCss: /styles/publications.css
     <ul class="tl__items">
       {% for item in group.items %}
       {% set videoId = item.links.presentationVideoId if item.links else "" %}
-      <li class="tl__item reveal">
+      <li class="tl__item reveal"{% if item.preview %} data-hover-preview{% endif %}>
         <div class="pubcard__media">
-          {% if videoId %}
+          {% if item.preview %}
+          <video class="pubcard__img" data-hover-video muted loop playsinline preload="none" poster="{{ item.image }}" aria-hidden="true"><source src="{{ item.preview }}" type="video/mp4"></video>
+          {% elif videoId %}
           <button class="wd-pub-video" type="button" data-yt-preview="{{ videoId }}" aria-label="Play video: {{ item.title }}">
             <img class="wd-pub-video__thumb" src="https://img.youtube.com/vi/{{ videoId }}/hqdefault.jpg" alt="" loading="lazy">
             <span class="wd-pub-video__play" aria-hidden="true">▶</span>

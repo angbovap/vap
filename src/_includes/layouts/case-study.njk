@@ -111,9 +111,9 @@ layout: base.njk
 {% set talkClip = talk.clips | first %}
 <section class="case-talk">
   <div class="wrap reveal">
-    <a class="case-talk__card" href="/publications/{{ talk.slug }}/">
+    <a class="case-talk__card" href="/publications/{{ talk.slug }}/" data-hover-preview>
       <span class="case-talk__media">
-        <video class="case-talk__video" data-case-talk-video muted loop playsinline preload="none" poster="{{ talkClip.poster }}" aria-hidden="true">
+        <video class="case-talk__video" data-hover-video muted loop playsinline preload="none" poster="{{ talkClip.poster }}" aria-hidden="true">
           <source src="{{ talkClip.video }}" type="video/mp4">
         </video>
       </span>

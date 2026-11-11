@@ -30,7 +30,14 @@ eleventyComputed:
       </p>
     </div>
     {% endif %}
-    {% if talk.caseStudy %}<a class="pubbtn pubbtn--sm pubbtn--ghost-light talkhead__case" href="{{ talk.caseStudy.url }}">View the {{ talk.caseStudy.title }} project</a>{% endif %}
+    {% set relatedTalks = [] %}
+    {% for r in publications %}{% if talk.related and r.slug in talk.related and r.deck %}{% if relatedTalks.push(r) %}{% endif %}{% endif %}{% endfor %}
+    {% if talk.caseStudy or relatedTalks.length %}
+    <div class="talkhead__links">
+      {% if talk.caseStudy %}<a class="pubbtn pubbtn--sm pubbtn--ghost-light" href="{{ talk.caseStudy.url }}">View the {{ talk.caseStudy.title }} project</a>{% endif %}
+      {% for r in relatedTalks %}<a class="pubbtn pubbtn--sm pubbtn--ghost-light" href="/publications/{{ r.slug }}/">Also presented at {{ r.eventShort or (r.event | replace("Presentation for ", "")) }}</a>{% endfor %}
+    </div>
+    {% endif %}
   </div>
 </section>
 

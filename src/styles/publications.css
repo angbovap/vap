@@ -1082,6 +1082,9 @@ main section.talkhead {
   }
 }
 
-.talkhead__case {
+.talkhead__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   margin-top: var(--step-1);
 }
