@@ -6014,3 +6014,22 @@ html.has-book-panel {
     gap: var(--step-1);
   }
 }
+/* ---------- Page transition ---------- */
+/* A white screen with the VAP logo: fades in when leaving a page (page-transition.js
+   adds .pt-out) and fades away on the next page (.pt-in, set in the page head). */
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #fff url(/assets/img/brand/vaplogo.png) center / 72px auto no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+html.pt-out::after { opacity: 1; pointer-events: auto; }
+html.pt-in::after { opacity: 1; animation: pt-reveal 320ms ease 120ms forwards; }
+@keyframes pt-reveal { to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  html::after { display: none; }
+}
