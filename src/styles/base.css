@@ -2276,29 +2276,6 @@ main:has(.team-intro) .eyebrow {
   color: var(--ink-muted);
 }
 
-.team-intro__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: var(--step-3);
-  align-items: center;
-}
-
-.team-intro__reel {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 0.75rem;
-  background: #1c1f20;
-}
-
-@media (max-width: 899px) {
-  .team-intro__grid {
-    grid-template-columns: 1fr;
-    gap: var(--step-2);
-  }
-}
-
 .team {
   padding-block: var(--step-2) var(--step-3);
 }
@@ -4669,6 +4646,52 @@ main section.partners {
 
 /* Get in touch */
 
+/* 404: message beside the logo reveal */
+.notfound {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--step-3);
+  align-items: center;
+}
+
+.notfound__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: var(--step-1);
+}
+
+.notfound__actions .section-cta {
+  margin-top: 0;
+}
+
+.notfound .notfound__primary {
+  background: var(--brand-700);
+  color: var(--surface);
+}
+
+.notfound .notfound__primary:hover,
+.notfound .notfound__primary:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.notfound__reel {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  background: #1c1f20;
+}
+
+@media (max-width: 899px) {
+  .notfound {
+    grid-template-columns: 1fr;
+    gap: var(--step-2);
+  }
+}
+
 .contact-lead {
   padding-block: var(--step-3) var(--step-2);
 }
@@ -5946,33 +5969,103 @@ html.has-book-panel {
   }
 }
 /* ---------- Page transition ---------- */
-/* A white screen (::before) with the VAP logo (::after): eases in when leaving a page
-   (page-transition.js adds .pt-out) and eases away on the next page (.pt-in, set in the page head). */
-html::before,
-html::after {
-  content: "";
+/* Leaving (page-transition.js adds .pt-overlay--leave): white screen, the logo rings draw
+   themselves in, the teal one glowing, settle into the logo image, and the name wipes in.
+   Arriving (.pt-overlay--arrive, added in the page head): the same logo and name in the
+   same place, which fade, then the page fades in. */
+.pt-overlay {
   position: fixed;
   inset: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-html::before {
   z-index: 10000;
+  display: grid;
+  place-items: center;
   background: #fff;
-  transition: opacity 340ms cubic-bezier(.4, 0, .2, 1);
 }
-html::after {
-  z-index: 10001;
-  background: url(/assets/img/brand/vaplogo.png) center / 72px auto no-repeat;
-  transform: scale(.94);
-  transition: opacity 300ms cubic-bezier(.4, 0, .2, 1) 90ms, transform 420ms cubic-bezier(.2, .7, .2, 1) 90ms;
+
+.pt-overlay__lockup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-html.pt-out::before { opacity: 1; pointer-events: auto; }
-html.pt-out::after { opacity: 1; transform: none; }
-html.pt-in::before { opacity: 1; animation: pt-reveal 520ms cubic-bezier(.4, 0, .2, 1) 200ms forwards; }
-html.pt-in::after { opacity: 1; transform: none; animation: pt-reveal-logo 300ms ease 60ms forwards; }
-@keyframes pt-reveal { to { opacity: 0; } }
-@keyframes pt-reveal-logo { to { opacity: 0; transform: scale(1.03); } }
+
+.pt-overlay__mark {
+  position: relative;
+  flex: 0 0 auto;
+  width: 80px;
+  height: 80px;
+}
+
+.pt-overlay__mark svg,
+.pt-overlay__mark img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pt-overlay__name {
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.45rem;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.pt-overlay__name b { font-weight: 700; }
+.pt-overlay__name span { font-weight: 200; }
+
+/* Leaving */
+.pt-overlay--leave {
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.pt-overlay--leave.is-on { opacity: 1; }
+
+.pt-ring {
+  fill: none;
+  stroke-width: 17;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.pt-ring--1,
+.pt-ring--2 { stroke: #231f20; }
+.pt-ring--3 { stroke: #1aa1a7; }
+
+.pt-overlay--leave .pt-overlay__mark img { opacity: 0; }
+.pt-overlay--leave .pt-overlay__name { clip-path: inset(0 100% 0 0); }
+
+.pt-overlay--leave.is-on .pt-ring { animation: pt-draw 340ms cubic-bezier(.55, 0, .25, 1) forwards; }
+.pt-overlay--leave.is-on .pt-ring--2 { animation-delay: 50ms; }
+.pt-overlay--leave.is-on .pt-ring--3 { animation-delay: 100ms; }
+.pt-overlay--leave.is-on .pt-overlay__mark img { animation: pt-show 100ms ease 360ms forwards; }
+.pt-overlay--leave.is-on .pt-overlay__mark svg { animation: pt-hide 100ms ease 380ms forwards; }
+.pt-overlay--leave.is-on .pt-overlay__name { animation: pt-wipe 260ms cubic-bezier(.4, 0, .2, 1) 200ms forwards; }
+
+/* Arriving */
+.pt-overlay--arrive {
+  pointer-events: none;
+  animation: pt-hide 480ms cubic-bezier(.4, 0, .2, 1) 260ms forwards;
+}
+
+.pt-overlay--arrive .pt-overlay__lockup { animation: pt-hide 280ms ease 100ms forwards; }
+
+@keyframes pt-draw { to { stroke-dashoffset: 0; } }
+@keyframes pt-show { to { opacity: 1; } }
+@keyframes pt-hide { to { opacity: 0; } }
+@keyframes pt-wipe { to { clip-path: inset(0 0 0 0); } }
+
+@media (max-width: 520px) {
+  .pt-overlay__mark { width: 64px; height: 64px; }
+  .pt-overlay__name { font-size: 1.2rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html::before, html::after { display: none; }
+  .pt-overlay { display: none; }
 }

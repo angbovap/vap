@@ -33,8 +33,10 @@
   <style>
     @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 500;font-display:swap;src:url(/assets/fonts/fraunces-italic-latin.woff2) format('woff2')}
   </style>
-  {# Page transition: arriving from another page on the site starts behind the white logo screen. #}
-  <script>try{if(sessionStorage.getItem("vap-pt")){sessionStorage.removeItem("vap-pt");if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("pt-in")}}catch(e){}</script>
+  {# Page transition: arriving from another page on the site starts behind the white logo screen, which then fades away. #}
+  <script>try{if(sessionStorage.getItem("vap-pt")){sessionStorage.removeItem("vap-pt");if(!matchMedia("(prefers-reduced-motion: reduce)").matches){var pt=document.createElement("div");pt.className="pt-overlay pt-overlay--arrive";pt.setAttribute("aria-hidden","true");pt.innerHTML='<div class="pt-overlay__lockup"><div class="pt-overlay__mark"><img src="/assets/img/brand/vaplogo.png" alt="" width="512" height="512"></div><p class="pt-overlay__name"><b>{{ site.brandPrimary }}</b><span>{{ site.brandSecondary }}</span></p></div>';document.documentElement.appendChild(pt)}}}catch(e){}</script>
+  {# Main pages are fetched ahead when a link to one is hovered, so the transition has no wait at the end. #}
+  <script type="speculationrules">{"prefetch":[{"source":"document","where":{"href_matches":["/","/what-we-do/","/our-work/","/our-team/","/publications/","/get-in-touch/"]},"eagerness":"moderate"}]}</script>
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/base.css">
   {% if extraCss %}<link rel="stylesheet" href="{{ extraCss }}">{% endif %}

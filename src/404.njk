@@ -5,12 +5,19 @@ permalink: /404.html
 eleventyExcludeFromCollections: true
 ---
 <section class="contact-lead">
-  <div class="wrap">
+  <div class="wrap notfound">
     <div class="section-head">
       <p class="eyebrow">Error 404</p>
       <h1>We can't find that page.</h1>
       <p class="contact-lead__text">The link may be out of date. Head back to the homepage or get in touch and we'll point you in the right direction.</p>
-      <p><a href="/">Back to the homepage</a> · <a href="/get-in-touch/">Get in touch</a></p>
+      <div class="notfound__actions">
+        <a class="section-cta notfound__primary" href="/">Back to the homepage</a>
+        <a class="section-cta" href="/get-in-touch/">Get in touch</a>
+      </div>
     </div>
+    {# Logo reveal: plays once, silently, then rests on the logo. #}
+    <video class="notfound__reel" data-play-once muted playsinline preload="metadata" poster="/assets/video/brand/logo-reveal.jpg" aria-label="Value Advisory Partners logo">
+      <source src="/assets/video/brand/logo-reveal.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
