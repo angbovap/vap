@@ -22,7 +22,7 @@
           {{ office.line1 }}<br>
           {{ office.line2 }}
         </address>
-        <a class="site-foot__directions" href="https://www.google.com/maps/search/?api=1&amp;query={{ (office.line1 + ', ' + office.line2) | urlencode }}" target="_blank" rel="noopener">Get directions <span aria-hidden="true">→</span></a>
+        <a class="site-foot__directions" href="https://www.google.com/maps/search/?api=1&amp;query={{ (office.line1 + ', ' + office.line2) | urlencode }}" target="_blank" rel="noopener">Get directions</a>
       </div>
       {% endfor %}
     </div>

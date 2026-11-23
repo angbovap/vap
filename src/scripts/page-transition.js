@@ -1,9 +1,10 @@
-// Page transition: on an internal link, fade to white with the VAP logo, then
+// Page transition: on a link to one of the main pages, fade to white with the VAP logo, then
 // load the next page, which fades back in (see "Page transition" in base.css).
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var root = document.documentElement;
-  var LEAVE_MS = 200;
+  var LEAVE_MS = 380;
+  var MAJOR = ['/', '/what-we-do/', '/our-work/', '/our-team/', '/publications/', '/get-in-touch/'];
 
   function isPageLink(link, event) {
     if (event.defaultPrevented || event.button !== 0) return false;
@@ -14,9 +15,8 @@
     if (url.origin !== location.origin) return false;
     // Same page (including #anchors): no transition.
     if (url.pathname === location.pathname && url.search === location.search) return false;
-    // Files such as PDFs or videos are not pages.
-    if (/\.[a-z0-9]+$/i.test(url.pathname) && !/\.html?$/i.test(url.pathname)) return false;
-    return true;
+    // Only the main sections get the transition; detail pages load straight away.
+    return MAJOR.indexOf(url.pathname) !== -1;
   }
 
   document.addEventListener('click', function (event) {

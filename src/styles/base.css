@@ -73,20 +73,11 @@ a:focus {
 .eyebrow {
   display: flex;
   align-items: center;
-  gap: 0.75em;
   font-size: var(--step-1);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--brand-700);
-}
-
-.eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 2rem;
-  height: 2px;
-  background: var(--brand-500);
 }
 
 .section-head {
@@ -105,31 +96,28 @@ a:focus {
    position (end of content), same look, everywhere, so it's recognisable
    on sight rather than something the user has to relearn per section. */
 .section-cta {
+  margin-top: var(--step-2);
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
-  margin-top: var(--step-2);
-  padding-bottom: 0.3em;
-  font-weight: 600;
-  font-size: var(--step-0);
+  padding: 0.8em 1.25em;
+  border: 1.5px solid var(--brand-700);
+  border-radius: 0.5rem;
   color: var(--brand-700);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
   text-decoration: none;
-  border-bottom: 2px solid var(--brand-500);
 }
 
 .section-cta:hover,
 .section-cta:focus-visible {
-  color: var(--brand-500);
+  background: var(--brand-700);
+  color: var(--surface);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .section-cta {
-    transition: color 0.2s ease, gap 0.2s ease;
-  }
-
-  .section-cta:hover,
-  .section-cta:focus-visible {
-    gap: 0.75em;
+    transition: color 0.2s ease, background-color 0.2s ease;
   }
 }
 
@@ -697,7 +685,7 @@ main {
 
 .area {
   display: grid;
-  grid-template-columns: 11rem 1fr auto;
+  grid-template-columns: 11rem 1fr;
   gap: var(--step-1);
   align-items: center;
   padding-block: var(--step-1);
@@ -736,11 +724,6 @@ main {
   line-height: 1.5;
 }
 
-.area__arrow {
-  color: var(--brand-700);
-  font-size: 1.25rem;
-}
-
 .area:hover .area__title,
 .area:focus-visible .area__title {
   color: var(--brand-700);
@@ -755,18 +738,9 @@ main {
     transition: color 0.2s ease;
   }
 
-  .area__arrow {
-    transition: transform 0.2s ease;
-  }
-
   .area:hover .area__img,
   .area:focus-visible .area__img {
     transform: scale(1.05);
-  }
-
-  .area:hover .area__arrow,
-  .area:focus-visible .area__arrow {
-    transform: translateX(0.3rem);
   }
 }
 
@@ -784,10 +758,6 @@ main {
 
   .area__media {
     aspect-ratio: 1;
-  }
-
-  .area__arrow {
-    display: none;
   }
 }
 
@@ -1328,22 +1298,6 @@ main {
   display: flex;
   width: fit-content;
   margin: var(--step-3) auto 0;
-  padding: 0.7em 1.4em;
-  border: 1px solid var(--brand-500);
-  border-radius: 999px;
-  color: var(--brand-700);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .work .section-cta {
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-}
-
-.work .section-cta:hover,
-.work .section-cta:focus-visible {
-  background: var(--brand-500);
-  color: var(--surface);
 }
 
 @media (max-width: 799px) {
@@ -1714,9 +1668,8 @@ img.logos__mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5em;
   padding: 0.7em 1.2em;
-  border: 2px solid var(--brand-700);
+  border: 1.5px solid var(--brand-700);
   border-radius: 0.5rem;
   font-size: 0.9rem;
   font-weight: 700;
@@ -1734,14 +1687,14 @@ img.logos__mark {
 
 @media (prefers-reduced-motion: no-preference) {
   .wwd-selector__link {
-    transition: gap 0.2s ease, background-color 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease;
   }
 }
 
 .wwd-selector__link:hover,
 .wwd-selector__link:focus-visible {
-  gap: 0.75em;
-  background: var(--brand-50);
+  background: var(--brand-700);
+  color: var(--surface);
 }
 
 @media (max-width: 520px) {
@@ -1867,13 +1820,13 @@ img.logos__mark {
 .wd-framework__link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
-  padding: 0.7em 1.3em;
-  border: 1px solid var(--brand-500);
-  border-radius: 999px;
+  padding: 0.7em 1.2em;
+  border: 1.5px solid var(--brand-700);
+  border-radius: 0.5rem;
   color: var(--brand-700);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
+  line-height: 1.2;
   text-decoration: none;
 }
 
@@ -1885,7 +1838,7 @@ img.logos__mark {
 
 .wd-framework__link:hover,
 .wd-framework__link:focus-visible {
-  background: var(--brand-500);
+  background: var(--brand-700);
   color: var(--surface);
 }
 
@@ -2323,6 +2276,29 @@ main:has(.team-intro) .eyebrow {
   color: var(--ink-muted);
 }
 
+.team-intro__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--step-3);
+  align-items: center;
+}
+
+.team-intro__reel {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  background: #1c1f20;
+}
+
+@media (max-width: 899px) {
+  .team-intro__grid {
+    grid-template-columns: 1fr;
+    gap: var(--step-2);
+  }
+}
+
 .team {
   padding-block: var(--step-2) var(--step-3);
 }
@@ -2399,7 +2375,7 @@ main:has(.team-intro) .eyebrow {
   }
 
   .team-member__link {
-    transition: opacity 0.2s ease, transform 0.2s ease, gap 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
 }
 
@@ -2414,7 +2390,6 @@ main:has(.team-intro) .eyebrow {
 .team-member:focus-visible .team-member__link {
   opacity: 1;
   transform: translateY(0);
-  gap: 0.75em;
 }
 
 @media (max-width: 900px) {
@@ -3210,18 +3185,7 @@ main section.partners {
 
 .wd-feature__panel-col li {
   position: relative;
-  padding-left: 1em;
   font-size: 0.9rem;
-}
-
-.wd-feature__panel-col li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.6em;
-  width: 0.5em;
-  height: 1px;
-  background: var(--brand-100);
 }
 
 /* Puzzle grid (VITAL system) */
@@ -3381,23 +3345,13 @@ main section.partners {
 
 .capabilities__col li {
   position: relative;
-  padding: 0.65em 0 0.65em 1.4em;
+  padding: 0.65em 0;
   color: var(--ink-muted);
   font-size: 0.95rem;
 }
 
 .capabilities__col li + li {
   border-top: 1px solid rgba(50, 50, 50, 0.08);
-}
-
-.capabilities__col li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 1.05em;
-  width: 0.55em;
-  height: 1px;
-  background: var(--brand-500);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -4108,19 +4062,10 @@ main section.partners {
   font-weight: 600;
 }
 
-.work-row__arrow {
-  flex: 0 0 auto;
-  font-size: 1.25rem;
-  color: var(--brand-500);
-  opacity: 0;
-  transform: translateX(-6px);
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .work-row__title,
   .work-row,
-  .work-row__thumb,
-  .work-row__arrow {
+  .work-row__thumb {
     transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, filter 0.3s ease, opacity 0.2s ease, transform 0.2s ease;
   }
 }
@@ -4139,12 +4084,6 @@ main section.partners {
 .work-row:hover .work-row__thumb,
 .work-row:focus-visible .work-row__thumb {
   filter: grayscale(0);
-}
-
-.work-row:hover .work-row__arrow,
-.work-row:focus-visible .work-row__arrow {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 /* Desktop / mouse: a single floating card follows the cursor and swaps
@@ -4242,10 +4181,6 @@ main section.partners {
     background-position: center;
     filter: none;
   }
-
-  .work-row__arrow {
-    display: none;
-  }
 }
 
 /* Case study */
@@ -4323,10 +4258,6 @@ main section.partners {
 
 .case-hero__inner .eyebrow {
   color: var(--brand-100);
-}
-
-.case-hero__inner .eyebrow::before {
-  background: var(--brand-100);
 }
 
 .case-hero__title {
@@ -6015,21 +5946,33 @@ html.has-book-panel {
   }
 }
 /* ---------- Page transition ---------- */
-/* A white screen with the VAP logo: fades in when leaving a page (page-transition.js
-   adds .pt-out) and fades away on the next page (.pt-in, set in the page head). */
+/* A white screen (::before) with the VAP logo (::after): eases in when leaving a page
+   (page-transition.js adds .pt-out) and eases away on the next page (.pt-in, set in the page head). */
+html::before,
 html::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 10000;
-  background: #fff url(/assets/img/brand/vaplogo.png) center / 72px auto no-repeat;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 200ms ease;
 }
-html.pt-out::after { opacity: 1; pointer-events: auto; }
-html.pt-in::after { opacity: 1; animation: pt-reveal 320ms ease 120ms forwards; }
+html::before {
+  z-index: 10000;
+  background: #fff;
+  transition: opacity 340ms cubic-bezier(.4, 0, .2, 1);
+}
+html::after {
+  z-index: 10001;
+  background: url(/assets/img/brand/vaplogo.png) center / 72px auto no-repeat;
+  transform: scale(.94);
+  transition: opacity 300ms cubic-bezier(.4, 0, .2, 1) 90ms, transform 420ms cubic-bezier(.2, .7, .2, 1) 90ms;
+}
+html.pt-out::before { opacity: 1; pointer-events: auto; }
+html.pt-out::after { opacity: 1; transform: none; }
+html.pt-in::before { opacity: 1; animation: pt-reveal 520ms cubic-bezier(.4, 0, .2, 1) 200ms forwards; }
+html.pt-in::after { opacity: 1; transform: none; animation: pt-reveal-logo 300ms ease 60ms forwards; }
 @keyframes pt-reveal { to { opacity: 0; } }
+@keyframes pt-reveal-logo { to { opacity: 0; transform: scale(1.03); } }
 @media (prefers-reduced-motion: reduce) {
-  html::after { display: none; }
+  html::before, html::after { display: none; }
 }

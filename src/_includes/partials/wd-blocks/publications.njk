@@ -41,8 +41,8 @@
 
                 {% if item.links and (item.links.presentation or item.links.download) %}
                 <div class="wd-pub-slide__actions">
-                  {% if item.links.presentation %}<a class="wd-framework__link" href="{{ item.links.presentation }}">View presentation <span aria-hidden="true">→</span></a>{% endif %}
-                  {% if item.links.download %}<a class="wd-framework__link" href="{{ item.links.download }}">Download a copy <span aria-hidden="true">→</span></a>{% endif %}
+                  {% if item.links.presentation %}<a class="wd-framework__link" href="{{ item.links.presentation }}">View presentation</a>{% endif %}
+                  {% if item.links.download %}<a class="wd-framework__link" href="{{ item.links.download }}">Download a copy</a>{% endif %}
                 </div>
                 {% endif %}
               </div>
@@ -64,10 +64,10 @@
 
       {% if pubItems.length > 1 %}
       <button class="wd-pub-arrow wd-pub-arrow--prev" type="button" data-carousel-prev aria-label="Previous publication">
-        <span aria-hidden="true">←</span>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
       </button>
       <button class="wd-pub-arrow wd-pub-arrow--next" type="button" data-carousel-next aria-label="Next publication">
-        <span aria-hidden="true">→</span>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
       </button>
       <div class="carousel__progress wd-pub-dots" role="tablist" aria-label="Publications navigation">
         {% for item in pubItems %}

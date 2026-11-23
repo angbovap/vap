@@ -70,15 +70,6 @@
   height: clamp(5.6rem, 17svh, 7.5rem);
 }
 
-.vc__portrait::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: translate(0.4rem, 0.4rem);
-  border: 2px solid var(--cta);
-  border-radius: 4rem 4rem 0.7rem 0.7rem;
-}
-
 .vc__photo {
   position: relative;
   display: block;
@@ -154,7 +145,7 @@
   color: var(--vc-muted);
 }
 
-/* ---------- Buttons (pill, as on the site) ---------- */
+/* ---------- Buttons (as on the site) ---------- */
 
 .vc__cta { display: grid; gap: 0.6rem; }
 
@@ -165,24 +156,24 @@
   gap: 0.6rem;
   min-height: 3.1rem;
   padding: 0.7em 1.4em;
-  border-radius: 999px;
+  border: 1.5px solid transparent;
+  border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .vc__btn svg { width: 1.2rem; height: 1.2rem; flex: 0 0 auto; }
-.vc__btn:active { transform: scale(0.98); }
 
 .vc a.vc__btn--primary { background: var(--vc-teal); color: #fff; }
 .vc a.vc__btn--primary:hover, .vc a.vc__btn--primary:focus-visible { background: var(--ink); color: #fff; }
 
 .vc a.vc__btn--outline {
   background: #fff;
-  border: 2px solid var(--vc-line);
-  color: var(--ink);
+  border-color: var(--vc-teal);
+  color: var(--vc-teal);
 }
 
 .vc a.vc__btn--outline:hover, .vc a.vc__btn--outline:focus-visible {
@@ -207,17 +198,15 @@
   align-items: center;
   gap: 0.35rem;
   padding: 0.7rem 0.25rem 0.6rem;
-  background: var(--brand-50);
-  border-radius: 0.9rem;
+  border: 1.5px solid var(--vc-line);
+  border-radius: 0.5rem;
   color: var(--vc-teal);
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.vc__tiles a:hover, .vc__tiles a:focus-visible { background: var(--vc-teal); color: #fff; }
+.vc__tiles a:hover, .vc__tiles a:focus-visible { border-color: var(--vc-teal); background: var(--vc-teal); color: #fff; }
 .vc__tiles svg { width: 1.4rem; height: 1.4rem; }
 
 /* ---------- Practice-area chips ---------- */
@@ -245,7 +234,7 @@
   display: block;
   padding: 0.4rem 0.95rem;
   border: 1px solid var(--vc-line);
-  border-radius: 999px;
+  border-radius: 0.5rem;
   color: var(--ink);
   font-size: 0.88rem;
   font-weight: 600;
@@ -367,13 +356,6 @@ body.is-bare { background: #00323a; }
   .vc__id--hub { padding-top: 0.5rem; }
 
   .vc__portrait { width: 6.4rem; height: 6.4rem; }
-
-  .vc__portrait::before {
-    inset: -0.35rem;
-    transform: none;
-    border: 2px solid var(--cta);
-    border-radius: 50%;
-  }
 
   .vc__photo { border-radius: 50%; }
   .vc__name { font-size: clamp(1.7rem, 8vw, 2.1rem); }
@@ -504,14 +486,14 @@ body.is-bare { background: #00323a; }
   justify-content: space-between;
   gap: 1rem;
   padding: 0.95rem 1.1rem;
-  background: var(--brand-50);
-  border-radius: 0.9rem;
+  border: 1.5px solid var(--vc-line);
+  border-radius: 0.5rem;
   color: var(--ink);
   text-align: left;
   transition: background-color 0.2s ease;
 }
 
-.vc__people a:hover, .vc__people a:focus-visible { background: var(--brand-100); color: var(--ink); }
+.vc__people a:hover, .vc__people a:focus-visible { border-color: var(--vc-teal); color: var(--ink); }
 .vc__people strong { display: block; font-size: 1.02rem; font-weight: 700; }
 .vc__people svg { flex: 0 0 auto; width: 1.3rem; height: 1.3rem; color: var(--vc-teal); }
 
@@ -526,18 +508,15 @@ body.is-bare { background: #00323a; }
   align-items: center;
   gap: 0.4rem;
   padding: 0.55rem 1rem 0.55rem 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.5rem;
   color: #fff;
   font-size: 0.95rem;
   font-weight: 700;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.vc a.vc__back:hover, .vc a.vc__back:focus-visible { background: rgba(255, 255, 255, 0.28); color: #fff; }
+.vc a.vc__back:hover, .vc a.vc__back:focus-visible { background: #fff; color: var(--vc-teal); }
 .vc__back svg { width: 1.15rem; height: 1.15rem; }
 
 @media (min-width: 900px) {
@@ -572,15 +551,14 @@ body.is-bare { background: #00323a; }
   .vc__avatar { width: 2.2rem; height: 2.2rem; }
 }
 
-/* Hub buttons step from dark to light, top to bottom */
-.vc a.vc__btn--l1 { background: #00464e; color: #fff; box-shadow: 0 8px 20px rgba(0, 70, 78, 0.35); }
-.vc a.vc__btn--l2 { background: var(--brand-700); color: #fff; }
-.vc a.vc__btn--l3 { background: var(--brand-100); color: #00464e; }
+/* Hub buttons: the first is filled, the rest outlined, as on the site */
+.vc a.vc__btn--l1 { background: var(--brand-700); color: #fff; }
+.vc a.vc__btn--l2,
+.vc a.vc__btn--l3 { border-color: var(--brand-700); background: #fff; color: var(--brand-700); }
 
-.vc a.vc__btn--l1:hover, .vc a.vc__btn--l1:focus-visible,
-.vc a.vc__btn--l2:hover, .vc a.vc__btn--l2:focus-visible { background: var(--ink); color: #fff; }
-
-.vc a.vc__btn--l3:hover, .vc a.vc__btn--l3:focus-visible { background: var(--brand-500); color: #fff; }
+.vc a.vc__btn--l1:hover, .vc a.vc__btn--l1:focus-visible { background: var(--ink); color: #fff; }
+.vc a.vc__btn--l2:hover, .vc a.vc__btn--l2:focus-visible,
+.vc a.vc__btn--l3:hover, .vc a.vc__btn--l3:focus-visible { background: var(--brand-700); color: #fff; }
 
 /* ---------- Hub: more breathing room on phones ---------- */
 

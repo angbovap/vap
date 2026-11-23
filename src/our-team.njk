@@ -5,12 +5,18 @@ title: Our team
 ---
 {% from "partials/icons.njk" import render as icon %}
 <section class="team-intro">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Our team</p>
-      <h1>The people behind the work</h1>
+  <div class="wrap team-intro__grid">
+    <div>
+      <div class="section-head reveal">
+        <p class="eyebrow">Our team</p>
+        <h1>The people behind the work</h1>
+      </div>
+      <p class="team-intro__text reveal">Value Advisory Partners has a team of exceptional and results-driven leaders who love to work with our growing clientele. Our team is eager to learn, open to new ideas and technologies and adaptable to the fast-changing and increasingly complex business environment. Meet everyone below.</p>
     </div>
-    <p class="team-intro__text reveal">Value Advisory Partners has a team of exceptional and results-driven leaders who love to work with our growing clientele. Our team is eager to learn, open to new ideas and technologies and adaptable to the fast-changing and increasingly complex business environment. Meet everyone below.</p>
+    {# Logo reveal: plays once, silently, when it comes into view, then rests on the logo. #}
+    <video class="team-intro__reel reveal" data-play-once muted playsinline preload="metadata" poster="/assets/video/brand/logo-reveal.jpg" aria-label="Value Advisory Partners logo">
+      <source src="/assets/video/brand/logo-reveal.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
 
@@ -29,7 +35,7 @@ title: Our team
         <div class="team-member__info">
           <h3 class="team-member__name">{{ member.name }}</h3>
           {% if member.role %}<p class="team-member__role">{{ member.role }}</p>{% endif %}
-          <span class="team-member__link">View profile <span aria-hidden="true">→</span></span>
+          <span class="team-member__link">View profile</span>
         </div>
       </a>
       {% if bh %}<a class="team-member__book" href="{{ bh.url }}" target="_blank" rel="noopener" data-book-host="{{ bh.slug }}" data-book-name="{{ bh.name }}" data-book-focus="{{ bh.focus }}">Book a meeting<span class="team-member__book-focus">{{ bh.focus }}</span></a>{% endif %}

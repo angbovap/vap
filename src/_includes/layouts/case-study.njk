@@ -155,12 +155,12 @@ layout: base.njk
           <div class="case-related__media"{% if study.data.image %} style="background-image: url('{{ study.data.image }}');"{% else %} data-placeholder="Image to come"{% endif %}></div>
           <h3>{{ study.data.title }}</h3>
           {% if study.data.client %}<p class="work__client">{{ study.data.client }}</p>{% endif %}
-          <span class="work__link">View case study <span aria-hidden="true">→</span></span>
+          <span class="work__link">View case study</span>
         </a>
         {% endif %}
       {% endfor %}
     </div>
 
-    <a class="section-cta" href="/our-work/">Back to selected work <span aria-hidden="true">→</span></a>
+    <a class="section-cta" href="/our-work/">Back to selected work</a>
   </div>
 </section>
